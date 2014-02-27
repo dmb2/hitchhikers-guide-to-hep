@@ -1,3 +1,36 @@
 * DON'T PANIC
 ** A Hitchhiker's guide to High Energy Physics
-
+** Introduction
+** For Window's Hitchhikers
+*** Software you will need
+** For Linux Hitchhikers
+** For Mac OSX Hitchhikers
+*** Software you will need
+** Editors
+*** Finding an editor Guru
+**** Editor Guru etiquette
+**** Keeping your Guru happy
+*** Emacs
+*** Vim
+*** Others
+** A brief introduction to C++ 
+*** Pointers
+*** Classes
+*** Methods
+** Root
+*** Installing and setting up
+*** A Path to ROOT enlightement
+**** Level 1: Macros
+**** Level 2: Compiled Macors
+**** Level 3: Compiled Programs
+**** A note on Enlightenment
+*** PyROOT
+*** Fitting Data with RooFit
+*** Styling Plots 
+*** Important Gotcha's 
+*** Debugging with ROOT
+** Physics
+*** Relativistic Mechanics
+*** Mandelstam Variables
+*** What to do if you've lost a 2\pi
+** FAQ
