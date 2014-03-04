@@ -1,13 +1,93 @@
 * DON'T PANIC
 ** A Hitchhiker's guide to High Energy Physics
 ** Introduction
+Welcome to High Energy Physics.  Like the Galaxy, HEP is a wonderful
+and mysterious place filled with amazing things.  The intent of this
+guide is to provide a jump-start to HEP research.  Its purpose is to
+be entertaining an un-informative.  If you find the guide
+educational, the editors kindly request that you send an edit which
+suitable obfuscates what you found enlightening.  The road you are on
+is one of enlightenment, and you can't be enlightened unless you are
+first darkened.  
+
+If you find this guide next to useless and think it would be better
+served as toilet paper in its printed form, the please send a bottle
+of Old Janx Spirit to the editor of that section.  
+
+The Guide is not intended to be read linearly.  Jump to the section
+you need, and if that section contains links to other sections, then
+please see above regarding edits.  
+*** Disclaimer
+All bottles of donated Old Janx Spirit are redirected to our lawyers,
+who are out enjoying them now.  They insisted that we include this
+disclaimer:
+#+BEGIN_EXAMPLE
+The Guide is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3, or (at your option)
+any later version.
+
+The Guide is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this software.  If not, see <http://www.gnu.org/licenses/>.
+#+END_EXAMPLE
+Also, note that the content of this guide is satirical in nature, and
+is intended to be sarcastic. If you have a weak heart or are easily
+offended, it may be better to seek out other sources of information.
 ** For Window's Hitchhikers
+While it is possible to practice HEP from the comfort of Bill Gates'
+brain child, it is not recommended by The Guide editors.  (They don't
+run Windows anyway, daylight scares them.) If you insist on using
+Windows, the following is a list of useful software.
 *** Software you will need
+- [[*For%20Linux%20Hitchhikers][For Linux Hitchhikers]]
+- [[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html][PuTTY (ssh client for Windows)]]: Secure SHell is the standard way of
+  accessing *nix machines remotely.  PuTTY is the Windows client for
+  this. 
+- ROOT (Not for the faint of heart)
+- [[http://www.straightrunning.com/XmingNotes/][Xming an X11 server for Windows]]: This allows you to tunnel X11
+  applications (ROOT's histogram interface) to your windows desktop,
+  this way your data (and ROOT) can live on a remote machine, but you
+  can still interact with them as if they were on your desktop.  (You
+  need a *fast* internet connection to do this)
+- [[https://www.virtualbox.org/][VirtualBox]]: Allows you to boot operating systems within operating
+  systems (useful if you don't want to dual boot Ubuntu) see [[*For%20Linux%20Hitchhikers][For Linux
+  Hitchhikers]] after you've setup a working distro.
+[[http://www.calebmadrigal.com/running-ubuntu-virtualbox/][See here]] for a nice picture-book tutorial on installing Ubuntu
+through VirtualBox on windows.
 ** For Linux Hitchhikers
+*** Software you will need
+ - [[https://www.gnu.org/software/screen/][Screen]]: This lets you pick up where you left off if your ssh
+   connection drops, [[http://www.ibm.com/developerworks/aix/library/au-gnu_screen/][here]] is a good conceptual introduction
+ - [[http://root.cern.ch/drupal/content/installing-root-source][ROOT]]: The industry standard for High Energy Physics analysis.
+   Beware: this program uses an [[https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker%2527s_Guide_to_the_Galaxy#Infinite_Improbability_Drive][Infinite Improbability Drive]] to
+   perform analysis.  
+ - [[https://help.ubuntu.com/community/Beginners/BashScripting][BASH]]: The command shell of choice for ATLAS Physicists.  You may
+   think you could use ZSH, but its better just to stick with
+   what everyone else uses.  CMS Physicists prefer TCSH for some
+   weird reason.
+ - [[*Editors][Editor]]: Choose you're religion wisely, it will eventually permeate
+   your being and change the way you approach life in general.
 ** For Mac OSX Hitchhikers
 *** Software you will need
 ** Editors
+Like the major world religions, there are also major editors.  In
+the *nix ecosystem there are to main editors, emacs and vim. There are
+others, but they are many, and beyond the scope of this guide.  
+
+The most important thing to do after [[https://stackoverflow.com/questions/1430164/differences-between-emacs-and-vim][choosing an editor]] is to work
+through its corresponding tutorial.  An oft heard recommendation is
+that "emacs is easier to learn than vi(m)".  True enlightenment in
+either of these editors is roughly the same after completing the
+corresponding tutorial.  
+
 *** Finding an editor Guru
+After you have finished the tutorial for your editor of choice, then
+its time to find a guru.  Guru's are best 
 **** Editor Guru etiquette
 **** Keeping your Guru happy
 *** Emacs
@@ -17,6 +97,7 @@
 *** Pointers
 *** Classes
 *** Methods
+** An even briefer introduction to Python
 ** Root
 *** Installing and setting up
 *** A Path to ROOT enlightement
@@ -33,4 +114,9 @@
 *** Relativistic Mechanics
 *** Mandelstam Variables
 *** What to do if you've lost a 2\pi
+Calm down, take a deep breath and read the first line of The Guide.
+Then come back here.  Somewhere a fellow grad student has a copy of
+"Introduction to Elementary Particles (2nd Edition)" by David
+Griffiths.  Read Chapter 6 in entirety paying special note to the
+footnote on page 205.  
 ** FAQ
