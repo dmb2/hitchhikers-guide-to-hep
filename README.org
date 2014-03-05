@@ -16,7 +16,12 @@ of Old Janx Spirit to the editor of that section.
 
 The Guide is not intended to be read linearly.  Jump to the section
 you need, and if that section contains links to other sections, then
-please see above regarding edits.  
+please see above regarding edits. 
+
+*NOTE* If you are reading this on github, a link to another section
+will probably be broken due to a bug in how github parses org-flavored
+markdown.  It is better to open this guide in emacs and follow links
+with "C-c C-o".
 *** Disclaimer
 All bottles of donated Old Janx Spirit are redirected to our lawyers,
 who are out enjoying them now.  They insisted that we include this
@@ -64,7 +69,7 @@ through VirtualBox on windows.
  - [[https://www.gnu.org/software/screen/][Screen]]: This lets you pick up where you left off if your ssh
    connection drops, [[http://www.ibm.com/developerworks/aix/library/au-gnu_screen/][here]] is a good conceptual introduction
  - [[http://root.cern.ch/drupal/content/installing-root-source][ROOT]]: The industry standard for High Energy Physics analysis.
-   Beware: this program uses an [[https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker%2527s_Guide_to_the_Galaxy#Infinite_Improbability_Drive][Infinite Improbability Drive]] to
+   Beware: this program uses an [[https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker's_Guide_to_the_Galaxy#Infinite_Improbability_Drive][Infinite Improbability Drive]] to
    perform analysis.  
  - [[https://help.ubuntu.com/community/Beginners/BashScripting][BASH]]: The command shell of choice for ATLAS Physicists.  You may
    think you could use ZSH, but its better just to stick with
@@ -87,9 +92,33 @@ corresponding tutorial.
 
 *** Finding an editor Guru
 After you have finished the tutorial for your editor of choice, then
-its time to find a guru.  Guru's are best 
+its time to find a guru.  Guru's are best located by asking around.
+If you are talking with someone and notice they use your editor,
+don't be afraid to ask them how they did something. Most of the time
+the Guru will be flattered and may even volunteer to help you with
+any other editor related questions.  
 **** Editor Guru etiquette
+While it is generally OK to ask your Guru any editor related
+question, it is best to keep questions restricted to the editor in
+question.  Flame wars have been fought for decades over which is the
+"one true editor." 
+
+In order to prevent a faux pas, it is best to make sure you know which
+editor your guru uses.  This is especially true in the case of a
+vi(m) or emacs guru. 
+
+Another thing to be careful of is repeatedly asking basic questions.
+Again, some gurus will tolerate this at the beginning, but after a
+point the guru expects you to master the basics (on your own). The
+most valuable knowledge your guru can impart is not written in the
+tutorial that came with the editor.
 **** Keeping your Guru happy
+Guru's subsist mainly on a liquid diet of caffeinated beverages
+during the day and beer (occasionally wine) at night.  It is
+important that your Guru remain well lubricated. It is generally
+considered a good gesture to offer your Guru his/her beverage of
+choice if you've found him/her to be especially helpful on your path
+to enlightenment. 
 *** Emacs
 *** Vim
 *** Others
