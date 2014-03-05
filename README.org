@@ -91,7 +91,7 @@ its time to find a guru.  Guru's are best
 **** Editor Guru etiquette
 **** Keeping your Guru happy
 *** Vim
-Better than the previous.
+Better than emacs.
 *** Emacs
 *** Others
 ** A brief introduction to C++ 
