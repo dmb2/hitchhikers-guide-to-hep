@@ -8,15 +8,15 @@ be entertaining an un-informative.  If you find the guide
 educational, the editors kindly request that you send an edit which
 suitable obfuscates what you found enlightening.  The road you are on
 is one of enlightenment, and you can't be enlightened unless you are
-first darkened.  
+first darkened.
 
 If you find this guide next to useless and think it would be better
 served as toilet paper in its printed form, the please send a bottle
-of Old Janx Spirit to the editor of that section.  
+of Old Janx Spirit to the editor of that section.
 
 The Guide is not intended to be read linearly.  Jump to the section
 you need, and if that section contains links to other sections, then
-please see above regarding edits.  
+please see above regarding edits.
 *** Disclaimer
 All bottles of donated Old Janx Spirit are redirected to our lawyers,
 who are out enjoying them now.  They insisted that we include this
@@ -38,7 +38,7 @@ along with this software.  If not, see <http://www.gnu.org/licenses/>.
 Also, note that the content of this guide is satirical in nature, and
 is intended to be sarcastic. If you have a weak heart or are easily
 offended, it may be better to seek out other sources of information.
-** For Window's Hitchhikers
+** For Windows Hitchhikers
 While it is possible to practice HEP from the comfort of Bill Gates'
 brain child, it is not recommended by The Guide editors.  (They don't
 run Windows anyway, daylight scares them.) If you insist on using
@@ -90,8 +90,9 @@ After you have finished the tutorial for your editor of choice, then
 its time to find a guru.  Guru's are best 
 **** Editor Guru etiquette
 **** Keeping your Guru happy
-*** Emacs
 *** Vim
+Better than the previous.
+*** Emacs
 *** Others
 ** A brief introduction to C++ 
 *** Pointers
