@@ -4,14 +4,14 @@
 Welcome to High Energy Physics.  Like the Galaxy, HEP is a wonderful
 and mysterious place filled with amazing things.  The intent of this
 guide is to provide a jump-start to HEP research.  Its purpose is to
-be entertaining an un-informative.  If you find the guide
+be entertaining and un-informative.  If you find the guide
 educational, the editors kindly request that you send an edit which
-suitable obfuscates what you found enlightening.  The road you are on
+suitably obfuscates what you found enlightening.  The road you are on
 is one of enlightenment, and you can't be enlightened unless you are
 first darkened.
 
 If you find this guide next to useless and think it would be better
-served as toilet paper in its printed form, the please send a bottle
+served as toilet paper in its printed form, then please send a bottle
 of Old Janx Spirit to the editor of that section.
 
 The Guide is not intended to be read linearly.  Jump to the section
@@ -119,7 +119,7 @@ it. See below for a way to unlock it once per session.
 yourself with ssh keys, if your machine is compromised (ie stolen or
 hacked) your ssh keys can provide the attacker with easier access to
 all the machines you had access to.  This means you should:
-1. Use a strong pass/phrase/, not password.  You need to maximize the 
+1. Use a strong pass*phrase*, not password.  You need to maximize the 
    number of bits of entropy in your key in order to make it
    difficult to crack should the keys fall into enemy hands.  
 2. Inform the Admins of any machines you had access to if your
@@ -129,8 +129,8 @@ all the machines you had access to.  This means you should:
 4. *NEVER EVER* store your ssh keys on a third party site (like
    Dropbox or similar services)
 **** SSH Agent
-If you have ssh-agent running (through the gnome-keyring service on
-ubuntu, or directly in your .xinitrc through =ssh-agent blah=) you
+If you have ssh-agent running (through the =gnome-keyring= service on
+Ubuntu, or directly in your .xinitrc through =ssh-agent blah=) you
 can type =ssh-add= when you log in and it will add your ssh key to
 the keyring, then you can ssh to any machine that you have copied
 your key to without entering the password! 
@@ -235,11 +235,11 @@ The editor of this guide finds the following packages essential:
   appropriate (never miss a closing brace again!)
 - auto-complete: When setup properly, tab completes anything at any
   point depending on past input or names in other buffers.
-- auctex: LaTeX editing facilities (for when org-mode doesn't quit cut
+- auctex: LaTeX editing facilities (for when org-mode doesn't quite cut
   it)
 - org-mode: This guide is written in org-mode. Org-mode can manage
-  todo lists, write websites, serve as a lab notebook, execute code
-  for literate programming and many other things.  People switch to
+  [[http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html][todo lists]], [[http://orgmode.org/worg/org-web.html][write websites]], serve as a [[http://www.phy.duke.edu/~dmb60/][lab notebook]], execute code
+  for [[http://orgmode.org/worg/org-contrib/babel/][literate programming]] and many other things.  People switch to
   Emacs just to get org-mode! 
 
 Init files of famous Emacs hackers are (in no order of awesomeness)
@@ -257,8 +257,57 @@ reading email, chatting, tweeting, playing games, listening to music)
 can be found at the [[http://www.emacswiki.org/emacs/][Emacs Wiki]]. 
 
 *** Vim
+If Emacs is like Catholicism, then Vim is like Buddhism.  Vim is
+modern incarnation of vi, a modal text editor that descended from
+ed.  The modal way of editing is by expressing in a few keystrokes
+how the text should be manipulated.  This is in contrast to Emacs,
+where text is manipulated directly.  This fundamental difference is
+the source of much confusion for new users, and is also why many
+people recommend Emacs as "being easier to learn." This should not
+deter new users from learning vi(m), as its editing facilities are
+substantial.
 
+A functional =.vimrc= looks like:
+#+BEGIN_EXAMPLE
+syntax on
+set cursorline
+set hlsearch
+set ic
+set incsearch
+set ruler
+set shiftwidth=4
+set tabstop=4
+set wrap
+#+END_EXAMPLE
+
+To learn vim, type =vimtutor= at the command lime and follow the
+instructions. Take your time, and repeat the tutorial once or twice
+over a few days.  In the mean time editors such as =gedit= or =nano=
+offer a more traditional experience.  As your vim skills improve, you
+will feel more comfortable with vim and can stop using the less
+powerful editors.  
+
+Some useful links include:
+- [[http://www.vimgenius.com/][Vim Genius]] a drill website for learning vim commands
+- [[https://www.liquidweb.com/kb/overview-of-vim-text-editor/][New user Vim Tutorial]]
+- [[http://blog.sanctum.geek.nz/vim-koans/][Vim Koans]] tidbits of wisdom to ponder
+- [[http://www.vim.org/scripts/][A collection of extensions and plugins for vim]]
+- [[http://val.markovic.io/blog/youcompleteme-a-fast-as-you-type-fuzzy-search-code-completion-engine-for-vim][YouCompleteMe]] A vim autocompletion engine for editing. 
 *** Others
+Followers of the UNIX way realize that there are situations where a
+using a set of shell commands piped together may fit the task at hand
+more efficiently than either of the other two editors.  Tools you
+should be familiar with are:
+- [[http://www.grymoire.com/Unix/Sed.html][sed]] and [[http://sed.sourceforge.net/sed1line.txt][one-liners]]
+- [[http://www.grymoire.com/Unix/Awk.html][awk]] and [[http://www.pement.org/awk/awk1line.txt][one-liners]]
+- [[http://perl-tutorial.org/][perl]] (and its [[https://en.wikipedia.org/wiki/Black_Perl][poetry]])
+- [[http://www.thegeekstuff.com/2009/03/15-practical-unix-grep-command-examples/][grep]] 
+[[http://regex.info/blog/2006-09-15/247][Always keep in mind]]
+#+BEGIN_QUOTE
+Some people, when confronted with a problem, think
+"I know, I'll use regular expressions."   Now they have two
+problems. -- Jaimie Zawinski
+#+END_QUOTE
 
 ** A brief introduction to C++ 
 *** Pointers
