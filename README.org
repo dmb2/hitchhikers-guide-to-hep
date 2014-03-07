@@ -20,7 +20,7 @@ please see above regarding edits.
 
 *NOTE* If you are reading this on github, a link to another section
 will probably be broken due to a bug in how github parses org-flavored
-markdown.  It is better to open this guide in emacs and follow links
+markdown.  It is better to open this guide in Emacs and follow links
 with "C-c C-o".
 *** Disclaimer
 All bottles of donated Old Janx Spirit are redirected to our lawyers,
@@ -59,9 +59,14 @@ Windows, the following is a list of useful software.
   this way your data (and ROOT) can live on a remote machine, but you
   can still interact with them as if they were on your desktop.  (You
   need a *fast* internet connection to do this)
+- [[https://github.com/bmatzelle/gow/wiki][Gow]]: A lightweight Cygwin alternative, this is probably for more
+  adventurous hitchhikers only. 
+- [[http://cygwin.com/][Cygwin]]: Adds a substrate of the gnu system to windows (in addition
+  to an [[http://x.cygwin.com/][X11 server]]), you can use this 
 - [[https://www.virtualbox.org/][VirtualBox]]: Allows you to boot operating systems within operating
   systems (useful if you don't want to dual boot Ubuntu) see [[*For%20Linux%20Hitchhikers][For Linux
   Hitchhikers]] after you've setup a working distro.
+
 [[http://www.calebmadrigal.com/running-ubuntu-virtualbox/][See here]] for a nice picture-book tutorial on installing Ubuntu
 through VirtualBox on windows.
 ** For Linux Hitchhikers
@@ -77,16 +82,87 @@ through VirtualBox on windows.
    weird reason.
  - [[*Editors][Editor]]: Choose you're religion wisely, it will eventually permeate
    your being and change the way you approach life in general.
+*** Configuring SSH
+Many of these tips are [[http://blogs.perl.org/users/smylers/2011/08/ssh-productivity-tips.html][lifted from here]].
+Put this in you're =~/.ssh/config= file:
+#+BEGIN_EXAMPLE
+ControlMaster auto
+ControlPath /tmp/ssh_mux_%h_%p_%r
+ControlPersist yes
+TCPKeepAlive no
+ServerAliveInterval 30
+ServerAliveCountMax 1
+#+END_EXAMPLE
+It is possible to setup ssh shorthand to route you to remote
+machines. The syntax (in =~/.ssh/config=) is:
+#+BEGIN_EXAMPLE
+Host shortname
+  #expands to shortname.remote.location.edu
+  HostName %h.remote.location.edu 
+  User username
+  ForwardX11 yes #this is equivalient to ssh -Y
+  IdentityFile ~/.ssh/id_rsa #path to your pubkey
+#+END_EXAMPLE
+**** SSH Keys
+[[https://help.github.com/articles/generating-ssh-keys][Follow this guide]], stop at step 3.
+Now, when you need to start using a new machine:
+#+BEGIN_EXAMPLE
+ssh-copy-id user@remote.machine.name
+#+END_EXAMPLE
+Then enter your password.  Now, when you type =ssh
+user@remote.machine.name= you will authenticate yourself with your
+newly minted RSA key, and you won't have to enter your password.  The
+downside is that you'll have to enter your key's passphrase to unlock
+it. See below for a way to unlock it once per session.
+
+*NOTE* While it is cryptographically more secure to authenticate
+yourself with ssh keys, if your machine is compromised (ie stolen or
+hacked) your ssh keys can provide the attacker with easier access to
+all the machines you had access to.  This means you should:
+1. Use a strong pass/phrase/, not password.  You need to maximize the 
+   number of bits of entropy in your key in order to make it
+   difficult to crack should the keys fall into enemy hands.  
+2. Inform the Admins of any machines you had access to if your
+   machine is compromised
+3. Encrypt your ssh keys (and other sensitive information) in a
+   private directory that only you can access
+4. *NEVER EVER* store your ssh keys on a third party site (like
+   Dropbox or similar services)
+**** SSH Agent
+If you have ssh-agent running (through the gnome-keyring service on
+ubuntu, or directly in your .xinitrc through =ssh-agent blah=) you
+can type =ssh-add= when you log in and it will add your ssh key to
+the keyring, then you can ssh to any machine that you have copied
+your key to without entering the password! 
+
+*NOTE* Once you've added your key to the ssh-agent, anyone can sit
+down at your keyboard and log into a remote machine as you! This
+means if you step away from your computer (even for a moment) you
+should lock the screen or log out.  
+
 ** For Mac OSX Hitchhikers
 *** Software you will need
+ - [[http://xquartz.macosforge.org/landing/][XQuartz]]: Like XMing for Windows, XQuartz runs a local X11 server
+   for tunneling X11 applications over SSH, unlike Windows, you don't
+   need a separate SSH program, ssh is built in.
+ - [[https://en.wikipedia.org/wiki/Terminal_%2528OS_X%2529][Terminal.app]]: This is Mac OS's default terminal emulator. It comes
+   with Mac OS, so you shouldn't need to install it.  You should be
+   aware of it though.
+ - [[http://aquamacs.org/][Aquamacs]]: A port of Emacs that uses Aqua as a standard OS X
+   application. This integrates Emacs with the Mac OS UI.  In the
+   long history of corporate acquisitions a lot of Emacs hackers (from
+   NeXTSTEP) ended up at apple, you will find that Mac OS integrates
+   the Emacs experience much more fundamentally than any other OS in
+   existance. (This doesn't mean you need to use Emacs if you use Mac
+   OS, just that your muscle memory will thank you subconsciously.)
 ** Editors
 Like the major world religions, there are also major editors.  In
-the *nix ecosystem there are to main editors, emacs and vim. There are
+the *nix ecosystem there are to main editors, Emacs and vim. There are
 others, but they are many, and beyond the scope of this guide.  
 
-The most important thing to do after [[https://stackoverflow.com/questions/1430164/differences-between-emacs-and-vim][choosing an editor]] is to work
+The most important thing to do after [[https://stackoverflow.com/questions/1430164/differences-between-Emacs-and-vim][choosing an editor]] is to work
 through its corresponding tutorial.  An oft heard recommendation is
-that "emacs is easier to learn than vi(m)".  True enlightenment in
+that "Emacs is easier to learn than vi(m)".  True enlightenment in
 either of these editors is roughly the same after completing the
 corresponding tutorial.  
 
@@ -105,7 +181,7 @@ question.  Flame wars have been fought for decades over which is the
 
 In order to prevent a faux pas, it is best to make sure you know which
 editor your guru uses.  This is especially true in the case of a
-vi(m) or emacs guru. 
+vi(m) or Emacs guru. 
 
 Another thing to be careful of is repeatedly asking basic questions.
 Again, some gurus will tolerate this at the beginning, but after a
@@ -120,8 +196,70 @@ considered a good gesture to offer your Guru his/her beverage of
 choice if you've found him/her to be especially helpful on your path
 to enlightenment. 
 *** Emacs
+The end goal of any student of the Church of Emacs is to obtain
+proficiency reprogramming the editor to solve the task at hand.  This
+is ultimately stems from the philosophy of lisp (this gift was given
+to us by [[http://www.stallman.org/saint.html][St. IGNUcious]] an AI hacker from MIT where Emacs was born).
+In lisp, the flexibility of the language allows it to be re-written to
+solve the problem as clearly as possible.  In Emacs, an enlightened
+user will write a substrate of elisp (Emacs' dialect of lisp) in order
+to solve the editing problem at hand.
+
+While customizing and writing your .emacs (the initialization file
+loaded by Emacs in your home directory) is a spiritual journey, there
+are those who have done their best to illuminate the path. [[http://www.dialectical-computing.de/blog/blog/2014/03/02/a-simple-emacs-configuration/][A brief
+guide to customization philosophies here]].
+
+The editor of this guide finds the following packages essential:
+- [[info:tramp#Top][tramp]]: If your reading this in Emacs, you can follow the link with
+  "C-c C-o". It is *the* most important aspect of Emacs for HEP
+  users. It allows you to "visit" files on remote machines from the
+  Emacs running on your desktop.  It does this through ssh.  To visit
+  a remote file, type "C-x C-f" and then type
+  '/ssh:user@remote.host:~/remote/path', note that tab completion
+  works remotely just the same as visiting a file locally! Tramp is
+  also aware of ssh alias setup, see [[*Configuring SSH]].
+- filladapt: a mode for more intelligently filling text in paragraphs
+- flyspell: a spell checker that highlights mispelled words (will check
+  in comments if in a programming mode)
+- rect-mark: Adds facilities for marking yanking and otherwise
+  editing columnar formatted text. 
+- dired: a directory editor for manipulating files in the Emacs way
+- solarized-theme: A theme by Ethan Schoonover, comes in dark and
+  light variants that actually complement each other well, another
+  good one is zenburn 
+- ibuffer: changes the buffer interface and allows you to group
+  buffers based on various buffer attributes
+- paredit: Enhances Emacs's awareness of parenthetic structure 
+- smartparens: Electrically pairs and deletes delimeters when
+  appropriate (never miss a closing brace again!)
+- auto-complete: When setup properly, tab completes anything at any
+  point depending on past input or names in other buffers.
+- auctex: LaTeX editing facilities (for when org-mode doesn't quit cut
+  it)
+- org-mode: This guide is written in org-mode. Org-mode can manage
+  todo lists, write websites, serve as a lab notebook, execute code
+  for literate programming and many other things.  People switch to
+  Emacs just to get org-mode! 
+
+Init files of famous Emacs hackers are (in no order of awesomeness)
+[[https://github.com/magnars/.emacs.d][Magnar Sveen]], [[https://github.com/technomancy/dotfiles/tree/master/.emacs.d][Technomancy]], [[https://github.com/jwiegley/dot-emacs][John Wiegley]].  There are also software
+packages that intend to comprehensively change the Emacs out of the
+box to a better user experience.  The two most famous are [[https://github.com/bbatsov/prelude][Prelude]] and
+[[https://github.com/overtone/emacs-live][Emacs Live]]. An example (slightly annotated) init file can be found [[https://github.com/dbjergaard/dotfiles/blob/master/Emacs-lisp/init.org][here]].
+
+Finally, there are some Emacs gurus who post on the blogs on the
+internet.  Some particularly useful ones are [[http://emacsredux.com/][Emacs Redux]], [[http://www.masteringemacs.org/][Mastering
+Emacs]], and [[http://emacs-fu.blogspot.com/][Emacs Fu]]. 
+
+Various religious texts granting Emacs users various powers (such as
+reading email, chatting, tweeting, playing games, listening to music)
+can be found at the [[http://www.emacswiki.org/emacs/][Emacs Wiki]]. 
+
 *** Vim
+
 *** Others
+
 ** A brief introduction to C++ 
 *** Pointers
 *** Classes
