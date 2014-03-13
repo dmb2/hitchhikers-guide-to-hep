@@ -517,7 +517,7 @@ the compiler" that you have a function with a particular signature:
 Notice that the compiler doesn't need to know the names of the
 arguments in the forward declaration.  
 
-Before we move onto the next topic, an note on methods.  Most of the
+Before we move onto the next topic, a note on methods.  Most of the
 time during development, you only have a few helper functions.  This
 is fine! Just write your helper functions in a header file, and
 include them.  Write the main function and move on with your life.
@@ -596,7 +596,7 @@ tutorial on classes, as their subtleties are beyond the scope of The
 Guide.
 ** An even briefer introduction to Python
 Python is a wonderful language.  It is expressive and allows rapid
-prototyping with a shell type environment.  [[Try%20learning%20it%20the%20hard%20way][Try learning it the hard
+prototyping with a shell type environment.  [[http://learnpythonthehardway.org/book/][Try learning it the hard
 way]].  Another approach is to google what you're trying to do, and
 make it run on a small test case.  
 
@@ -607,7 +607,7 @@ right ways."
 
 - Here's an older tutorial on [[http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html][idiomatic python]].  
 - [[http://safehammad.com/downloads/python-idioms-2014-01-16.pdf][A slideshow on idiomatic python]]
-- [[https://en.wikibooks.org/wiki/Non-Programmer%2527s_Tutorial_for_Python_3][A non-programmer's tutorial on python 3]] (also see the linked version
+- [[https://en.wikibooks.org/wiki/Non-Programmer's_Tutorial_for_Python_3][A non-programmer's tutorial on python 3]] (also see the linked version
   for 2.7 as HEP is still using 2.7 or earlier in many cases)
 - Finally, the [[http://docs.python.org/2/howto/doanddont.html][official recommendations]] for best practices.
 
