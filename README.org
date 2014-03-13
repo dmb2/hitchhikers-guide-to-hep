@@ -157,7 +157,7 @@ should lock the screen or log out.
    OS, just that your muscle memory will thank you subconsciously.)
 ** Editors
 Like the major world religions, there are also major editors.  In
-the *nix ecosystem there are to main editors, Emacs and vim. There are
+the *nix ecosystem there are two main editors, Emacs and vim. There are
 others, but they are many, and beyond the scope of this guide.  
 
 The most important thing to do after [[https://stackoverflow.com/questions/1430164/differences-between-Emacs-and-vim][choosing an editor]] is to work
@@ -196,7 +196,7 @@ considered a good gesture to offer your Guru his/her beverage of
 choice if you've found him/her to be especially helpful on your path
 to enlightenment. 
 *** Emacs
-The end goal of any student of the Church of Emacs is to obtain
+The end goal of any student of the [[http://www.jwz.org/hacks/why-cooperation-with-rms-is-impossible.mp3][Church of Emacs]] is to obtain
 proficiency reprogramming the editor to solve the task at hand.  This
 is ultimately stems from the philosophy of lisp (this gift was given
 to us by [[http://www.stallman.org/saint.html][St. IGNUcious]] an AI hacker from MIT where Emacs was born).
@@ -246,7 +246,7 @@ Init files of famous Emacs hackers are (in no order of awesomeness)
 [[https://github.com/magnars/.emacs.d][Magnar Sveen]], [[https://github.com/technomancy/dotfiles/tree/master/.emacs.d][Technomancy]], [[https://github.com/jwiegley/dot-emacs][John Wiegley]].  There are also software
 packages that intend to comprehensively change the Emacs out of the
 box to a better user experience.  The two most famous are [[https://github.com/bbatsov/prelude][Prelude]] and
-[[https://github.com/overtone/emacs-live][Emacs Live]]. An example (slightly annotated) init file can be found [[https://github.com/dbjergaard/dotfiles/blob/master/Emacs-lisp/init.org][here]].
+[[https://github.com/overtone/emacs-live][Emacs Live]]. An example (slightly annotated) init file can be found [[https://github.com/dbjergaard/dotfiles/blob/master/emacs-lisp/init.org][here]].
 
 Finally, there are some Emacs gurus who post on the blogs on the
 internet.  Some particularly useful ones are [[http://emacsredux.com/][Emacs Redux]], [[http://www.masteringemacs.org/][Mastering
@@ -310,10 +310,307 @@ problems. -- Jaimie Zawinski
 #+END_QUOTE
 
 ** A brief introduction to C++ 
+C++ is the industry standard programming language for analysis in
+HEP.  Even if you are fortunate enough to do most of your work in
+Python, you will eventually be calling C++ code, and should
+understand some core concepts in order to debug problems should they
+arise.
+
+Things to keep in mind: 
+- This portion of the guide covers C++ at a high level.  Very little
+  [[www.cplusplus.com/tutorial][specific syntax]] will be covered.  When you have a C++ question,
+  google is your friend.
+- When writing in any language, prefer that languages idioms.  Don't
+  write python in C++, c in C++ or C++ in python.
+- C++ is a vast language, however being familiar with its roots, c,
+  is invaluable.
+- If faced with a decision between learning C++ vs Python, prefer
+  C++.  C++'s syntax is more rigid and requires more overhead.  Once
+  you know C++, python is much easier to pick up.  
+
+C++ is an imperative, object oriented language.  It started out as a
+"C with classes" but has since bolted on significant language
+features different from c.  Proficiency with C++ should be aimed
+towards comfortable use of the template meta-programming features of
+the language, although it is entirely possible to spend an entire
+career writing C++ without exercising this feature (just read the ROOT
+source code). 
 *** Pointers
-*** Classes
+[[http://www.chiark.greenend.org.uk/~sgtatham/cdescent/][Required Reading: The Descent to C]]
+
+As C++ has evolved from c, it retains parts of c's low level nature.
+Part of this is the need to be explicit about managing memory
+manually.  This is in stark contrast to languages such as Java or
+Python where memory management is handled for the programmer.
+
+A consequence of this is the ability to address specific registers of
+memory (the smallest accessible unit).  An object (int, double, float,
+char, string, etc)  may span several registers.  A pointer is simply
+the computers representation of a registers location in memory, ie a
+memory address.  Ultimately the programmer is interested in the data
+contained in the set of registers "pointed to" by the pointer.  The
+act of retrieving this data is called "dereferencing a pointer".  
+
+As in physics, facility with manipulating pointers is best gained
+through experience, however many analogies have been developed to ease
+confusion.  One analogy are street addresses, A street address is a
+sequence of numbers (the pointer) which instructs a visitor, (a mailman
+say) which is the computer in a labored sense, how to find a specific
+location. Once at that location, it is possible to manipulate objects
+located at that address (deliver mail if your the mailman, break the
+mailbox if your a bored teenager, knock on the door if you are a
+vacuum salesman etc). 
+
+Now some syntax:
+#+BEGIN_SRC cpp
+  Foo* bar = new Foo("Baz",42,"What is the question?");
+  std::cout << "object bar lives at memory address:"<<bar<<std::endl;
+  std::cout << "bar calculated a question to the answer to \"The Ultimate Question\" as "<<bar->TheAnswer()<<std::endl;
+  std::cout <<"Another way to get the answer is: "<<(*bar).TheAnswer()<<std::endl;
+#+END_SRC
+Lots of interesting syntax has been introduced here.  Lets look at a
+possible output of this program:
+#+BEGIN_EXAMPLE
+object bar lives at memory address: 0xd29ad0
+bar calculated a question to the answer to "The Ultimate Question" as "What is 6x9?"
+Another way to get the answer is: "What is 6x9?"
+#+END_EXAMPLE
+What happened? Lets look at the first line
+#+BEGIN_SRC cpp
+  Foo* bar = new Foo("Baz",42,"What is the question?");
+#+END_SRC
+=Foo*= is a pointer of type Foo. Its an address to a chunk of memory
+that contains an instance of Foo.  
+#+BEGIN_QUOTE
+Question: Why does the compiler need to know that its a Foo type object at that address? 
+#+END_QUOTE
+#+BEGIN_QUOTE
+Answer: Foo might fall across several registers, in which case the
+compiler must know how many registers to move if you ask for the
+bar+1 spot. In fact, in c there is a concept called the void*, a
+type-less pointer that is an address to anything.  It is the
+programmers responsibility to cast the void* to the correct type.
+#+END_QUOTE
+
+OK, so we have a pointer to an object of type =Foo= called =bar=,
+what happens on the right hand side of the assignment operator (=)?
+Well, C++ reserves the keyword "new" for memory allocation.  The
+"new" keyword takes a class constructor on the right hand side, and
+returns a memory address on the left hand side.  This address gets
+stored in the variable =bar=.  
+
+Operationally, the "new" keyword allocates a chunk of memory to hold
+the object on the right hand side, and returns a pointer to the
+beginning of the chunk.  
+
+What happens when we want to access the memory that the pointer points
+to? There is another operation called "dereferencing" which goes to
+the address pointed to and returns the object contained at that point
+in memory.  Consider the following snippet:
+#+BEGIN_SRC cpp
+double* foo = new double(3.14159);
+double pi = *foo;
+std::cout <<"Pi is: "<<pi<<std::endl;
+#+END_SRC
+Now we can understand this line:
+#+BEGIN_SRC cpp
+  std::cout <<"Another way to get the answer is: "<<(*bar).TheAnswer()<<std::endl;
+#+END_SRC
+As, retrieve the object pointed to by bar, and call the method
+"=TheAnswer()=" on it.  Programmers abhor syntax that can easily get
+them into trouble, so the language designers (of c) added a shorthand
+for this kind of operation:
+#+BEGIN_SRC cpp
+  Foo* bar=new Foo();
+  if(bar->Value()==(*bar).Value()){
+    std::cout<<"They're the same!"<<std::endl;
+  }
+#+END_SRC
+Quiz: What will the output of this snippet be?
+
+Clever hitchhikers will notice that this appears to be a bunch of
+bureaucratic mucking about with pointless details, most of the time
+it is.  Also, since most of HEP deals with pointless details
+bureaucratically, a lot of HEP code uses pointers.
+
+To understand the real purpose of pointers, we must examine [[https://stackoverflow.com/questions/22146094/why-should-i-use-a-pointer-rather-than-the-object-itself?newsletter%3D1&nlcode%3D47931|9e27][dynamic vs
+static scoping]]. Consider the following code:
+#+BEGIN_SRC cpp
+  double* foo(){
+    double* bar = new double(0.0);
+  
+    {
+      double baz=42;
+      *bar=baz;//dereference bar, and store the value of baz 
+    }
+    //baz is out of scope
+    return bar;
+  }
+  int main(void){
+    double* foobar=foo();
+    std::cout <<"The Answer to the Ultimate question is :"<<*foobar<<std::endl;
+    return 0;
+  }
+#+END_SRC
+Let's execute the code in our mind:
+1. a =double*= named foobar is allocated.
+2. foo() is executed
+   1. a =double*= named bar is allocated
+   2. new initializes a double with value 0.0
+   3. new assigns the address containing that double to bar
+   4. enter the braces, intialize a double named baz with value 42
+   5. dereference bar and copy the value of baz into it
+   6. exit the braces and free the memory where baz was
+   7. return the address containing the value of bar;
+3. Assign the value returned by foo() to foobar
+4. stream the string "The Answer..." to stdout
+5. dereference *foobar to obtain the value stored at bar, 42, stream
+   that to stdout
+6. add a newline to the output and flush the result to the terminal
+7. return 0
+8. exit the program
+**** References
+A similar concept present in C++ (but not c) are references.  They
+can be thought of as aliases. Their syntax is:
+#+BEGIN_SRC cpp
+int foo=42;
+int& theAnswer=foo;
+foo=0;
+std::cout<<theAnswer<<std::endl;
+#+END_SRC
+Here foo is initialized to the value 42, then a reference named
+theAnswer is declared and assigned to foo.  All this does is make a
+new name for the same object.  What does the program output?
+
+The answer is 0.  References seem pointless until they're used in
+function definitions:
+#+BEGIN_SRC cpp
+  void bar(int& foo){
+    //complicated calculation for foo
+    foo++;
+  }
+  int main(void){
+    int baz=0;
+    bar(baz);
+    std::cout<<baz<<std::endl;
+  }
+#+END_SRC
+What is the output of this program?  
+
+The answer is 1.  
 *** Methods
+Methods, or functions are defined as:
+#+BEGIN_SRC cpp
+  return_type function_name(arg1_type arg1, arg2_type arg2, ...){
+    //statements that define function_name
+  }
+#+END_SRC
+It is possible to "forward declare" functions, these are "promises to
+the compiler" that you have a function with a particular signature:
+#+BEGIN_SRC cpp
+  double foo(double,double);
+  // important other stuff
+  double foo(double theta, double phi){
+    return sin(theta)*sin(theta) + cos(phi)*cos(phi);
+  }
+#+END_SRC
+Notice that the compiler doesn't need to know the names of the
+arguments in the forward declaration.  
+
+Before we move onto the next topic, an note on methods.  Most of the
+time during development, you only have a few helper functions.  This
+is fine! Just write your helper functions in a header file, and
+include them.  Write the main function and move on with your life.
+There are many examples in HEP, where methods have been pigeon-holed
+into classes.  The result is a cumbersome interface for the user
+(YOU!) or more importantly your supervisor.  With that in mind, lets
+move on to classes.
+*** Classes
+STOP! Read the last paragraph of the previous section.  
+
+Now, ask yourself: Do I really need a class?  
+No. Ok, great!
+
+Yes. Are you sure?  Maybe your needs are better served with a few
+functions and a well defined interface.
+
+Do you have complicated data structures that need to be operated on
+by many methods? No? Maybe your needs are better served with a few
+functions and a well defined interface.
+
+Yes? Maybe you should rethink your design.  
+
+You've rethought it and realized that you have to use a class because
+the person before you did, now there isn't a clean way to do it any
+other way.  OK, classes.
+
+The basic syntax is:
+#+BEGIN_SRC cpp
+  class A{
+  public:
+    A():a(0),b(0){};
+    A(int _a):a(_a),b(0){};
+    ~A(){};
+    void SetA(int new_a){a=new_a;};
+    void GetA(){return a;};
+    void SetB(int new_b){b=new_b;};
+    void GetB(){return b;};
+  private:
+    int a;
+  protected:
+    int b;
+  };
+#+END_SRC
+This is a trivial example, and it breaks many rules about naming
+conventions and clarity.  It is not a good example.  It should not be
+used as a good example to win arguments about concise code.  In fact,
+you probably shouldn't have read it.
+
+Important features of the code: Anything after the public keyword is
+accessible to the outside world, ie:
+#+BEGIN_SRC cpp
+A myObj;
+myObj.SetA(10);
+myObj.GetA();
+myObj.SetB(42);
+myObj.GetB();
+#+END_SRC
+Is all valid code, anything that is written after private, is just
+that.  You cannot access it outside of the class:
+#+BEGIN_SRC cpp
+myObj.a; //Compiler error
+myObj.b; //protected is a special form of private
+#+END_SRC
+The protected keyword is for class inheritance.  It says that these
+variables and methods are private for users of the class, but if
+another class inherits from this one, they inherit these symbols. 
+
+Normally in class inheritance, you only inherit the public members of
+the class.  The private members are not inherited.  Protected offers
+a way to encapsulate data, but also share data among inheritance
+diagrams.
+
+In case you haven't picked up on it, classes are one of the hairier
+aspects of C++.  Its better if you refer to some other resource for a
+tutorial on classes, as their subtleties are beyond the scope of The
+Guide.
 ** An even briefer introduction to Python
+Python is a wonderful language.  It is expressive and allows rapid
+prototyping with a shell type environment.  [[Try%20learning%20it%20the%20hard%20way][Try learning it the hard
+way]].  Another approach is to google what you're trying to do, and
+make it run on a small test case.  
+
+When writing code, it is best to be idiomatic.  This is especially
+true in python.  Python's driving philosophy is "one right way" but
+since python is being developed by multiple hackers, there are "many
+right ways." 
+
+- Here's an older tutorial on [[http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html][idiomatic python]].  
+- [[http://safehammad.com/downloads/python-idioms-2014-01-16.pdf][A slideshow on idiomatic python]]
+- [[https://en.wikibooks.org/wiki/Non-Programmer%2527s_Tutorial_for_Python_3][A non-programmer's tutorial on python 3]] (also see the linked version
+  for 2.7 as HEP is still using 2.7 or earlier in many cases)
+- Finally, the [[http://docs.python.org/2/howto/doanddont.html][official recommendations]] for best practices.
+
 ** Root
 *** Installing and setting up
 *** A Path to ROOT enlightement
