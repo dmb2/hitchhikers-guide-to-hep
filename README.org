@@ -343,23 +343,23 @@ Part of this is the need to be explicit about managing memory
 manually.  This is in stark contrast to languages such as Java or
 Python where memory management is handled for the programmer.
 
-A consequence of this is the ability to address specific registers of
-memory (the smallest accessible unit).  An object (int, double, float,
-char, string, etc)  may span several registers.  A pointer is simply
-the computers representation of a registers location in memory, ie a
-memory address.  Ultimately the programmer is interested in the data
-contained in the set of registers "pointed to" by the pointer.  The
-act of retrieving this data is called "dereferencing a pointer".  
+A consequence of this is the ability to address specific cells of
+memory (the smallest accessible unit, typically a byte).  An object
+(=int=, =double=, =float=, =char=, =string=, etc) may span several
+memory cells.  A pointer is the computer's representation of a memory
+cell's location in memory, ie a memory address.  Ultimately the
+programmer is interested in the data contained in the set of memory
+cells "pointed to" by the pointer.  The act of retrieving this data is
+called "/dereferencing/ a pointer".
 
 As in physics, facility with manipulating pointers is best gained
 through experience, however many analogies have been developed to ease
-confusion.  One analogy are street addresses, A street address is a
-sequence of numbers (the pointer) which instructs a visitor, (a mailman
-say) which is the computer in a labored sense, how to find a specific
-location. Once at that location, it is possible to manipulate objects
-located at that address (deliver mail if your the mailman, break the
-mailbox if your a bored teenager, knock on the door if you are a
-vacuum salesman etc). 
+confusion.  One analogy is street addresses, A street address is a
+sequence of numbers (the pointer) which instructs someone, a mailman
+say, (the computer), how to find a specific location. Once at that
+location, it is possible to manipulate objects located at that address
+(deliver mail if your the mailman, break the mailbox if your a bored
+teenager, knock on the door if you are a vacuum salesman etc).
 
 Now some syntax:
 #+BEGIN_SRC cpp
@@ -368,36 +368,40 @@ Now some syntax:
   std::cout << "bar calculated a question to the answer to \"The Ultimate Question\" as "<<bar->TheAnswer()<<std::endl;
   std::cout <<"Another way to get the answer is: "<<(*bar).TheAnswer()<<std::endl;
 #+END_SRC
-Lots of interesting syntax has been introduced here.  Lets look at a
+Lots of interesting things have been introduced here.  Let's look at a
 possible output of this program:
 #+BEGIN_EXAMPLE
 object bar lives at memory address: 0xd29ad0
 bar calculated a question to the answer to "The Ultimate Question" as "What is 6x9?"
 Another way to get the answer is: "What is 6x9?"
 #+END_EXAMPLE
-What happened? Lets look at the first line
+What happened? Let's look at the first line
 #+BEGIN_SRC cpp
   Foo* bar = new Foo("Baz",42,"What is the question?");
 #+END_SRC
-=Foo*= is a pointer of type Foo. Its an address to a chunk of memory
-that contains an instance of Foo.  
+=Foo*= is a pointer of type =Foo=. It's an address to a chunk of memory
+that contains an instance of =Foo=.  
 #+BEGIN_QUOTE
 Question: Why does the compiler need to know that its a Foo type object at that address? 
 #+END_QUOTE
 #+BEGIN_QUOTE
-Answer: Foo might fall across several registers, in which case the
-compiler must know how many registers to move if you ask for the
+Answer: Foo might fall across several memory cells, in which case the
+compiler must know how many memory cells to move if you ask for the
 bar+1 spot. In fact, in c there is a concept called the void*, a
 type-less pointer that is an address to anything.  It is the
-programmers responsibility to cast the void* to the correct type.
+programmer's responsibility to cast the void* to the correct type.
 #+END_QUOTE
 
-OK, so we have a pointer to an object of type =Foo= called =bar=,
-what happens on the right hand side of the assignment operator (=)?
-Well, C++ reserves the keyword "new" for memory allocation.  The
+OK, so we have a pointer to an object of type =Foo= called =bar=.
+#+BEGIN_QUOTE
+Question: What happens on the right hand side of the assignment operator (=)?
+#+END_QUOTE
+#+BEGIN_QUOTE
+Answer: C++ reserves the keyword "new" for memory allocation.  The
 "new" keyword takes a class constructor on the right hand side, and
 returns a memory address on the left hand side.  This address gets
 stored in the variable =bar=.  
+#+END_QUOTE
 
 Operationally, the "new" keyword allocates a chunk of memory to hold
 the object on the right hand side, and returns a pointer to the
@@ -412,14 +416,19 @@ double* foo = new double(3.14159);
 double pi = *foo;
 std::cout <<"Pi is: "<<pi<<std::endl;
 #+END_SRC
+Here, a chunk of memory has the value 3.14159 written to it, then
+that value is retrieved and stored in another location of memory
+called =pi=.  That data is the written out the terminal by
+=std::cout= and =std::endl=.
+
 Now we can understand this line:
 #+BEGIN_SRC cpp
   std::cout <<"Another way to get the answer is: "<<(*bar).TheAnswer()<<std::endl;
 #+END_SRC
-As, retrieve the object pointed to by bar, and call the method
+It means, retrieve the object pointed to by =bar=, and call the method
 "=TheAnswer()=" on it.  Programmers abhor syntax that can easily get
 them into trouble, so the language designers (of c) added a shorthand
-for this kind of operation:
+for this kind of operation (the =->= operator):
 #+BEGIN_SRC cpp
   Foo* bar=new Foo();
   if(bar->Value()==(*bar).Value()){
@@ -428,13 +437,14 @@ for this kind of operation:
 #+END_SRC
 Quiz: What will the output of this snippet be?
 
+**** Why are pointer's useful at all?
 Clever hitchhikers will notice that this appears to be a bunch of
 bureaucratic mucking about with pointless details, most of the time
 it is.  Also, since most of HEP deals with pointless details
 bureaucratically, a lot of HEP code uses pointers.
 
-To understand the real purpose of pointers, we must examine [[https://stackoverflow.com/questions/22146094/why-should-i-use-a-pointer-rather-than-the-object-itself?newsletter%3D1&nlcode%3D47931|9e27][dynamic vs
-static scoping]]. Consider the following code:
+To understand the real purpose of pointers, we must examine [[https://stackoverflow.com/questions/22146094/why-should-i-use-a-pointer-rather-than-the-object-itself?newsletter%3D1&nlcode%3D47931|9e27][dynamic
+allocation]]. Consider the following code:
 #+BEGIN_SRC cpp
   double* foo(){
     double* bar = new double(0.0);
@@ -453,22 +463,24 @@ static scoping]]. Consider the following code:
   }
 #+END_SRC
 Let's execute the code in our mind:
-1. a =double*= named foobar is allocated.
-2. foo() is executed
-   1. a =double*= named bar is allocated
-   2. new initializes a double with value 0.0
-   3. new assigns the address containing that double to bar
-   4. enter the braces, intialize a double named baz with value 42
-   5. dereference bar and copy the value of baz into it
-   6. exit the braces and free the memory where baz was
-   7. return the address containing the value of bar;
-3. Assign the value returned by foo() to foobar
-4. stream the string "The Answer..." to stdout
-5. dereference *foobar to obtain the value stored at bar, 42, stream
+1. execute main(void)
+2. a =double*= named =foobar= is allocated.
+3. foo() is executed
+   1. a =double*= named =bar= is allocated
+   2. new initializes a =double= with value 0.0
+   3. new assigns the address containing that =double= to =bar=
+   4. enter the braces, intialize a =double= named =baz= with value 42
+   5. dereference =bar= and copy the value of =baz= into it
+   6. exit the braces and free the memory where =baz= was
+   7. return the address containing the value of =bar=;
+4. Assign the value returned by =foo()= to =foobar=
+5. stream the string "The Answer..." to stdout
+6. dereference =*foobar= to obtain the value stored at =bar=, 42, stream
    that to stdout
-6. add a newline to the output and flush the result to the terminal
-7. return 0
-8. exit the program
+7. add a newline to the output and flush the result to the terminal
+   with =std::endl=
+8. return 0
+9. exit the program
 **** References
 A similar concept present in C++ (but not c) are references.  They
 can be thought of as aliases. Their syntax is:
@@ -482,22 +494,26 @@ Here foo is initialized to the value 42, then a reference named
 theAnswer is declared and assigned to foo.  All this does is make a
 new name for the same object.  What does the program output?
 
-The answer is 0.  References seem pointless until they're used in
-function definitions:
+The answer is 0.  References seem pointless (pun intended) until
+they're used in function definitions:
 #+BEGIN_SRC cpp
   void bar(int& foo){
     //complicated calculation for foo
     foo++;
   }
   int main(void){
-    int baz=0;
+    int baz=41;
     bar(baz);
     std::cout<<baz<<std::endl;
   }
 #+END_SRC
-What is the output of this program?  
+#+BEGIN_QUOTE
+Question: What is the output of this program?  
+#+END_QUOTE
+#+BEGIN_QUOTE
+Answer: 42  
+#+END_QUOTE
 
-The answer is 1.  
 *** Methods
 Methods, or functions are defined as:
 #+BEGIN_SRC cpp
@@ -611,8 +627,25 @@ right ways."
   for 2.7 as HEP is still using 2.7 or earlier in many cases)
 - Finally, the [[http://docs.python.org/2/howto/doanddont.html][official recommendations]] for best practices.
 
-** Root
+** ROOT
+For better or worse, for richer or poorer (always poorer), HEP
+Physicists are married to (read: stuck with) ROOT.  Its the [[http://homes.cs.washington.edu/~weise/uhh-download.html][UNIX]] of
+HEP.  There is method in the madness, though it is not clear what the
+method is (just yet). 
+
+ROOT is the industry standard tool for analyzing and manipulating
+gobs of data.  Other statistical analysis tools [[http://www.matthewckeller.com/html/memory.html][crash and burn]] on the
+datasets that ROOT eats for breakfast.  Without further ado, let's
+set it up and get to work!
 *** Installing and setting up
+These instructions are for *nix based systems (ie it was written for
+Ubuntu, but MacOS shouldn't be much different and Windows is out of
+the question).
+
+When choosing a version of ROOT, always pick the 'pro' (pro for
+production) version.  Its the latest, stable, version recommended by
+the ROOT Devs. 
+
 *** A Path to ROOT enlightement
 **** Level 1: Macros
 **** Level 2: Compiled Macors
@@ -622,6 +655,10 @@ right ways."
 *** Fitting Data with RooFit
 *** Styling Plots 
 *** Important Gotcha's 
+**** TTrees
+**** TH1
+**** TH2
+**** TFile
 *** Debugging with ROOT
 ** Physics
 *** Relativistic Mechanics
