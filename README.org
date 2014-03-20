@@ -26,7 +26,11 @@ with "C-c C-o".
 All bottles of donated Old Janx Spirit are redirected to our lawyers,
 who are out enjoying them now.  They insisted that we include this
 disclaimer:
+
 #+BEGIN_EXAMPLE
+The Hitchhiker's Guide to High Energy Physics is a set of documents
+and software herein referred to as "The Guide"
+
 The Guide is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 3, or (at your option)
@@ -48,6 +52,10 @@ While it is possible to practice HEP from the comfort of Bill Gates'
 brain child, it is not recommended by The Guide editors.  (They don't
 run Windows anyway, daylight scares them.) If you insist on using
 Windows, the following is a list of useful software.
+
+Everyone should read [[*For%20Linux%20Hitchhikers][For Linux Hitchhikers]] to understand what
+functionality they'll need (especially when working with or on remote
+machines)
 *** Software you will need
 - [[*For%20Linux%20Hitchhikers][For Linux Hitchhikers]]
 - [[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html][PuTTY (ssh client for Windows)]]: Secure SHell is the standard way of
@@ -140,7 +148,49 @@ down at your keyboard and log into a remote machine as you! This
 means if you step away from your computer (even for a moment) you
 should lock the screen or log out.  
 
+*** Version Control Systems
+The two major version control systems in HEP are Git and Subversion (svn).  These
+are tools and utilities to allow collaboration on large pieces of
+software.  
+
+They also provide programmers with a convenient "paper trail" through
+the course of developing a piece of software.  It allows them to
+revert the source code they are working on to any state that they've
+previously checked in.
+
+Subversion is a successor of CVS, everything is stored on a remote
+site, and your source code directory contains metadata about the
+source code with reference to the remote site.  
+
+Some subversion tutorials:
+- [[https://www.clear.rice.edu/comp314/svn.html][Source Control in 10 Minutes ]]
+- [[http://www.pointbeing.net/weblog/2009/03/command-line-subversion-tutorial-part-1.html][Command Line Subversion Tutorial (part 1)]]
+- [[http://svnbook.red-bean.com/][Version Control with Subversion]] (A comprehensive free book about Subversion)
+
+Git is a software that was written by Linus Torvalds, the hacker
+behind Linux.  It was written to manage the Linux kernel, a massive
+piece of software.  Git's model for managing source code is slightly
+different.  In Git, you maintain the entire repository in your local
+copy.  This makes committing, managing, and branching very fast.  It
+also means you can work with all of the advantages of a version
+control system without internet access.  Simultaneously there is a
+copy of the repository on a remote server.  Git handles syncing these
+two repositories when instructed.  This can lead to confusion if
+you've used other versioning systems, but shouldn't be a problem if
+you have no expectations.
+
+Some good git tutorials:
+- [[http://git-scm.com/book][Pro Git]] (an online book, modular and comprehensive in scope)
+- [[http://gitimmersion.com/][Git Immersion]]
+- [[http://gitolite.com/gcs.html#%25281%2529][Git Concepts Simplified]] (slide show, click to advance)
+Intermediate or advanced topics:
+- [[http://sethrobertson.github.io/GitFixUm/fixup.html][Undoing, fixing, or removing commits in git]]
+- [[https://blogs.atlassian.com/2014/01/simple-git-workflow-simple/][Simple Git workflow is simple]]
+- [[https://ochronus.com/git-tips-from-the-trenches/][Git tips from the trenches]]
+
 ** For Mac OSX Hitchhikers
+Everyone should read [[*For%20Linux%20Hitchhikers][For Linux Hitchhikers]] to understand what
+functionality they'll need (especially when working with or on remote machines)
 *** Software you will need
  - [[http://xquartz.macosforge.org/landing/][XQuartz]]: Like XMing for Windows, XQuartz runs a local X11 server
    for tunneling X11 applications over SSH, unlike Windows, you don't
@@ -155,6 +205,11 @@ should lock the screen or log out.
    the Emacs experience much more fundamentally than any other OS in
    existance. (This doesn't mean you need to use Emacs if you use Mac
    OS, just that your muscle memory will thank you subconsciously.)
+ - [[https://www.macports.org/install.php][MacPorts]]: A system for compiling and installing open source
+   software on the Mac
+ - [[brew.sh][Home Brew]]: A package manager for Mac OS, allowing you to install
+   various utilities that don't necessarily come pre-installed with
+   Mac OS. 
 ** Editors
 Like the major world religions, there are also major editors.  In
 the *nix ecosystem there are two main editors, Emacs and vim. There are
@@ -326,7 +381,9 @@ Things to keep in mind:
   is invaluable.
 - If faced with a decision between learning C++ vs Python, prefer
   C++.  C++'s syntax is more rigid and requires more overhead.  Once
-  you know C++, python is much easier to pick up.  
+  you know C++, python is much easier to pick up.
+- There's always an exception to the rule, just make sure its the
+  right exception!
 
 C++ is an imperative, object oriented language.  It started out as a
 "C with classes" but has since bolted on significant language
@@ -439,9 +496,9 @@ Quiz: What will the output of this snippet be?
 
 **** Why are pointer's useful at all?
 Clever hitchhikers will notice that this appears to be a bunch of
-bureaucratic mucking about with pointless details, most of the time
-it is.  Also, since most of HEP deals with pointless details
-bureaucratically, a lot of HEP code uses pointers.
+bureaucratic mucking about with pointless details, most of the time it
+is.  Since most of HEP deals with pointless details bureaucratically,
+a lot of HEP code uses pointers.
 
 To understand the real purpose of pointers, we must examine [[https://stackoverflow.com/questions/22146094/why-should-i-use-a-pointer-rather-than-the-object-itself?newsletter%3D1&nlcode%3D47931|9e27][dynamic
 allocation]]. Consider the following code:
@@ -463,9 +520,9 @@ allocation]]. Consider the following code:
   }
 #+END_SRC
 Let's execute the code in our mind:
-1. execute main(void)
+1. execute =main(void)=
 2. a =double*= named =foobar= is allocated.
-3. foo() is executed
+3. =foo()= is executed
    1. a =double*= named =bar= is allocated
    2. new initializes a =double= with value 0.0
    3. new assigns the address containing that =double= to =bar=
@@ -482,8 +539,9 @@ Let's execute the code in our mind:
 8. return 0
 9. exit the program
 **** References
-A similar concept present in C++ (but not c) are references.  They
-can be thought of as aliases. Their syntax is:
+A similar concept present in C++ (but not c) are references.  They can
+be thought of as aliases (the way Dave is an alias of David). Their
+syntax is:
 #+BEGIN_SRC cpp
 int foo=42;
 int& theAnswer=foo;
@@ -645,6 +703,96 @@ the question).
 When choosing a version of ROOT, always pick the 'pro' (pro for
 production) version.  Its the latest, stable, version recommended by
 the ROOT Devs. 
+
+*Nota Bene* If you're doing this on Mac OS, you'll need to use =brew
+install blah= instead of =apt-get install blah=, and the package names
+will probably be different. 
+
+If you haven't yet, read the [[*For%20Linux%20Hitchhikers][section of the guide]] relevant to your OS.
+
+For our install of ROOT, we'll be compiling and running it locally.
+This has a few advantages:
+- "Uninstalling" is easy, either unset the environment variables
+  pointing to ROOT, or completely delete the folder that root lives
+  in (in this example =~/root=)
+- Having multiple versions side-by-side is possible, you could have:
+  - =~/root-clang= a version of root compiled with clang
+  - =~/root-5.34= a stable version of ROOT
+  - =~/root-5.99= the beta version of ROOT 6
+  - To use any of them you would just have to source
+    =~/root-ver/bin/thisroot.sh=
+- You don't need root (administrative) access on the machine (as long
+  as the pre-req's are installed).  This is generally nice since it
+  decouples ROOT from the hosting OS.  
+
+**** Getting the Pre-Requisites
+Now, all of the following information is documented at
+[[root.cern.ch]], but it is even less organized than this guide. The
+following is a straight-shot from no source code to a fully working
+ROOT binary on a clean install of Ubuntu (currently 13.10, but the
+build process has been stable for the last ~3 years)
+
+End to end, this takes ~40min on a machine circa 2011, so budget some
+coffee time.  
+
+#+BEGIN_SRC sh
+sudo apt-get install git dpkg-dev make g++ gcc binutils libx11-dev libxpm-dev \
+        libxft-dev libxext-dev gfortran libssl-dev libpcre3-dev \
+        xlibmesa-glu-dev libglew1.5-dev libftgl-dev \
+        libmysqlclient-dev libfftw3-dev cfitsio-dev \
+        graphviz-dev libavahi-compat-libdnssd-dev \
+        libldap2-dev python-dev libxml2-dev libkrb5-dev \
+        libgsl0-dev libqt4-dev
+#+END_SRC
+You may have some of these packages already if you've installed
+=build-essential= or =git= before.  In either case, =apt= is smart
+enough to see that and not re-install them. 
+
+The above list of packages are for a full-blown,
+all-features-enabled  version of ROOT.  If you want a stripped down
+version, you'll have to get the pre-reqs from [[root.cern.ch]]. 
+
+Let's get a copy of the source:
+#+BEGIN_SRC sh
+git clone http://root.cern.ch/git/root.git
+#+END_SRC
+
+For future reference, if you want to update:
+#+BEGIN_SRC sh
+git pull
+git tag -l 
+git checkout -b tag-name tag-name
+#+END_SRC
+=git tag -l= lists all the available tags, choose the one you want
+and substitute it for =tag-name=
+
+For now, lets checkout the latest pro branch:
+#+BEGIN_SRC sh
+git checkout -b v5-34-18 v5-34-18
+#+END_SRC
+This will checkout the branch =v5-34-18= to a local branch =v5-34-18=
+and switch you to it. If you're new to "[[https://en.wikipedia.org/wiki/Version_control_systems][version control systems]]", or
+"[[https://en.wikipedia.org/wiki/Source_code_management][source control management]]" then its useful to do a tutorial to learn
+the basics.  In HEP, the major system used is called SVN, in open
+source, git has become the de facto standard almost overnight.
+
+With our code checked out and ready, we need to configure it to match
+the computer we're compiling on.  To do this:
+#+BEGIN_SRC sh
+./configure --all 
+#+END_SRC
+To see all options run =./configure --help=, this command suggests
+piping the output to =more=, but most "modern" terminal emulators have
+a scroll-back buffer large enough that you can just scroll up and read
+the output.  The =--all= option instructs configure to enable support
+for as many packages as your system supports.  If you require a
+specific feature (say roofit) you would type:
+#+BEGIN_SRC sh
+./configure [other options] --enable-roofit
+#+END_SRC
+
+
+
 
 *** A Path to ROOT enlightement
 **** Level 1: Macros
