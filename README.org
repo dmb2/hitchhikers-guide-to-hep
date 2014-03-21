@@ -791,10 +791,116 @@ specific feature (say roofit) you would type:
 ./configure [other options] --enable-roofit
 #+END_SRC
 
+If your interested in building ROOT with xrootd (network protocol
+which allows opening root files over a network connection) see
+[[*Advanced%20Build%20Options][Advanced Build Options]]. 
 
+After configuring you should see:
+#+BEGIN_EXAMPLE
+Enabled support for asimage, astiff, builtin_afterimage, builtin_lzma, cintex, explicitlink, fftw3, fitsio, gviz, gdml, genvector, krb5, ldap, mathmore, memstat, minuit2, mysql, opengl, python, qt, qtgsi, reflex, roofit, shadowpw, shared, ssl, table, tmva, unuran, x11, xft, xml.
 
+To build ROOT type:
+
+   make 
+#+END_EXAMPLE
+
+Now type =make=:
+#+BEGIN_SRC 
+make -j 4 
+#+END_SRC
+The =-j= option tells make how many jobs it can run simultaneously.
+Without =-j=, only one job runs.  A good rule of thumb is to choose
+the number of cores you have on your computer.  If you are compiling
+on remote computer, it is probably shared by others, in which it is
+good etiquette to run your jobs single threaded.  On your laptop, you
+should choose *one less* than the number of cores you have (so you
+don't notice a slow-down while its building in the background).
+
+See =man make= and look under the option "-j [jobs]" for more
+detailed information about this switch.
+
+This will take (depending on your hardware) between 20-45min, so now
+is a good time for a cup of tea, or coffee with your [[*Keeping%20your%20Guru%20happy][editor guru]].
+
+When its finished, it will print out:
+#+BEGIN_EXAMPLE
+[lots of boring crap]
+
+   ============================================================
+   ===                ROOT BUILD SUCCESSFUL.                ===
+   === Run 'source bin/thisroot.[c]sh' before starting ROOT ===
+   ============================================================
+#+END_EXAMPLE
+If you do not get this message, but the build just ends with =[lots of
+boring crap]= find a senior grad student and have them look at the
+=[lots of boring crap]= (it won't be boring to them). They will be
+able to instruct you on what went wrong. 
+
+If you don't have a senior grad student handy, try googling some of
+the output and seeing if you can get anywhere.  There is also the
+[[http://root.cern.ch/phpBB3/viewforum.php?f%3D3&sid%3Db8e88bc1be4e5f599aedd95aeb047349][ROOT Talk Forums]].  
+
+Now, when you want to use =root=, you can run the command:
+#+BEGIN_SRC sh
+source ~/root/bin/thisroot.sh
+#+END_SRC
+If you are using tcsh (you shouldn't be) you would need to run:
+#+BEGIN_SRC sh
+source ~/root/bin/thisroot.csh
+#+END_SRC
+
+There are differing opinions about whether or not you should put
+something like this in your bashrc.  One school of thought (especially
+applicable when you bounce between different versions) is that you
+should keep your environment as clean as possible and only setup what
+you need.  In that case adding:
+#+BEGIN_SRC sh
+alias setupROOT='source ${HOME}/root/bin/thisroot.sh'
+#+END_SRC
+To your =~/.bashrc= file is enough.
+
+Then, whenever you need root, you have to run =setupROOT=, before you
+can run =root=.
+
+Another school of thought is that, you should always have some copy
+of root available if possible.  In that case the following will
+always setup root when bash runs if the setup file exists:
+#+BEGIN_SRC sh
+[ -f ~/root/bin/thisroot.sh ] && source ~/root/bin/thisroot.sh
+#+END_SRC
+
+Now you can start root by typing =root= at the command line.  You
+should see:
+#+BEGIN_EXAMPLE
+  *******************************************
+  *                                         *
+  *        W E L C O M E  to  R O O T       *
+  *                                         *
+  *   Version   5.34/15  11 February 2014   *
+  *                                         *
+  *  You are welcome to visit our Web site  *
+  *          http://root.cern.ch            *
+  *                                         *
+  *******************************************
+
+ROOT 5.34/15 (v5-34-15@v5-34-15, Mar 21 2014, 14:04:01 on linuxx8664gcc)
+
+CINT/ROOT C/C++ Interpreter version 5.18.00, July 2, 2010
+Type ? for help. Commands must be C++ statements.
+Enclose multiple statements between { }.
+root [0]
+#+END_EXAMPLE
+To start root without the splash screen type =root -l= in which case
+you see:
+#+BEGIN_EXAMPLE
+root [0]
+#+END_EXAMPLE
 
 *** A Path to ROOT enlightement
+There are three methods of running code through ROOT to produce
+results.  These methods are listed below, each more sophisticated
+than the last.  They also include example code intended as a starting
+point for hacking.   
 **** Level 1: Macros
 **** Level 2: Compiled Macors
 **** Level 3: Compiled Programs
@@ -808,6 +914,47 @@ specific feature (say roofit) you would type:
 **** TH2
 **** TFile
 *** Debugging with ROOT
+*** Advanced Build Options
+[[http://root.cern.ch/drupal/content/installing-xrootd][Full instructions here]]
+
+If you want to use xrootd, you'll also need cmake:
+#+BEGIN_SRC sh
+apt-get install cmake
+#+END_SRC
+Then, (from the directory where you checked out =root=):
+#+BEGIN_SRC sh
+./build/unix/installXrootd.sh 
+#+END_SRC
+This will install xrootd to whatever directory you're currently in,
+so if you want it installed somewhere else, cd to that directory
+first, just make sure that you update the location in the next command.
+
+Now when you configure root you should use:
+#+BEGIN_SRC 
+./configure --all --with-xrootd=${HOME}/root/xrootd-3.2.7/
+#+END_SRC
+Here =${HOME}/root/xrootd-3.2.7/ is the path where xrootd was
+installed (based on the installXrootd.sh script above).  If you
+blindly follow the instructions the above command will "just work".
+
+*Nota Bene* The path following =--with-xrootd== must be a fully
+qualified path (ie =/home/username/root/xrootd-3.2.7/=), the
+configure script doesn't understand that =~/= is a shorthand for
+=${HOME}=. 
+
+if xrootd support has been enabled you should see:
+#+BEGIN_EXAMPLE
+Enabled support for asimage, astiff, builtin_afterimage, builtin_lzma, cintex, explicitlink, fftw3, fitsio, gviz, gdml, genvector, krb5, ldap, mathmore, memstat, minuit2, mysql, opengl, python, qt, qtgsi, reflex, roofit, shadowpw, shared, ssl, table, tmva, unuran, x11, xft, xml, xrootd.
+
+To build ROOT type:
+
+   make 
+#+END_EXAMPLE
+
+Make sure you see =xrootd= in the list! If not xrootd won't be
+installed and won't function properly. You can now continue with the
+[[*Installing%20and%20setting%20up][regular instructions]]
+
 ** Physics
 *** Relativistic Mechanics
 *** Mandelstam Variables
