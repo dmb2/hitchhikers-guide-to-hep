@@ -902,7 +902,39 @@ results.  These methods are listed below, each more sophisticated
 than the last.  They also include example code intended as a starting
 point for hacking.   
 **** Level 1: Macros
-**** Level 2: Compiled Macors
+The first, and simplest way to execute ROOT related code is the
+humble macro. A macro is a set of ROOT commands enclosed by
+braces. For example:
+#+BEGIN_SRC cpp
+  {
+    TFile* file= TFile::Open("MeaningOfLife.root");
+    TH1F* hist = (TH1F*)file->Get("Hist1");
+    cout << hist->GetNbinsX() <<endl;
+  }
+#+END_SRC
+
+While not immediately obvious, ROOT macros are not written in C or
+C++, but [[http://root.cern.ch/drupal/content/cint][CINT]]. CINT covers "most of"   ANSI C and ISO C++ 2003.
+There are some important differences:
+- =foo.blah= and =foo->blah= are interchangeable
+- a semicolon ';' at the end of a line is optional
+- No need to "=#include=" headers
+
+As you progress in writing more sophisticated C++, you will run into
+CINT's shortcomings as a C++ interpreter.  It is recommended that you
+move to Level 2 or 3 before this happens. 
+
+While it is possible to write complicated CINT macros (files with
+multiple function definitions) it is not recommended.  CINT has a
+habit of keeping up the appearance of doing one thing when in reality
+something entirely different is happening "behind the scenes".
+
+CINT is best used for quick scripts to plot histograms already saved
+to a disk, or to inspect a few branches from a =TTree=.  More
+sophisticated analyses are better served by Levels 2 and 3. 
+
+**** Level 2: Compiled Macros
+
 **** Level 3: Compiled Programs
 **** A note on Enlightenment
 *** PyROOT
