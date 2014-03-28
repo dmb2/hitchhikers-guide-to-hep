@@ -934,6 +934,17 @@ to a disk, or to inspect a few branches from a =TTree=.  More
 sophisticated analyses are better served by Levels 2 and 3. 
 
 **** Level 2: Compiled Macros
+Compiled macros are full-blown C++ programs.  Generally there is a
+"steering macro" that handles compiling and loading the required
+libraries.  An example steering macro:
+#+BEGIN_SRC cpp
+{
+  //may need to load other libraries or files that depend on analysis.C
+  gROOT->ProcessLine(".L analysis.C++");
+  gROOT->ProcessLine("doAnalysis()");
+}
+#+END_SRC
+
 
 **** Level 3: Compiled Programs
 **** A note on Enlightenment
