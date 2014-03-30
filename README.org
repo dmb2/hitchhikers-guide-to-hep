@@ -180,6 +180,7 @@ you've used other versioning systems, but shouldn't be a problem if
 you have no expectations.
 
 Some good git tutorials:
+- type "man gittutorial" in the command line
 - [[http://git-scm.com/book][Pro Git]] (an online book, modular and comprehensive in scope)
 - [[http://gitimmersion.com/][Git Immersion]]
 - [[http://gitolite.com/gcs.html#%25281%2529][Git Concepts Simplified]] (slide show, click to advance)
