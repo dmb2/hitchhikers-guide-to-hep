@@ -1,5 +1,8 @@
+#+TITLE: A Hitchhiker's guide to High Energy Physics
+#+AUTHOR: David Bjergaard
+#+EMAIL: david.b@duke.edu
+
 * DON'T PANIC
-** A Hitchhiker's guide to High Energy Physics
 ** Introduction
 Welcome to High Energy Physics.  Like the Galaxy, HEP is a wonderful
 and mysterious place filled with amazing things.  The intent of this
@@ -806,7 +809,7 @@ To build ROOT type:
 #+END_EXAMPLE
 
 Now type =make=:
-#+BEGIN_SRC 
+#+BEGIN_SRC sh
 make -j 4 
 #+END_SRC
 The =-j= option tells make how many jobs it can run simultaneously.
@@ -974,7 +977,7 @@ so if you want it installed somewhere else, cd to that directory
 first, just make sure that you update the location in the next command.
 
 Now when you configure root you should use:
-#+BEGIN_SRC 
+#+BEGIN_SRC sh
 ./configure --all --with-xrootd=${HOME}/root/xrootd-3.2.7/
 #+END_SRC
 Here =${HOME}/root/xrootd-3.2.7/ is the path where xrootd was
