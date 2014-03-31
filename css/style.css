@@ -203,11 +203,11 @@ h6 {
   color: #730B0D;
 }
 pre {
-  background-color: #fdf6e3;
-  color: #657b83;
+  background-color: #002b36;
+  color: #839496;
   border: 1pt solid #93a1a1;
   padding: 1em;
-  box-shadow: 5pt 5pt 8pt #eee8d5;
+  box-shadow: 5pt 5pt 8pt #4D4D4D;
 }
 pre code {
   background-color: #fdf6e3;
