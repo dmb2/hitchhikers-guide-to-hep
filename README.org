@@ -1,0 +1,27 @@
+* Guidelines for "The Guide"
+You can obtain a copy of the guide by cloning this repository. The
+online version of the guide is hosted at [[http://www.phy.duke.edu/~dmb60/the-guide][Hitchhiker's guide to HEP]]. 
+
+** Contributing
+The guide is satirical and sarcastic.  If you read some portion and
+are upset or discouraged, please seek out other sources of
+information.  
+
+As with all of my open-source projects, pull requests are always
+welcome.  If you would like to contribute a section to the guide,
+please keep the tone intact.  
+
+Some things to keep in mind
+- The Guide is *pragmatic* not pedagogical, there is a cacophony of
+  pedagogy in HEP.  It is not the intent of this document to add to
+  that noise.
+- The Guide is also an introduction to hacker culture.  The hacker
+  mindset has helped me a lot with the steep learning curve of HEP.
+- Pull requests that change formatting or stylistic changes in tone
+  will be rejected
+- Pull requests which add significant, pragmatic content or advice
+  are very welcome.
+- Code samples are intentionally sparse.  They're meant to provide a
+  convenient substrate for hacking, they are *not* pedagogical
+  examples of how to write analysis code.
+ 
