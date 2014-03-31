@@ -30,7 +30,7 @@ All bottles of donated Old Janx Spirit are redirected to our lawyers,
 who are out enjoying them now.  They insisted that we include this
 disclaimer:
 
-#+BEGIN_EXAMPLE
+#+BEGIN_QUOTE
 The Hitchhiker's Guide to High Energy Physics is a set of documents
 and software herein referred to as "The Guide"
 
@@ -46,7 +46,8 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this software.  If not, see <http://www.gnu.org/licenses/>.
-#+END_EXAMPLE
+#+END_QUOTE
+
 Also, note that the content of this guide is satirical in nature, and
 is intended to be sarcastic. If you have a weak heart or are easily
 offended, it may be better to seek out other sources of information.

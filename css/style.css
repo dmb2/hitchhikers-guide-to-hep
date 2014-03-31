@@ -206,7 +206,7 @@ h6 {
 
 /* TOC inspired by http://jashkenas.github.com/coffee-script */
 #table-of-contents {
-    font-size: 10pt;
+    font-size: 12pt;
     position: fixed;
     right: 0em;
     top: 0em;
@@ -223,12 +223,12 @@ h6 {
     overflow: auto; }
 #table-of-contents h2 {
     font-size: 13pt;
-    max-width: 9em;
+    max-width: 13em;
     border: 0;
     font-weight: normal;
     padding-left: 0.5em;
     padding-right: 0.5em;
-    padding-top: 0.05em;
+    padding-top: 0.5em;
     padding-bottom: 0.05em; }
 #table-of-contents #text-table-of-contents {
     display: none;
@@ -347,6 +347,7 @@ h6 {
 #content
 {
     font-family: 'Crimson Serif', serif;
+    font-size: 14.5pt;
     clear: center;
     width: 45em;
     padding: 20px;
