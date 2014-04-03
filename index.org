@@ -51,6 +51,26 @@ along with this software.  If not, see <http://www.gnu.org/licenses/>.
 Also, note that the content of this guide is satirical in nature, and
 is intended to be sarcastic. If you have a weak heart or are easily
 offended, it may be better to seek out other sources of information.
+*** Obtaining a copy and supporting material
+All of the sources for the guide are hosted on github. 
+
+Here are some quick-links:
+- [[http://www.phy.duke.edu/~dmb60/the-guide/][The Guide]] the online version of the guide
+- [[http://www.phy.duke.edu/~dmb60/the-guide/the-guide.pdf][PDF of The Guide]] if you prefer that sort of thing, though its of
+  limited use in printed form.
+- [[https://github.com/dbjergaard/hitchhikers-guide-to-hep][Github Repo]] where source code is hosted
+- [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/tree/master/compiled-macros][Compiled Macros]] for Level 2 of ROOT enlightenment
+- [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/tree/master/compiled-program][Compiled Programs]] for Level 3 of ROOT enlightenment
+- [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/issues][Bug Reports/Feature Requests]]
+- [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/pulls][Pull Requests]] for submitting patches
+
+To get a local copy:
+#+BEGIN_SRC sh
+git clone https://github.com/dbjergaard/hitchhikers-guide-to-hep.git
+#+END_SRC
+Then you'll have a copy of the org file, as well as the compiled
+macros and compiled programs.  
+
 ** For Windows Hitchhikers
 While it is possible to practice HEP from the comfort of Bill Gates'
 brain child, it is not recommended by The Guide editors.  (They don't
@@ -308,14 +328,18 @@ packages that intend to comprehensively change the Emacs out of the
 box to a better user experience.  The two most famous are [[https://github.com/bbatsov/prelude][Prelude]] and
 [[https://github.com/overtone/emacs-live][Emacs Live]]. An example (slightly annotated) init file can be found [[https://github.com/dbjergaard/dotfiles/blob/master/emacs-lisp/init.org][here]].
 
-Finally, there are some Emacs gurus who post on the blogs on the
-internet.  Some particularly useful ones are [[http://emacsredux.com/][Emacs Redux]], [[http://www.masteringemacs.org/][Mastering
-Emacs]], and [[http://emacs-fu.blogspot.com/][Emacs Fu]]. 
+Finally, there are some Emacs gurus who post blogs on the internet.
+Some particularly useful ones are [[http://emacsredux.com/][Emacs Redux]],
+[[http://www.masteringemacs.org/][Mastering Emacs]], and [[http://emacs-fu.blogspot.com/][Emacs Fu]].
 
 Various religious texts granting Emacs users various powers (such as
 reading email, chatting, tweeting, playing games, listening to music)
 can be found at the [[http://www.emacswiki.org/emacs/][Emacs Wiki]]. 
-
+**** Org-Mode
+Org-mode was written by a physicist to aid in organizing
+information.  Its facilities have grown so large, that they warrant
+their own subsection here.  
+***** TODO Write Me
 *** Vim
 If Emacs is like Catholicism, then Vim is like Buddhism.  Vim is
 modern incarnation of vi, a modal text editor that descended from
@@ -901,11 +925,14 @@ you see:
 root [0]
 #+END_EXAMPLE
 
-*** A Path to ROOT enlightement
+*** A Path to ROOT enlightenment
 There are three methods of running code through ROOT to produce
 results.  These methods are listed below, each more sophisticated
 than the last.  They also include example code intended as a starting
 point for hacking.   
+
+As a reminder, see [[*Obtaining%20a%20copy%20and%20supporting%20material][Obtaining a copy and supporting material]] for
+instructions on obtaining and running the example code.
 **** Level 1: Macros
 The first, and simplest way to execute ROOT related code is the
 humble macro. A macro is a set of ROOT commands enclosed by
@@ -949,10 +976,47 @@ libraries.  An example steering macro:
   gROOT->ProcessLine("doAnalysis()");
 }
 #+END_SRC
+The compiled macro itself looks more like a traditional C++ program:
+#+BEGIN_SRC cpp
+#include <cstdlib>
+#include "TFile.h"
+#include "TH1F.h"
 
+int doAnalysis(){
+  
+  return 42;
+}
+#+END_SRC
+Since the ROOT binary already defines a "main" an error will occur
+if you redefine another function named "main", therefore we use
+the verb "doAnalysis". 
+
+The steering macro that compiles each source file can become
+arbitrarily complex.  To some this may read "flexible", to others it
+may read "disorganized".  If your analysis grows into a multi-file
+program, its probably time to ascend to Level 3.
 
 **** Level 3: Compiled Programs
+A compiled program is just that. Here ROOT takes the role of a rich
+set of libraries for composing a C++ based analysis.  
+
+An example program (and supporting Makefile) [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/tree/master/compiled-program][is included here]].
+
+Makefiles come with their own overhead, but the =make= system is very
+powerful.  The [[https://www.gnu.org/software/make/manual/make.html][make manual]] is very readable with many examples.  
+
 **** A note on Enlightenment
+Master Foo, of [[http://www.catb.org/~esr//writings/unix-koans/][Rootless Root]], gives the [[http://www.catb.org/~esr//writings/unix-koans/shell-tools.html][sage advice]]:
+#+BEGIN_QUOTE
+"When you are hungry, eat; when you are thirsty, drink; when you are tired, sleep."
+#+END_QUOTE
+
+To spell it out (and to prevent the reader from enlightenment), it is
+wise to choose the use of ROOT which is most appropriate for a task
+at hand.  The practicing HEP physicist is proficient with all three
+levels, and can pick and choose which approach is best for the task
+at hand.  
+
 *** PyROOT
 *** Fitting Data with RooFit
 *** Styling Plots 
@@ -1012,4 +1076,40 @@ Then come back here.  Somewhere a fellow grad student has a copy of
 "Introduction to Elementary Particles (2nd Edition)" by David
 Griffiths.  Read Chapter 6 in entirety paying special note to the
 footnote on page 205.  
+** Responsible Research
+This is a topic better covered else where.  The part that overlaps
+with this guide is in documenting the work you do.  It is important
+that you keep a traceable paper-trail of everything you do.
+
+*** Lab Notebooks
+When keeping a lab notebook, it is important to make the barrier for
+writing something down as small as possible.  If its difficult or
+inconvenient, you will not be inclined to document as well as you should.
+**** Pen/Paper Notebook
+This is the Science standard, and it is perfectly applicable to HEP
+research. Keep it open and write in it as you work.  Make sure there
+is a 1-to-1 mapping from what you are writing in your notebook and
+what can be found on a hard drive somewhere (plots, text, code etc).
+**** Org-mode Notebook
+The Editor keeps an org-mode notebook.  There is a thorough write-up
+here. 
+**** Flat text file
+On option is to keep a (well organized) text file for recording what
+you're doing.  Paste links and your thoughts here.  Choose a markdown
+language and write your posts in that.  This way you are forced to
+keep more structure in the file, and you can export to whatever
+output formats are supported by your markdown language.
+**** Wiki/ELog
+Some research groups reserve webspace for hosting private
+e-logs. These are typically wiki syntax, but they can also be
+bulletin board style formatting.  In any case, its possible to use a
+browser extension like "[[https://addons.mozilla.org/en-US/firefox/addon/its-all-text/][Its All Text]]"  to use your favorite
+editor. One downside to these style notebooks is that it is typically
+awkward to post many plots at once. 
+
 ** FAQ
+- I was typing along and all of the sudden my terminal froze!? The
+  only way to continue was to exit the program!
+Most likely you accidentally typed "C-s" (the control key followed by
+the s key). This sends the XOFF command to your terminal emulator.
+To fix it (and "unfreeze" your terminal) type "C-q". [[https://en.wikipedia.org/wiki/Software_flow_control][More Info Here]].
