@@ -1,8 +1,11 @@
-#+TITLE: A Hitchhiker's guide to High Energy Physics
+#+TITLE: DON'T PANIC
 #+AUTHOR: David Bjergaard
 #+EMAIL: david.b@duke.edu
+#+OPTIONS:   H:5 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+LaTeX_CLASS: article
 
-* DON'T PANIC
+* A Hitchhiker's guide to High Energy Physics
 ** Introduction
 Welcome to High Energy Physics.  Like the Galaxy, HEP is a wonderful
 and mysterious place filled with amazing things.  The intent of this
@@ -56,8 +59,9 @@ All of the sources for the guide are hosted on github.
 
 Here are some quick-links:
 - [[http://www.phy.duke.edu/~dmb60/the-guide/][The Guide]] the online version of the guide
-- [[http://www.phy.duke.edu/~dmb60/the-guide/the-guide.pdf][PDF of The Guide]] if you prefer that sort of thing, though its of
+- [[./index.pdf][PDF of The Guide]] if you prefer that sort of thing, though its of
   limited use in printed form.
+- [[index.org][Org source]] of the online version
 - [[https://github.com/dbjergaard/hitchhikers-guide-to-hep][Github Repo]] where source code is hosted
 - [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/tree/master/compiled-macros][Compiled Macros]] for Level 2 of ROOT enlightenment
 - [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/tree/master/compiled-program][Compiled Programs]] for Level 3 of ROOT enlightenment
