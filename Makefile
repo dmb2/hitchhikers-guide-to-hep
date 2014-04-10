@@ -18,5 +18,10 @@ html: $(HTML_FILES)
 %.pdf: %.org
 	emacs $< --batch -f org-export-as-pdf --kill
 
+install: pdf html
+	cp index.org ${HOME}/public/the-guide/the-guide.org
+	cp index.pdf ${HOME}/public/the-guide/the-guide.pdf
+
+
 clean:
 	rm *.html *.pdf

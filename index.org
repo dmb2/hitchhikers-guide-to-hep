@@ -16,18 +16,15 @@ suitably obfuscates what you found enlightening.  The road you are on
 is one of enlightenment, and you can't be enlightened unless you are
 first darkened.
 
-If you find this guide next to useless and think it would be better
-served as toilet paper in its printed form, then please send a bottle
-of Old Janx Spirit to the editor of that section.
-
-The Guide is not intended to be read linearly.  Jump to the section
-you need, and if that section contains links to other sections, then
-please see above regarding edits. 
+If you find this guide entertaining, but uninformative, then please
+send a bottle of Old Janx Spirit to The Editor. The Guide is not
+intended to be read linearly.  Jump to the section you need, and if
+that section contains links to other sections, then please see above
+regarding edits.
 
 *NOTE* If you are reading this on github, a link to another section
 will probably be broken due to a bug in how github parses org-flavored
-markdown.  It is better to open this guide in Emacs and follow links
-with "C-c C-o".
+markdown.  
 *** Disclaimer
 All bottles of donated Old Janx Spirit are redirected to our lawyers,
 who are out enjoying them now.  They insisted that we include this
@@ -54,6 +51,7 @@ along with this software.  If not, see <http://www.gnu.org/licenses/>.
 Also, note that the content of this guide is satirical in nature, and
 is intended to be sarcastic. If you have a weak heart or are easily
 offended, it may be better to seek out other sources of information.
+
 *** Obtaining a copy and supporting material
 All of the sources for the guide are hosted on github. 
 
@@ -61,7 +59,7 @@ Here are some quick-links:
 - [[http://www.phy.duke.edu/~dmb60/the-guide/][The Guide]] the online version of the guide
 - [[./index.pdf][PDF of The Guide]] if you prefer that sort of thing, though its of
   limited use in printed form.
-- [[index.org][Org source]] of the online version
+- [[http://www.phy.duke.edu/~dmb60/the-guide/the-guide.org][Org source]] of the online version
 - [[https://github.com/dbjergaard/hitchhikers-guide-to-hep][Github Repo]] where source code is hosted
 - [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/tree/master/compiled-macros][Compiled Macros]] for Level 2 of ROOT enlightenment
 - [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/tree/master/compiled-program][Compiled Programs]] for Level 3 of ROOT enlightenment
@@ -294,7 +292,7 @@ loaded by Emacs in your home directory) is a spiritual journey, there
 are those who have done their best to illuminate the path. [[http://www.dialectical-computing.de/blog/blog/2014/03/02/a-simple-emacs-configuration/][A brief
 guide to customization philosophies here]].
 
-The editor of this guide finds the following packages essential:
+The Editor finds the following packages essential:
 - [[info:tramp#Top][tramp]]: If your reading this in Emacs, you can follow the link with
   "C-c C-o". It is *the* most important aspect of Emacs for HEP
   users. It allows you to "visit" files on remote machines from the
@@ -729,6 +727,27 @@ gobs of data.  Other statistical analysis tools [[http://www.matthewckeller.com/
 datasets that ROOT eats for breakfast.  Without further ado, let's
 set it up and get to work!
 *** Installing and setting up
+**** On Windows
+These links are for 5.34.18. You are encouraged visit the [[http://root.cern.ch/drupal/content/downloading-root][downloading]]
+page of root.cern.ch to check for newer versions.  Always prefer the
+"pro" version.
+
+- [[ftp://root.cern.ch/root/root_v5.34.18.win32.vc11.msi][VC++11 (2012) MSI for 5.34.18]] (install-able version, allows you to
+  remove it using the Control Panel)
+**** On MacOS
+If you are using =homebrew= you can simply do:
+#+BEGIN_SRC sh
+brew tap homebrew/science
+brew install --with-cocoa root
+#+END_SRC
+([[https://alexpearce.me/2013/12/root-on-os-x-mavericks/][source]])
+**** On Ubuntu
+This will install all ROOT packages from the Ubuntu repositories:
+#+BEGIN_SRC sh
+sudo apt-get install root-system
+#+END_SRC
+
+*** Building From source
 These instructions are for *nix based systems (ie it was written for
 Ubuntu, but MacOS shouldn't be much different and Windows is out of
 the question).
@@ -784,6 +803,13 @@ enough to see that and not re-install them.
 The above list of packages are for a full-blown,
 all-features-enabled  version of ROOT.  If you want a stripped down
 version, you'll have to get the pre-reqs from [[root.cern.ch]]. 
+
+Alternatively you can type:
+#+BEGIN_SRC sh
+sudo apt-get build-dep root-system
+#+END_SRC
+And let =apt= install and manage any dependencies ROOT needs.  This
+is overkill, even for a "bells and whistles" build of ROOT.
 
 Let's get a copy of the source:
 #+BEGIN_SRC sh
@@ -1022,6 +1048,7 @@ levels, and can pick and choose which approach is best for the task
 at hand.  
 
 *** PyROOT
+PyROOT are a set of python bindings to ROOT. 
 *** Fitting Data with RooFit
 *** Styling Plots 
 *** Important Gotcha's 
@@ -1111,9 +1138,36 @@ browser extension like "[[https://addons.mozilla.org/en-US/firefox/addon/its-all
 editor. One downside to these style notebooks is that it is typically
 awkward to post many plots at once. 
 
+** Getting Help
+For better or worse, eventually you will get stuck.  This is
+Research! If you're not stuck half the time you're not doing it
+right! 
+
+Here's a rough strategy for tackling problems:
+1. Google it, don't just Google specific errors, search related
+   terms.  Eventually you will be able to make the search more and
+   more general until you get the answer you want.
+2. Read documentation. Many times the answer is buried deep inside
+   the program.  Don't be afraid to crack open the source code and
+   actually try to understand whats going on (after exhausting any
+   manuals or user guides available).
+3. Just take a deep breath, go get a cup of coffee and come back
+   to the problem.
+4. If the coffee didn't help, table the problem for the moment and
+   work on something else.  Most likely when you come back to it
+   (today or tomorrow) the solution will be obvious.
+   a. Now may be an appropriate time for an email to the person you
+   are working with directly.  Chances are they've already
+   encountered and solved your problem.
+5. If your still stuck, it may be time to post to a forum or mailing
+   list.  In general, when soliciting help from people you don't
+   know, it is polite to avoid contacting them directly.  
+
 ** FAQ
 - I was typing along and all of the sudden my terminal froze!? The
   only way to continue was to exit the program!
 Most likely you accidentally typed "C-s" (the control key followed by
 the s key). This sends the XOFF command to your terminal emulator.
 To fix it (and "unfreeze" your terminal) type "C-q". [[https://en.wikipedia.org/wiki/Software_flow_control][More Info Here]].
+- Dear Mr. The Editor, my <insert problem here>, can you fix it?
+No. Please refer to [[*Getting%20Help][Getting Help]].
