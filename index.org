@@ -337,11 +337,7 @@ Some particularly useful ones are [[http://emacsredux.com/][Emacs Redux]],
 Various religious texts granting Emacs users various powers (such as
 reading email, chatting, tweeting, playing games, listening to music)
 can be found at the [[http://www.emacswiki.org/emacs/][Emacs Wiki]]. 
-**** Org-Mode
-Org-mode was written by a physicist to aid in organizing
-information.  Its facilities have grown so large, that they warrant
-their own subsection here.  
-***** TODO Write Me
+
 *** Vim
 If Emacs is like Catholicism, then Vim is like Buddhism.  Vim is
 modern incarnation of vi, a modal text editor that descended from
@@ -394,6 +390,24 @@ Some people, when confronted with a problem, think
 "I know, I'll use regular expressions."   Now they have two
 problems. -- Jaimie Zawinski
 #+END_QUOTE
+
+** Software Design
+Well designed software is a true marvel, in the same way architecture
+is a marvel.  You are a stone mason, and you are building a
+cathedral.  
+
+In order to help you on your way, you should read the following:
+- [[http://aosabook.org/en/index.html][Architecture of Open Source Applications]]
+- [[https://www.thc.org/root/phun/unmaintain.html][How to Write Unmaintainable Code]] (warning, many physicists take this
+  guide literally)
+
+Good software design is very hard, but when you have the pleasure of
+using well designed software, it is a true joy. Some examples of good
+HEP software:
+- [[http://rivet.hepforge.org/][Rivet]]: Robust Independent Validation of Experiment and Theory
+- [[fastjet.fr][Fastjet]]: Software package for jet finding
+- [[http://root.cern.ch/drupal/content/roofit][RooFit]]: Software for likelihood fitting (caveat: there are some
+  strange namespace issues with this code)
 
 ** A brief introduction to C++ 
 C++ is the industry standard programming language for analysis in
@@ -1048,15 +1062,390 @@ levels, and can pick and choose which approach is best for the task
 at hand.  
 
 *** PyROOT
-PyROOT are a set of python bindings to ROOT. 
+PyROOT are a set of python bindings to ROOT. It works fairly well out
+of the box, but there are some things to keep in mind. 
+- Idiomatic python avoids "=from ROOT import *=", prefer "=from ROOT
+  import blah="
+- the ROOT devs know you aren't going to be idiomatic, so instead
+  they've implemented a lazy loading system (ROOT is huge, so "=from
+  ROOT import *=" would take forever).  This may be confusing if your
+  a python expert and expect exploration commands like =dir()= to
+  work with ROOT.
+- If performance matters, try to stay in C++ land (ie call C++
+  functions from python) as much as possible
+  - If performance really matters, write it in python and then port
+    it to C++. This is fairly advanced, but not impossible. You'll
+    have to generate CINT dictionaries for your source files.
+If you're looking for a more "pythonic" (not my word) experience,
+maybe give =[[www.rootpy.org][rootpy]]= a shot. See also [[*An%20even%20briefer%20introduction%20to%20Python][An even briefer introduction to
+Python]] for resources to learn python itself.
+
 *** Fitting Data with RooFit
+RooFit is a shiny penny compared to the rest of the ROOT ecosystem.
+It has its own quirks and idioms, but the interfaces are fairly
+reasonable and the manual is well written.  The latest version of the
+manual and quickstart can always be found here:
+- [[http://root.cern.ch/drupal/content/users-guide#roofit][ROOT User's guide,  Roofit Manual]]
+Direct links are here, though they aren't guaranteed to be current:
+- [[http://root.cern.ch/download/doc/RooFit_Users_Manual_2.91-33.pdf][RooFit Manual (PDF) 2.91-33]]
+- [[http://root.cern.ch/drupal/sites/default/files/roofit_quickstart_3.00.pdf][RooFit Quick Start Guide (PDF) 3.00]]
 *** Styling Plots 
+A well designed graph is truly a work of art. 
+
+Sage advice (passed down from The Editor's first mentor):
+#+BEGIN_QUOTE
+When you make a plot, take the time to make it publication quality
+and reproducible.  
+#+END_QUOTE
+This means two things:
+1. Make it good enough to go into a paper
+2. Prefer generating it with C++/Python over any other format (data
+   inputs will frequently change at the last minute, and being able to
+   "hit a button" and get the plot is very useful unless you have a
+   room full of [[https://en.wikipedia.org/wiki/The_Turk][Mechanical Turks]] lying around)
+
+Producing a publication quality plot can be challenging initially,
+however ROOT includes the concept of a "Style" which can be applied.
+These are global rules for how plots should be printed.  In previous
+versions of ROOT, the default style was notoriously bad.  In The
+Editor's humble opinion, this was done to simultaneously encourage
+each physicist to set their own standard, and to immediately identify
+ROOT newbies from seasoned ROOT hackers.
+
+Now, things are better, though the idea that "each physicist set their
+own standard" has stuck, and so they're are many styles floating
+around. 
+
+An example style (probably from the CMS TDR, the details are lost to
+time):
+#+BEGIN_SRC cpp
+{
+  TStyle *tdrStyle = new TStyle("tdrStyle","Style for P-TDR");
+
+  cout << "TDR Style initialized" << endl;
+
+// For the canvas:
+  tdrStyle->SetCanvasBorderMode(0);
+  tdrStyle->SetCanvasColor(kWhite);
+  tdrStyle->SetCanvasDefH(600); //Height of canvas
+  tdrStyle->SetCanvasDefW(600); //Width of canvas
+  tdrStyle->SetCanvasDefX(0);   //POsition on screen
+  tdrStyle->SetCanvasDefY(0);
+
+// For the Pad:
+  tdrStyle->SetPadBorderMode(0);
+  // tdrStyle->SetPadBorderSize(Width_t size = 1);
+  tdrStyle->SetPadColor(kWhite);
+  tdrStyle->SetPadGridX(false);
+  tdrStyle->SetPadGridY(false);
+  tdrStyle->SetGridColor(0);
+  tdrStyle->SetGridStyle(3);
+  tdrStyle->SetGridWidth(1);
+
+// For the frame:
+  tdrStyle->SetFrameBorderMode(0);
+  tdrStyle->SetFrameBorderSize(1);
+  tdrStyle->SetFrameFillColor(0);
+  tdrStyle->SetFrameFillStyle(0);
+  tdrStyle->SetFrameLineColor(1);
+  tdrStyle->SetFrameLineStyle(1);
+  tdrStyle->SetFrameLineWidth(1);
+
+// For the histo:
+  // tdrStyle->SetHistFillColor(1);
+  // tdrStyle->SetHistFillStyle(0);
+  tdrStyle->SetHistLineColor(1);
+  tdrStyle->SetHistLineStyle(0);
+  tdrStyle->SetHistLineWidth(1);
+
+  tdrStyle->SetEndErrorSize(2);
+  //tdrStyle->SetErrorMarker(20);
+  tdrStyle->SetErrorX(0.);
+  
+  tdrStyle->SetMarkerStyle(20);
+
+//For the fit/function:
+  tdrStyle->SetOptFit(1);
+  tdrStyle->SetFitFormat("5.4g");
+  tdrStyle->SetFuncColor(2);
+  tdrStyle->SetFuncStyle(1);
+  tdrStyle->SetFuncWidth(1);
+
+//For the date:
+  tdrStyle->SetOptDate(0);
+  // tdrStyle->SetDateX(Float_t x = 0.01);
+  // tdrStyle->SetDateY(Float_t y = 0.01);
+
+// For the statistics box:
+  tdrStyle->SetOptFile(0);
+  tdrStyle->SetOptStat(0); // To display the mean and RMS:   SetOptStat("mr");
+  tdrStyle->SetStatColor(kWhite);
+  tdrStyle->SetStatFont(42);
+  tdrStyle->SetStatFontSize(0.025);
+  tdrStyle->SetStatTextColor(1);
+  tdrStyle->SetStatFormat("6.4g");
+  tdrStyle->SetStatBorderSize(1);
+  tdrStyle->SetStatH(0.1);
+  tdrStyle->SetStatW(0.15);
+  // tdrStyle->SetStatStyle(Style_t style = 1001);
+  // tdrStyle->SetStatX(Float_t x = 0);
+  // tdrStyle->SetStatY(Float_t y = 0);
+
+// Margins:
+  tdrStyle->SetPadTopMargin(0.15);
+  tdrStyle->SetPadBottomMargin(0.13);
+  tdrStyle->SetPadLeftMargin(0.13);
+  tdrStyle->SetPadRightMargin(0.15);
+
+// For the Global title:
+
+//  tdrStyle->SetOptTitle(0);
+  tdrStyle->SetTitleFont(42);
+  tdrStyle->SetTitleColor(1);
+  tdrStyle->SetTitleTextColor(1);
+  tdrStyle->SetTitleFillColor(10);
+  tdrStyle->SetTitleFontSize(0.05);
+  // tdrStyle->SetTitleH(0); // Set the height of the title box
+  // tdrStyle->SetTitleW(0); // Set the width of the title box
+  // tdrStyle->SetTitleX(0); // Set the position of the title box
+  // tdrStyle->SetTitleY(0.985); // Set the position of the title box
+  // tdrStyle->SetTitleStyle(Style_t style = 1001);
+  // tdrStyle->SetTitleBorderSize(2);
+
+// For the axis titles:
+
+  tdrStyle->SetTitleColor(1, "XYZ");
+  tdrStyle->SetTitleFont(42, "XYZ");
+  tdrStyle->SetTitleSize(0.06, "XYZ");
+// The inconsistency is great!
+  tdrStyle->SetTitleXOffset(1.0);
+  tdrStyle->SetTitleOffset(1.5, "Y"); 
+
+// For the axis labels:
+
+  tdrStyle->SetLabelColor(1, "XYZ");
+  tdrStyle->SetLabelFont(42, "XYZ");
+  tdrStyle->SetLabelOffset(0.007, "XYZ");
+  tdrStyle->SetLabelSize(0.05, "XYZ");
+
+// For the axis:
+
+  tdrStyle->SetAxisColor(1, "XYZ");
+  tdrStyle->SetStripDecimals(kTRUE);
+  tdrStyle->SetTickLength(0.03, "XYZ");
+  tdrStyle->SetNdivisions(510, "XYZ");
+  tdrStyle->SetPadTickX(1);  // To get tick marks on the opposite side of the frame
+  tdrStyle->SetPadTickY(1);
+
+// Change for log plots:
+  tdrStyle->SetOptLogx(0);
+  tdrStyle->SetOptLogy(0);
+  tdrStyle->SetOptLogz(0);
+
+  tdrStyle->SetPalette(1,0);
+  tdrStyle->cd();
+}
+#+END_SRC
+If your working with one of the major experiments, they'll most
+likely have a style for you to use  (It will invariably be 95% the
+same as above, but the 5% will make *all* the difference). 
+
 *** Important Gotcha's 
+At some point you'll get stuck.  Hopefully you'll be stuck on a good
+problem, but more often than not you'll be stuck on some quirk that
+ROOT has.  Remember ROOT's mantra: "[[http://www.jargon.net/jargonfile/f/feature.html][Its not a bug, its a feature]]!"
 **** TTrees
+***** Drawing trees
+When you call =TTree::Draw=, the order of the axes is "z:y:x"
+rather than the expected "x:y:z" 
+***** Caching trees
+Use TTreeCache to loop over trees rather than the standard
+TTree::GetEntry(i) idiom.  A TTreeCache learns which branches you
+access most often and caches them, speeding up your processing time
+significantly. 
+***** Splitting Trees
+If you want to split a TTree into $n$ statistically independent
+parts use something like:
+#+BEGIN_SRC cpp
+TTree* outTree=tree->CopyTree("Entry$%n==i");
+#+END_SRC
+Here, =n= is the number of parts requested, =i= is the i'th part.  If
+you're just splitting it in half, it would look like:
+#+BEGIN_SRC cpp
+TTree* outTreeA=tree->CopyTree("Entry$%2==0");
+TTree* outTreeB=tree->CopyTree("Entry$%2==1");
+#+END_SRC
 **** TH1
+Despite the name, TH1 is the base class for all histograms.  This can
+lead to much [[http://dwarffortresswiki.org/index.php/DF2012:Losing][!FUN!]]. Be extra wary of null pointers when handling
+TH1's of unknown origin.  
 **** TH2
+***** Splitting a 2D 
+One would expect an interface method like TH2D::Split(), but instead
+you need to use the appropriate THStack constructor:
+[[http://root.cern.ch/root/html/THStack.html#THStack:THStack@2][THStack(const TH1* hist, Option_t* axis = "x", ...)]]
+
+Then call =THStack::GetHists= to get a TList of the histograms.  Of
+course, you'll have to use [[http://root.cern.ch/root/html/TList.html][ROOT's idioms for iterating over lists]],
+**** THStack
+***** GetStack
+To get a histogram representing the sum of a stack use
+THStack::GetStack()->Last()
 **** TFile
+TFile's are greedy about object ownership.  In fact, object ownership
+in ROOT is a very common +bug+ feature.  Many times you'll own objects
+you thought you didn't (memory leak) or, you'll delete objects you
+thought you did (double free core-dump). 
+
+The rule of thumb to keep in mind is "TObjects declared after a file
+is opened are owned by previously opened file" 
+
+Contrast:
+#+BEGIN_SRC cpp 
+TH1F hist("hist","Higgs Discovery Plot", 50,0,200);
+TFile output("discovery.root","RECREATE");
+output.Close();
+#+END_SRC
+with:
+#+BEGIN_SRC cpp 
+TFile output("discovery.root","RECREATE");
+TH1F hist("hist","Higgs Discovery Plot", 50,0,200);
+output.Close();
+#+END_SRC
+
+In the former, the file =discovery.root= will be empty.  In the
+latter, it will contain a copy of =hist=.  
+
+This can get really hairy when you're dealing with pointers.
+Therefore (instead of being a responsible programmer), the best
+approach to managing memory in ROOT is to not manage it until you
+have to.  
+***** Recreate, create, new, update
+From the ROOT docs:
+#+BEGIN_QUOTE
+If option = NEW or CREATE   create a new file and open it for writing,
+                             if the file already exists the file is
+                             not opened.
+           = RECREATE        create a new file, if the file already
+                             exists it will be overwritten.
+           = UPDATE          open an existing file for writing.
+                             if no file exists, it is created.
+           = READ            open an existing file for reading (default).
+#+END_QUOTE
+*Important*: Recreating will destroy the file if it exists.  BE
+CAREFUL when you use this option!
 *** Debugging with ROOT
+Eventually you'll encounter a segmentation fault or segfault in ROOT.
+(They can also go under the name core dump).  This happens when you
+try to read, write, or otherwise abuse a part of memory that doesn't
+belong to you.  The result is that the program (ROOT usually)
+crashes.  ROOT has gotten pretty good at realizing that this has
+happened, and printing information about what was going on when the
+crash happened.  
+**** A "crash" course on reading a stack trace
+Here's a stack trace from a real-live analysis program (SFrame in this
+case)
+#+BEGIN_EXAMPLE
+
+
+
+===========================================================
+There was a crash.
+This is the entire stack trace of all threads:
+===========================================================
+#0  0x0000003ba7e9a075 in waitpid () from /lib64/libc.so.6
+#1  0x0000003ba7e3c741 in do_system () from /lib64/libc.so.6
+#2  0x00002b4f86156256 in TUnixSystem::StackTrace() ()
+   from /cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/root/5.34.07-x86_64-slc5-gcc4.3/lib/libCore.so
+#3  0x00002b4f86155b2c in TUnixSystem::DispatchSignals(ESignals) ()
+   from /cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/root/5.34.07-x86_64-slc5-gcc4.3/lib/libCore.so
+#4  <signal handler called>
+#5  0x00002b4f93f9a47d in UnfoldingStudy::ExecuteEvent(SInputData const&, double) () from /home/dmb60/bFrame/SFrame/lib/libMiniReaders.so
+#6  0x00002b4f85c33616 in SCycleBaseExec::Process(long long) ()
+   from /home/dmb60/bFrame/SFrame/lib/libSFrameCore.so
+#7  0x00002b4f8a62e1e0 in TTreePlayer::Process(TSelector*, char const*, long long, long long) ()
+   from /cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/root/5.34.07-x86_64-slc5-gcc4.3/lib/libTreePlayer.so
+#8  0x00002b4f85c47ce8 in SCycleController::ExecuteNextCycle() ()
+   from /home/dmb60/bFrame/SFrame/lib/libSFrameCore.so
+#9  0x00002b4f85c43872 in SCycleController::ExecuteAllCycles() ()
+   from /home/dmb60/bFrame/SFrame/lib/libSFrameCore.so
+#10 0x000000000040226c in main ()
+===========================================================
+
+
+The lines below might hint at the cause of the crash.
+If they do not help you then please submit a bug report at
+http://root.cern.ch/bugs. Please post the ENTIRE stack trace
+from above as an attachment in addition to anything else
+that might help us fixing this issue.
+===========================================================
+#5  0x00002b4f93f9a47d in UnfoldingStudy::ExecuteEvent(SInputData const&, double) () from /home/dmb60/bFrame/SFrame/lib/libMiniReaders.so
+#6  0x00002b4f85c33616 in SCycleBaseExec::Process(long long) ()
+   from /home/dmb60/bFrame/SFrame/lib/libSFrameCore.so
+#7  0x00002b4f8a62e1e0 in TTreePlayer::Process(TSelector*, char const*, long long, long long) ()
+   from /cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/root/5.34.07-x86_64-slc5-gcc4.3/lib/libTreePlayer.so
+#8  0x00002b4f85c47ce8 in SCycleController::ExecuteNextCycle() ()
+   from /home/dmb60/bFrame/SFrame/lib/libSFrameCore.so
+#9  0x00002b4f85c43872 in SCycleController::ExecuteAllCycles() ()
+   from /home/dmb60/bFrame/SFrame/lib/libSFrameCore.so
+#10 0x000000000040226c in main ()
+===========================================================
+
+
+
+#+END_EXAMPLE
+The numbered lines followed by the memory address (the 64bit hex
+numbers) represent the order in which function was called with the
+most recent call at the top of the list.  Since this code was running
+a single thread, there is a only one stack trace, and then there is
+the abbreviated stack trace. If there were multiple threads, there
+would be a trace for each thread. Typically the fastest route to a
+user called function is to look at the portion:
+#+BEGIN_EXAMPLE
+The lines below might hint at the cause of the crash.
+If they do not help you then please submit a bug report at
+http://root.cern.ch/bugs. Please post the ENTIRE stack trace
+from above as an attachment in addition to anything else
+that might help us fixing this issue.
+===========================================================
+#5  0x00002b4f93f9a47d in UnfoldingStudy::ExecuteEvent(SInputData const&, double) () from /home/dmb60/bFrame/SFrame/lib/libMiniReaders.so
+#6  0x00002b4f85c33616 in SCycleBaseExec::Process(long long) ()
+   from /home/dmb60/bFrame/SFrame/lib/libSFrameCore.so
+#7  0x00002b4f8a62e1e0 in TTreePlayer::Process(TSelector*, char const*, long long, long long) ()
+   from /cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/root/5.34.07-x86_64-slc5-gcc4.3/lib/libTreePlayer.so
+#8  0x00002b4f85c47ce8 in SCycleController::ExecuteNextCycle() ()
+   from /home/dmb60/bFrame/SFrame/lib/libSFrameCore.so
+#9  0x00002b4f85c43872 in SCycleController::ExecuteAllCycles() ()
+   from /home/dmb60/bFrame/SFrame/lib/libSFrameCore.so
+#10 0x000000000040226c in main ()
+===========================================================
+#+END_EXAMPLE
+
+This strips out the system calls that clutter the full trace, and the
+top frame (#5 in this case) is the last function called that was
+defined (UnfoldingStudy::ExecuteEvent).  This means that somewhere in
+that function, someone tried to access memory they shouldn't have.  
+
+You can trace the whole program from the =main()= invocation.  To
+gain more insight into all the information contained in the stack
+trace, it is very useful to go through a =gdb= tutorial.  
+
+Also, see [[*Getting%20Help][Getting Help]] for more problem solving strategies before
+filing a bug report.  Remember: you probably just found a feature,
+not a bug.   
+
+**** Using gdb
+Here are some good gdb (Gnu DeBugger) tutorials 
+- [[https://www.cs.cmu.edu/~gilpin/tutorial/][Debugging under Unix: gdb Tutorial]]
+- [[http://www.unknownroad.com/rtfm/gdbtut/gdbtoc.html][RMS's gdb Debugger Tutorial]] (not the same [[http://stallman.org/][RMS]])
+- [[https://www.gnu.org/software/gdb/documentation/][GDB manual]] from gnu.org
+- [[http://www.muenster.de/~naumana/rootgdb.html][Debugging ROOT with GDB]], somewhat dated but the information is
+  relevant.  Written by Axel Naumann, a real-life ROOT hacker!
+
+**** Valgrind
+If you have memory related problems, you should be aware of
+[[valgrind.org][valgrind]].  The [[http://valgrind.org/docs/manual/QuickStart.html][quick-start is here]].
+
 *** Advanced Build Options
 [[http://root.cern.ch/drupal/content/installing-xrootd][Full instructions here]]
 
