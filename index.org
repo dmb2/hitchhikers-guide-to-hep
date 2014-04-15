@@ -20,11 +20,39 @@ If you find this guide entertaining, but uninformative, then please
 send a bottle of Old Janx Spirit to The Editor. The Guide is not
 intended to be read linearly.  Jump to the section you need, and if
 that section contains links to other sections, then please see above
-regarding edits.
+regarding edits. 
+
+The online version of the guide includes a Table of Contents, simply
+mouse over it and a full list of topics will pop up.  You can click
+any topic to jump to that section.  If you read this in org-mode, the
+file will open folded.  It will look like:
+#+BEGIN_EXAMPLE
+#+TITLE: DON'T PANIC
+#+AUTHOR: David Bjergaard
+#+EMAIL: david.b@duke.edu
+#+OPTIONS:   H:5 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+LaTeX_CLASS: article
+
+* A Hitchhiker's guide to High Energy Physics...
+#+END_EXAMPLE
+Place your cursor at the beginning of =* A Hitchhiker's...= and hit
+=TAB=, this will expand the topics allowing you to see and over-view
+of the document.  Move to whichever topic you're interested in and
+hit =TAB= again to expand that section.  
+
+If you are reading this in vim without [[https://github.com/jceb/vim-orgmode][Vim-OrgMode]], then you will
+have no folding and the whole document will be expanded.  Jump to
+various headlines by searching for "=**=" (two levels deep),
+"=***=" (three levels deep), "=****=" (four levels deep), etc.  
+
+If you are reading this as a PDF, there is no Table of Contents, just
+scroll to the section you are interested in.  
 
 *NOTE* If you are reading this on github, a link to another section
 will probably be broken due to a bug in how github parses org-flavored
 markdown.  
+
 *** Disclaimer
 All bottles of donated Old Janx Spirit are redirected to our lawyers,
 who are out enjoying them now.  They insisted that we include this
@@ -244,9 +272,11 @@ others, but they are many, and beyond the scope of this guide.
 
 The most important thing to do after [[https://stackoverflow.com/questions/1430164/differences-between-Emacs-and-vim][choosing an editor]] is to work
 through its corresponding tutorial.  An oft heard recommendation is
-that "Emacs is easier to learn than vi(m)".  True enlightenment in
-either of these editors is roughly the same after completing the
-corresponding tutorial.  
+that "Emacs is easier to learn than vi(m)".  A more accurate statement
+may be that it is easier to make things happen in Emacs than vim, but
+the two editors are in some sense the yin and yang of text. True
+enlightenment in either of these editors takes roughly the same amount
+of time after completing the corresponding tutorial.
 
 *** Finding an editor Guru
 After you have finished the tutorial for your editor of choice, then
@@ -300,26 +330,27 @@ The Editor finds the following packages essential:
   a remote file, type "C-x C-f" and then type
   '/ssh:user@remote.host:~/remote/path', note that tab completion
   works remotely just the same as visiting a file locally! Tramp is
-  also aware of ssh alias setup, see [[*Configuring SSH]].
-- filladapt: a mode for more intelligently filling text in paragraphs
-- flyspell: a spell checker that highlights mispelled words (will check
+  also aware of ssh aliases in =~/.ssh/config=, see [[*Configuring SSH]].
+- [[http://www.emacswiki.org/emacs/FillAdapt][filladapt]]: a mode for more intelligently filling text in paragraphs
+- [[http://www.emacswiki.org/emacs/FlySpell][flyspell]]: a spell checker that highlights mispelled words (will check
   in comments if in a programming mode)
-- rect-mark: Adds facilities for marking yanking and otherwise
+- [[http://www.emacswiki.org/cgi-bin/wiki/RectangleMark][rect-mark]]: Adds facilities for marking yanking and otherwise
   editing columnar formatted text. 
-- dired: a directory editor for manipulating files in the Emacs way
-- solarized-theme: A theme by Ethan Schoonover, comes in dark and
+- [[info:emacs#Dired][dired]] (another info link): a directory editor for manipulating files
+  in the Emacs way
+- [[http://ethanschoonover.com/solarized][solarized-theme]]: A theme by Ethan Schoonover, comes in dark and
   light variants that actually complement each other well, another
   good one is zenburn 
-- ibuffer: changes the buffer interface and allows you to group
+- [[http://www.emacswiki.org/emacs/IbufferMode][ibuffer]]: changes the buffer interface and allows you to group
   buffers based on various buffer attributes
-- paredit: Enhances Emacs's awareness of parenthetic structure 
-- smartparens: Electrically pairs and deletes delimeters when
+- [[http://www.emacswiki.org/emacs/ParEdit][paredit]]: Enhances Emacs's awareness of parenthetic structure 
+- [[https://github.com/Fuco1/smartparens][smartparens]]: Electrically pairs and deletes delimeters when
   appropriate (never miss a closing brace again!)
-- auto-complete: When setup properly, tab completes anything at any
+- [[http://www.emacswiki.org/emacs/AutoComplete][auto-complete]]: When setup properly, tab completes anything at any
   point depending on past input or names in other buffers.
-- auctex: LaTeX editing facilities (for when org-mode doesn't quite cut
+- [[http://www.emacswiki.org/emacs/AUCTeX][auctex]]: LaTeX editing facilities (for when org-mode doesn't quite cut
   it)
-- org-mode: This guide is written in org-mode. Org-mode can manage
+- [[http://orgmode.org/][org-mode]]: This guide is written in org-mode. Org-mode can manage
   [[http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html][todo lists]], [[http://orgmode.org/worg/org-web.html][write websites]], serve as a [[http://www.phy.duke.edu/~dmb60/][lab notebook]], execute code
   for [[http://orgmode.org/worg/org-contrib/babel/][literate programming]] and many other things.  People switch to
   Emacs just to get org-mode! 
@@ -335,7 +366,7 @@ Some particularly useful ones are [[http://emacsredux.com/][Emacs Redux]],
 [[http://www.masteringemacs.org/][Mastering Emacs]], and [[http://emacs-fu.blogspot.com/][Emacs Fu]].
 
 Various religious texts granting Emacs users various powers (such as
-reading email, chatting, tweeting, playing games, listening to music)
+reading [[http://www.emacswiki.org/emacs/CategoryMail][email]], [[http://www.emacswiki.org/emacs/CategoryChatClient][chatting]], [[http://www.emacswiki.org/emacs/Twitter][tweeting]], [[http://www.emacswiki.org/emacs/CategoryGames][playing games]], [[http://www.emacswiki.org/emacs/MusicPlayers][listening to music]])
 can be found at the [[http://www.emacswiki.org/emacs/][Emacs Wiki]]. 
 
 *** Vim
@@ -1254,15 +1285,47 @@ same as above, but the 5% will make *all* the difference).
 At some point you'll get stuck.  Hopefully you'll be stuck on a good
 problem, but more often than not you'll be stuck on some quirk that
 ROOT has.  Remember ROOT's mantra: "[[http://www.jargon.net/jargonfile/f/feature.html][Its not a bug, its a feature]]!"
+
+ROOT's object protocol is very strange.  The [[http://root.cern.ch/drupal/content/c-coding-conventions][naming schema]] is based on
+an industry standard for C programs where it's not possible to use
+namespaces. The result is very confusing for new users (very good for
+HEP).  Every object in root that can be written to disk (ie saved in a
+ROOT file) derives from a =TObject= base class.  This base class
+defines a protocol for objects. (All objects can print themselves,
+have a name, have a title, have a class name, etc).  This makes it
+possible to have a list of disparate objects (as long as its a list of
+=TObject*=).  As you gain more experience with ROOT, this is becomes
+a power tool.  Like any power tool ([[https://en.wikipedia.org/wiki/Tim_Taylor_%2528character%2529#Tim_Taylor][as Tim Taylor can attest]]), this
+can be abused to no end. 
+
 **** TTrees
 ***** Drawing trees
-When you call =TTree::Draw=, the order of the axes is "z:y:x"
-rather than the expected "x:y:z" 
+When you call =TTree::Draw= to draw multi-dimensional histograms, the
+order of the axes is "z:y:x" rather than the expected "x:y:z"
 ***** Caching trees
-Use TTreeCache to loop over trees rather than the standard
-TTree::GetEntry(i) idiom.  A TTreeCache learns which branches you
+Use =TTreeCache= to loop over trees rather than the standard
+=TTree::GetEntry(i)= idiom.  A =TTreeCache= learns which branches you
 access most often and caches them, speeding up your processing time
-significantly. 
+significantly. [[http://root.cern.ch/root/html/TTreeCache.html][Documentation here]].  Since you won't read to the end
+(no one does...) here is the docs for when *not* to use a
+=TTreeCache=:
+#+BEGIN_EXAMPLE
+    SPECIAL CASES WHERE TreeCache should not be activated
+
+
+   When reading only a small fraction of all entries such that not all branch
+   buffers are read, it might be faster to run without a cache.
+
+
+   HOW TO VERIFY That the TreeCache has been used and check its performance
+
+
+  Once your analysis loop has terminated, you can access/print the number
+  of effective system reads for a given file with a code like
+  (where TFile* f is a pointer to your file)
+
+   printf("Reading %lld bytes in %d transactions\n",f->GetBytesRead(),  f->GetReadCalls());
+#+END_EXAMPLE
 ***** Splitting Trees
 If you want to split a TTree into $n$ statistically independent
 parts use something like:
@@ -1270,10 +1333,27 @@ parts use something like:
 TTree* outTree=tree->CopyTree("Entry$%n==i");
 #+END_SRC
 Here, =n= is the number of parts requested, =i= is the i'th part.  If
-you're just splitting it in half, it would look like:
+you're just splitting it in half, a full blown macro (from the
+trenches) would look like:
 #+BEGIN_SRC cpp
-TTree* outTreeA=tree->CopyTree("Entry$%2==0");
-TTree* outTreeB=tree->CopyTree("Entry$%2==1");
+// A macro to split a tree
+{
+  TFile* file=TFile::Open("./merged_dijets.root");
+  TTree* tree=(TTree*)file->Get("micro");
+  TFile* fileA=new TFile("UnfoldingStudy.dijets-pt1.root","RECREATE");
+  fileA->cd();
+  TTree* treeA=tree->CopyTree("Entry$%2==0");
+  treeA->Write();
+  fileA->Write();
+  fileA->Close();
+  TFile* fileB=new TFile("UnfoldingStudy.dijets-pt2.root","RECREATE");
+  fileB->cd();
+  TTree* treeB=tree->CopyTree("Entry$%2==1");
+  treeB->Write();
+  fileB->Write();
+  fileB->Close();
+  
+}
 #+END_SRC
 **** TH1
 Despite the name, TH1 is the base class for all histograms.  This can
@@ -1281,7 +1361,7 @@ lead to much [[http://dwarffortresswiki.org/index.php/DF2012:Losing][!FUN!]]. Be
 TH1's of unknown origin.  
 **** TH2
 ***** Splitting a 2D 
-One would expect an interface method like TH2D::Split(), but instead
+One would expect an interface method like =TH2D::Split()=, but instead
 you need to use the appropriate THStack constructor:
 [[http://root.cern.ch/root/html/THStack.html#THStack:THStack@2][THStack(const TH1* hist, Option_t* axis = "x", ...)]]
 
@@ -1290,7 +1370,7 @@ course, you'll have to use [[http://root.cern.ch/root/html/TList.html][ROOT's id
 **** THStack
 ***** GetStack
 To get a histogram representing the sum of a stack use
-THStack::GetStack()->Last()
+=THStack::GetStack()->Last()=
 **** TFile
 TFile's are greedy about object ownership.  In fact, object ownership
 in ROOT is a very common +bug+ feature.  Many times you'll own objects
@@ -1322,7 +1402,7 @@ approach to managing memory in ROOT is to not manage it until you
 have to.  
 ***** Recreate, create, new, update
 From the ROOT docs:
-#+BEGIN_QUOTE
+#+BEGIN_EXAMPLE
 If option = NEW or CREATE   create a new file and open it for writing,
                              if the file already exists the file is
                              not opened.
@@ -1331,7 +1411,7 @@ If option = NEW or CREATE   create a new file and open it for writing,
            = UPDATE          open an existing file for writing.
                              if no file exists, it is created.
            = READ            open an existing file for reading (default).
-#+END_QUOTE
+#+END_EXAMPLE
 *Important*: Recreating will destroy the file if it exists.  BE
 CAREFUL when you use this option!
 *** Debugging with ROOT
@@ -1395,12 +1475,12 @@ that might help us fixing this issue.
 
 #+END_EXAMPLE
 The numbered lines followed by the memory address (the 64bit hex
-numbers) represent the order in which function was called with the
-most recent call at the top of the list.  Since this code was running
-a single thread, there is a only one stack trace, and then there is
-the abbreviated stack trace. If there were multiple threads, there
-would be a trace for each thread. Typically the fastest route to a
-user called function is to look at the portion:
+numbers) represent the order in which each function was called.  The
+most recent call is at the top of the list.  Since this code was
+running a single thread, there is a only one stack trace. If there
+were multiple threads, there would be a trace for each
+thread. Typically the fastest route to a user called function is to
+look at the portion:
 #+BEGIN_EXAMPLE
 The lines below might hint at the cause of the crash.
 If they do not help you then please submit a bug report at
@@ -1423,7 +1503,7 @@ that might help us fixing this issue.
 
 This strips out the system calls that clutter the full trace, and the
 top frame (#5 in this case) is the last function called that was
-defined (UnfoldingStudy::ExecuteEvent).  This means that somewhere in
+defined (=UnfoldingStudy::ExecuteEvent=).  This means that somewhere in
 that function, someone tried to access memory they shouldn't have.  
 
 You can trace the whole program from the =main()= invocation.  To
