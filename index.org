@@ -21,6 +21,21 @@ send a bottle of Old Janx Spirit to The Editor. The Guide is not
 intended to be read linearly.  Jump to the section you need, and if
 that section contains links to other sections, then please see above
 regarding edits. 
+*** Navigating the guide
+A note on key notation: Keys sequences follow the "emacs" style for
+notating keys.  Therefore "=C-c=" means hold down the control key,
+while pressing the =c= key. "=M-a=" would mean hold down the "Meta" key
+and press the =a= key.  On most keyboards the Meta key is the key
+labeled "Alt".  There is also the "Super" key, on most PC keyboards
+this key has the "Windows icon" on it.  The function keys 1-12 are
+notated as =F1= etc.  The escape key is usually notated =ESC=, and
+the enter key is notated =RET= for Return.  A sequence is denoted by
+a series of keys and spaces or dashes.  A dash means hold the two
+keys at the same time, a space means release the previous keys and
+continue with the next instruction.  Some examples:
+- "=C-c C-a=" Control-C release Control-A
+- "=C-c a=" Control-c release A
+- "=C-M-f=" Press Control, then Meta, then F without releasing
 
 The online version of the guide includes a Table of Contents, simply
 mouse over it and a full list of topics will pop up.  You can click
@@ -34,7 +49,7 @@ file will open folded.  It will look like:
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
 #+LaTeX_CLASS: article
 
-* A Hitchhiker's guide to High Energy Physics...
+ * A Hitchhiker's guide to High Energy Physics...
 #+END_EXAMPLE
 Place your cursor at the beginning of =* A Hitchhiker's...= and hit
 =TAB=, this will expand the topics allowing you to see and over-view
@@ -85,7 +100,7 @@ All of the sources for the guide are hosted on github.
 
 Here are some quick-links:
 - [[http://www.phy.duke.edu/~dmb60/the-guide/][The Guide]] the online version of the guide
-- [[./index.pdf][PDF of The Guide]] if you prefer that sort of thing, though its of
+- [[./the-guide.pdf][PDF of The Guide]] if you prefer that sort of thing, though its of
   limited use in printed form.
 - [[http://www.phy.duke.edu/~dmb60/the-guide/the-guide.org][Org source]] of the online version
 - [[https://github.com/dbjergaard/hitchhikers-guide-to-hep][Github Repo]] where source code is hosted
@@ -102,20 +117,22 @@ Then you'll have a copy of the org file, as well as the compiled
 macros and compiled programs.  
 
 ** For Windows Hitchhikers
-While it is possible to practice HEP from the comfort of Bill Gates'
-brain child, it is not recommended by The Guide editors.  (They don't
-run Windows anyway, daylight scares them.) If you insist on using
-Windows, the following is a list of useful software.
-
 Everyone should read [[*For%20Linux%20Hitchhikers][For Linux Hitchhikers]] to understand what
 functionality they'll need (especially when working with or on remote
 machines)
+
+While it is possible to practice HEP from the comfort of Bill Gates'
+brain child, it is not recommended by The Editor.  (He doesn't
+run Windows anyway, daylight scares him.) If you insist on using
+Windows, the following is a list of useful software.
 *** Software you will need
 - [[*For%20Linux%20Hitchhikers][For Linux Hitchhikers]]
 - [[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html][PuTTY (ssh client for Windows)]]: Secure SHell is the standard way of
   accessing *nix machines remotely.  PuTTY is the Windows client for
   this. 
-- ROOT (Not for the faint of heart)
+- [[*On%20Windows][ROOT]]: The industry standard for High Energy Physics analysis.
+   Beware: this program uses an [[https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker's_Guide_to_the_Galaxy#Infinite_Improbability_Drive][Infinite Improbability Drive]] to
+   perform analysis.  
 - [[http://www.straightrunning.com/XmingNotes/][Xming an X11 server for Windows]]: This allows you to tunnel X11
   applications (ROOT's histogram interface) to your windows desktop,
   this way your data (and ROOT) can live on a remote machine, but you
@@ -135,7 +152,7 @@ through VirtualBox on windows.
 *** Software you will need
  - [[https://www.gnu.org/software/screen/][Screen]]: This lets you pick up where you left off if your ssh
    connection drops, [[http://www.ibm.com/developerworks/aix/library/au-gnu_screen/][here]] is a good conceptual introduction
- - [[http://root.cern.ch/drupal/content/installing-root-source][ROOT]]: The industry standard for High Energy Physics analysis.
+ - [[*On%20Ubuntu][ROOT]]: The industry standard for High Energy Physics analysis.
    Beware: this program uses an [[https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker's_Guide_to_the_Galaxy#Infinite_Improbability_Drive][Infinite Improbability Drive]] to
    perform analysis.  
  - [[https://help.ubuntu.com/community/Beginners/BashScripting][BASH]]: The command shell of choice for ATLAS Physicists.  You may
@@ -144,6 +161,40 @@ through VirtualBox on windows.
    weird reason.
  - [[*Editors][Editor]]: Choose you're religion wisely, it will eventually permeate
    your being and change the way you approach life in general.
+*** The Terminal
+You will, regardless of which operating system you use, be typing
+commands into a terminal.  Its inevitable, powerful, and intimidating
+to new users.  HEP hitchhikers should feel at home.  Proficiency with
+the command line is essential to being a functioning HEP researcher.
+
+The terminal is like the Galaxy Hitchhiker's [[https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker%2527s_Guide_to_the_Galaxy#Towels][utility towel]]. Every
+hitchhiker needs a terminal, and each hitchhiker customises his or
+here towel to their needs.  
+
+If you've never touched a terminal before, and don't know what the
+command line is, then [[http://lab.demog.berkeley.edu/Docs/12important/12important.pdf%E2%80%8E][go read the great pedagogical introduction]] by
+Carl Mason.  
+
+Most modern operating systems' default shell is bash.  Be aware that
+bash's line editor is set up to respect emacs keybindings, this means
+"C-a" is beginning of line "C-e" the end, etc. You can change to vi
+bindings by typing:
+#+BEGIN_SRC sh
+set -o vi
+#+END_SRC
+If you forget which mode your in, check it by typing:
+#+BEGIN_SRC sh
+set -o
+#+END_SRC
+If you want these changes to be permanent, add them to your =.bashrc=.
+If these commands give you an error, type:
+#+BEGIN_SRC sh
+echo $SHELL
+#+END_SRC
+And see what it says (=/bin/bash= if its bash, may be =/bin/zsh= or
+=/bin/tcsh=). If it is not bash, then you need to google information
+for the line editor of whichever shell you are using.  
+
 *** Configuring SSH
 Many of these tips are [[http://blogs.perl.org/users/smylers/2011/08/ssh-productivity-tips.html][lifted from here]].
 Put this in you're =~/.ssh/config= file:
@@ -253,6 +304,9 @@ functionality they'll need (especially when working with or on remote machines)
  - [[https://en.wikipedia.org/wiki/Terminal_%2528OS_X%2529][Terminal.app]]: This is Mac OS's default terminal emulator. It comes
    with Mac OS, so you shouldn't need to install it.  You should be
    aware of it though.
+ - [[*On%20MacOS][ROOT]]: The industry standard for High Energy Physics analysis.
+   Beware: this program uses an [[https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker's_Guide_to_the_Galaxy#Infinite_Improbability_Drive][Infinite Improbability Drive]] to
+   perform analysis.  
  - [[http://aquamacs.org/][Aquamacs]]: A port of Emacs that uses Aqua as a standard OS X
    application. This integrates Emacs with the Mac OS UI.  In the
    long history of corporate acquisitions a lot of Emacs hackers (from
@@ -424,21 +478,20 @@ problems. -- Jaimie Zawinski
 
 ** Software Design
 Well designed software is a true marvel, in the same way architecture
-is a marvel.  You are a stone mason, and you are building a
-cathedral.  
+is a marvel.  You are a stone mason, and you are building a cathedral.
+Repeat that last sentence every time you want to take a shortcut when
+coding. A cathedral can't stand on a flimsy foundation.
 
 In order to help you on your way, you should read the following:
 - [[http://aosabook.org/en/index.html][Architecture of Open Source Applications]]
-- [[https://www.thc.org/root/phun/unmaintain.html][How to Write Unmaintainable Code]] (warning, many physicists take this
+- [[https://www.thc.org/root/phun/unmaintain.html][How to Write Unmaintainable Code]] (*warning*, many physicists take this
   guide literally)
 
-Good software design is very hard, but when you have the pleasure of
+Good software design is *very* hard, but when you have the pleasure of
 using well designed software, it is a true joy. Some examples of good
 HEP software:
 - [[http://rivet.hepforge.org/][Rivet]]: Robust Independent Validation of Experiment and Theory
 - [[fastjet.fr][Fastjet]]: Software package for jet finding
-- [[http://root.cern.ch/drupal/content/roofit][RooFit]]: Software for likelihood fitting (caveat: there are some
-  strange namespace issues with this code)
 
 ** A brief introduction to C++ 
 C++ is the industry standard programming language for analysis in
@@ -765,7 +818,8 @@ right ways."
 For better or worse, for richer or poorer (always poorer), HEP
 Physicists are married to (read: stuck with) ROOT.  Its the [[http://homes.cs.washington.edu/~weise/uhh-download.html][UNIX]] of
 HEP.  There is method in the madness, though it is not clear what the
-method is (just yet). 
+method is (just yet). The Editor is fairly certain that ROOT uses
+[[https://en.wikipedia.org/wiki/Bistromath#Bistromathic_drive][Bistromath]]ics for many of its statistical operations.
 
 ROOT is the industry standard tool for analyzing and manipulating
 gobs of data.  Other statistical analysis tools [[http://www.matthewckeller.com/html/memory.html][crash and burn]] on the
@@ -1568,8 +1622,92 @@ installed and won't function properly. You can now continue with the
 [[*Installing%20and%20setting%20up][regular instructions]]
 
 ** Physics
-*** Relativistic Mechanics
-*** Mandelstam Variables
+At some point (not necessarily right away) a hitchhiker will want to
+better understand the physics underlying the research he/she is
+doing.  There are numerous textbooks on the subject, but a few stand
+out as particularly good.
+- [[http://www.amazon.com/Introduction-Elementary-Particles-David-Griffiths/dp/3527406018/ref%3Dpd_sim_b_1?ie%3DUTF8&refRID%3D1S6X949W6P9EM9E95V8A][Introduction to Elementary Particles 2nd Ed.]] - David Griffiths
+- [[http://www.amazon.com/Quarks-Leptons-Introductory-Particle-Physics/dp/0471887412][Quarks and Leptons: An Introductory Course in Modern Particle]]
+  Physics - Francis Halzen and Alan D. Martin
+*** Study Guide For Griffiths
+If you've never touched HEP or heard of Particle Physics, read
+chapter 1 and 2.  Otherwise here's a rough path through the book (with
+suggested exercises to work):
+- Chapter 3 (Problems 3.4, 3.14 (for fun), 3.15, 3.16, 3.25, 3.26
+  (last two cover Mandelstam variables, which are very useful tools))
+- Chapter 6 (Problems 6.8 or 6.9, 6.12, 6.13, 6.14, 6.15)
+- Chapter 7 
+- Chapter 9
+- Chapter 10
+
+You can add Chapter 8 at your leisure, or cover that material in
+Halzen and Martin.  
+
+This assumes the reader has covered the material in chapter 4 in a
+undergraduate quantum course (at the level of Griffiths).  Chapter 4
+is too much of a review to be useful as a primary source.  Griffiths
+quantum book covers it, but Townsend's "A Modern Approach to Quantum
+Mechanics" is a better text to have on your bookshelf.
+
+*** Coordinate Systems used in HEP
+
+*** Monte Carlo Event Weights
+This is taken from The Editor's Lab Notebook (which is locked by a
+password, and hence will only be read by one person):
+
+The task: plot Monte Carlo predictions against data. This seems to be
+another topic that is confusing until its not and no one documents it
+once its no longer confusing.  Here's my stab at it:
+
+Someone generates gobs of MC for use in any analysis for some process
+( $W\rightarrow \mu\nu+p$ where p is a parton).  I want to study what
+a variable will look like in data, so I run my analysis over the MC
+and get a plot out.  Then I run the same code over data and plot the
+two on top of each other.  The trouble is that the number of MC events
+I ran over is not the same as the amount of data I ran over.  Now the
+problem becomes how to appropriately scale the Monte Carlo prediction
+to match the data (the result of the experiment).
+
+As experimental high energy physicists, we define variables so that we
+can relate the cross sections predicted by theory to what we measure
+out of the beam.  To this end, we can get the number of expected
+events from
+\begin{equation}
+N_{D}=\sigma \mathcal{L}
+\end{equation}
+Here $\sigma$ is the cross section in barns (typically pico-barns) and
+$\mathcal{L}$ is the integrated luminosity collected by the
+experiment. How do we compare this to Monte Carlo? There, the computer
+counts up the number of events that matched the criteria, and what we
+want is
+\begin{equation}
+N_{exp}=W N_{MC}
+\end{equation}
+Here $N_{exp}$ is the expected number of events we get from Data.  In
+order to compare data to MC we need to scale $N_{exp}$ to the same
+order as $N_{D}$.  There is a cross section associated with the MC
+dataset, so we can write
+\begin{equation}
+N_{exp}=\sigma_{MC}\mathcal{L}
+\end{equation}
+It is possible that $\sigma_{MC}$ is corrected to the next order.  In
+order to avoid recalculating everything, a $k$ factor is reported as
+the ratio of $\sigma_{NLO}/\sigma_{MC}$.  Then all you have to do is
+multiply $\sigma_{MC}$ by the k factor, and the calculation is updated
+to the newest NLO prediction.
+
+We're interested in the weight, so
+\begin{equation}
+W=\frac{\sigma_{MC}k\mathcal{L}}{N_{MC}}
+\end{equation}
+Now, when each bin in the Monte Carlo histogram is scaled by W, it
+will be equal to the theoretically expected yield calculated by
+$\sigma_{MC}k$.
+
+*** Drawing Feynman Diagrams Digitally
+There are many possibilities. The most "user friendly" is probably
+[[http://jaxodraw.sourceforge.net/][JaxoDraw]].  Its even got a name reminiscent of Douglas Adams!
+
 *** What to do if you've lost a 2\pi
 Calm down, take a deep breath and read the first line of The Guide.
 Then come back here.  Somewhere a fellow grad student has a copy of
@@ -1594,7 +1732,7 @@ what can be found on a hard drive somewhere (plots, text, code etc).
 The Editor keeps an org-mode notebook.  There is a thorough write-up
 here. 
 **** Flat text file
-On option is to keep a (well organized) text file for recording what
+One option is to keep a (well organized) text file for recording what
 you're doing.  Paste links and your thoughts here.  Choose a markdown
 language and write your posts in that.  This way you are forced to
 keep more structure in the file, and you can export to whatever
