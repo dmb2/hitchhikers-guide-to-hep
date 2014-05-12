@@ -13,10 +13,10 @@ pdf: $(PDF_FILES)
 html: $(HTML_FILES)
 
 %.html: %.org
-	emacs $< --batch -f org-export-as-html --kill
+	/usr/bin/emacs $< --batch -f org-export-as-html --kill
 
 %.pdf: %.org
-	emacs $< --batch -f org-export-as-pdf --kill
+	/usr/bin/emacs $< --batch -f org-export-as-pdf --kill
 
 install: pdf html
 	cp index.org ${HOME}/public/the-guide/the-guide.org

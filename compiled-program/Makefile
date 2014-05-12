@@ -10,7 +10,13 @@ CXXFLAGS=$(shell root-config --ldflags) -pg -I$(INCDIR) -I$(ROOTINCDIR)	\
 $(DFLAGS) $(WFLAGS) -ansi
 
 .PHONY: all clean 
-all: split-tree
+all: runAnalysis
 
-split-tree: split-tree.o
-	$(CC) $< -o split-tree $(LDFLAGS) 
+runAnalysis: analysis.o runAnalysis.o
+	$(CC) $? -o runAnalysis $(LDFLAGS) 
+runAnalysis.o: ./bin/main.C
+	$(CC) $(CXXFLAGS) -c $< -o $@
+analysis.o: ./src/analysis.C
+	$(CC) $(CXXFLAGS) -c $< -o $@
+clean:
+	-rm *.o runAnalysis

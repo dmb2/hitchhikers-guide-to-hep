@@ -197,7 +197,7 @@ for the line editor of whichever shell you are using.
 
 *** Configuring SSH
 Many of these tips are [[http://blogs.perl.org/users/smylers/2011/08/ssh-productivity-tips.html][lifted from here]].
-Put this in you're =~/.ssh/config= file:
+Put this in your =~/.ssh/config= file:
 #+BEGIN_EXAMPLE
 ControlMaster auto
 ControlPath /tmp/ssh_mux_%h_%p_%r
@@ -909,7 +909,7 @@ sudo apt-get build-dep root-system
 #+END_SRC
 And let =apt= install and manage any dependencies ROOT needs.  This
 is overkill, even for a "bells and whistles" build of ROOT.
-
+**** May the Source be with you
 Let's get a copy of the source:
 #+BEGIN_SRC sh
 git clone http://root.cern.ch/git/root.git
@@ -933,7 +933,7 @@ and switch you to it. If you're new to "[[https://en.wikipedia.org/wiki/Version_
 "[[https://en.wikipedia.org/wiki/Source_code_management][source control management]]" then its useful to do a tutorial to learn
 the basics.  In HEP, the major system used is called SVN, in open
 source, git has become the de facto standard almost overnight.
-
+**** Building 
 With our code checked out and ready, we need to configure it to match
 the computer we're compiling on.  To do this:
 #+BEGIN_SRC sh
@@ -997,7 +997,7 @@ able to instruct you on what went wrong.
 If you don't have a senior grad student handy, try googling some of
 the output and seeing if you can get anywhere.  There is also the
 [[http://root.cern.ch/phpBB3/viewforum.php?f%3D3&sid%3Db8e88bc1be4e5f599aedd95aeb047349][ROOT Talk Forums]].  
-
+**** Using your new superpower
 Now, when you want to use =root=, you can run the command:
 #+BEGIN_SRC sh
 source ~/root/bin/thisroot.sh
@@ -1162,7 +1162,7 @@ of the box, but there are some things to keep in mind.
     it to C++. This is fairly advanced, but not impossible. You'll
     have to generate CINT dictionaries for your source files.
 If you're looking for a more "pythonic" (not my word) experience,
-maybe give =[[www.rootpy.org][rootpy]]= a shot. See also [[*An%20even%20briefer%20introduction%20to%20Python][An even briefer introduction to
+maybe give [[www.rootpy.org][rootpy]] a shot. See also [[*An%20even%20briefer%20introduction%20to%20Python][An even briefer introduction to
 Python]] for resources to learn python itself.
 
 *** Fitting Data with RooFit
@@ -1189,6 +1189,10 @@ This means two things:
    "hit a button" and get the plot is very useful unless you have a
    room full of [[https://en.wikipedia.org/wiki/The_Turk][Mechanical Turks]] lying around)
 
+This also means its probably a good idea to keep =*.root= files
+containing your histograms for last minute style changes if you are
+writing a presentation.
+
 Producing a publication quality plot can be challenging initially,
 however ROOT includes the concept of a "Style" which can be applied.
 These are global rules for how plots should be printed.  In previous
@@ -1200,7 +1204,7 @@ ROOT newbies from seasoned ROOT hackers.
 Now, things are better, though the idea that "each physicist set their
 own standard" has stuck, and so they're are many styles floating
 around. 
-
+**** Example Style
 An example style (probably from the CMS TDR, the details are lost to
 time):
 #+BEGIN_SRC cpp
@@ -1334,6 +1338,32 @@ time):
 If your working with one of the major experiments, they'll most
 likely have a style for you to use  (It will invariably be 95% the
 same as above, but the 5% will make *all* the difference). 
+
+**** Transparent Plots
+Add this to your =~/.rootrc=:
+#+BEGIN_EXAMPLE
+# GUI specific settings
+Gui.Backend: qt
+Gui.Factory: qt
+#+END_EXAMPLE
+This sets the graphics backend to qt (you have to have built root with
+qt support to use this feature).
+
+Now, in your plotting code:
+#+BEGIN_SRC cpp
+TColor* color = gROOT->GetColor(TColor::GetColor(red,green,blue));//Use int from 0 to 255 
+color->SetAlpha(0.5);//0 is fully transparent, 1 fully opaque
+hist->SetFillColor(color->GetNumber());
+#+END_SRC
+Is this a clean interface? No, but it can be just what your graphic
+needs to remain clear without cluttering the canvas with hatching. 
+
+Two warnings:  
+1. As of this writing, this is only supported for "popular" output
+   formats (pdf, svg, gif, jpg, and png)
+2. Its very easy to create a shade that cannot be properly rendered
+   on a projector, making the transparent component of your plots
+   invisible. 
 
 *** Important Gotcha's 
 At some point you'll get stuck.  Hopefully you'll be stuck on a good
@@ -1650,17 +1680,40 @@ quantum book covers it, but Townsend's "A Modern Approach to Quantum
 Mechanics" is a better text to have on your bookshelf.
 
 *** Coordinate Systems used in HEP
+HEP uses cylindrical coordinates (well, a combination of cylindrical
+and spherical really) with the z axis oriented along the beam line, R
+radially "up" and the \phi curling right-handed around the beam axis.
+
+In addition, HEP physicists think in terms of a variable called
+"pseudorapidity" denoted \eta.  This is defined as 
+$$
+\eta = - \log\left(\tan\frac{\theta}{2}\right)
+$$
+Where \theta is the polar angle from the beam azis. Why use this
+crazy coordinate system? Well, its related to rapidity,  the
+relativistic counterpart to speed.  More important to HEP experiments,
+/differences/ in pseudorapidity are Lorentz invariant /along the beam
+axis/.  
+
+If you want to keep a mental map of angles:
+|--------+-----------------------------------------|
+|   \eta | Location                                |
+|--------+-----------------------------------------|
+|      0 | "Straight up" (\theta=\pi/2)            |
+|   0.88 | "Forty Five Degrees" (\theta=\pi/4)     |
+|    4.5 | "Along the Beam Pipe" (\theta=2$^\circ$ )   |
+| \infty | "Beam Axis" (\theta=0)                  |
+|--------+-----------------------------------------|
+
+
+
 
 *** Monte Carlo Event Weights
 This is taken from The Editor's Lab Notebook (which is locked by a
 password, and hence will only be read by one person):
 
-The task: plot Monte Carlo predictions against data. This seems to be
-another topic that is confusing until its not and no one documents it
-once its no longer confusing.  Here's my stab at it:
-
 Someone generates gobs of MC for use in any analysis for some process
-( $W\rightarrow \mu\nu+p$ where p is a parton).  I want to study what
+( $W\rightarrow \mu\nu+p$ where $p$ is a parton).  I want to study what
 a variable will look like in data, so I run my analysis over the MC
 and get a plot out.  Then I run the same code over data and plot the
 two on top of each other.  The trouble is that the number of MC events
@@ -1677,24 +1730,24 @@ N_{D}=\sigma \mathcal{L}
 \end{equation}
 Here $\sigma$ is the cross section in barns (typically pico-barns) and
 $\mathcal{L}$ is the integrated luminosity collected by the
-experiment. How do we compare this to Monte Carlo? There, the computer
-counts up the number of events that matched the criteria, and what we
-want is
+experiment. How do we compare this to the Monte Carlo prediction?
+There, the computer counts up the number of events that were generated
+for a specific process, what we want is
 \begin{equation}
 N_{exp}=W N_{MC}
 \end{equation}
 Here $N_{exp}$ is the expected number of events we get from Data.  In
 order to compare data to MC we need to scale $N_{exp}$ to the same
-order as $N_{D}$.  There is a cross section associated with the MC
-dataset, so we can write
+order as $N_{D}$.  Remember, there is a cross section calculated from
+theory that the MC prediction used, therefore we can write
 \begin{equation}
 N_{exp}=\sigma_{MC}\mathcal{L}
 \end{equation}
 It is possible that $\sigma_{MC}$ is corrected to the next order.  In
 order to avoid recalculating everything, a $k$ factor is reported as
 the ratio of $\sigma_{NLO}/\sigma_{MC}$.  Then all you have to do is
-multiply $\sigma_{MC}$ by the k factor, and the calculation is updated
-to the newest NLO prediction.
+multiply $\sigma_{MC}$ by the $k$ factor, and the calculation is
+updated to the newest NLO prediction.
 
 We're interested in the weight, so
 \begin{equation}
@@ -1703,6 +1756,7 @@ W=\frac{\sigma_{MC}k\mathcal{L}}{N_{MC}}
 Now, when each bin in the Monte Carlo histogram is scaled by W, it
 will be equal to the theoretically expected yield calculated by
 $\sigma_{MC}k$.
+
 
 *** Drawing Feynman Diagrams Digitally
 There are many possibilities. The most "user friendly" is probably
