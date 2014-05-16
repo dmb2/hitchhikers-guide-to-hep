@@ -1,3 +1,23 @@
+@font-face {
+    font-family: 'Crimson Italic';
+    src: url('../font/crimson-italic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Crimson Serif';
+    src: url('../font/crimson-roman-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Crimson Semi-Bold';
+    src: url('../font/crimson-semibold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 article,
 aside,
 details,
@@ -203,7 +223,6 @@ h6 {
   color: #730B0D;
 }
 
-
 /* TOC inspired by http://jashkenas.github.com/coffee-script */
 #table-of-contents {
     font-size: 12pt;
@@ -211,7 +230,7 @@ h6 {
     right: 0em;
     top: 0em;
     background: white;
-    line-height: 12pt;
+    line-height: 18pt;
     text-align: right;
     box-shadow: 0 0 1em #777777;
     -webkit-box-shadow: 0 0 1em #777777;
@@ -221,6 +240,20 @@ h6 {
     /* ensure doesn't flow off the screen when expanded */
     max-height: 80%;
     overflow: auto; }
+#text-table-of-contents li{
+    font-family: 'Crimson Serif', serif;
+    font-variant: small-caps;
+    text-align: left;
+    list-style-type: none;
+}
+#text-table-of-contents li li li{
+    font-family: 'Crimson Italic', serif;
+    font-variant: normal;
+    font-style: oblique;
+    list-style-type: none;
+    font-size: 14pt;
+    text-transform: none;
+}
 #table-of-contents h2 {
     font-size: 13pt;
     max-width: 13em;
@@ -277,26 +310,6 @@ h6 {
   border-radius: 0.35em;
 }
 
-@font-face {
-    font-family: 'Crimson Italic';
-    src: url('../font/crimson-italic-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Crimson Serif';
-    src: url('../font/crimson-roman-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face {
-    font-family: 'Crimson Semi-Bold';
-    src: url('../font/crimson-semibold-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 #container
 {
     margin: 0 auto;
@@ -346,7 +359,7 @@ h6 {
 
 #content
 {
-    font-family: 'Crimson Serif', serif;
+    font-family: 'Crimson Serif', 'Times New Roman', serif;
     font-size: 14.5pt;
     clear: center;
     width: 45em;

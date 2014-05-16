@@ -10,17 +10,18 @@
 Welcome to High Energy Physics.  Like the Galaxy, HEP is a wonderful
 and mysterious place filled with amazing things.  The intent of this
 guide is to provide a jump-start to HEP research.  Its purpose is to
-be entertaining and un-informative.  If you find the guide
-educational, the editors kindly request that you send an edit which
-suitably obfuscates what you found enlightening.  The road you are on
-is one of enlightenment, and you can't be enlightened unless you are
-first darkened.
+be entertaining and un-informative.  The information in this guide was
+hard won, The Editor does not intend it to be different for our dear
+reader.  This guide not intended to make the reader's life easier.  It
+is not intended to teach anything.  It is intended to provide the dear
+reader with a glossary of concepts for further research.
 
-If you find this guide entertaining, but uninformative, then please
+If the reader finds this guide entertaining, but uninformative, then please
 send a bottle of Old Janx Spirit to The Editor. The Guide is not
-intended to be read linearly.  Jump to the section you need, and if
+intended to be read linearly.  Jump to the section in need, and if
 that section contains links to other sections, then please see above
-regarding edits. 
+regarding edits. Prepare to be frustrated.
+
 *** Navigating the guide
 A note on key notation: Keys sequences follow the "emacs" style for
 notating keys.  Therefore "=C-c=" means hold down the control key,
@@ -1675,7 +1676,7 @@ Halzen and Martin.
 
 This assumes the reader has covered the material in chapter 4 in a
 undergraduate quantum course (at the level of Griffiths).  Chapter 4
-is too much of a review to be useful as a primary source.  Griffiths
+is too much of a review to be useful as a primary source.  Griffith's
 quantum book covers it, but Townsend's "A Modern Approach to Quantum
 Mechanics" is a better text to have on your bookshelf.
 
@@ -1696,14 +1697,14 @@ relativistic counterpart to speed.  More important to HEP experiments,
 axis/.  
 
 If you want to keep a mental map of angles:
-|--------+-----------------------------------------|
-|   \eta | Location                                |
-|--------+-----------------------------------------|
-|      0 | "Straight up" (\theta=\pi/2)            |
-|   0.88 | "Forty Five Degrees" (\theta=\pi/4)     |
-|    4.5 | "Along the Beam Pipe" (\theta=2$^\circ$ )   |
-| \infty | "Beam Axis" (\theta=0)                  |
-|--------+-----------------------------------------|
+|--------+-------------------------------------------|
+|   \eta | Location                                  |
+|--------+-------------------------------------------|
+|      0 | "Straight up" (\theta=\pi/2)              |
+|   0.88 | "Forty Five Degrees" (\theta=\pi/4)       |
+|    4.5 | "Along the Beam Pipe" (\theta=2$^\circ$ ) |
+| \infty | "Beam Axis" (\theta=0)                    |
+|--------+-------------------------------------------|
 
 
 
