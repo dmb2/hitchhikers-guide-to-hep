@@ -138,11 +138,16 @@ Windows, the following is a list of useful software.
   applications (ROOT's histogram interface) to your windows desktop,
   this way your data (and ROOT) can live on a remote machine, but you
   can still interact with them as if they were on your desktop.  (You
-  need a *fast* internet connection to do this)
+  need a *fast* internet connection to do this). Xming comes in two
+  flavors: the "web" version, which is locked behind a paywall for
+  people who donate to the project, and a slightly less up-to-date
+  public version available for free.  Choose the public version. See
+  [[http://www.straightrunning.com/XmingNotes/#sect-143][Getting Started]] and [[http://www.straightrunning.com/XmingNotes/trouble.php#head-11][Trouble shooting]] for tips on getting set up.
 - [[https://github.com/bmatzelle/gow/wiki][Gow]]: A lightweight Cygwin alternative, this is probably for more
   adventurous hitchhikers only. 
 - [[http://cygwin.com/][Cygwin]]: Adds a substrate of the gnu system to windows (in addition
-  to an [[http://x.cygwin.com/][X11 server]]), you can use this 
+  to an [[http://x.cygwin.com/][X11 server]]), you can use this to create a more unix-like
+  environment to work from. 
 - [[https://www.virtualbox.org/][VirtualBox]]: Allows you to boot operating systems within operating
   systems (useful if you don't want to dual boot Ubuntu) see [[*For%20Linux%20Hitchhikers][For Linux
   Hitchhikers]] after you've setup a working distro.
@@ -170,12 +175,13 @@ the command line is essential to being a functioning HEP researcher.
 
 The terminal is like the Galaxy Hitchhiker's [[https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker%2527s_Guide_to_the_Galaxy#Towels][utility towel]]. Every
 hitchhiker needs a terminal, and each hitchhiker customises his or
-here towel to their needs.  
+her towel to their needs.  
 
 If you've never touched a terminal before, and don't know what the
-command line is, then [[http://lab.demog.berkeley.edu/Docs/12important/12important.pdf%E2%80%8E][go read the great pedagogical introduction]] by
-Carl Mason.  
+command line is, then [[http://lab.demog.berkeley.edu/Docs/12important/12important.pdf][go read the great pedagogical introduction]] by
+Carl Mason.
 
+**** Line Editing
 Most modern operating systems' default shell is bash.  Be aware that
 bash's line editor is set up to respect emacs keybindings, this means
 "C-a" is beginning of line "C-e" the end, etc. You can change to vi
@@ -196,6 +202,35 @@ And see what it says (=/bin/bash= if its bash, may be =/bin/zsh= or
 =/bin/tcsh=). If it is not bash, then you need to google information
 for the line editor of whichever shell you are using.  
 
+**** Managing Jobs
+Sometimes it will be convenient to spawn a process and continue
+working in the current shell.  Usually this is accomplished by
+redirecting the stdout and stderr to a file:
+#+BEGIN_SRC sh
+myLongRunningCommand foo bar baz 42 &> theProcess.log &
+#+END_SRC
+When you launch the command, you'll see something like:
+#+BEGIN_EXAMPLE
+[1] 19509
+#+END_EXAMPLE
+The number =19509= is the PID of the process.  If you have multiple
+jobs going they can be summarized by typing =jobs=
+#+BEGIN_EXAMPLE
+[1]   Running                 myLongRunningCommand foo bar baz 42 &> theProcess.log &
+[2]-  Running                 myLongRunningCommand foo bar baz 41 &> theProcess.log &
+[3]+  Running                 myLongRunningCommand foo bar baz 40 &> theProcess.log &
+#+END_EXAMPLE
+Occasionally you'll realize that you don't want the jobs to run
+anymore, so to kill them:
+#+BEGIN_SRC sh
+kill %2
+#+END_SRC
+where =%1= is the job number you are referencing.  You'll see
+something like:
+#+BEGIN_EXAMPLE
+[2]-  Terminated              myLongRunningCommand foo bar baz 41 &> theProcess.log &
+#+END_EXAMPLE
+
 *** Configuring SSH
 Many of these tips are [[http://blogs.perl.org/users/smylers/2011/08/ssh-productivity-tips.html][lifted from here]].
 Put this in your =~/.ssh/config= file:
@@ -203,7 +238,6 @@ Put this in your =~/.ssh/config= file:
 ControlMaster auto
 ControlPath /tmp/ssh_mux_%h_%p_%r
 ControlPersist yes
-TCPKeepAlive no
 ServerAliveInterval 30
 ServerAliveCountMax 1
 #+END_EXAMPLE
@@ -233,7 +267,7 @@ it. See below for a way to unlock it once per session.
 yourself with ssh keys, if your machine is compromised (ie stolen or
 hacked) your ssh keys can provide the attacker with easier access to
 all the machines you had access to.  This means you should:
-1. Use a strong pass*phrase*, not password.  You need to maximize the 
+1. Use a strong pass *phrase*, not password.  You need to maximize the 
    number of bits of entropy in your key in order to make it
    difficult to crack should the keys fall into enemy hands.  
 2. Inform the Admins of any machines you had access to if your
@@ -297,7 +331,14 @@ Intermediate or advanced topics:
 
 ** For Mac OSX Hitchhikers
 Everyone should read [[*For%20Linux%20Hitchhikers][For Linux Hitchhikers]] to understand what
-functionality they'll need (especially when working with or on remote machines)
+functionality they'll need (especially when working with or on remote
+machines).  As a Mac user, you should also read "[[http://www.insectnation.org/articles/2014/05/17/it-just-works-or-does-it-the-dark-side-of-macs-in-hep/][It just works... or
+does it? The dark side of Macs in HEP]]" by Andy Buckley.  It explains
+in detail issues with software development on a Mac.  It is an
+opinion piece, so don't expect it to be balanced. Also, consider
+asking your supervisor for an account on a Linux box and *never look
+back.*
+
 *** Software you will need
  - [[http://xquartz.macosforge.org/landing/][XQuartz]]: Like XMing for Windows, XQuartz runs a local X11 server
    for tunneling X11 applications over SSH, unlike Windows, you don't
@@ -317,7 +358,7 @@ functionality they'll need (especially when working with or on remote machines)
    OS, just that your muscle memory will thank you subconsciously.)
  - [[https://www.macports.org/install.php][MacPorts]]: A system for compiling and installing open source
    software on the Mac
- - [[brew.sh][Home Brew]]: A package manager for Mac OS, allowing you to install
+ - [[http://brew.sh][Home Brew]]: A package manager for Mac OS, allowing you to install
    various utilities that don't necessarily come pre-installed with
    Mac OS. 
 ** Editors
@@ -425,15 +466,14 @@ reading [[http://www.emacswiki.org/emacs/CategoryMail][email]], [[http://www.ema
 can be found at the [[http://www.emacswiki.org/emacs/][Emacs Wiki]]. 
 
 *** Vim
-If Emacs is like Catholicism, then Vim is like Buddhism.  Vim is
-modern incarnation of vi, a modal text editor that descended from
-ed.  The modal way of editing is by expressing in a few keystrokes
-how the text should be manipulated.  This is in contrast to Emacs,
-where text is manipulated directly.  This fundamental difference is
-the source of much confusion for new users, and is also why many
-people recommend Emacs as "being easier to learn." This should not
-deter new users from learning vi(m), as its editing facilities are
-substantial.
+If Emacs is like Catholicism, then Vim is like Buddhism.  Vim is the
+modern incarnation of vi, a modal text editor that descended from ed.
+The modal way of editing is by expressing in a few keystrokes how the
+text should be manipulated.  This is in contrast to Emacs, where text
+is manipulated directly.  This fundamental difference is the source of
+much confusion for new users, and is also why many people recommend
+Emacs as "being easier to learn." This should not deter new users from
+learning vi(m), as its editing facilities are substantial.
 
 A functional =.vimrc= looks like:
 #+BEGIN_EXAMPLE
@@ -469,7 +509,8 @@ should be familiar with are:
 - [[http://www.grymoire.com/Unix/Sed.html][sed]] and [[http://sed.sourceforge.net/sed1line.txt][one-liners]]
 - [[http://www.grymoire.com/Unix/Awk.html][awk]] and [[http://www.pement.org/awk/awk1line.txt][one-liners]]
 - [[http://perl-tutorial.org/][perl]] (and its [[https://en.wikipedia.org/wiki/Black_Perl][poetry]])
-- [[http://www.thegeekstuff.com/2009/03/15-practical-unix-grep-command-examples/][grep]] 
+- [[http://www.thegeekstuff.com/2009/03/15-practical-unix-grep-command-examples/][grep]]
+- Heretics exist which exhort the use of [[http://linux.die.net/man/1/pico][pico]] or even [[http://linux.die.net/man/1/nano][nano]]. 
 [[http://regex.info/blog/2006-09-15/247][Always keep in mind]]
 #+BEGIN_QUOTE
 Some people, when confronted with a problem, think
@@ -503,11 +544,11 @@ arise.
 
 Things to keep in mind: 
 - This portion of the guide covers C++ at a high level.  Very little
-  [[www.cplusplus.com/tutorial][specific syntax]] will be covered.  When you have a C++ question,
+  [[http://www.cplusplus.com/tutorial][specific syntax]] will be covered.  When you have a C++ question,
   google is your friend.
 - When writing in any language, prefer that languages idioms.  Don't
-  write python in C++, c in C++ or C++ in python.
-- C++ is a vast language, however being familiar with its roots, c,
+  write python in C++, C in C++ or C++ in python.
+- C++ is a vast language, however being familiar with its roots, C,
   is invaluable.
 - If faced with a decision between learning C++ vs Python, prefer
   C++.  C++'s syntax is more rigid and requires more overhead.  Once
@@ -517,7 +558,7 @@ Things to keep in mind:
 
 C++ is an imperative, object oriented language.  It started out as a
 "C with classes" but has since bolted on significant language
-features different from c.  Proficiency with C++ should be aimed
+features different from C.  Proficiency with C++ should be aimed
 towards comfortable use of the template meta-programming features of
 the language, although it is entirely possible to spend an entire
 career writing C++ without exercising this feature (just read the ROOT
@@ -525,7 +566,7 @@ source code).
 *** Pointers
 [[http://www.chiark.greenend.org.uk/~sgtatham/cdescent/][Required Reading: The Descent to C]]
 
-As C++ has evolved from c, it retains parts of c's low level nature.
+As C++ has evolved from C, it retains parts of C's low level nature.
 Part of this is the need to be explicit about managing memory
 manually.  This is in stark contrast to languages such as Java or
 Python where memory management is handled for the programmer.
@@ -574,7 +615,7 @@ Question: Why does the compiler need to know that its a Foo type object at that 
 #+BEGIN_QUOTE
 Answer: Foo might fall across several memory cells, in which case the
 compiler must know how many memory cells to move if you ask for the
-bar+1 spot. In fact, in c there is a concept called the void*, a
+bar+1 spot. In fact, in C there is a concept called the void*, a
 type-less pointer that is an address to anything.  It is the
 programmer's responsibility to cast the void* to the correct type.
 #+END_QUOTE
@@ -1163,7 +1204,7 @@ of the box, but there are some things to keep in mind.
     it to C++. This is fairly advanced, but not impossible. You'll
     have to generate CINT dictionaries for your source files.
 If you're looking for a more "pythonic" (not my word) experience,
-maybe give [[www.rootpy.org][rootpy]] a shot. See also [[*An%20even%20briefer%20introduction%20to%20Python][An even briefer introduction to
+maybe give [[http://www.rootpy.org][rootpy]] a shot. See also [[*An%20even%20briefer%20introduction%20to%20Python][An even briefer introduction to
 Python]] for resources to learn python itself.
 
 *** Fitting Data with RooFit
@@ -1341,7 +1382,7 @@ likely have a style for you to use  (It will invariably be 95% the
 same as above, but the 5% will make *all* the difference). 
 
 **** Transparent Plots
-Add this to your =~/.rootrc=:
+Add this to your =~/.rootrc= (or create it if it doesn't exist):
 #+BEGIN_EXAMPLE
 # GUI specific settings
 Gui.Backend: qt
@@ -1352,7 +1393,7 @@ qt support to use this feature).
 
 Now, in your plotting code:
 #+BEGIN_SRC cpp
-TColor* color = gROOT->GetColor(TColor::GetColor(red,green,blue));//Use int from 0 to 255 
+TColor* color = gROOT->GetColor(TColor::GetColor(red,green,blue));//Use ints from 0 to 255 
 color->SetAlpha(0.5);//0 is fully transparent, 1 fully opaque
 hist->SetFillColor(color->GetNumber());
 #+END_SRC
@@ -1361,10 +1402,15 @@ needs to remain clear without cluttering the canvas with hatching.
 
 Two warnings:  
 1. As of this writing, this is only supported for "popular" output
-   formats (pdf, svg, gif, jpg, and png)
+   formats (pdf, svg, gif, jpg, and png), though notably *not*
+   postscript (ie ps). 
 2. Its very easy to create a shade that cannot be properly rendered
    on a projector, making the transparent component of your plots
-   invisible. 
+   invisible.
+3. This only works with the latest version of ROOT 5.34
+
+More information:
+- [[http://root.cern.ch/phpBB3/viewtopic.php?f%3D3&t%3D18100&p%3D76965][here]]
 
 *** Important Gotcha's 
 At some point you'll get stuck.  Hopefully you'll be stuck on a good
@@ -1379,7 +1425,7 @@ ROOT file) derives from a =TObject= base class.  This base class
 defines a protocol for objects. (All objects can print themselves,
 have a name, have a title, have a class name, etc).  This makes it
 possible to have a list of disparate objects (as long as its a list of
-=TObject*=).  As you gain more experience with ROOT, this is becomes
+=TObject*=).  As you gain more experience with ROOT, this becomes
 a power tool.  Like any power tool ([[https://en.wikipedia.org/wiki/Tim_Taylor_%2528character%2529#Tim_Taylor][as Tim Taylor can attest]]), this
 can be abused to no end. 
 
@@ -1447,13 +1493,13 @@ TH1's of unknown origin.
 **** TH2
 ***** Splitting a 2D 
 One would expect an interface method like =TH2D::Split()=, but instead
-you need to use the appropriate THStack constructor:
-[[http://root.cern.ch/root/html/THStack.html#THStack:THStack@2][THStack(const TH1* hist, Option_t* axis = "x", ...)]]
+you need to use the appropriate THStack [[http://root.cern.ch/root/html/THStack.html#THStack:THStack@2][constructor]]:
+=THStack(const TH1* hist, Option_t* axis = "x", ...)=
 
 Then call =THStack::GetHists= to get a TList of the histograms.  Of
 course, you'll have to use [[http://root.cern.ch/root/html/TList.html][ROOT's idioms for iterating over lists]],
 **** THStack
-***** GetStack
+***** Get Sum of Stack 
 To get a histogram representing the sum of a stack use
 =THStack::GetStack()->Last()=
 **** TFile
@@ -1806,9 +1852,10 @@ Research! If you're not stuck half the time you're not doing it
 right! 
 
 Here's a rough strategy for tackling problems:
-1. Google it, don't just Google specific errors, search related
-   terms.  Eventually you will be able to make the search more and
-   more general until you get the answer you want.
+1. Google it, don't just Google specific errors, search related terms.
+   Eventually you will be able to make the search more and more
+   general until you get the answer you want, try reading [[http://www.googleguide.com/][the google
+   guide]].
 2. Read documentation. Many times the answer is buried deep inside
    the program.  Don't be afraid to crack open the source code and
    actually try to understand whats going on (after exhausting any
@@ -1833,3 +1880,17 @@ the s key). This sends the XOFF command to your terminal emulator.
 To fix it (and "unfreeze" your terminal) type "C-q". [[https://en.wikipedia.org/wiki/Software_flow_control][More Info Here]].
 - Dear Mr. The Editor, my <insert problem here>, can you fix it?
 No. Please refer to [[*Getting%20Help][Getting Help]].
+- I have some information that would be useful for your guide, can
+  you use it?
+Yes! Please see [[https://github.com/dbjergaard/hitchhikers-guide-to-hep#contributing][Contributing]]. 
+- I'm lost and confused, your guide is overwhelming and overbearing,
+  but I really like HEP, what can I do?
+Please don't despair, with time things will come into focus.  In the
+mean time, it will probably be useful to seek out other sources of
+information.  If you're having trouble finding material, you might
+try [[http://www.googleguide.com/][the google guide]].  No, this is not intended to be an insult, a
+surprising fraction of people don't know how to use Google, even
+though its a verb.  
+- I have a question not covered by this FAQ that doesn't involve a
+  research problem, whats the best way to communicate it to you?
+Please open an issue on github's issue [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/issues][tracker]]. 

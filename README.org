@@ -25,3 +25,5 @@ Some things to keep in mind
   convenient substrate for hacking, they are *not* pedagogical
   examples of how to write analysis code.
  
+** Contributors
+- Jimmy Dorff - advice for configuring ssh properly
