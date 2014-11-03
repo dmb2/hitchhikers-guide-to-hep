@@ -4,6 +4,7 @@
 #+OPTIONS:   H:5 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
 #+LaTeX_CLASS: article
+#+HTML_MATHJAX: align:"center" mathml:nil path:"../MathJax/MathJax.js"
 
 * A Hitchhiker's guide to High Energy Physics
 ** Introduction
@@ -387,7 +388,7 @@ question, it is best to keep questions restricted to the editor in
 question.  Flame wars have been fought for decades over which is the
 "one true editor." 
 
-In order to prevent a faux pas, it is best to make sure you know which
+In order to prevent a /faux pas/, it is best to make sure you know which
 editor your guru uses.  This is especially true in the case of a
 vi(m) or Emacs guru. 
 
@@ -855,6 +856,9 @@ right ways."
 - [[https://en.wikibooks.org/wiki/Non-Programmer's_Tutorial_for_Python_3][A non-programmer's tutorial on python 3]] (also see the linked version
   for 2.7 as HEP is still using 2.7 or earlier in many cases)
 - Finally, the [[http://docs.python.org/2/howto/doanddont.html][official recommendations]] for best practices.
+
+*** PyROOT: ROOT bindings in python
+Mostly Harmless.
 
 ** ROOT
 For better or worse, for richer or poorer (always poorer), HEP
@@ -1713,12 +1717,15 @@ suggested exercises to work):
 - Chapter 3 (Problems 3.4, 3.14 (for fun), 3.15, 3.16, 3.25, 3.26
   (last two cover Mandelstam variables, which are very useful tools))
 - Chapter 6 (Problems 6.8 or 6.9, 6.12, 6.13, 6.14, 6.15)
-- Chapter 7 
-- Chapter 9
-- Chapter 10
+- Chapter 7 (Problems 7.6, 7.8 (optional), 7.14, 7.23, 7.30, 7.36,
+  7.37, 7.39, 7.51)
+- Chapter 8 (Problems 8.14, 8.15, 8.16, 8.19, 8.23, 8.28)
+- Chapter 9 (Problems 9.2, 9.3, 9.6, 9.14, 9.17, 9.20, 9.23, 9.25,
+  9.31, 9.32)
+- Chapter 10 (Problems 10.4 10.5, 10.6, 10.15, 10.16, 10.21, 10.23)
 
-You can add Chapter 8 at your leisure, or cover that material in
-Halzen and Martin.  
+Halzen and Martin has a better treatment of Quantum Chromodynamics,
+but that just adds another book to your library.  
 
 This assumes the reader has covered the material in chapter 4 in a
 undergraduate quantum course (at the level of Griffiths).  Chapter 4
@@ -1742,7 +1749,7 @@ relativistic counterpart to speed.  More important to HEP experiments,
 /differences/ in pseudorapidity are Lorentz invariant /along the beam
 axis/.  
 
-If you want to keep a mental map of angles:
+If you want to keep a mental map of angles (from [[https://en.wikipedia.org/wiki/Pseudorapidity][wikipedia]]):
 |--------+-------------------------------------------|
 |   \eta | Location                                  |
 |--------+-------------------------------------------|
