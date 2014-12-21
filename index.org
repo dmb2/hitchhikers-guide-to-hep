@@ -147,7 +147,7 @@ Windows, the following is a list of useful software.
 - [[https://github.com/bmatzelle/gow/wiki][Gow]]: A lightweight Cygwin alternative, this is probably for more
   adventurous hitchhikers only. 
 - [[http://cygwin.com/][Cygwin]]: Adds a substrate of the GNU system to Windows (in addition
-  to an [[http://x.cygwin.com/][X11 server]]), you can use this to create a more unix-like
+  to an [[http://x.cygwin.com/][X11 server]]), you can use this to create a more Unix-like
   environment to work from. 
 - [[https://www.virtualbox.org/][VirtualBox]]: Allows you to boot operating systems within operating
   systems (useful if you don't want to dual boot Ubuntu) see [[*For%20Linux%20Hitchhikers][For Linux
@@ -503,7 +503,7 @@ Some useful links include:
 - [[http://www.vim.org/scripts/][A collection of extensions and plugins for Vim]]
 - [[http://val.markovic.io/blog/youcompleteme-a-fast-as-you-type-fuzzy-search-code-completion-engine-for-vim][YouCompleteMe]] A Vim autocompletion engine for editing. 
 *** Others
-Followers of the UNIX way realize that there are situations where a
+Followers of the Unix way realize that there are situations where a
 using a set of shell commands piped together may fit the task at hand
 more efficiently than either of the other two editors.  Tools you
 should be familiar with are:
@@ -862,7 +862,7 @@ Mostly Harmless.
 
 ** ROOT
 For better or worse, for richer or poorer (always poorer), HEP
-Physicists are married to (read: stuck with) ROOT.  It's the [[http://homes.cs.washington.edu/~weise/uhh-download.html][UNIX]] of
+Physicists are married to (read: stuck with) ROOT.  It's the [[http://homes.cs.washington.edu/~weise/uhh-download.html][Unix]] of
 HEP.  There is method in the madness, though it is not clear what the
 method is (just yet). The Editor is fairly certain that ROOT uses
 [[https://en.wikipedia.org/wiki/Bistromath#Bistromathic_drive][Bistromath]]ics for many of its statistical operations.
