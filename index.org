@@ -271,7 +271,7 @@ all the machines you had access to.  This means you should:
 1. Use a strong pass *phrase*, not password.  You need to maximize the 
    number of bits of entropy in your key in order to make it
    difficult to crack should the keys fall into enemy hands.  
-2. Inform the Admins of any machines you had access to if your
+2. Inform the admins of any machines you had access to if your
    machine is compromised
 3. Encrypt your ssh keys (and other sensitive information) in a
    private directory that only you can access
