@@ -136,7 +136,7 @@ Windows, the following is a list of useful software.
    Beware: this program uses an [[https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker's_Guide_to_the_Galaxy#Infinite_Improbability_Drive][Infinite Improbability Drive]] to
    perform analysis.  
 - [[http://www.straightrunning.com/XmingNotes/][Xming an X11 server for Windows]]: This allows you to tunnel X11
-  applications (ROOT's histogram interface) to your windows desktop,
+  applications (ROOT's histogram interface) to your Windows desktop,
   this way your data (and ROOT) can live on a remote machine, but you
   can still interact with them as if they were on your desktop.  (You
   need a *fast* internet connection to do this). Xming comes in two
@@ -146,7 +146,7 @@ Windows, the following is a list of useful software.
   [[http://www.straightrunning.com/XmingNotes/#sect-143][Getting Started]] and [[http://www.straightrunning.com/XmingNotes/trouble.php#head-11][Trouble shooting]] for tips on getting set up.
 - [[https://github.com/bmatzelle/gow/wiki][Gow]]: A lightweight Cygwin alternative, this is probably for more
   adventurous hitchhikers only. 
-- [[http://cygwin.com/][Cygwin]]: Adds a substrate of the gnu system to windows (in addition
+- [[http://cygwin.com/][Cygwin]]: Adds a substrate of the gnu system to Windows (in addition
   to an [[http://x.cygwin.com/][X11 server]]), you can use this to create a more unix-like
   environment to work from. 
 - [[https://www.virtualbox.org/][VirtualBox]]: Allows you to boot operating systems within operating
@@ -154,7 +154,7 @@ Windows, the following is a list of useful software.
   Hitchhikers]] after you've setup a working distro.
 
 [[http://www.calebmadrigal.com/running-ubuntu-virtualbox/][See here]] for a nice picture-book tutorial on installing Ubuntu
-through VirtualBox on windows.
+through VirtualBox on Windows.
 ** For Linux Hitchhikers
 *** Software you will need
  - [[https://www.gnu.org/software/screen/][Screen]]: This lets you pick up where you left off if your ssh
