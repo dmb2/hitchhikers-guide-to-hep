@@ -63,7 +63,7 @@ have no folding and the whole document will be expanded.  Jump to
 various headlines by searching for "=**=" (two levels deep),
 "=***=" (three levels deep), "=****=" (four levels deep), etc.  
 
-If you are reading this as a PDF, there is no Table of Contents, just
+If you are reading this as a PDF, there is no Table of Contents. Just
 scroll to the section you are interested in.  
 
 *NOTE* If you are reading this on github, a link to another section
@@ -1848,7 +1848,7 @@ output formats are supported by your markdown language.
 Some research groups reserve webspace for hosting private
 e-logs. These are typically wiki syntax, but they can also be
 bulletin board style formatting.  In any case, its possible to use a
-browser extension like "[[https://addons.mozilla.org/en-US/firefox/addon/its-all-text/][Its All Text]]"  to use your favorite
+browser extension like "[[https://addons.mozilla.org/en-US/firefox/addon/its-all-text/][It's All Text!]]"  to use your favorite
 editor. One downside to these style notebooks is that it is typically
 awkward to post many plots at once. 
 
@@ -1860,7 +1860,7 @@ right!
 Here's a rough strategy for tackling problems:
 1. Google it, don't just Google specific errors, search related terms.
    Eventually you will be able to make the search more and more
-   general until you get the answer you want, try reading [[http://www.googleguide.com/][the google
+   general until you get the answer you want, try reading the [[http://www.googleguide.com/][Google
    guide]].
 2. Read documentation. Many times the answer is buried deep inside
    the program.  Don't be afraid to crack open the source code and
@@ -1874,7 +1874,7 @@ Here's a rough strategy for tackling problems:
    a. Now may be an appropriate time for an email to the person you
    are working with directly.  Chances are they've already
    encountered and solved your problem.
-5. If your still stuck, it may be time to post to a forum or mailing
+5. If you're still stuck, it may be time to post to a forum or mailing
    list.  In general, when soliciting help from people you don't
    know, it is polite to avoid contacting them directly.  
 
@@ -1894,9 +1894,9 @@ Yes! Please see [[https://github.com/dbjergaard/hitchhikers-guide-to-hep#contrib
 Please don't despair, with time things will come into focus.  In the
 mean time, it will probably be useful to seek out other sources of
 information.  If you're having trouble finding material, you might
-try [[http://www.googleguide.com/][the google guide]].  No, this is not intended to be an insult, a
+try the [[http://www.googleguide.com/][Google guide]].  No, this is not intended to be an insult, a
 surprising fraction of people don't know how to use Google, even
-though its a verb.  
+though it's a verb.
 - I have a question not covered by this FAQ that doesn't involve a
-  research problem, whats the best way to communicate it to you?
-Please open an issue on github's issue [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/issues][tracker]]. 
+  research problem. What's the best way to communicate it to you?
+Please open an issue on Github's [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/issues][issue tracker for this text]].
