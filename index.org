@@ -11,7 +11,7 @@
 Welcome to High Energy Physics.  Like the Galaxy, HEP is a wonderful
 and mysterious place filled with amazing things.  The intent of this
 guide is to provide a jump-start to HEP research.  Its purpose is to
-be entertaining and un-informative.  The information in this guide was
+be entertaining and uninformative.  The information in this guide was
 hard won, The Editor does not intend it to be different for our dear
 reader.  This guide not intended to make the reader's life easier.  It
 is not intended to teach anything.  It is intended to provide the dear
