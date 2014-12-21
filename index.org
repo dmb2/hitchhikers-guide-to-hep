@@ -320,13 +320,13 @@ two repositories when instructed.  This can lead to confusion if
 you've used other versioning systems, but shouldn't be a problem if
 you have no expectations.
 
-Some good git tutorials:
+Some good Git tutorials:
 - type "man gittutorial" in the command line
 - [[http://git-scm.com/book][Pro Git]] (an online book, modular and comprehensive in scope)
 - [[http://gitimmersion.com/][Git Immersion]]
 - [[http://gitolite.com/gcs.html#%25281%2529][Git Concepts Simplified]] (slide show, click to advance)
 Intermediate or advanced topics:
-- [[http://sethrobertson.github.io/GitFixUm/fixup.html][Undoing, fixing, or removing commits in git]]
+- [[http://sethrobertson.github.io/GitFixUm/fixup.html][Undoing, fixing, or removing commits in Git]]
 - [[https://blogs.atlassian.com/2014/01/simple-git-workflow-simple/][Simple Git workflow is simple]]
 - [[https://ochronus.com/git-tips-from-the-trenches/][Git tips from the trenches]]
 
@@ -978,7 +978,7 @@ This will checkout the branch =v5-34-18= to a local branch =v5-34-18=
 and switch you to it. If you're new to "[[https://en.wikipedia.org/wiki/Version_control_systems][version control systems]]", or
 "[[https://en.wikipedia.org/wiki/Source_code_management][source control management]]" then it's useful to do a tutorial to learn
 the basics.  In HEP, the major system used is called SVN, in open
-source, git has become the de facto standard almost overnight.
+source, Git has become the de facto standard almost overnight.
 **** Building 
 With our code checked out and ready, we need to configure it to match
 the computer we're compiling on.  To do this:
