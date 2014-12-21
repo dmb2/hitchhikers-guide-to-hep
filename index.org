@@ -39,7 +39,7 @@ continue with the next instruction.  Some examples:
 - "=C-c a=" Control-c release A
 - "=C-M-f=" Press Control, then Meta, then F without releasing
 
-The online version of the guide includes a Table of Contents, simply
+The online version of the guide includes a Table of Contents; simply
 mouse over it and a full list of topics will pop up.  You can click
 any topic to jump to that section.  If you read this in org-mode, the
 file will open folded.  It will look like:
