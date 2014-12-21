@@ -364,7 +364,7 @@ back.*
    Mac OS. 
 ** Editors
 Like the major world religions, there are also major editors.  In
-the *nix ecosystem there are two main editors, Emacs and vim. There are
+the *nix ecosystem there are two main editors: Emacs and vim. There are
 others, but they are many, and beyond the scope of this guide.  
 
 The most important thing to do after [[https://stackoverflow.com/questions/1430164/differences-between-Emacs-and-vim][choosing an editor]] is to work
