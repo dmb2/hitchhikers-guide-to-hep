@@ -330,7 +330,7 @@ Intermediate or advanced topics:
 - [[https://blogs.atlassian.com/2014/01/simple-git-workflow-simple/][Simple Git workflow is simple]]
 - [[https://ochronus.com/git-tips-from-the-trenches/][Git tips from the trenches]]
 
-** For Mac OSX Hitchhikers
+** For Mac OS X Hitchhikers
 Everyone should read [[*For%20Linux%20Hitchhikers][For Linux Hitchhikers]] to understand what
 functionality they'll need (especially when working with or on remote
 machines).  As a Mac user, you should also read "[[http://www.insectnation.org/articles/2014/05/17/it-just-works-or-does-it-the-dark-side-of-macs-in-hep/][It just works... or
