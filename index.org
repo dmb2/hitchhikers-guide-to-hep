@@ -146,7 +146,7 @@ Windows, the following is a list of useful software.
   [[http://www.straightrunning.com/XmingNotes/#sect-143][Getting Started]] and [[http://www.straightrunning.com/XmingNotes/trouble.php#head-11][Trouble shooting]] for tips on getting set up.
 - [[https://github.com/bmatzelle/gow/wiki][Gow]]: A lightweight Cygwin alternative, this is probably for more
   adventurous hitchhikers only. 
-- [[http://cygwin.com/][Cygwin]]: Adds a substrate of the gnu system to Windows (in addition
+- [[http://cygwin.com/][Cygwin]]: Adds a substrate of the GNU system to Windows (in addition
   to an [[http://x.cygwin.com/][X11 server]]), you can use this to create a more unix-like
   environment to work from. 
 - [[https://www.virtualbox.org/][VirtualBox]]: Allows you to boot operating systems within operating
@@ -1649,10 +1649,10 @@ filing a bug report.  Remember: you probably just found a feature,
 not a bug.   
 
 **** Using gdb
-Here are some good gdb (Gnu DeBugger) tutorials 
+Here are some good gdb (GNU DeBugger) tutorials 
 - [[https://www.cs.cmu.edu/~gilpin/tutorial/][Debugging under Unix: gdb Tutorial]]
 - [[http://www.unknownroad.com/rtfm/gdbtut/gdbtoc.html][RMS's gdb Debugger Tutorial]] (not the same [[http://stallman.org/][RMS]])
-- [[https://www.gnu.org/software/gdb/documentation/][GDB manual]] from gnu.org
+- [[https://www.gnu.org/software/gdb/documentation/][GDB manual]] from GNU.org
 - [[http://www.muenster.de/~naumana/rootgdb.html][Debugging ROOT with GDB]], somewhat dated but the information is
   relevant.  Written by Axel Naumann, a real-life ROOT hacker!
 
