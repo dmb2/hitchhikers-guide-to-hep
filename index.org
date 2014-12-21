@@ -10,7 +10,7 @@
 ** Introduction
 Welcome to High Energy Physics.  Like the Galaxy, HEP is a wonderful
 and mysterious place filled with amazing things.  The intent of this
-guide is to provide a jump-start to HEP research.  Its purpose is to
+guide is to provide a jump-start to HEP research.  It's purpose is to
 be entertaining and uninformative.  The information in this guide was
 hard won, The Editor does not intend it to be different for our dear
 reader.  This guide not intended to make the reader's life easier.  It
@@ -102,7 +102,7 @@ All of the sources for the guide are hosted on GitHub.
 
 Here are some quick-links:
 - [[http://www.phy.duke.edu/~dmb60/the-guide/][The Guide]] the online version of the guide
-- [[./the-guide.pdf][PDF of The Guide]] if you prefer that sort of thing, though its of
+- [[./the-guide.pdf][PDF of The Guide]] if you prefer that sort of thing, though it's of
   limited use in printed form.
 - [[http://www.phy.duke.edu/~dmb60/the-guide/the-guide.org][Org source]] of the online version
 - [[https://github.com/dbjergaard/hitchhikers-guide-to-hep][GitHub Repo]] where source code is hosted
@@ -163,14 +163,14 @@ through VirtualBox on Windows.
    Beware: this program uses an [[https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker's_Guide_to_the_Galaxy#Infinite_Improbability_Drive][Infinite Improbability Drive]] to
    perform analysis.  
  - [[https://help.ubuntu.com/community/Beginners/BashScripting][BASH]]: The command shell of choice for ATLAS Physicists.  You may
-   think you could use ZSH, but its better just to stick with
+   think you could use ZSH, but it's better just to stick with
    what everyone else uses.  CMS Physicists prefer TCSH for some
    weird reason.
  - [[*Editors][Editor]]: Choose you're religion wisely, it will eventually permeate
    your being and change the way you approach life in general.
 *** The Terminal
 You will, regardless of which operating system you use, be typing
-commands into a terminal.  Its inevitable, powerful, and intimidating
+commands into a terminal.  It's inevitable, powerful, and intimidating
 to new users.  HEP hitchhikers should feel at home.  Proficiency with
 the command line is essential to being a functioning HEP researcher.
 
@@ -199,7 +199,7 @@ If these commands give you an error, type:
 #+BEGIN_SRC sh
 echo $SHELL
 #+END_SRC
-And see what it says (=/bin/bash= if its bash, may be =/bin/zsh= or
+And see what it says (=/bin/bash= if it's bash, may be =/bin/zsh= or
 =/bin/tcsh=). If it is not bash, then you need to google information
 for the line editor of whichever shell you are using.  
 
@@ -377,7 +377,7 @@ of time after completing the corresponding tutorial.
 
 *** Finding an editor Guru
 After you have finished the tutorial for your editor of choice, then
-its time to find a guru.  Guru's are best located by asking around.
+it's time to find a guru.  Guru's are best located by asking around.
 If you are talking with someone and notice they use your editor,
 don't be afraid to ask them how they did something. Most of the time
 the Guru will be flattered and may even volunteer to help you with
@@ -554,7 +554,7 @@ Things to keep in mind:
 - If faced with a decision between learning C++ vs Python, prefer
   C++.  C++'s syntax is more rigid and requires more overhead.  Once
   you know C++, python is much easier to pick up.
-- There's always an exception to the rule, just make sure its the
+- There's always an exception to the rule, just make sure it's the
   right exception!
 
 C++ is an imperative, object oriented language.  It started out as a
@@ -611,7 +611,7 @@ What happened? Let's look at the first line
 =Foo*= is a pointer of type =Foo=. It's an address to a chunk of memory
 that contains an instance of =Foo=.  
 #+BEGIN_QUOTE
-Question: Why does the compiler need to know that its a Foo type object at that address? 
+Question: Why does the compiler need to know that it's a Foo type object at that address? 
 #+END_QUOTE
 #+BEGIN_QUOTE
 Answer: Foo might fall across several memory cells, in which case the
@@ -837,7 +837,7 @@ a way to encapsulate data, but also share data among inheritance
 diagrams.
 
 In case you haven't picked up on it, classes are one of the hairier
-aspects of C++.  Its better if you refer to some other resource for a
+aspects of C++.  It's better if you refer to some other resource for a
 tutorial on classes, as their subtleties are beyond the scope of The
 Guide.
 ** An even briefer introduction to Python
@@ -862,7 +862,7 @@ Mostly Harmless.
 
 ** ROOT
 For better or worse, for richer or poorer (always poorer), HEP
-Physicists are married to (read: stuck with) ROOT.  Its the [[http://homes.cs.washington.edu/~weise/uhh-download.html][UNIX]] of
+Physicists are married to (read: stuck with) ROOT.  It's the [[http://homes.cs.washington.edu/~weise/uhh-download.html][UNIX]] of
 HEP.  There is method in the madness, though it is not clear what the
 method is (just yet). The Editor is fairly certain that ROOT uses
 [[https://en.wikipedia.org/wiki/Bistromath#Bistromathic_drive][Bistromath]]ics for many of its statistical operations.
@@ -898,7 +898,7 @@ Ubuntu, but MacOS shouldn't be much different and Windows is out of
 the question).
 
 When choosing a version of ROOT, always pick the 'pro' (pro for
-production) version.  Its the latest, stable, version recommended by
+production) version.  It's the latest, stable, version recommended by
 the ROOT Devs. 
 
 *Nota Bene* If you're doing this on Mac OS, you'll need to use =brew
@@ -976,7 +976,7 @@ git checkout -b v5-34-18 v5-34-18
 #+END_SRC
 This will checkout the branch =v5-34-18= to a local branch =v5-34-18=
 and switch you to it. If you're new to "[[https://en.wikipedia.org/wiki/Version_control_systems][version control systems]]", or
-"[[https://en.wikipedia.org/wiki/Source_code_management][source control management]]" then its useful to do a tutorial to learn
+"[[https://en.wikipedia.org/wiki/Source_code_management][source control management]]" then it's useful to do a tutorial to learn
 the basics.  In HEP, the major system used is called SVN, in open
 source, git has become the de facto standard almost overnight.
 **** Building 
@@ -1026,7 +1026,7 @@ detailed information about this switch.
 This will take (depending on your hardware) between 20-45min, so now
 is a good time for a cup of tea, or coffee with your [[*Keeping%20your%20Guru%20happy][editor guru]].
 
-When its finished, it will print out:
+When it's finished, it will print out:
 #+BEGIN_EXAMPLE
 [lots of boring crap]
 
@@ -1169,7 +1169,7 @@ the verb "doAnalysis".
 The steering macro that compiles each source file can become
 arbitrarily complex.  To some this may read "flexible", to others it
 may read "disorganized".  If your analysis grows into a multi-file
-program, its probably time to ascend to Level 3.
+program, it's probably time to ascend to Level 3.
 
 **** Level 3: Compiled Programs
 A compiled program is just that. Here ROOT takes the role of a rich
@@ -1235,7 +1235,7 @@ This means two things:
    "hit a button" and get the plot is very useful unless you have a
    room full of [[https://en.wikipedia.org/wiki/The_Turk][Mechanical Turks]] lying around)
 
-This also means its probably a good idea to keep =*.root= files
+This also means it's probably a good idea to keep =*.root= files
 containing your histograms for last minute style changes if you are
 writing a presentation.
 
@@ -1407,7 +1407,7 @@ Two warnings:
 1. As of this writing, this is only supported for "popular" output
    formats (pdf, svg, gif, jpg, and png), though notably *not*
    postscript (ie ps). 
-2. Its very easy to create a shade that cannot be properly rendered
+2. It's very easy to create a shade that cannot be properly rendered
    on a projector, making the transparent component of your plots
    invisible.
 3. This only works with the latest version of ROOT 5.34
@@ -1418,7 +1418,7 @@ More information:
 *** Important Gotcha's 
 At some point you'll get stuck.  Hopefully you'll be stuck on a good
 problem, but more often than not you'll be stuck on some quirk that
-ROOT has.  Remember ROOT's mantra: "[[http://www.jargon.net/jargonfile/f/feature.html][Its not a bug, its a feature]]!"
+ROOT has.  Remember ROOT's mantra: "[[http://www.jargon.net/jargonfile/f/feature.html][It's not a bug, it's a feature]]!"
 
 ROOT's object protocol is very strange.  The [[http://root.cern.ch/drupal/content/c-coding-conventions][naming schema]] is based on
 an industry standard for C programs where it's not possible to use
@@ -1427,7 +1427,7 @@ HEP).  Every object in root that can be written to disk (ie saved in a
 ROOT file) derives from a =TObject= base class.  This base class
 defines a protocol for objects. (All objects can print themselves,
 have a name, have a title, have a class name, etc).  This makes it
-possible to have a list of disparate objects (as long as its a list of
+possible to have a list of disparate objects (as long as it's a list of
 =TObject*=).  As you gain more experience with ROOT, this becomes
 a power tool.  Like any power tool ([[https://en.wikipedia.org/wiki/Tim_Taylor_%2528character%2529#Tim_Taylor][as Tim Taylor can attest]]), this
 can be abused to no end. 
@@ -1743,7 +1743,7 @@ $$
 \eta = - \log\left(\tan\frac{\theta}{2}\right)
 $$
 Where \theta is the polar angle from the beam azis. Why use this
-crazy coordinate system? Well, its related to rapidity,  the
+crazy coordinate system? Well, it's related to rapidity,  the
 relativistic counterpart to speed.  More important to HEP experiments,
 /differences/ in pseudorapidity are Lorentz invariant /along the beam
 axis/.  
@@ -1813,7 +1813,7 @@ $\sigma_{MC}k$.
 
 *** Drawing Feynman Diagrams Digitally
 There are many possibilities. The most "user friendly" is probably
-[[http://jaxodraw.sourceforge.net/][JaxoDraw]].  Its even got a name reminiscent of Douglas Adams!
+[[http://jaxodraw.sourceforge.net/][JaxoDraw]].  It's even got a name reminiscent of Douglas Adams!
 
 *** What to do if you've lost a 2\pi
 Calm down, take a deep breath and read the first line of The Guide.
@@ -1828,7 +1828,7 @@ that you keep a traceable paper-trail of everything you do.
 
 *** Lab Notebooks
 When keeping a lab notebook, it is important to make the barrier for
-writing something down as small as possible.  If its difficult or
+writing something down as small as possible.  If it's difficult or
 inconvenient, you will not be inclined to document as well as you should.
 **** Pen/Paper Notebook
 This is the Science standard, and it is perfectly applicable to HEP
@@ -1847,7 +1847,7 @@ output formats are supported by your markdown language.
 **** Wiki/ELog
 Some research groups reserve webspace for hosting private
 e-logs. These are typically wiki syntax, but they can also be
-bulletin board style formatting.  In any case, its possible to use a
+bulletin board style formatting.  In any case, it's possible to use a
 browser extension like "[[https://addons.mozilla.org/en-US/firefox/addon/its-all-text/][It's All Text!]]"  to use your favorite
 editor. One downside to these style notebooks is that it is typically
 awkward to post many plots at once. 
