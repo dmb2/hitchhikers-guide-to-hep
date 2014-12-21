@@ -1248,8 +1248,7 @@ each physicist to set their own standard, and to immediately identify
 ROOT newbies from seasoned ROOT hackers.
 
 Now, things are better, though the idea that "each physicist set their
-own standard" has stuck, and so they're are many styles floating
-around. 
+own standard" has stuck, and so there are many styles floating around. 
 **** Example Style
 An example style (probably from the CMS TDR, the details are lost to
 time):
