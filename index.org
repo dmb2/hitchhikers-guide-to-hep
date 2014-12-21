@@ -66,8 +66,8 @@ various headlines by searching for "=**=" (two levels deep),
 If you are reading this as a PDF, there is no Table of Contents. Just
 scroll to the section you are interested in.  
 
-*NOTE* If you are reading this on github, a link to another section
-will probably be broken due to a bug in how github parses org-flavored
+*NOTE* If you are reading this on GitHub, a link to another section
+will probably be broken due to a bug in how GitHub parses org-flavored
 markdown.  
 
 *** Disclaimer
@@ -98,14 +98,14 @@ is intended to be sarcastic. If you have a weak heart or are easily
 offended, it may be better to seek out other sources of information.
 
 *** Obtaining a copy and supporting material
-All of the sources for the guide are hosted on github. 
+All of the sources for the guide are hosted on GitHub. 
 
 Here are some quick-links:
 - [[http://www.phy.duke.edu/~dmb60/the-guide/][The Guide]] the online version of the guide
 - [[./the-guide.pdf][PDF of The Guide]] if you prefer that sort of thing, though its of
   limited use in printed form.
 - [[http://www.phy.duke.edu/~dmb60/the-guide/the-guide.org][Org source]] of the online version
-- [[https://github.com/dbjergaard/hitchhikers-guide-to-hep][Github Repo]] where source code is hosted
+- [[https://github.com/dbjergaard/hitchhikers-guide-to-hep][GitHub Repo]] where source code is hosted
 - [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/tree/master/compiled-macros][Compiled Macros]] for Level 2 of ROOT enlightenment
 - [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/tree/master/compiled-program][Compiled Programs]] for Level 3 of ROOT enlightenment
 - [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/issues][Bug Reports/Feature Requests]]
@@ -1899,4 +1899,4 @@ surprising fraction of people don't know how to use Google, even
 though it's a verb.
 - I have a question not covered by this FAQ that doesn't involve a
   research problem. What's the best way to communicate it to you?
-Please open an issue on Github's [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/issues][issue tracker for this text]].
+Please open an issue on GitHub's [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/issues][issue tracker for this text]].
