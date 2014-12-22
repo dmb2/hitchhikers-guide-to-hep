@@ -17,9 +17,9 @@ reader.  This guide not intended to make the reader's life easier.  It
 is not intended to teach anything.  It is intended to provide the dear
 reader with a glossary of concepts for further research.
 
-If the reader finds this guide entertaining, but uninformative, then please
-send a bottle of Old Janx Spirit to The Editor. The Guide is not
-intended to be read linearly.  Jump to the section in need, and if
+If the reader finds this guide entertaining, but uninformative, then
+please send a bottle of Old Janx Spirit to The Editor. The Guide is
+not intended to be read linearly.  Jump to the section in need, and if
 that section contains links to other sections, then please see above
 regarding edits. Prepare to be frustrated.
 
@@ -158,7 +158,10 @@ through VirtualBox on windows.
 ** For Linux Hitchhikers
 *** Software you will need
  - [[https://www.gnu.org/software/screen/][Screen]]: This lets you pick up where you left off if your ssh
-   connection drops, [[http://www.ibm.com/developerworks/aix/library/au-gnu_screen/][here]] is a good conceptual introduction
+   connection drops, [[http://www.ibm.com/developerworks/aix/library/au-gnu_screen/][here]] is a good conceptual introduction.  If you
+   use =screen= on =lxplus=, you'll have to re-initialize your
+   kerberos tokens after logging in with =kinit -5=, otherwise you
+   won't have read access to your files.
  - [[*On%20Ubuntu][ROOT]]: The industry standard for High Energy Physics analysis.
    Beware: this program uses an [[https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker's_Guide_to_the_Galaxy#Infinite_Improbability_Drive][Infinite Improbability Drive]] to
    perform analysis.  
@@ -428,6 +431,9 @@ The Editor finds the following packages essential:
   '/ssh:user@remote.host:~/remote/path', note that tab completion
   works remotely just the same as visiting a file locally! Tramp is
   also aware of ssh aliases in =~/.ssh/config=, see [[*Configuring SSH]].
+- [[info:calc#Top][Calc]] - ""Calc" is an advanced desk calculator and mathematical tool
+  written by Dave Gillespie that runs as part of the GNU Emacs
+  environment." It handles barns and electron volts out of the box!
 - [[http://www.emacswiki.org/emacs/FillAdapt][filladapt]]: a mode for more intelligently filling text in paragraphs
 - [[http://www.emacswiki.org/emacs/FlySpell][flyspell]]: a spell checker that highlights mispelled words (will check
   in comments if in a programming mode)
@@ -1430,7 +1436,7 @@ defines a protocol for objects. (All objects can print themselves,
 have a name, have a title, have a class name, etc).  This makes it
 possible to have a list of disparate objects (as long as its a list of
 =TObject*=).  As you gain more experience with ROOT, this becomes
-a power tool.  Like any power tool ([[https://en.wikipedia.org/wiki/Tim_Taylor_%2528character%2529#Tim_Taylor][as Tim Taylor can attest]]), this
+a power tool.  Like any power tool ([[https://en.wikipedia.org/wiki/List_of_Home_Improvement_characters#Tim_Taylor][as Tim Taylor can attest]]), this
 can be abused to no end. 
 
 **** TTrees
@@ -1700,7 +1706,11 @@ To build ROOT type:
 
 Make sure you see =xrootd= in the list! If not xrootd won't be
 installed and won't function properly. You can now continue with the
-[[*Installing%20and%20setting%20up][regular instructions]]
+[[*Installing%20and%20setting%20up][regular instructions]]. *Note*: If you want to be able to access files
+hosted at CERN, you'll have to have a kerberos client installed
+(either =krb5-user= or =heimdal-clients= on debian systems).  Then
+before connecting, run =kinit -5 ${CERN_USER}@CERN.CH= to generate a
+kerberos certificate. 
 
 ** Physics
 At some point (not necessarily right away) a hitchhiker will want to
@@ -1881,7 +1891,7 @@ Here's a rough strategy for tackling problems:
 
 ** FAQ
 - I was typing along and all of the sudden my terminal froze!? The
-  only way to continue was to exit the program!
+  only way to continue was to exit the program! 
 Most likely you accidentally typed "C-s" (the control key followed by
 the s key). This sends the XOFF command to your terminal emulator.
 To fix it (and "unfreeze" your terminal) type "C-q". [[https://en.wikipedia.org/wiki/Software_flow_control][More Info Here]].
@@ -1899,5 +1909,7 @@ try [[http://www.googleguide.com/][the google guide]].  No, this is not intended
 surprising fraction of people don't know how to use Google, even
 though its a verb.  
 - I have a question not covered by this FAQ that doesn't involve a
-  research problem, whats the best way to communicate it to you?
-Please open an issue on github's issue [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/issues][tracker]]. 
+  research problem, whats the best way to communicate it to you? 
+You can email me at [[mailto:david.b@duke.edu][david.b@duke.edu]]. If it is related to some
+technical issue and you already have a github account, please open an
+issue on github's issue [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/issues][tracker]].

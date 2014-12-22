@@ -19,6 +19,7 @@ html: $(HTML_FILES)
 	/usr/bin/emacs $< --batch -f org-export-as-pdf --kill
 
 install: pdf html
+	cp css/style.css ${HOME}/public/the-guide/css/style.css
 	cp index.org ${HOME}/public/the-guide/the-guide.org
 	cp index.pdf ${HOME}/public/the-guide/the-guide.pdf
 
