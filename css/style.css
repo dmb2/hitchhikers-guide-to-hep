@@ -217,7 +217,7 @@ a:hover {
 /* TOC inspired by http://jashkenas.github.com/coffee-script */
 #table-of-contents {
     font-size: 12pt;
-    position: fixed;
+    position: absolute;
     right: 0em;
     top: 0em;
     background: white;

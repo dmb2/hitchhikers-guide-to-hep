@@ -370,13 +370,14 @@ Like the major world religions, there are also major editors.  In
 the *nix ecosystem there are two main editors: Emacs and Vim. There are
 others, but they are many, and beyond the scope of this guide.  
 
-The most important thing to do after [[https://stackoverflow.com/questions/1430164/differences-between-Emacs-and-vim][choosing an editor]] is to work
-through its corresponding tutorial.  An oft heard recommendation is
-that "Emacs is easier to learn than vi(m)".  A more accurate statement
-may be that it is easier to make things happen in Emacs than Vim, but
-the two editors are in some sense the yin and yang of text. True
-enlightenment in either of these editors takes roughly the same amount
-of time after completing the corresponding tutorial.
+The most important thing to do after [[https://mjambon.github.io/vim-vs-emacs/][choosing an editor]] is to work
+through its corresponding tutorial ([[https://stackoverflow.com/questions/1430164/differences-between-Emacs-and-vim][more pragmatic advice here]]).  An
+oft heard recommendation is that "Emacs is easier to learn than
+vi(m)".  A more accurate statement may be that it is easier to make
+things happen in Emacs than Vim, but the two editors are in some sense
+the yin and yang of text. True enlightenment in either of these
+editors takes roughly the same amount of time after completing the
+corresponding tutorial.
 
 *** Finding an editor Guru
 After you have finished the tutorial for your editor of choice, then
@@ -978,9 +979,9 @@ and substitute it for =tag-name=
 
 For now, lets checkout the latest pro branch:
 #+BEGIN_SRC sh
-git checkout -b v5-34-18 v5-34-18
+git checkout -b v5-34-24 v5-34-24
 #+END_SRC
-This will checkout the branch =v5-34-18= to a local branch =v5-34-18=
+This will checkout the branch =v5-34-24= to a local branch =v5-34-24=
 and switch you to it. If you're new to "[[https://en.wikipedia.org/wiki/Version_control_systems][version control systems]]", or
 "[[https://en.wikipedia.org/wiki/Source_code_management][source control management]]" then it's useful to do a tutorial to learn
 the basics.  In HEP, the major system used is called SVN, in open
