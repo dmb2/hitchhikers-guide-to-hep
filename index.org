@@ -797,6 +797,23 @@ You've rethought it and realized that you have to use a class because
 the person before you did, now there isn't a clean way to do it any
 other way.  OK, classes.
 
+#+BEGIN_QUOTE
+Editor's Note: Our dear reader may have been studying this guide and
+thought to themselves: "Gee wiz, there is a lot of great advice here,
+I should follow this exactly or dragons might eat my analysis
+program!"  While this may be a possibility, the previous advice on
+classes may be a little, well, misguided.
+
+More sound advice may sound like this: When beginning development,
+make your first (and maybe second) drafts of the program without
+classes.  This will force you to recognize which parts of your program
+fit together (data+methods) and which are separate.  Then, revise your
+program to include classes with the appropriate encapsulation of data
+and methods.  This will ensure that you write a clean interface, and
+that you don't end up with 20 methods that all take the same four
+arguments.
+#+END_QUOTE
+
 The basic syntax is:
 #+BEGIN_SRC cpp
   class A{
