@@ -13,10 +13,10 @@ pdf: $(PDF_FILES)
 html: $(HTML_FILES)
 
 %.html: %.org
-	/usr/bin/emacs $< --batch -f org-export-as-html --kill
+	/usr/bin/emacs $< --batch -f org-html-export-to-html --kill
 
 %.pdf: %.org
-	/usr/bin/emacs $< --batch -f org-export-as-pdf --kill
+	/usr/bin/emacs $< --batch -f org-latex-export-to-pdf --kill
 
 install: pdf html
 	cp css/style.css ${HOME}/public/the-guide/css/style.css

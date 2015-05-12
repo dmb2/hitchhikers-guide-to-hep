@@ -3,6 +3,7 @@
 #+EMAIL: david.b@duke.edu
 #+OPTIONS:   H:5 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+STYLE:    <link rel="stylesheet" type="text/css" href="./css/style.css" />
 #+LaTeX_CLASS: article
 #+HTML_MATHJAX: align:"center" mathml:nil path:"../MathJax/MathJax.js"
 
@@ -119,7 +120,7 @@ Then you'll have a copy of the org file, as well as the compiled
 macros and compiled programs.  
 
 ** For Windows Hitchhikers
-Everyone should read [[*For%20Linux%20Hitchhikers][For Linux Hitchhikers]] to understand what
+Everyone should read For Linux Hitchhikers to understand what
 functionality they'll need (especially when working with or on remote
 machines)
 
@@ -128,7 +129,7 @@ brain child, it is not recommended by The Editor.  (He doesn't
 run Windows anyway, daylight scares him.) If you insist on using
 Windows, the following is a list of useful software.
 *** Software you will need
-- [[*For%20Linux%20Hitchhikers][For Linux Hitchhikers]]
+- For Linux Hitchhikers
 - [[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html][PuTTY (ssh client for Windows)]]: Secure SHell is the standard way of
   accessing *nix machines remotely.  PuTTY is the Windows client for
   this. 
@@ -150,12 +151,12 @@ Windows, the following is a list of useful software.
   to an [[http://x.cygwin.com/][X11 server]]), you can use this to create a more Unix-like
   environment to work from. 
 - [[https://www.virtualbox.org/][VirtualBox]]: Allows you to boot operating systems within operating
-  systems (useful if you don't want to dual boot Ubuntu) see [[*For%20Linux%20Hitchhikers][For Linux
-  Hitchhikers]] after you've setup a working distro.
+  systems (useful if you don't want to dual boot Ubuntu) see
+  For Linux Hitchhikers after you've setup a working distro.
 
 [[http://www.calebmadrigal.com/running-ubuntu-virtualbox/][See here]] for a nice picture-book tutorial on installing Ubuntu
 through VirtualBox on Windows.
-** For Linux Hitchhikers
+** <<<For Linux Hitchhikers>>>
 *** Software you will need
  - [[https://www.gnu.org/software/screen/][Screen]]: This lets you pick up where you left off if your ssh
    connection drops, [[http://www.ibm.com/developerworks/aix/library/au-gnu_screen/][here]] is a good conceptual introduction.  If you
@@ -178,12 +179,19 @@ to new users.  HEP hitchhikers should feel at home.  Proficiency with
 the command line is essential to being a functioning HEP researcher.
 
 The terminal is like the Galaxy Hitchhiker's [[https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker%2527s_Guide_to_the_Galaxy#Towels][utility towel]]. Every
-hitchhiker needs a terminal, and each hitchhiker customises his or
+hitchhiker needs a terminal, and each hitchhiker customizes his or
 her towel to their needs.  
 
 If you've never touched a terminal before, and don't know what the
-command line is, then [[http://lab.demog.berkeley.edu/Docs/12important/12important.pdf][go read the great pedagogical introduction]] by
-Carl Mason.
+command line is, there are two options:
+1. The [[http://lab.demog.berkeley.edu/Docs/12important/12important.pdf][great pedagogical introduction ]] (12 page PDF) by Carl Mason
+2. "[[http://www.oliverelliott.org/article/computing/tut_unix/][An Introduction to Unix]]" (a comprehensive, modern take on the unix
+   ecosystem) by Oliver Elliott
+
+You should read both, Carl Mason's tutorial should be read
+"cover-to-cover", where as Oliver's is written very much in the spirit
+of this guide, so bookmark it and refer to it after you've read Carl
+Mason's tutorial.
 
 **** Line Editing
 Most modern operating systems' default shell is bash.  Be aware that
@@ -334,14 +342,13 @@ Intermediate or advanced topics:
 - [[https://ochronus.com/git-tips-from-the-trenches/][Git tips from the trenches]]
 
 ** For Mac OS X Hitchhikers
-Everyone should read [[*For%20Linux%20Hitchhikers][For Linux Hitchhikers]] to understand what
+Everyone should read For Linux Hitchhikers to understand what
 functionality they'll need (especially when working with or on remote
 machines).  As a Mac user, you should also read "[[http://www.insectnation.org/articles/2014/05/17/it-just-works-or-does-it-the-dark-side-of-macs-in-hep/][It just works... or
 does it? The dark side of Macs in HEP]]" by Andy Buckley.  It explains
-in detail issues with software development on a Mac.  It is an
-opinion piece, so don't expect it to be balanced. Also, consider
-asking your supervisor for an account on a Linux box and *never look
-back.*
+in detail issues with software development on a Mac.  It is an opinion
+piece, so don't expect it to be balanced. Also, consider asking your
+supervisor for an account on a Linux box and *never look back.*
 
 *** Software you will need
  - [[http://xquartz.macosforge.org/landing/][XQuartz]]: Like XMing for Windows, XQuartz runs a local X11 server
@@ -455,9 +462,10 @@ The Editor finds the following packages essential:
 - [[http://www.emacswiki.org/emacs/AUCTeX][auctex]]: LaTeX editing facilities (for when org-mode doesn't quite cut
   it)
 - [[http://orgmode.org/][org-mode]]: This guide is written in org-mode. Org-mode can manage
-  [[http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html][todo lists]], [[http://orgmode.org/worg/org-web.html][write websites]], serve as a [[http://www.phy.duke.edu/~dmb60/][lab notebook]], execute code
-  for [[http://orgmode.org/worg/org-contrib/babel/][literate programming]] and many other things.  People switch to
-  Emacs just to get org-mode! 
+  [[http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html][todo lists]], [[http://orgmode.org/worg/org-web.html][write websites]], serve as a [[https://github.com/dbjergaard/research-log][lab notebook]], execute code
+  for [[http://orgmode.org/worg/org-contrib/babel/][literate programming]] and many other things.  More relevant for
+  physicists is the [[http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html][org-mode cookbook]]. People switch to Emacs just to
+  get org-mode!
 
 Init files of famous Emacs hackers are (in no order of awesomeness)
 [[https://github.com/magnars/.emacs.d][Magnar Sveen]], [[https://github.com/technomancy/dotfiles/tree/master/.emacs.d][Technomancy]], [[https://github.com/jwiegley/dot-emacs][John Wiegley]].  There are also software
@@ -541,7 +549,7 @@ Good software design is *very* hard, but when you have the pleasure of
 using well designed software, it is a true joy. Some examples of good
 HEP software:
 - [[http://rivet.hepforge.org/][Rivet]]: Robust Independent Validation of Experiment and Theory
-- [[fastjet.fr][Fastjet]]: Software package for jet finding
+- [[http://fastjet.fr][Fastjet]]: Software package for jet finding
 
 ** A brief introduction to C++ 
 C++ is the industry standard programming language for analysis in
@@ -1124,6 +1132,51 @@ you see:
 root [0]
 #+END_EXAMPLE
 
+*** Advanced Build Options
+[[http://root.cern.ch/drupal/content/installing-xrootd][Full instructions here]]
+
+If you want to use xrootd, you'll also need cmake:
+#+BEGIN_SRC sh
+apt-get install cmake
+#+END_SRC
+Then, (from the directory where you checked out =root=):
+#+BEGIN_SRC sh
+./build/unix/installXrootd.sh 
+#+END_SRC
+This will install xrootd to whatever directory you're currently in,
+so if you want it installed somewhere else, cd to that directory
+first, just make sure that you update the location in the next command.
+
+Now when you configure root you should use:
+#+BEGIN_SRC sh
+./configure --all --with-xrootd=${HOME}/root/xrootd-3.2.7/
+#+END_SRC
+Here =${HOME}/root/xrootd-3.2.7/ is the path where xrootd was
+installed (based on the installXrootd.sh script above).  If you
+blindly follow the instructions the above command will "just work".
+
+*Nota Bene* The path following =--with-xrootd== must be a fully
+qualified path (ie =/home/username/root/xrootd-3.2.7/=), the
+configure script doesn't understand that =~/= is a shorthand for
+=${HOME}=. 
+
+if xrootd support has been enabled you should see:
+#+BEGIN_EXAMPLE
+Enabled support for asimage, astiff, builtin_afterimage, builtin_lzma, cintex, explicitlink, fftw3, fitsio, gviz, gdml, genvector, krb5, ldap, mathmore, memstat, minuit2, mysql, opengl, python, qt, qtgsi, reflex, roofit, shadowpw, shared, ssl, table, tmva, unuran, x11, xft, xml, xrootd.
+
+To build ROOT type:
+
+   make 
+#+END_EXAMPLE
+
+Make sure you see =xrootd= in the list! If not xrootd won't be
+installed and won't function properly. You can now continue with the
+[[*Installing%20and%20setting%20up][regular instructions]]. *Note*: If you want to be able to access files
+hosted at CERN, you'll have to have a kerberos client installed
+(either =krb5-user= or =heimdal-clients= on debian systems).  Then
+before connecting, run =kinit -5 ${CERN_USER}@CERN.CH= to generate a
+kerberos certificate. 
+
 *** A Path to ROOT enlightenment
 There are three methods of running code through ROOT to produce
 results.  These methods are listed below, each more sophisticated
@@ -1525,6 +1578,15 @@ you need to use the appropriate THStack [[http://root.cern.ch/root/html/THStack.
 
 Then call =THStack::GetHists= to get a TList of the histograms.  Of
 course, you'll have to use [[http://root.cern.ch/root/html/TList.html][ROOT's idioms for iterating over lists]],
+
+Another, slightly more direct option is =TH2::ProjectionX()= and
+=TH2::ProjectionY()=, used in the following fashion:
+#+BEGIN_SRC cpp
+  std::vector<TH1D*> split_list;
+  for(size_t i = 1; i < Hist2D->GetNbinsX()+1; i++) {
+    split_list.push_back(Hist2D->ProjectionY("_py",i,i+1,"e"));
+  }
+#+END_SRC
 **** THStack
 ***** Get Sum of Stack 
 To get a histogram representing the sum of a stack use
@@ -1684,51 +1746,6 @@ Here are some good gdb (GNU DeBugger) tutorials
 If you have memory related problems, you should be aware of
 [[valgrind.org][valgrind]].  The [[http://valgrind.org/docs/manual/QuickStart.html][quick-start is here]].
 
-*** Advanced Build Options
-[[http://root.cern.ch/drupal/content/installing-xrootd][Full instructions here]]
-
-If you want to use xrootd, you'll also need cmake:
-#+BEGIN_SRC sh
-apt-get install cmake
-#+END_SRC
-Then, (from the directory where you checked out =root=):
-#+BEGIN_SRC sh
-./build/unix/installXrootd.sh 
-#+END_SRC
-This will install xrootd to whatever directory you're currently in,
-so if you want it installed somewhere else, cd to that directory
-first, just make sure that you update the location in the next command.
-
-Now when you configure root you should use:
-#+BEGIN_SRC sh
-./configure --all --with-xrootd=${HOME}/root/xrootd-3.2.7/
-#+END_SRC
-Here =${HOME}/root/xrootd-3.2.7/ is the path where xrootd was
-installed (based on the installXrootd.sh script above).  If you
-blindly follow the instructions the above command will "just work".
-
-*Nota Bene* The path following =--with-xrootd== must be a fully
-qualified path (ie =/home/username/root/xrootd-3.2.7/=), the
-configure script doesn't understand that =~/= is a shorthand for
-=${HOME}=. 
-
-if xrootd support has been enabled you should see:
-#+BEGIN_EXAMPLE
-Enabled support for asimage, astiff, builtin_afterimage, builtin_lzma, cintex, explicitlink, fftw3, fitsio, gviz, gdml, genvector, krb5, ldap, mathmore, memstat, minuit2, mysql, opengl, python, qt, qtgsi, reflex, roofit, shadowpw, shared, ssl, table, tmva, unuran, x11, xft, xml, xrootd.
-
-To build ROOT type:
-
-   make 
-#+END_EXAMPLE
-
-Make sure you see =xrootd= in the list! If not xrootd won't be
-installed and won't function properly. You can now continue with the
-[[*Installing%20and%20setting%20up][regular instructions]]. *Note*: If you want to be able to access files
-hosted at CERN, you'll have to have a kerberos client installed
-(either =krb5-user= or =heimdal-clients= on debian systems).  Then
-before connecting, run =kinit -5 ${CERN_USER}@CERN.CH= to generate a
-kerberos certificate. 
-
 ** Physics
 At some point (not necessarily right away) a hitchhiker will want to
 better understand the physics underlying the research he/she is
@@ -1864,8 +1881,8 @@ research. Keep it open and write in it as you work.  Make sure there
 is a 1-to-1 mapping from what you are writing in your notebook and
 what can be found on a hard drive somewhere (plots, text, code etc).
 **** Org-mode Notebook
-The Editor keeps an org-mode notebook.  There is a thorough write-up
-here. 
+The Editor keeps an org-mode notebook.  There is a [[https://github.com/dbjergaard/research-log][thorough write-up
+here]]. 
 **** Flat text file
 One option is to keep a (well organized) text file for recording what
 you're doing.  Paste links and your thoughts here.  Choose a markdown
@@ -1899,14 +1916,21 @@ Here's a rough strategy for tackling problems:
 4. If the coffee didn't help, table the problem for the moment and
    work on something else.  Most likely when you come back to it
    (today or tomorrow) the solution will be obvious.
-   a. Now may be an appropriate time for an email to the person you
-   are working with directly.  Chances are they've already
-   encountered and solved your problem.
+   - Now may be an appropriate time for an email to the person you
+     are working with directly.  Chances are they've already
+     encountered and solved your problem.
 5. If you're still stuck, it may be time to post to a forum or mailing
    list.  In general, when soliciting help from people you don't
-   know, it is polite to avoid contacting them directly.  
+   know, it is polite to avoid contacting them directly.
+   - Above all else, *do not* be a [[http://slash7.com/2006/12/22/vampires/][help vampire]].  (They do exist!)
 
 ** FAQ
+- I tried: =#include <TheAnswerIsFortyTwo.h>= in C++ but it
+  doesn't work, what gives?
+In short: "=#include <...>=" instructs the compiler to look in
+specific system include directories.  In contrast '=#include= "=...="'
+instructs the compiler to look in all directories that it can find
+(usually specified with the =-I= flag). ([[http://www.cplusplus.com/forum/beginner/43444/][Further information]])
 - I was typing along and all of the sudden my terminal froze!? The
   only way to continue was to exit the program! 
 Most likely you accidentally typed "C-s" (the control key followed by
