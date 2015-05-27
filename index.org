@@ -1587,6 +1587,18 @@ Another, slightly more direct option is =TH2::ProjectionX()= and
     split_list.push_back(Hist2D->ProjectionY("_py",i,i+1,"e"));
   }
 #+END_SRC
+Depending on your ROOT version, you may have to change the ="_py"=
+string to be something unique.  This can be done as follows:
+#+BEGIN_SRC cpp
+  std::vector<TH1D*> split_list;
+  char buff[256];
+  for(size_t i = 1; i < Hist2D->GetNbinsX()+1; i++) {
+    snprintf(buff,sizeof(buff)/sizeof(*buff),"%s_%u_py",Hist2D->GetName(),i);
+    split_list.push_back(Hist2D->ProjectionY(buff,i,i+1,"e"));
+  }
+#+END_SRC
+User Beware: not using a unique name can cause unexpected behavior
+when drawing the list of slices.  
 **** THStack
 ***** Get Sum of Stack 
 To get a histogram representing the sum of a stack use
