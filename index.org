@@ -1257,90 +1257,6 @@ An example program (and supporting Makefile) [[https://github.com/dbjergaard/hit
 Makefiles come with their own overhead, but the =make= system is very
 powerful.  The [[https://www.gnu.org/software/make/manual/make.html][make manual]] is very readable with many examples.  
 
-**** Level 4: Adding your classes to ROOT
-Sometimes it is useful to add your own developed classes to ROOT
-(so they can be used in ROOT macros/PyROOT scripts or so they can
-be stored in a ROOT file). For example you may have a class of the form
-(in a file called anEvent.h, for example):
-#+BEGIN_SRC cpp
-#ifndef anEvent_h
-#define anEvent_h
-
-#include "TObject.h"
-
-class anEvent : public TObject {
-private:
-  int    _eventID;
-  double _eventEnergy;
-public:
-  anEvent() {}
-  virtual ~anEvent() {}
-
-  void set_eventID(const int eid);
-  void set_eventEnergy(const double e);
-
-  int eventID() const { return _eventID; }
-  double eventEnergy() const { return _eventEnergy; }
-};
-
-#endif
-#+END_SRC
-The ROOT developers suggest inheriting from TObject when using your own classes in shared libraries with ROOT.
-We also need anEvent.cxx:
-#+BEGIN_SRC cpp
-#include "anEvent.h"
-
-anEvent::anEvent() {}
-anEvent::~anEvent() {}
-
-void anEvent::set_eventID(const int eid) { _eventID = eid; }
-void anEvent::set_eventEnergy(const double e) { _eventEnergy = e; }
-
-#+END_SRC
-To make this class accessible within (Py)ROOT you must create a LinkDef.h file
-of the form:
-#+BEGIN_SRC cpp
-#ifdef __CINT__
-#pragma link off all globals;
-#pragma link off all classes;
-#pragma link off all functions;
-
-#pragma link C++ class anEvent+;
-
-#endif
-#+END_SRC
-Now you must generate a dictionary for the class:
-#+BEGIN_SRC sh
-rootcint -f anEventDictionary.cxx -c anEvent.h LinkDef.h
-#+END_SRC
-This generates anEventDictionary.cxx and anEventDictionary.h. Now you can compile
-the source for your class and the new dictionary source. Then finally link them together
-in a library:
-#+BEGIN_SRC sh
-g++ -fPIC -c anEvent.cxx `root-config --cflags`
-g++ -fPIC -c anEventDictionary.cxx `root-config --cflags`
-g++ -shared -o libanEvent.so anEvent.o anEventDictionary.o `root-config --glibs`
-#+END_SRC
-Now by loading the library libanEvent.so you can use your class within ROOT. For example,
-the macro:
-#+BEGIN_SRC cpp
-{
-  gSystem->Load("libanEvent");
-  anEvent a;
-  a.set_eventID(42);
-  std::cout << a.eventID() << std::endl;
-}
-#+END_SRC
-will simply print 42. Or the PyROOT script:
-#+BEGIN_SRC python
-import ROOT
-ROOT.gSystem.Load('libanEvent')
-
-a = ROOT.anEvent()
-a.set_eventID(42)
-print a.eventID()
-#+END_SRC
-will do the same.
 **** A note on Enlightenment
 Master Foo, of [[http://www.catb.org/~esr//writings/unix-koans/][Rootless Root]], gives the [[http://www.catb.org/~esr//writings/unix-koans/shell-tools.html][sage advice]]:
 #+BEGIN_QUOTE
@@ -1576,6 +1492,85 @@ Two warnings:
 More information:
 - [[http://root.cern.ch/phpBB3/viewtopic.php?f%3D3&t%3D18100&p%3D76965][here]]
 
+*** Extending ROOT with custom classes
+Sometimes it is useful to add your own developed classes to ROOT (so
+they can be used in ROOT macros/PyROOT scripts or so they can be
+stored in a ROOT file). For example you may have a class of the form
+(in a file called CustomEvent.h, for example):
+#+BEGIN_SRC cpp
+  #ifndef CustomEvent_h
+  #define CustomEvent_h
+
+  #include "TObject.h"
+
+  class CustomEvent : public TObject {
+    ClassDef(CustomEvent,1);
+  private:
+    int    _eventID;
+    double _eventEnergy;
+  public:
+    CustomEvent() {}
+    virtual ~CustomEvent() {}
+
+    void set_eventID(const int eid);
+    void set_eventEnergy(const double e);
+
+    int eventID() const { return _eventID; }
+    double eventEnergy() const { return _eventEnergy; }
+  };
+
+  #endif
+#+END_SRC
+It is a good idea to inherit from TObject if you require reading or
+writing objects to disk.  Official documentation of the ins and outs
+of adding classes can be found in Chapter 15 of the [[https://root.cern.ch/drupal/content/root-users-guide-534][User's Guide]], as
+well as information here: [[https://root.cern.ch/drupal/content/interacting-shared-libraries-rootcint][cint]] and [[https://root.cern.ch/drupal/content/adding-your-class-root-classdef][ClassDef]].  We also need
+CustomEvent.cxx:
+#+BEGIN_SRC cpp
+#include "CustomEvent.h"
+
+CustomEvent::CustomEvent() {}
+CustomEvent::~CustomEvent() {}
+
+void CustomEvent::set_eventID(const int eid) { _eventID = eid; }
+void CustomEvent::set_eventEnergy(const double e) { _eventEnergy = e; }
+
+#+END_SRC
+To make this class accessible within (Py)ROOT you must create a LinkDef.h file
+of the form:
+#+BEGIN_SRC cpp
+#ifdef __CINT__
+#pragma link off all globals;
+#pragma link off all classes;
+#pragma link off all functions;
+
+#pragma link C++ class CustomEvent+;
+
+#endif
+#+END_SRC
+Now you must generate a dictionary for the class:
+#+BEGIN_SRC sh
+rootcint -f CustomEventDictionary.cxx -c CustomEvent.h LinkDef.h
+#+END_SRC
+This generates =CustomEventDictionary.cxx= and
+=CustomEventDictionary.h=. Now you can compile the source for your
+class and the new dictionary source. Then finally link them together
+in a library:
+#+BEGIN_SRC sh
+g++ -fPIC -c CustomEvent.cxx `root-config --cflags`
+g++ -fPIC -c CustomEventDictionary.cxx `root-config --cflags`
+g++ -shared -o libCustomEvent.so CustomEvent.o CustomEventDictionary.o `root-config --glibs`
+#+END_SRC
+Now by loading the library libCustomEvent.so you can use your class
+within ROOT. For example, the macro:
+#+BEGIN_SRC cpp
+{
+  gSystem->Load("libCustomEvent");
+  CustomEvent a;
+  a.set_eventID(42);
+  std::cout << a.eventID() << std::endl;
+}
+#+END_SRC
 *** Important Gotcha's 
 At some point you'll get stuck.  Hopefully you'll be stuck on a good
 problem, but more often than not you'll be stuck on some quirk that
@@ -1730,6 +1725,20 @@ If option = NEW or CREATE   create a new file and open it for writing,
 #+END_EXAMPLE
 *Important*: Recreating will destroy the file if it exists.  BE
 CAREFUL when you use this option!
+**** Extracting ACLiCs compilation steps
+Here's a tip you hope you never need.  The use case is when you are
+writing a standalone program and you know you need to invoke rootcint
+to generate dictionaries. When you follow the [[https://root.cern.ch/drupal/content/interacting-shared-libraries-rootcint][correct prescription]],
+the produced dictionary fails even when linked to your code.  What you
+can do is follow the "[[https://root.cern.ch/phpBB3/viewtopic.php?f%3D3&t%3D10236&p%3D83570#p44117][loader.C prescription]]" and then dump what ACLiC
+is doing under the hood with:
+#+BEGIN_EXAMPLE
+root [7] gDebug=7
+(const int)7
+root [8] .L libLoader.C++
+#+END_EXAMPLE
+This will dump all of the g++ and rootcint calls that are required to
+generate a working dictionary.
 *** Debugging with ROOT
 Eventually you'll encounter a segmentation fault or segfault in ROOT.
 (They can also go under the name core dump).  This happens when you

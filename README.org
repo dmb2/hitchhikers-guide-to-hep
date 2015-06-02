@@ -27,3 +27,5 @@ Some things to keep in mind
  
 ** Contributors
 - Jimmy Dorff - advice for configuring ssh properly
+- [[https://github.com/dougphy][Doug Davis]] - Section on extending ROOT with classes inheriting from
+  TObject

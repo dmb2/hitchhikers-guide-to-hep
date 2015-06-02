@@ -58,9 +58,6 @@ a:active,
 a:hover {
   outline: 0;
 }
-h1 {
-  font-size: 2em;
-}
 abbr[title] {
   border-bottom: 1px dotted;
 }
@@ -178,24 +175,36 @@ table {
   border-spacing: 0;
 }
 @import url(http://fonts.googleapis.com/css?family=Inconsolata);
-@import url(http://fonts.googleapis.com/css?family=PT+Sans);
-@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
+@import url(http://fonts.googleapis.com/css?family=Hammersmith+One);
+/* @import url(http://fonts.googleapis.com/css?family=PT+Sans); */
+/* @import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700); */
 html {
-  font-family: 'PT Sans', sans-serif;
+    font-family: 'Hammersmith One', sans-serif;
 }
 pre,
 code {
   font-family: 'Inconsolata', sans-serif;
 }
+
+h1.title{
+    color: #cb2028;
+    /* color: #002b36; */
+    font-size: 600%;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: 'PT Sans Narrow', sans-serif;
-  color: #1F1F1F;
-  font-weight: 700;
+    font-family: 'Hammersmith One', sans-serif;
+    color: #1F1F1F;
 }
 html {
   color: #1f1f1f;
@@ -363,10 +372,8 @@ h6 {
 }
 #content h2
 {
-    /* font-family: 'Crimson Serif', serif; */
-    font-family: 'Crimson Semi-Bold', serif;
-    font-variant: small-caps;
-    font-size: 160%;
+    font-family: 'Hammersmith One', sans-serif;
+    font-size: 200%;
     margin: 0 0 .5em;
 }
 
