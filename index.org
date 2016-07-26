@@ -14,9 +14,9 @@ and mysterious place filled with amazing things.  The intent of this
 guide is to provide a jump-start to HEP research.  Its purpose is to
 be entertaining and uninformative.  The information in this guide was
 hard won, The Editor does not intend it to be different for our dear
-reader.  This guide not intended to make the reader's life easier.  It
-is not intended to teach anything.  It is intended to provide the dear
-reader with a glossary of concepts for further research.
+reader.  This guide is not intended to make the reader's life easier.
+It is not intended to teach anything.  It is intended to provide the
+dear reader with a glossary of concepts for further research.
 
 If the reader finds this guide entertaining, but uninformative, then
 please send a bottle of Old Janx Spirit to The Editor. The Guide is
@@ -120,7 +120,7 @@ Then you'll have a copy of the org file, as well as the compiled
 macros and compiled programs.  
 
 ** For Windows Hitchhikers
-Everyone should read For Linux Hitchhikers to understand what
+Everyone should read [[*For%20Linux%20Hitchhikers][For Linux Hitchhikers]] to understand what
 functionality they'll need (especially when working with or on remote
 machines)
 
@@ -129,7 +129,7 @@ brain child, it is not recommended by The Editor.  (He doesn't
 run Windows anyway, daylight scares him.) If you insist on using
 Windows, the following is a list of useful software.
 *** Software you will need
-- For Linux Hitchhikers
+- [[*For%20Linux%20Hitchhikers][For Linux Hitchhikers]]
 - [[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html][PuTTY (ssh client for Windows)]]: Secure SHell is the standard way of
   accessing *nix machines remotely.  PuTTY is the Windows client for
   this. 
@@ -152,11 +152,11 @@ Windows, the following is a list of useful software.
   environment to work from. 
 - [[https://www.virtualbox.org/][VirtualBox]]: Allows you to boot operating systems within operating
   systems (useful if you don't want to dual boot Ubuntu) see
-  For Linux Hitchhikers after you've setup a working distro.
+  [[*For%20Linux%20Hitchhikers][For Linux Hitchhikers]] after you've setup a working distro.
 
 [[http://www.calebmadrigal.com/running-ubuntu-virtualbox/][See here]] for a nice picture-book tutorial on installing Ubuntu
 through VirtualBox on Windows.
-** <<<For Linux Hitchhikers>>>
+** For Linux Hitchhikers
 *** Software you will need
  - [[https://www.gnu.org/software/screen/][Screen]]: This lets you pick up where you left off if your ssh
    connection drops, [[http://www.ibm.com/developerworks/aix/library/au-gnu_screen/][here]] is a good conceptual introduction.  If you
@@ -192,7 +192,6 @@ You should read both, Carl Mason's tutorial should be read
 "cover-to-cover", where as Oliver's is written very much in the spirit
 of this guide, so bookmark it and refer to it after you've read Carl
 Mason's tutorial.
-
 **** Line Editing
 Most modern operating systems' default shell is bash.  Be aware that
 bash's line editor is set up to respect emacs keybindings, this means
@@ -213,7 +212,6 @@ echo $SHELL
 And see what it says (=/bin/bash= if it's bash, may be =/bin/zsh= or
 =/bin/tcsh=). If it is not bash, then you need to google information
 for the line editor of whichever shell you are using.  
-
 **** Managing Jobs
 Sometimes it will be convenient to spawn a process and continue
 working in the current shell.  Usually this is accomplished by
@@ -340,16 +338,43 @@ Intermediate or advanced topics:
 - [[http://sethrobertson.github.io/GitFixUm/fixup.html][Undoing, fixing, or removing commits in Git]]
 - [[https://blogs.atlassian.com/2014/01/simple-git-workflow-simple/][Simple Git workflow is simple]]
 - [[https://ochronus.com/git-tips-from-the-trenches/][Git tips from the trenches]]
+*** *rc Files
+ =*rc= files are special files that are executed every time a program
+ starts. They almost exclusively live in the user's home directory,
+ and can be shadowed by the system.  Sometimes they have a special
+ syntax for setting options, sometimes they are written in a scripting
+ language.  The most relevant rc files for a new hitchhiker are:
+- .rootrc :: the file that sets root options
+- .bashrc :: this is executed every time you open a terminal in bash
+- .tcshrc :: as above but for tcsh (hopefully you aren't using this!)
+- .zshrc :: as above for the zsh shell
+- .vimrc :: configuration options for the venerable vim editor
+- .screenrc :: options for gnu screen
+- .emacs :: written in emacs lisp, is executed on startup, breaks the
+            rc naming scheme.  Advanced emacs users have
+            multi-thousand line rc files
+
+There are other files, if you want to know about them you can do:
+#+BEGIN_SRC sh
+ls .*rc
+#+END_SRC
+And google the ones that look interesting.  Alternatively you can look
+at the system defaults:
+#+BEGIN_SRC sh
+ls /etc/*rc
+#+END_SRC
+Sometimes its useful to copy the system file to your home directory
+and then edit it there in order to add your customizations.  Some
+programs document their options that way.
 
 ** For Mac OS X Hitchhikers
-Everyone should read For Linux Hitchhikers to understand what
+Everyone should read [[*For%20Linux%20Hitchhikers][For Linux Hitchhikers]] to understand what
 functionality they'll need (especially when working with or on remote
-machines).  As a Mac user, you should also read "[[http://www.insectnation.org/articles/2014/05/17/it-just-works-or-does-it-the-dark-side-of-macs-in-hep/][It just works... or
+machines).  As a Mac user, you should also read "[[http://www.insectnation.org/blog/it-just-works-or-does-it-the-dark-side-of-macs-in-hep.html][It just works... or
 does it? The dark side of Macs in HEP]]" by Andy Buckley.  It explains
 in detail issues with software development on a Mac.  It is an opinion
 piece, so don't expect it to be balanced. Also, consider asking your
-supervisor for an account on a Linux box and *never look back.*
-
+supervisor for an account on a Linux box and *never look back.* 
 *** Software you will need
  - [[http://xquartz.macosforge.org/landing/][XQuartz]]: Like XMing for Windows, XQuartz runs a local X11 server
    for tunneling X11 applications over SSH, unlike Windows, you don't
@@ -512,6 +537,8 @@ will feel more comfortable with Vim and can stop using the less
 powerful editors.  
 
 Some useful links include:
+- [[http://derekwyatt.org/vim/tutorials/][Vim Videos]] Tutorial videos by Derek Wyatt, the novice videos are
+  must see if you are new to vi(m)
 - [[http://www.vimgenius.com/][Vim Genius]] a drill website for learning Vim commands
 - [[https://www.liquidweb.com/kb/overview-of-vim-text-editor/][New user Vim Tutorial]]
 - [[http://blog.sanctum.geek.nz/vim-koans/][Vim Koans]] tidbits of wisdom to ponder
@@ -899,17 +926,26 @@ HEP.  There is method in the madness, though it is not clear what the
 method is (just yet). The Editor is fairly certain that ROOT uses
 [[https://en.wikipedia.org/wiki/Bistromath#Bistromathic_drive][Bistromath]]ics for many of its statistical operations.
 
-ROOT is the industry standard tool for analyzing and manipulating
-gobs of data.  Other statistical analysis tools [[http://www.matthewckeller.com/html/memory.html][crash and burn]] on the
-datasets that ROOT eats for breakfast.  Without further ado, let's
-set it up and get to work!
+ROOT is the industry standard tool for analyzing and manipulating gobs
+of data.  Other statistical analysis tools [[http://www.matthewckeller.com/html/memory.html][crash and burn]] on the
+datasets that ROOT eats for breakfast.  
+
+Recently, ROOT has begun the transition from the 5 series to the 6
+series. This transition has resulted in huge changes to the front and
+back-end of ROOT. Below there will be some comparisons to both
+versions.  When something applies to the 5 series, it will be
+annotated ROOTv5.  It should be assumed that ROOT or ROOTv6 refers to
+the newest 6 series.  Without further ado, let's set it up and get to
+work!
 *** Installing and setting up
 **** On Windows
-These links are for 5.34.18. You are encouraged visit the [[http://root.cern.ch/drupal/content/downloading-root][downloading]]
+These links are for 5.34.34. You are encouraged visit the [[http://root.cern.ch/drupal/content/downloading-root][downloading]]
 page of root.cern.ch to check for newer versions.  Always prefer the
-"pro" version.
+"pro" version.  It appears that in ROOT 6, the developers have stopped
+releasing windows builds. This means that to use ROOT 6 and above
+you'll have to either compile from source, or use a virtual machine.
 
-- [[ftp://root.cern.ch/root/root_v5.34.18.win32.vc11.msi][VC++11 (2012) MSI for 5.34.18]] (install-able version, allows you to
+- [[https://root.cern.ch/download/root_v5.34.34.win32.vc12.exe][VC++11 (2012) EXE for 5.34.34]] (install-able version, allows you to
   remove it using the Control Panel)
 **** On MacOS
 If you are using =homebrew= you can simply do:
@@ -979,7 +1015,7 @@ enough to see that and not re-install them.
 
 The above list of packages are for a full-blown,
 all-features-enabled  version of ROOT.  If you want a stripped down
-version, you'll have to get the pre-reqs from [[root.cern.ch]]. 
+version, you'll have to get the pre-reqs from [[http://root.cern.ch]]. 
 
 Alternatively you can type:
 #+BEGIN_SRC sh
@@ -1004,9 +1040,9 @@ and substitute it for =tag-name=
 
 For now, lets checkout the latest pro branch:
 #+BEGIN_SRC sh
-git checkout -b v5-34-24 v5-34-24
+git checkout -b v6-04-14 v6-04-14
 #+END_SRC
-This will checkout the branch =v5-34-24= to a local branch =v5-34-24=
+This will checkout the branch =v6-04-14= to a local branch =v6-04-14=
 and switch you to it. If you're new to "[[https://en.wikipedia.org/wiki/Version_control_systems][version control systems]]", or
 "[[https://en.wikipedia.org/wiki/Source_code_management][source control management]]" then it's useful to do a tutorial to learn
 the basics.  In HEP, the major system used is called SVN, in open
@@ -1027,13 +1063,13 @@ specific feature (say roofit) you would type:
 ./configure [other options] --enable-roofit
 #+END_SRC
 
-If your interested in building ROOT with xrootd (network protocol
+If you're interested in building ROOT with xrootd (network protocol
 which allows opening root files over a network connection) see
-[[*Advanced%20Build%20Options][Advanced Build Options]]. 
+[[*Advanced%20Build%20Options][Advanced Build Options]].
 
 After configuring you should see:
 #+BEGIN_EXAMPLE
-Enabled support for asimage, astiff, builtin_afterimage, builtin_lzma, cintex, explicitlink, fftw3, fitsio, gviz, gdml, genvector, krb5, ldap, mathmore, memstat, minuit2, mysql, opengl, python, qt, qtgsi, reflex, roofit, shadowpw, shared, ssl, table, tmva, unuran, x11, xft, xml.
+Enabled support for asimage, astiff, builtin_afterimage, builtin_llvm, explicitlink, fftw3, gviz, gdml, genvector, http, krb5, ldap, mathmore, memstat, minuit2, mysql, opengl, python, qt, qtgsi, roofit, search_usrlocal, shadowpw, shared, sqlite, ssl, table, tmva, unuran, vc, vdt, x11, xft, xml.
 
 To build ROOT type:
 
@@ -1108,6 +1144,18 @@ always setup root when bash runs if the setup file exists:
 Now you can start root by typing =root= at the command line.  You
 should see:
 #+BEGIN_EXAMPLE
+   ----------------------------------------------------------------
+  | Welcome to ROOT 6.07/03                    http://root.cern.ch |
+  |                                   (c) 1995-2016, The ROOT Team |
+  | Built for linuxx8664gcc                                        |
+  | From heads/master@v6-07-02-292-g1c873d2, Feb 04 2016, 12:28:28 |
+  | Try '.help', '.demo', '.license', '.credits', '.quit'/'.q'     |
+   ----------------------------------------------------------------
+
+root [0]
+#+END_EXAMPLE
+*In ROOTv5*:
+#+BEGIN_EXAMPLE
   *******************************************
   *                                         *
   *        W E L C O M E  to  R O O T       *
@@ -1126,6 +1174,7 @@ Type ? for help. Commands must be C++ statements.
 Enclose multiple statements between { }.
 root [0]
 #+END_EXAMPLE
+
 To start root without the splash screen type =root -l= in which case
 you see:
 #+BEGIN_EXAMPLE
@@ -1149,31 +1198,32 @@ first, just make sure that you update the location in the next command.
 
 Now when you configure root you should use:
 #+BEGIN_SRC sh
-./configure --all --with-xrootd=${HOME}/root/xrootd-3.2.7/
+./configure --all --with-xrootd=${HOME}/root/xrootd-4.2.1/
 #+END_SRC
-Here =${HOME}/root/xrootd-3.2.7/ is the path where xrootd was
-installed (based on the installXrootd.sh script above).  If you
+Here =${HOME}/root/xrootd-4.2.1/= is the path where xrootd was
+installed (based on the =installXrootd.sh= script above).  If you
 blindly follow the instructions the above command will "just work".
 
 *Nota Bene* The path following =--with-xrootd== must be a fully
-qualified path (ie =/home/username/root/xrootd-3.2.7/=), the
+qualified path (ie =/home/username/root/xrootd-4.2.1/=), the
 configure script doesn't understand that =~/= is a shorthand for
 =${HOME}=. 
 
-if xrootd support has been enabled you should see:
+if =xrootd= support has been enabled you should see:
 #+BEGIN_EXAMPLE
-Enabled support for asimage, astiff, builtin_afterimage, builtin_lzma, cintex, explicitlink, fftw3, fitsio, gviz, gdml, genvector, krb5, ldap, mathmore, memstat, minuit2, mysql, opengl, python, qt, qtgsi, reflex, roofit, shadowpw, shared, ssl, table, tmva, unuran, x11, xft, xml, xrootd.
+Enabled support for asimage, astiff, builtin_afterimage, builtin_llvm, explicitlink, fftw3, gviz, gdml, genvector, http, krb5, ldap, mathmore, memstat, minuit2, mysql, opengl, python, qt, qtgsi, roofit, search_usrlocal, shadowpw, shared, sqlite, ssl, table, tmva, unuran, vc, vdt, x11, xft, xml, xrootd.
 
 To build ROOT type:
 
    make 
+
 #+END_EXAMPLE
 
 Make sure you see =xrootd= in the list! If not xrootd won't be
 installed and won't function properly. You can now continue with the
 [[*Installing%20and%20setting%20up][regular instructions]]. *Note*: If you want to be able to access files
 hosted at CERN, you'll have to have a kerberos client installed
-(either =krb5-user= or =heimdal-clients= on debian systems).  Then
+(either =krb5-user= or =heimdal-clients= on debian or ubuntu systems).  Then
 before connecting, run =kinit -5 ${CERN_USER}@CERN.CH= to generate a
 kerberos certificate. 
 
@@ -1196,14 +1246,20 @@ braces. For example:
     cout << hist->GetNbinsX() <<endl;
   }
 #+END_SRC
+*For ROOT 6:*
+ROOTv6 macros are compiled with the LLVM backend "just in time"
+(JIT). This means that you have to type valid C++ in order to make
+things work correctly.  This alleviates a lot of the issues that make
+Macros fragile, and so it is easier to transition from Level 1 to
+Level 2, and you can achieve more with a macro than before.
 
-While not immediately obvious, ROOT macros are not written in C or
+*For ROOT 5:*
+While not immediately obvious, ROOTv5 macros are not written in C or
 C++, but [[http://root.cern.ch/drupal/content/cint][CINT]]. CINT covers "most of"   ANSI C and ISO C++ 2003.
 There are some important differences:
 - =foo.blah= and =foo->blah= are interchangeable
 - a semicolon ';' at the end of a line is optional
 - No need to "=#include=" headers
-
 As you progress in writing more sophisticated C++, you will run into
 CINT's shortcomings as a C++ interpreter.  It is recommended that you
 move to Level 2 or 3 before this happens. 
@@ -1298,7 +1354,19 @@ Direct links are here, though they aren't guaranteed to be current:
 - [[http://root.cern.ch/download/doc/RooFit_Users_Manual_2.91-33.pdf][RooFit Manual (PDF) 2.91-33]]
 - [[http://root.cern.ch/drupal/sites/default/files/roofit_quickstart_3.00.pdf][RooFit Quick Start Guide (PDF) 3.00]]
 *** Styling Plots 
-A well designed graph is truly a work of art. 
+A well designed graph is truly a work of art. The path from paltry
+graphics spit out by ROOT to something worthy of framing (and yes,
+[[https://www.edwardtufte.com/tufte/posters][truly amazing data visualizations are routinely framed]]) is long and
+fraught with naysayers who will insist that you are doing it wrong.
+Ignore them, and do what needs to be done to communicate your hard won
+data clearly and concisely.  To get you started, give "[[http://www2.cs.uregina.ca/~rbm/cs100/notes/spreadsheets/tufte_paper.html][Principles of
+Information Display for Visualization Practitioners]]" a read.  It is an
+executive summary of [[https://www.edwardtufte.com/tufte/][Edward Tufte's]] works on visualizing information.
+If what you read resonates with you, then please read [[http://www.amazon.com/The-Visual-Display-Quantitative-Information/dp/0961392142][Tufte's books]].
+They make for delightful coffee time distractions.  After reading his
+books you will start to see his influence in particularly nice
+graphics.  You will also see many sins committed by other
+practitioners in our field. Choose your role-models wisely.
 
 Sage advice (passed down from The Editor's first mentor):
 #+BEGIN_QUOTE
@@ -1316,16 +1384,17 @@ This also means it's probably a good idea to keep =*.root= files
 containing your histograms for last minute style changes if you are
 writing a presentation.
 
-Producing a publication quality plot can be challenging initially,
-however ROOT includes the concept of a "Style" which can be applied.
-These are global rules for how plots should be printed.  In previous
-versions of ROOT, the default style was notoriously bad.  In The
-Editor's humble opinion, this was done to simultaneously encourage
-each physicist to set their own standard, and to immediately identify
-ROOT newbies from seasoned ROOT hackers.
+Producing a publication quality plot can be challenging, however ROOT
+includes the concept of a "Style" which can be applied.  These are
+global rules for how plots should be printed.  In previous versions of
+ROOT, the default style was notoriously bad.  In The Editor's humble
+opinion, this was done to simultaneously encourage each physicist to
+set their own standard, and to immediately identify ROOT newbies from
+seasoned ROOT hackers.
 
 Now, things are better, though the idea that "each physicist set their
-own standard" has stuck, and so there are many styles floating around. 
+own standard" has stuck, and so there are many styles floating
+around. 
 **** Example Style
 An example style (probably from the CMS TDR, the details are lost to
 time):
@@ -1679,9 +1748,38 @@ string to be something unique.  This can be done as follows:
 User Beware: not using a unique name can cause unexpected behavior
 when drawing the list of slices.  
 **** THStack
+=THStack= is not mostly harmless. In fact, if you want to do reasonable
+things with =THStack=, it probably won't work, and if it does, it may
+work once and not the second time.  If you can avoid =THStack=, then do
+it.  
 ***** Get Sum of Stack 
 To get a histogram representing the sum of a stack use
 =THStack::GetStack()->Last()=
+***** A pointer here, a pointer there, who am I?
+If you want to iterate over the stack, there are two ways to get the
+underlying objects.  They are not equal.  Option 1:
+#+BEGIN_SRC cpp
+  THStack stack = new THStack("Stack","A stack of histograms");
+  // later on ...
+  TIter next(stack->GetHists());
+  TH1* hist = NULL;
+  while((hist=dynamic_cast<TH1*>(next()))){
+    // Do something with *original* histograms added to stack
+  }
+#+END_SRC
+Option 2:
+#+BEGIN_SRC cpp
+  TH1* hist = NULL;
+  for(int i = 0; i < stack->GetStack()->GetEntries(); i++){
+    hist = dynamic_cast<TH1*>(stack->GetStack()->At(i));
+    // Do something with histograms to be painted on the canvas
+  }
+#+END_SRC
+These two methods appear equal but are not.  The =TList= method from
+=THStack::GetHists= give you the original pointers (ie those that you
+added with =THStack::Add=).  The =TObjArray= method from
+=THStack::GetStack= gives you the internal histograms which will be
+used to draw the histograms on the canvas.
 **** TFile
 TFile's are greedy about object ownership.  In fact, object ownership
 in ROOT is a very common +bug+ feature.  Many times you'll own objects
