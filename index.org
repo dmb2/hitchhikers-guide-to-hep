@@ -120,7 +120,7 @@ Then you'll have a copy of the org file, as well as the compiled
 macros and compiled programs.  
 
 ** For Windows Hitchhikers
-Everyone should read [[*For%20Linux%20Hitchhikers][For Linux Hitchhikers]] to understand what
+Everyone should read [[For Linux Hitchhikers]] to understand what
 functionality they'll need (especially when working with or on remote
 machines)
 
@@ -129,7 +129,7 @@ brain child, it is not recommended by The Editor.  (He doesn't
 run Windows anyway, daylight scares him.) If you insist on using
 Windows, the following is a list of useful software.
 *** Software you will need
-- [[*For%20Linux%20Hitchhikers][For Linux Hitchhikers]]
+- [[For Linux Hitchhikers]]
 - [[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html][PuTTY (ssh client for Windows)]]: Secure SHell is the standard way of
   accessing *nix machines remotely.  PuTTY is the Windows client for
   this. 
@@ -151,8 +151,8 @@ Windows, the following is a list of useful software.
   to an [[http://x.cygwin.com/][X11 server]]), you can use this to create a more Unix-like
   environment to work from. 
 - [[https://www.virtualbox.org/][VirtualBox]]: Allows you to boot operating systems within operating
-  systems (useful if you don't want to dual boot Ubuntu) see
-  [[*For%20Linux%20Hitchhikers][For Linux Hitchhikers]] after you've setup a working distro.
+  systems (useful if you don't want to dual boot Ubuntu) see [[For Linux
+  Hitchhikers]] after you've setup a working distro.
 
 [[http://www.calebmadrigal.com/running-ubuntu-virtualbox/][See here]] for a nice picture-book tutorial on installing Ubuntu
 through VirtualBox on Windows.
@@ -368,7 +368,8 @@ and then edit it there in order to add your customizations.  Some
 programs document their options that way.
 
 ** For Mac OS X Hitchhikers
-Everyone should read [[*For%20Linux%20Hitchhikers][For Linux Hitchhikers]] to understand what
+Everyone should read [[For Linux Hitchhikers]]
+ to understand what
 functionality they'll need (especially when working with or on remote
 machines).  As a Mac user, you should also read "[[http://www.insectnation.org/blog/it-just-works-or-does-it-the-dark-side-of-macs-in-hep.html][It just works... or
 does it? The dark side of Macs in HEP]]" by Andy Buckley.  It explains
@@ -463,7 +464,7 @@ The Editor finds the following packages essential:
   a remote file, type "C-x C-f" and then type
   '/ssh:user@remote.host:~/remote/path', note that tab completion
   works remotely just the same as visiting a file locally! Tramp is
-  also aware of ssh aliases in =~/.ssh/config=, see [[*Configuring SSH]].
+  also aware of ssh aliases in =~/.ssh/config=, see [[Configuring SSH]].
 - [[info:calc#Top][Calc]] - ""Calc" is an advanced desk calculator and mathematical tool
   written by Dave Gillespie that runs as part of the GNU Emacs
   environment." It handles barns and electron volts out of the box!
@@ -1065,7 +1066,7 @@ specific feature (say roofit) you would type:
 
 If you're interested in building ROOT with xrootd (network protocol
 which allows opening root files over a network connection) see
-[[*Advanced%20Build%20Options][Advanced Build Options]].
+[[Advanced Build Options]].
 
 After configuring you should see:
 #+BEGIN_EXAMPLE
@@ -1233,7 +1234,7 @@ results.  These methods are listed below, each more sophisticated
 than the last.  They also include example code intended as a starting
 point for hacking.   
 
-As a reminder, see [[*Obtaining%20a%20copy%20and%20supporting%20material][Obtaining a copy and supporting material]] for
+As a reminder, see [[Obtaining a copy and supporting material]] for
 instructions on obtaining and running the example code.
 **** Level 1: Macros
 The first, and simplest way to execute ROOT related code is the
@@ -1341,7 +1342,7 @@ of the box, but there are some things to keep in mind.
     it to C++. This is fairly advanced, but not impossible. You'll
     have to generate CINT dictionaries for your source files.
 If you're looking for a more "pythonic" (not my word) experience,
-maybe give [[http://www.rootpy.org][rootpy]] a shot. See also [[*An%20even%20briefer%20introduction%20to%20Python][An even briefer introduction to
+maybe give [[http://www.rootpy.org][rootpy]] a shot. See also [[An even briefer introduction to
 Python]] for resources to learn python itself.
 
 *** Fitting Data with RooFit
@@ -1933,7 +1934,7 @@ You can trace the whole program from the =main()= invocation.  To
 gain more insight into all the information contained in the stack
 trace, it is very useful to go through a =gdb= tutorial.  
 
-Also, see [[*Getting%20Help][Getting Help]] for more problem solving strategies before
+Also, see [[Getting Help]] for more problem solving strategies before
 filing a bug report.  Remember: you probably just found a feature,
 not a bug.   
 
@@ -1947,7 +1948,7 @@ Here are some good gdb (GNU DeBugger) tutorials
 
 **** Valgrind
 If you have memory related problems, you should be aware of
-[[valgrind.org][valgrind]].  The [[http://valgrind.org/docs/manual/QuickStart.html][quick-start is here]].
+[[http://valgrind.org][valgrind]].  The [[http://valgrind.org/docs/manual/QuickStart.html][quick-start is here]].
 
 ** Physics
 At some point (not necessarily right away) a hitchhiker will want to
@@ -2063,6 +2064,35 @@ $\sigma_{MC}k$.
 There are many possibilities. The most "user friendly" is probably
 [[http://jaxodraw.sourceforge.net/][JaxoDraw]].  It's even got a name reminiscent of Douglas Adams!
 
+JaxoDraw comes as a jar file, you may want to make it more command
+line friendly by making a script to invoke it (put this in
+=${HOME}/local/bin/jaxodraw=):
+#+BEGIN_SRC sh
+#!/bin/bash
+java -jar ${HOME}/local/lib/java/jaxodraw-2.1-0.jar $@
+#+END_SRC
+Now make it executable:
+#+BEGIN_SRC sh
+chmod +x ${HOME}/local/bin/jaxodraw
+#+END_SRC
+And add it to your =PATH=. I have my path set up to search this path
+from my =.bashrc=:
+#+BEGIN_SRC sh
+export PATH=${HOME}/local/bin:$PATH
+#+END_SRC
+Now to test it out by typing =jaxodraw= at the command prompt, it should
+just launch. If it doesn't try again.
+
+Someday you may be working on a presentation and want the figures
+exported by jaxodraw to have a transparent background.  Some kind soul
+has hacked the conversion steps to do this for you. You can grab the
+scripts here:
+http://personal.psu.edu/jcc8//jd-conversions/
+
+There are good instructions for using [[https://sourceforge.net/p/jaxodraw/mailman/jaxodraw-discuss/thread/2EB5AF1C-5DA7-4428-94EB-7314738AF3D2%2540gmail.com/#msg31443532][these scripts in this thread]]. If
+you have jaxodraw setup as above you can just dump the scripts in
+=$HOME/local/bin= and run them on the xml file produced by jaxodraw.
+
 *** What to do if you've lost a 2\pi
 Calm down, take a deep breath and read the first line of The Guide.
 Then come back here.  Somewhere a fellow grad student has a copy of
@@ -2140,7 +2170,7 @@ Most likely you accidentally typed "C-s" (the control key followed by
 the s key). This sends the XOFF command to your terminal emulator.
 To fix it (and "unfreeze" your terminal) type "C-q". [[https://en.wikipedia.org/wiki/Software_flow_control][More Info Here]].
 - Dear Mr. The Editor, my <insert problem here>, can you fix it?
-No. Please refer to [[*Getting%20Help][Getting Help]].
+No. Please refer to [[Getting Help]].
 - I have some information that would be useful for your guide, can
   you use it?
 Yes! Please see [[https://github.com/dbjergaard/hitchhikers-guide-to-hep#contributing][Contributing]]. 
