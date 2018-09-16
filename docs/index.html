@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>DON'T PANIC</title>
-<!-- 2017-01-23 Mon 13:49 -->
+<!-- 09/16/2018 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="David Bjergaard" />
@@ -88,6 +88,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="./css/style.css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -134,7 +135,7 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
-<script type="text/javascript" src="../MathJax/MathJax.js"></script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
 <script type="text/javascript">
 <!--/*--><![CDATA[/*><!--*/
     MathJax.Hub.Config({
@@ -671,7 +672,7 @@ bindings by typing:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">set -o vi
+<pre class="src src-sh"><span style="color: #fe8019;">set</span> -o vi
 </pre>
 </div>
 <p>
@@ -679,7 +680,7 @@ If you forget which mode your in, check it by typing:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">set -o
+<pre class="src src-sh"><span style="color: #fe8019;">set</span> -o
 </pre>
 </div>
 <p>
@@ -688,7 +689,7 @@ If these commands give you an error, type:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">echo $SHELL
+<pre class="src src-sh"><span style="color: #fe8019;">echo</span> $<span style="color: #83a598;">SHELL</span>
 </pre>
 </div>
 <p>
@@ -732,7 +733,7 @@ anymore, so to kill them:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">kill %2
+<pre class="src src-sh"><span style="color: #fe8019;">kill</span> %2
 </pre>
 </div>
 <p>
@@ -1395,10 +1396,10 @@ Now some syntax:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">Foo* bar = new Foo("Baz",42,"What is the question?");
-std::cout &lt;&lt; "object bar lives at memory address:"&lt;&lt;bar&lt;&lt;std::endl;
-std::cout &lt;&lt; "bar calculated a question to the answer to \"The Ultimate Question\" as "&lt;&lt;bar-&gt;TheAnswer()&lt;&lt;std::endl;
-std::cout &lt;&lt;"Another way to get the answer is: "&lt;&lt;(*bar).TheAnswer()&lt;&lt;std::endl;
+<pre class="src src-cpp"><span style="color: #d3869b;">Foo</span>* <span style="color: #83a598;">bar</span> = <span style="color: #fb4933;">new</span> <span style="color: #d3869b;">Foo</span>(<span style="color: #b8bb26;">"Baz"</span>,42,<span style="color: #b8bb26;">"What is the question?"</span>);
+<span style="color: #d3869b;">std</span>::cout &lt;&lt; <span style="color: #b8bb26;">"object bar lives at memory address:"</span>&lt;&lt;bar&lt;&lt;<span style="color: #d3869b;">std</span>::endl;
+<span style="color: #d3869b;">std</span>::cout &lt;&lt; <span style="color: #b8bb26;">"bar calculated a question to the answer to \"The Ultimate Question\" as "</span>&lt;&lt;bar-&gt;TheAnswer()&lt;&lt;<span style="color: #d3869b;">std</span>::endl;
+<span style="color: #d3869b;">std</span>::cout &lt;&lt;<span style="color: #b8bb26;">"Another way to get the answer is: "</span>&lt;&lt;(*bar).TheAnswer()&lt;&lt;<span style="color: #d3869b;">std</span>::endl;
 </pre>
 </div>
 <p>
@@ -1415,7 +1416,7 @@ What happened? Let's look at the first line
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">Foo* bar = new Foo("Baz",42,"What is the question?");
+<pre class="src src-cpp"><span style="color: #d3869b;">Foo</span>* <span style="color: #83a598;">bar</span> = <span style="color: #fb4933;">new</span> <span style="color: #d3869b;">Foo</span>(<span style="color: #b8bb26;">"Baz"</span>,42,<span style="color: #b8bb26;">"What is the question?"</span>);
 </pre>
 </div>
 <p>
@@ -1468,9 +1469,9 @@ in memory.  Consider the following snippet:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">double* foo = new double(3.14159);
-double pi = *foo;
-std::cout &lt;&lt;"Pi is: "&lt;&lt;pi&lt;&lt;std::endl;
+<pre class="src src-cpp"><span style="color: #d3869b;">double</span>* <span style="color: #83a598;">foo</span> = <span style="color: #fb4933;">new</span> <span style="color: #d3869b;">double</span>(3.14159);
+<span style="color: #d3869b;">double</span> <span style="color: #83a598;">pi</span> = *foo;
+<span style="color: #d3869b;">std</span>::cout &lt;&lt;<span style="color: #b8bb26;">"Pi is: "</span>&lt;&lt;pi&lt;&lt;<span style="color: #d3869b;">std</span>::endl;
 </pre>
 </div>
 <p>
@@ -1485,7 +1486,7 @@ Now we can understand this line:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">std::cout &lt;&lt;"Another way to get the answer is: "&lt;&lt;(*bar).TheAnswer()&lt;&lt;std::endl;
+<pre class="src src-cpp"><span style="color: #d3869b;">std</span>::cout &lt;&lt;<span style="color: #b8bb26;">"Another way to get the answer is: "</span>&lt;&lt;(*bar).TheAnswer()&lt;&lt;<span style="color: #d3869b;">std</span>::endl;
 </pre>
 </div>
 <p>
@@ -1496,9 +1497,9 @@ for this kind of operation (the <code>-&gt;</code> operator):
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">Foo* bar=new Foo();
-if(bar-&gt;Value()==(*bar).Value()){
-  std::cout&lt;&lt;"They're the same!"&lt;&lt;std::endl;
+<pre class="src src-cpp"><span style="color: #d3869b;">Foo</span>* <span style="color: #83a598;">bar</span>=<span style="color: #fb4933;">new</span> <span style="color: #d3869b;">Foo</span>();
+<span style="color: #fb4933;">if</span>(bar-&gt;Value()==(*bar).Value()){
+  <span style="color: #d3869b;">std</span>::cout&lt;&lt;<span style="color: #b8bb26;">"They're the same!"</span>&lt;&lt;<span style="color: #d3869b;">std</span>::endl;
 }
 </pre>
 </div>
@@ -1523,20 +1524,20 @@ allocation</a>. Consider the following code:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">double* foo(){
-  double* bar = new double(0.0);
+<pre class="src src-cpp"><span style="color: #d3869b;">double</span>* <span style="color: #fabd2f;">foo</span>(){
+  <span style="color: #d3869b;">double</span>* <span style="color: #83a598;">bar</span> = <span style="color: #fb4933;">new</span> <span style="color: #d3869b;">double</span>(0.0);
 
   {
-    double baz=42;
-    *bar=baz;//dereference bar, and store the value of baz 
+    <span style="color: #d3869b;">double</span> <span style="color: #83a598;">baz</span>=42;
+    *bar=baz;<span style="color: #7c6f64;">//</span><span style="color: #7c6f64;">dereference bar, and store the value of baz </span>
   }
-  //baz is out of scope
-  return bar;
+  <span style="color: #7c6f64;">//</span><span style="color: #7c6f64;">baz is out of scope</span>
+  <span style="color: #fb4933;">return</span> bar;
 }
-int main(void){
-  double* foobar=foo();
-  std::cout &lt;&lt;"The Answer to the Ultimate question is :"&lt;&lt;*foobar&lt;&lt;std::endl;
-  return 0;
+<span style="color: #d3869b;">int</span> <span style="color: #fabd2f;">main</span>(<span style="color: #d3869b;">void</span>){
+  <span style="color: #d3869b;">double</span>* <span style="color: #83a598;">foobar</span>=foo();
+  <span style="color: #d3869b;">std</span>::cout &lt;&lt;<span style="color: #b8bb26;">"The Answer to the Ultimate question is :"</span>&lt;&lt;*foobar&lt;&lt;<span style="color: #d3869b;">std</span>::endl;
+  <span style="color: #fb4933;">return</span> 0;
 }
 </pre>
 </div>
@@ -1593,10 +1594,10 @@ syntax is:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">int foo=42;
-int&amp; theAnswer=foo;
+<pre class="src src-cpp"><span style="color: #d3869b;">int</span> <span style="color: #83a598;">foo</span>=42;
+<span style="color: #d3869b;">int</span>&amp; <span style="color: #83a598;">theAnswer</span>=foo;
 foo=0;
-std::cout&lt;&lt;theAnswer&lt;&lt;std::endl;
+<span style="color: #d3869b;">std</span>::cout&lt;&lt;theAnswer&lt;&lt;<span style="color: #d3869b;">std</span>::endl;
 </pre>
 </div>
 <p>
@@ -1611,14 +1612,14 @@ they're used in function definitions:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">void bar(int&amp; foo){
-  //complicated calculation for foo
+<pre class="src src-cpp"><span style="color: #d3869b;">void</span> <span style="color: #fabd2f;">bar</span>(<span style="color: #d3869b;">int</span>&amp; <span style="color: #83a598;">foo</span>){
+  <span style="color: #7c6f64;">//</span><span style="color: #7c6f64;">complicated calculation for foo</span>
   foo++;
 }
-int main(void){
-  int baz=41;
+<span style="color: #d3869b;">int</span> <span style="color: #fabd2f;">main</span>(<span style="color: #d3869b;">void</span>){
+  <span style="color: #d3869b;">int</span> <span style="color: #83a598;">baz</span>=41;
   bar(baz);
-  std::cout&lt;&lt;baz&lt;&lt;std::endl;
+  <span style="color: #d3869b;">std</span>::cout&lt;&lt;baz&lt;&lt;<span style="color: #d3869b;">std</span>::endl;
 }
 </pre>
 </div>
@@ -1644,8 +1645,8 @@ Methods, or functions are defined as:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">return_type function_name(arg1_type arg1, arg2_type arg2, ...){
-  //statements that define function_name
+<pre class="src src-cpp"><span style="color: #d3869b;">return_type</span> <span style="color: #83a598;">function_name</span>(<span style="color: #d3869b;">arg1_type</span> <span style="color: #83a598;">arg1</span>, <span style="color: #d3869b;">arg2_type</span> <span style="color: #83a598;">arg2</span>, ...){
+  <span style="color: #7c6f64;">//</span><span style="color: #7c6f64;">statements that define function_name</span>
 }
 </pre>
 </div>
@@ -1655,10 +1656,10 @@ the compiler" that you have a function with a particular signature:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">double foo(double,double);
-// important other stuff
-double foo(double theta, double phi){
-  return sin(theta)*sin(theta) + cos(phi)*cos(phi);
+<pre class="src src-cpp"><span style="color: #d3869b;">double</span> <span style="color: #fabd2f;">foo</span>(<span style="color: #d3869b;">double</span>,<span style="color: #d3869b;">double</span>);
+<span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">important other stuff</span>
+<span style="color: #d3869b;">double</span> <span style="color: #fabd2f;">foo</span>(<span style="color: #d3869b;">double</span> <span style="color: #83a598;">theta</span>, <span style="color: #d3869b;">double</span> <span style="color: #83a598;">phi</span>){
+  <span style="color: #fb4933;">return</span> sin(theta)*sin(theta) + cos(phi)*cos(phi);
 }
 </pre>
 </div>
@@ -1738,19 +1739,19 @@ The basic syntax is:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">class A{
-public:
-  A():a(0),b(0){};
-  A(int _a):a(_a),b(0){};
-  ~A(){};
-  void SetA(int new_a){a=new_a;};
-  void GetA(){return a;};
-  void SetB(int new_b){b=new_b;};
-  void GetB(){return b;};
-private:
-  int a;
-protected:
-  int b;
+<pre class="src src-cpp"><span style="color: #fb4933;">class</span> <span style="color: #d3869b;">A</span>{
+<span style="color: #fb4933;">public</span>:
+  <span style="color: #fabd2f;">A</span>():a(0),b(0){};
+  <span style="color: #fabd2f;">A</span>(<span style="color: #d3869b;">int</span> <span style="color: #83a598;">_a</span>):a(_a),b(0){};
+  ~<span style="color: #fabd2f;">A</span>(){};
+  <span style="color: #d3869b;">void</span> <span style="color: #fabd2f;">SetA</span>(<span style="color: #d3869b;">int</span> <span style="color: #83a598;">new_a</span>){a=new_a;};
+  <span style="color: #d3869b;">void</span> <span style="color: #fabd2f;">GetA</span>(){<span style="color: #fb4933;">return</span> a;};
+  <span style="color: #d3869b;">void</span> <span style="color: #fabd2f;">SetB</span>(<span style="color: #d3869b;">int</span> <span style="color: #83a598;">new_b</span>){b=new_b;};
+  <span style="color: #d3869b;">void</span> <span style="color: #fabd2f;">GetB</span>(){<span style="color: #fb4933;">return</span> b;};
+<span style="color: #fb4933;">private</span>:
+  <span style="color: #d3869b;">int</span> <span style="color: #83a598;">a</span>;
+<span style="color: #fb4933;">protected</span>:
+  <span style="color: #d3869b;">int</span> <span style="color: #83a598;">b</span>;
 };
 </pre>
 </div>
@@ -1767,7 +1768,7 @@ accessible to the outside world, ie:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">A myObj;
+<pre class="src src-cpp"><span style="color: #d3869b;">A</span> <span style="color: #83a598;">myObj</span>;
 myObj.SetA(10);
 myObj.GetA();
 myObj.SetB(42);
@@ -1780,8 +1781,8 @@ that.  You cannot access it outside of the class:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">myObj.a; //Compiler error
-myObj.b; //protected is a special form of private
+<pre class="src src-cpp">myObj.a; <span style="color: #7c6f64;">//</span><span style="color: #7c6f64;">Compiler error</span>
+myObj.b; <span style="color: #7c6f64;">//</span><span style="color: #7c6f64;">protected is a special form of private</span>
 </pre>
 </div>
 <p>
@@ -1998,13 +1999,13 @@ coffee time.
 
 <div class="org-src-container">
 
-<pre class="src src-sh">sudo apt-get install git dpkg-dev make g++ gcc binutils libx11-dev libxpm-dev \
-	libxft-dev libxext-dev gfortran libssl-dev libpcre3-dev \
-	xlibmesa-glu-dev libglew1.5-dev libftgl-dev \
-	libmysqlclient-dev libfftw3-dev cfitsio-dev \
-	graphviz-dev libavahi-compat-libdnssd-dev \
-	libldap2-dev python-dev libxml2-dev libkrb5-dev \
-	libgsl0-dev libqt4-dev
+<pre class="src src-sh">sudo apt-get install git dpkg-dev make g++ gcc binutils libx11-dev libxpm-dev <span style="color: #b8bb26;">\</span>
+        libxft-dev libxext-dev gfortran libssl-dev libpcre3-dev <span style="color: #b8bb26;">\</span>
+        xlibmesa-glu-dev libglew1.5-dev libftgl-dev <span style="color: #b8bb26;">\</span>
+        libmysqlclient-dev libfftw3-dev cfitsio-dev <span style="color: #b8bb26;">\</span>
+        graphviz-dev libavahi-compat-libdnssd-dev <span style="color: #b8bb26;">\</span>
+        libldap2-dev python-dev libxml2-dev libkrb5-dev <span style="color: #b8bb26;">\</span>
+        libgsl0-dev libqt4-dev
 </pre>
 </div>
 <p>
@@ -2181,7 +2182,7 @@ Now, when you want to use <code>root</code>, you can run the command:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">source ~/root/bin/thisroot.sh
+<pre class="src src-sh"><span style="color: #fe8019;">source</span> ~/root/bin/thisroot.sh
 </pre>
 </div>
 <p>
@@ -2189,7 +2190,7 @@ If you are using tcsh (you shouldn't be) you would need to run:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">source ~/root/bin/thisroot.csh
+<pre class="src src-sh"><span style="color: #fe8019;">source</span> ~/root/bin/thisroot.csh
 </pre>
 </div>
 
@@ -2202,7 +2203,7 @@ you need.  In that case adding:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">alias setupROOT='source ${HOME}/root/bin/thisroot.sh'
+<pre class="src src-sh"><span style="color: #fe8019;">alias</span> <span style="color: #83a598;">setupROOT</span>=<span style="color: #b8bb26;">'source ${HOME}/root/bin/thisroot.sh'</span>
 </pre>
 </div>
 <p>
@@ -2221,7 +2222,7 @@ always setup root when bash runs if the setup file exists:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">[ -f ~/root/bin/thisroot.sh ] &amp;&amp; source ~/root/bin/thisroot.sh
+<pre class="src src-sh">[ -f ~/root/bin/thisroot.sh ] &amp;&amp; <span style="color: #fe8019;">source</span> ~/root/bin/thisroot.sh
 </pre>
 </div>
 
@@ -2308,7 +2309,7 @@ Now when you configure root you should use:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">./configure --all --with-xrootd=${HOME}/root/xrootd-4.2.1/
+<pre class="src src-sh">./configure --all --with-xrootd=${<span style="color: #83a598;">HOME</span>}/root/xrootd-4.2.1/
 </pre>
 </div>
 <p>
@@ -2373,8 +2374,8 @@ braces. For example:
 <div class="org-src-container">
 
 <pre class="src src-cpp">{
-  TFile* file= TFile::Open("MeaningOfLife.root");
-  TH1F* hist = (TH1F*)file-&gt;Get("Hist1");
+  <span style="color: #d3869b;">TFile</span>* <span style="color: #83a598;">file</span>= <span style="color: #d3869b;">TFile</span>::Open(<span style="color: #b8bb26;">"MeaningOfLife.root"</span>);
+  <span style="color: #d3869b;">TH1F</span>* <span style="color: #83a598;">hist</span> = (<span style="color: #d3869b;">TH1F</span>*)file-&gt;Get(<span style="color: #b8bb26;">"Hist1"</span>);
   cout &lt;&lt; hist-&gt;GetNbinsX() &lt;&lt;endl;
 }
 </pre>
@@ -2434,9 +2435,9 @@ libraries.  An example steering macro:
 <div class="org-src-container">
 
 <pre class="src src-cpp">{
-  //may need to load other libraries or files that depend on analysis.C
-  gROOT-&gt;ProcessLine(".L analysis.C++");
-  gROOT-&gt;ProcessLine("doAnalysis()");
+  <span style="color: #7c6f64;">//</span><span style="color: #7c6f64;">may need to load other libraries or files that depend on analysis.C</span>
+  gROOT-&gt;ProcessLine(<span style="color: #b8bb26;">".L analysis.C++"</span>);
+  gROOT-&gt;ProcessLine(<span style="color: #b8bb26;">"doAnalysis()"</span>);
 }
 </pre>
 </div>
@@ -2445,13 +2446,13 @@ The compiled macro itself looks more like a traditional C++ program:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">#include &lt;cstdlib&gt;
-#include "TFile.h"
-#include "TH1F.h"
+<pre class="src src-cpp"><span style="color: #fe8019;">#include</span> <span style="color: #b8bb26;">&lt;cstdlib&gt;</span>
+<span style="color: #fe8019;">#include</span> <span style="color: #b8bb26;">"TFile.h"</span>
+<span style="color: #fe8019;">#include</span> <span style="color: #b8bb26;">"TH1F.h"</span>
 
-int doAnalysis(){
+<span style="color: #d3869b;">int</span> <span style="color: #fabd2f;">doAnalysis</span>(){
 
-  return 42;
+  <span style="color: #fb4933;">return</span> 42;
 }
 </pre>
 </div>
@@ -2643,29 +2644,29 @@ time):
 <div class="org-src-container">
 
 <pre class="src src-cpp">{
-  TStyle *tdrStyle = new TStyle("tdrStyle","Style for P-TDR");
+  <span style="color: #d3869b;">TStyle</span> *<span style="color: #83a598;">tdrStyle</span> = <span style="color: #fb4933;">new</span> <span style="color: #d3869b;">TStyle</span>(<span style="color: #b8bb26;">"tdrStyle"</span>,<span style="color: #b8bb26;">"Style for P-TDR"</span>);
 
-  cout &lt;&lt; "TDR Style initialized" &lt;&lt; endl;
+  cout &lt;&lt; <span style="color: #b8bb26;">"TDR Style initialized"</span> &lt;&lt; endl;
 
-// For the canvas:
+<span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">For the canvas:</span>
   tdrStyle-&gt;SetCanvasBorderMode(0);
   tdrStyle-&gt;SetCanvasColor(kWhite);
-  tdrStyle-&gt;SetCanvasDefH(600); //Height of canvas
-  tdrStyle-&gt;SetCanvasDefW(600); //Width of canvas
-  tdrStyle-&gt;SetCanvasDefX(0);   //Position on screen
+  tdrStyle-&gt;SetCanvasDefH(600); <span style="color: #7c6f64;">//</span><span style="color: #7c6f64;">Height of canvas</span>
+  tdrStyle-&gt;SetCanvasDefW(600); <span style="color: #7c6f64;">//</span><span style="color: #7c6f64;">Width of canvas</span>
+  tdrStyle-&gt;SetCanvasDefX(0);   <span style="color: #7c6f64;">//</span><span style="color: #7c6f64;">Position on screen</span>
   tdrStyle-&gt;SetCanvasDefY(0);
 
-// For the Pad:
+<span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">For the Pad:</span>
   tdrStyle-&gt;SetPadBorderMode(0);
-  // tdrStyle-&gt;SetPadBorderSize(Width_t size = 1);
+  <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">tdrStyle-&gt;SetPadBorderSize(Width_t size = 1);</span>
   tdrStyle-&gt;SetPadColor(kWhite);
-  tdrStyle-&gt;SetPadGridX(false);
-  tdrStyle-&gt;SetPadGridY(false);
+  tdrStyle-&gt;SetPadGridX(<span style="color: #d3869b;">false</span>);
+  tdrStyle-&gt;SetPadGridY(<span style="color: #d3869b;">false</span>);
   tdrStyle-&gt;SetGridColor(0);
   tdrStyle-&gt;SetGridStyle(3);
   tdrStyle-&gt;SetGridWidth(1);
 
-// For the frame:
+<span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">For the frame:</span>
   tdrStyle-&gt;SetFrameBorderMode(0);
   tdrStyle-&gt;SetFrameBorderSize(1);
   tdrStyle-&gt;SetFrameFillColor(0);
@@ -2674,93 +2675,93 @@ time):
   tdrStyle-&gt;SetFrameLineStyle(1);
   tdrStyle-&gt;SetFrameLineWidth(1);
 
-// For the histo:
-  // tdrStyle-&gt;SetHistFillColor(1);
-  // tdrStyle-&gt;SetHistFillStyle(0);
+<span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">For the histo:</span>
+  <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">tdrStyle-&gt;SetHistFillColor(1);</span>
+  <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">tdrStyle-&gt;SetHistFillStyle(0);</span>
   tdrStyle-&gt;SetHistLineColor(1);
   tdrStyle-&gt;SetHistLineStyle(0);
   tdrStyle-&gt;SetHistLineWidth(1);
 
   tdrStyle-&gt;SetEndErrorSize(2);
-  //tdrStyle-&gt;SetErrorMarker(20);
+  <span style="color: #7c6f64;">//</span><span style="color: #7c6f64;">tdrStyle-&gt;SetErrorMarker(20);</span>
   tdrStyle-&gt;SetErrorX(0.);
 
   tdrStyle-&gt;SetMarkerStyle(20);
 
-//For the fit/function:
+<span style="color: #7c6f64;">//</span><span style="color: #7c6f64;">For the fit/function:</span>
   tdrStyle-&gt;SetOptFit(1);
-  tdrStyle-&gt;SetFitFormat("5.4g");
+  tdrStyle-&gt;SetFitFormat(<span style="color: #b8bb26;">"5.4g"</span>);
   tdrStyle-&gt;SetFuncColor(2);
   tdrStyle-&gt;SetFuncStyle(1);
   tdrStyle-&gt;SetFuncWidth(1);
 
-//For the date:
+<span style="color: #7c6f64;">//</span><span style="color: #7c6f64;">For the date:</span>
   tdrStyle-&gt;SetOptDate(0);
-  // tdrStyle-&gt;SetDateX(Float_t x = 0.01);
-  // tdrStyle-&gt;SetDateY(Float_t y = 0.01);
+  <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">tdrStyle-&gt;SetDateX(Float_t x = 0.01);</span>
+  <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">tdrStyle-&gt;SetDateY(Float_t y = 0.01);</span>
 
-// For the statistics box:
+<span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">For the statistics box:</span>
   tdrStyle-&gt;SetOptFile(0);
-  tdrStyle-&gt;SetOptStat(0); // To display the mean and RMS:   SetOptStat("mr");
+  tdrStyle-&gt;SetOptStat(0); <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">To display the mean and RMS:   SetOptStat("mr");</span>
   tdrStyle-&gt;SetStatColor(kWhite);
   tdrStyle-&gt;SetStatFont(42);
   tdrStyle-&gt;SetStatFontSize(0.025);
   tdrStyle-&gt;SetStatTextColor(1);
-  tdrStyle-&gt;SetStatFormat("6.4g");
+  tdrStyle-&gt;SetStatFormat(<span style="color: #b8bb26;">"6.4g"</span>);
   tdrStyle-&gt;SetStatBorderSize(1);
   tdrStyle-&gt;SetStatH(0.1);
   tdrStyle-&gt;SetStatW(0.15);
-  // tdrStyle-&gt;SetStatStyle(Style_t style = 1001);
-  // tdrStyle-&gt;SetStatX(Float_t x = 0);
-  // tdrStyle-&gt;SetStatY(Float_t y = 0);
+  <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">tdrStyle-&gt;SetStatStyle(Style_t style = 1001);</span>
+  <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">tdrStyle-&gt;SetStatX(Float_t x = 0);</span>
+  <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">tdrStyle-&gt;SetStatY(Float_t y = 0);</span>
 
-// Margins:
+<span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">Margins:</span>
   tdrStyle-&gt;SetPadTopMargin(0.15);
   tdrStyle-&gt;SetPadBottomMargin(0.13);
   tdrStyle-&gt;SetPadLeftMargin(0.13);
   tdrStyle-&gt;SetPadRightMargin(0.15);
 
-// For the Global title:
+<span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">For the Global title:</span>
 
-//  tdrStyle-&gt;SetOptTitle(0);
+<span style="color: #7c6f64;">//  </span><span style="color: #7c6f64;">tdrStyle-&gt;SetOptTitle(0);</span>
   tdrStyle-&gt;SetTitleFont(42);
   tdrStyle-&gt;SetTitleColor(1);
   tdrStyle-&gt;SetTitleTextColor(1);
   tdrStyle-&gt;SetTitleFillColor(10);
   tdrStyle-&gt;SetTitleFontSize(0.05);
-  // tdrStyle-&gt;SetTitleH(0); // Set the height of the title box
-  // tdrStyle-&gt;SetTitleW(0); // Set the width of the title box
-  // tdrStyle-&gt;SetTitleX(0); // Set the position of the title box
-  // tdrStyle-&gt;SetTitleY(0.985); // Set the position of the title box
-  // tdrStyle-&gt;SetTitleStyle(Style_t style = 1001);
-  // tdrStyle-&gt;SetTitleBorderSize(2);
+  <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">tdrStyle-&gt;SetTitleH(0); // Set the height of the title box</span>
+  <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">tdrStyle-&gt;SetTitleW(0); // Set the width of the title box</span>
+  <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">tdrStyle-&gt;SetTitleX(0); // Set the position of the title box</span>
+  <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">tdrStyle-&gt;SetTitleY(0.985); // Set the position of the title box</span>
+  <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">tdrStyle-&gt;SetTitleStyle(Style_t style = 1001);</span>
+  <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">tdrStyle-&gt;SetTitleBorderSize(2);</span>
 
-// For the axis titles:
+<span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">For the axis titles:</span>
 
-  tdrStyle-&gt;SetTitleColor(1, "XYZ");
-  tdrStyle-&gt;SetTitleFont(42, "XYZ");
-  tdrStyle-&gt;SetTitleSize(0.06, "XYZ");
-// The inconsistency is great!
+  tdrStyle-&gt;SetTitleColor(1, <span style="color: #b8bb26;">"XYZ"</span>);
+  tdrStyle-&gt;SetTitleFont(42, <span style="color: #b8bb26;">"XYZ"</span>);
+  tdrStyle-&gt;SetTitleSize(0.06, <span style="color: #b8bb26;">"XYZ"</span>);
+<span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">The inconsistency is great!</span>
   tdrStyle-&gt;SetTitleXOffset(1.0);
-  tdrStyle-&gt;SetTitleOffset(1.5, "Y"); 
+  tdrStyle-&gt;SetTitleOffset(1.5, <span style="color: #b8bb26;">"Y"</span>); 
 
-// For the axis labels:
+<span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">For the axis labels:</span>
 
-  tdrStyle-&gt;SetLabelColor(1, "XYZ");
-  tdrStyle-&gt;SetLabelFont(42, "XYZ");
-  tdrStyle-&gt;SetLabelOffset(0.007, "XYZ");
-  tdrStyle-&gt;SetLabelSize(0.05, "XYZ");
+  tdrStyle-&gt;SetLabelColor(1, <span style="color: #b8bb26;">"XYZ"</span>);
+  tdrStyle-&gt;SetLabelFont(42, <span style="color: #b8bb26;">"XYZ"</span>);
+  tdrStyle-&gt;SetLabelOffset(0.007, <span style="color: #b8bb26;">"XYZ"</span>);
+  tdrStyle-&gt;SetLabelSize(0.05, <span style="color: #b8bb26;">"XYZ"</span>);
 
-// For the axis:
+<span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">For the axis:</span>
 
-  tdrStyle-&gt;SetAxisColor(1, "XYZ");
+  tdrStyle-&gt;SetAxisColor(1, <span style="color: #b8bb26;">"XYZ"</span>);
   tdrStyle-&gt;SetStripDecimals(kTRUE);
-  tdrStyle-&gt;SetTickLength(0.03, "XYZ");
-  tdrStyle-&gt;SetNdivisions(510, "XYZ");
-  tdrStyle-&gt;SetPadTickX(1);  // To get tick marks on the opposite side of the frame
+  tdrStyle-&gt;SetTickLength(0.03, <span style="color: #b8bb26;">"XYZ"</span>);
+  tdrStyle-&gt;SetNdivisions(510, <span style="color: #b8bb26;">"XYZ"</span>);
+  tdrStyle-&gt;SetPadTickX(1);  <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">To get tick marks on the opposite side of the frame</span>
   tdrStyle-&gt;SetPadTickY(1);
 
-// Change for log plots:
+<span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">Change for log plots:</span>
   tdrStyle-&gt;SetOptLogx(0);
   tdrStyle-&gt;SetOptLogy(0);
   tdrStyle-&gt;SetOptLogz(0);
@@ -2799,8 +2800,8 @@ Now, in your plotting code:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">TColor* color = gROOT-&gt;GetColor(TColor::GetColor(red,green,blue));//Use ints from 0 to 255 
-color-&gt;SetAlpha(0.5);//0 is fully transparent, 1 fully opaque
+<pre class="src src-cpp"><span style="color: #d3869b;">TColor</span>* <span style="color: #83a598;">color</span> = gROOT-&gt;GetColor(<span style="color: #d3869b;">TColor</span>::GetColor(red,green,blue));<span style="color: #7c6f64;">//</span><span style="color: #7c6f64;">Use ints from 0 to 255 </span>
+color-&gt;SetAlpha(0.5);<span style="color: #7c6f64;">//</span><span style="color: #7c6f64;">0 is fully transparent, 1 fully opaque</span>
 hist-&gt;SetFillColor(color-&gt;GetNumber());
 </pre>
 </div>
@@ -2847,28 +2848,28 @@ stored in a ROOT file). For example you may have a class of the form
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">#ifndef CustomEvent_h
-#define CustomEvent_h
+<pre class="src src-cpp"><span style="color: #fe8019;">#if</span><span style="color: #fe8019;">n</span><span style="color: #fe8019;">def</span> CustomEvent_h
+<span style="color: #fe8019;">#define</span> <span style="color: #83a598;">CustomEvent_h</span>
 
-#include "TObject.h"
+<span style="color: #fe8019;">#include</span> <span style="color: #b8bb26;">"TObject.h"</span>
 
-class CustomEvent : public TObject {
+<span style="color: #fb4933;">class</span> <span style="color: #d3869b;">CustomEvent</span> : <span style="color: #fb4933;">public</span> <span style="color: #d3869b;">TObject</span> {
   ClassDef(CustomEvent,1);
-private:
-  int    _eventID;
-  double _eventEnergy;
-public:
-  CustomEvent() {}
-  virtual ~CustomEvent() {}
+<span style="color: #fb4933;">private</span>:
+  <span style="color: #d3869b;">int</span>    <span style="color: #83a598;">_eventID</span>;
+  <span style="color: #d3869b;">double</span> <span style="color: #83a598;">_eventEnergy</span>;
+<span style="color: #fb4933;">public</span>:
+  <span style="color: #fabd2f;">CustomEvent</span>() {}
+  <span style="color: #fb4933;">virtual</span> ~<span style="color: #fabd2f;">CustomEvent</span>() {}
 
-  void set_eventID(const int eid);
-  void set_eventEnergy(const double e);
+  <span style="color: #d3869b;">void</span> <span style="color: #fabd2f;">set_eventID</span>(<span style="color: #fb4933;">const</span> <span style="color: #d3869b;">int</span> <span style="color: #83a598;">eid</span>);
+  <span style="color: #d3869b;">void</span> <span style="color: #fabd2f;">set_eventEnergy</span>(<span style="color: #fb4933;">const</span> <span style="color: #d3869b;">double</span> <span style="color: #83a598;">e</span>);
 
-  int eventID() const { return _eventID; }
-  double eventEnergy() const { return _eventEnergy; }
+  <span style="color: #d3869b;">int</span> <span style="color: #fabd2f;">eventID</span>() <span style="color: #fb4933;">const</span> { <span style="color: #fb4933;">return</span> _eventID; }
+  <span style="color: #d3869b;">double</span> <span style="color: #fabd2f;">eventEnergy</span>() <span style="color: #fb4933;">const</span> { <span style="color: #fb4933;">return</span> _eventEnergy; }
 };
 
-#endif
+<span style="color: #fe8019;">#endif</span>
 </pre>
 </div>
 <p>
@@ -2880,13 +2881,13 @@ CustomEvent.cxx:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">#include "CustomEvent.h"
+<pre class="src src-cpp"><span style="color: #fe8019;">#include</span> <span style="color: #b8bb26;">"CustomEvent.h"</span>
 
-CustomEvent::CustomEvent() {}
-CustomEvent::~CustomEvent() {}
+<span style="color: #d3869b;">CustomEvent</span>::<span style="color: #fabd2f;">CustomEvent</span>() {}
+<span style="color: #d3869b;">CustomEvent</span>::~<span style="color: #fabd2f;">CustomEvent</span>() {}
 
-void CustomEvent::set_eventID(const int eid) { _eventID = eid; }
-void CustomEvent::set_eventEnergy(const double e) { _eventEnergy = e; }
+<span style="color: #d3869b;">void</span> <span style="color: #d3869b;">CustomEvent</span>::<span style="color: #fabd2f;">set_eventID</span>(<span style="color: #fb4933;">const</span> <span style="color: #d3869b;">int</span> <span style="color: #83a598;">eid</span>) { _eventID = eid; }
+<span style="color: #d3869b;">void</span> <span style="color: #d3869b;">CustomEvent</span>::<span style="color: #fabd2f;">set_eventEnergy</span>(<span style="color: #fb4933;">const</span> <span style="color: #d3869b;">double</span> <span style="color: #83a598;">e</span>) { _eventEnergy = e; }
 </pre>
 </div>
 <p>
@@ -2895,14 +2896,14 @@ of the form:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">#ifdef __CINT__
-#pragma link off all globals;
-#pragma link off all classes;
-#pragma link off all functions;
+<pre class="src src-cpp"><span style="color: #fe8019;">#ifdef</span> __CINT__
+<span style="color: #fe8019;">#pragma</span> link off all globals;
+<span style="color: #fe8019;">#pragma</span> link off all classes;
+<span style="color: #fe8019;">#pragma</span> link off all functions;
 
-#pragma link C++ class CustomEvent+;
+<span style="color: #fe8019;">#pragma</span> link C++ <span style="color: #fb4933;">class</span> <span style="color: #d3869b;">CustomEvent</span>+;
 
-#endif
+<span style="color: #fe8019;">#endif</span>
 </pre>
 </div>
 <p>
@@ -2921,9 +2922,9 @@ in a library:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">g++ -fPIC -c CustomEvent.cxx `root-config --cflags`
-g++ -fPIC -c CustomEventDictionary.cxx `root-config --cflags`
-g++ -shared -o libCustomEvent.so CustomEvent.o CustomEventDictionary.o `root-config --glibs`
+<pre class="src src-sh">g++ -fPIC -c CustomEvent.cxx <span style="color: #d3869b;">`root-config --cflags`</span>
+g++ -fPIC -c CustomEventDictionary.cxx <span style="color: #d3869b;">`root-config --cflags`</span>
+g++ -shared -o libCustomEvent.so CustomEvent.o CustomEventDictionary.o <span style="color: #d3869b;">`root-config --glibs`</span>
 </pre>
 </div>
 <p>
@@ -2933,10 +2934,10 @@ within ROOT. For example, the macro:
 <div class="org-src-container">
 
 <pre class="src src-cpp">{
-  gSystem-&gt;Load("libCustomEvent");
-  CustomEvent a;
+  gSystem-&gt;Load(<span style="color: #b8bb26;">"libCustomEvent"</span>);
+  <span style="color: #d3869b;">CustomEvent</span> <span style="color: #83a598;">a</span>;
   a.set_eventID(42);
-  std::cout &lt;&lt; a.eventID() &lt;&lt; std::endl;
+  <span style="color: #d3869b;">std</span>::cout &lt;&lt; a.eventID() &lt;&lt; <span style="color: #d3869b;">std</span>::endl;
 }
 </pre>
 </div>
@@ -3017,7 +3018,7 @@ parts use something like:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">TTree* outTree=tree-&gt;CopyTree("Entry$%n==i");
+<pre class="src src-cpp"><span style="color: #d3869b;">TTree</span>* <span style="color: #83a598;">outTree</span>=tree-&gt;CopyTree(<span style="color: #b8bb26;">"Entry$%n==i"</span>);
 </pre>
 </div>
 <p>
@@ -3027,19 +3028,19 @@ trenches) would look like:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">// A macro to split a tree
+<pre class="src src-cpp"><span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">A macro to split a tree</span>
 {
-  TFile* file=TFile::Open("./merged_dijets.root");
-  TTree* tree=(TTree*)file-&gt;Get("micro");
-  TFile* fileA=new TFile("UnfoldingStudy.dijets-pt1.root","RECREATE");
+  <span style="color: #d3869b;">TFile</span>* <span style="color: #83a598;">file</span>=<span style="color: #d3869b;">TFile</span>::Open(<span style="color: #b8bb26;">"./merged_dijets.root"</span>);
+  <span style="color: #d3869b;">TTree</span>* <span style="color: #83a598;">tree</span>=(<span style="color: #d3869b;">TTree</span>*)file-&gt;Get(<span style="color: #b8bb26;">"micro"</span>);
+  <span style="color: #d3869b;">TFile</span>* <span style="color: #83a598;">fileA</span>=<span style="color: #fb4933;">new</span> <span style="color: #d3869b;">TFile</span>(<span style="color: #b8bb26;">"UnfoldingStudy.dijets-pt1.root"</span>,<span style="color: #b8bb26;">"RECREATE"</span>);
   fileA-&gt;cd();
-  TTree* treeA=tree-&gt;CopyTree("Entry$%2==0");
+  <span style="color: #d3869b;">TTree</span>* <span style="color: #83a598;">treeA</span>=tree-&gt;CopyTree(<span style="color: #b8bb26;">"Entry$%2==0"</span>);
   treeA-&gt;Write();
   fileA-&gt;Write();
   fileA-&gt;Close();
-  TFile* fileB=new TFile("UnfoldingStudy.dijets-pt2.root","RECREATE");
+  <span style="color: #d3869b;">TFile</span>* <span style="color: #83a598;">fileB</span>=<span style="color: #fb4933;">new</span> <span style="color: #d3869b;">TFile</span>(<span style="color: #b8bb26;">"UnfoldingStudy.dijets-pt2.root"</span>,<span style="color: #b8bb26;">"RECREATE"</span>);
   fileB-&gt;cd();
-  TTree* treeB=tree-&gt;CopyTree("Entry$%2==1");
+  <span style="color: #d3869b;">TTree</span>* <span style="color: #83a598;">treeB</span>=tree-&gt;CopyTree(<span style="color: #b8bb26;">"Entry$%2==1"</span>);
   treeB-&gt;Write();
   fileB-&gt;Write();
   fileB-&gt;Close();
@@ -3083,9 +3084,9 @@ Another, slightly more direct option is <code>TH2::ProjectionX()</code> and
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">std::vector&lt;TH1D*&gt; split_list;
-for(size_t i = 1; i &lt; Hist2D-&gt;GetNbinsX()+1; i++) {
-  split_list.push_back(Hist2D-&gt;ProjectionY("_py",i,i+1,"e"));
+<pre class="src src-cpp"><span style="color: #d3869b;">std</span>::<span style="color: #d3869b;">vector</span>&lt;<span style="color: #d3869b;">TH1D</span>*&gt; <span style="color: #83a598;">split_list</span>;
+<span style="color: #fb4933;">for</span>(<span style="color: #d3869b;">size_t</span> <span style="color: #83a598;">i</span> = 1; i &lt; Hist2D-&gt;GetNbinsX()+1; i++) {
+  split_list.push_back(Hist2D-&gt;ProjectionY(<span style="color: #b8bb26;">"_py"</span>,i,i+1,<span style="color: #b8bb26;">"e"</span>));
 }
 </pre>
 </div>
@@ -3095,11 +3096,11 @@ string to be something unique.  This can be done as follows:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">std::vector&lt;TH1D*&gt; split_list;
-char buff[256];
-for(size_t i = 1; i &lt; Hist2D-&gt;GetNbinsX()+1; i++) {
-  snprintf(buff,sizeof(buff)/sizeof(*buff),"%s_%u_py",Hist2D-&gt;GetName(),i);
-  split_list.push_back(Hist2D-&gt;ProjectionY(buff,i,i+1,"e"));
+<pre class="src src-cpp"><span style="color: #d3869b;">std</span>::<span style="color: #d3869b;">vector</span>&lt;<span style="color: #d3869b;">TH1D</span>*&gt; <span style="color: #83a598;">split_list</span>;
+<span style="color: #d3869b;">char</span> <span style="color: #83a598;">buff</span>[256];
+<span style="color: #fb4933;">for</span>(<span style="color: #d3869b;">size_t</span> <span style="color: #83a598;">i</span> = 1; i &lt; Hist2D-&gt;GetNbinsX()+1; i++) {
+  snprintf(buff,<span style="color: #fb4933;">sizeof</span>(buff)/<span style="color: #fb4933;">sizeof</span>(*buff),<span style="color: #b8bb26;">"%s_%u_py"</span>,Hist2D-&gt;GetName(),i);
+  split_list.push_back(Hist2D-&gt;ProjectionY(buff,i,i+1,<span style="color: #b8bb26;">"e"</span>));
 }
 </pre>
 </div>
@@ -3138,12 +3139,12 @@ underlying objects.  They are not equal.  Option 1:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">THStack stack = new THStack("Stack","A stack of histograms");
-// later on ...
-TIter next(stack-&gt;GetHists());
-TH1* hist = NULL;
-while((hist=dynamic_cast&lt;TH1*&gt;(next()))){
-  // Do something with *original* histograms added to stack
+<pre class="src src-cpp"><span style="color: #d3869b;">THStack</span> <span style="color: #83a598;">stack</span> = <span style="color: #fb4933;">new</span> <span style="color: #d3869b;">THStack</span>(<span style="color: #b8bb26;">"Stack"</span>,<span style="color: #b8bb26;">"A stack of histograms"</span>);
+<span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">later on ...</span>
+<span style="color: #d3869b;">TIter</span> <span style="color: #fabd2f;">next</span>(stack-&gt;GetHists());
+<span style="color: #d3869b;">TH1</span>* <span style="color: #83a598;">hist</span> = <span style="color: #d3869b;">NULL</span>;
+<span style="color: #fb4933;">while</span>((hist=<span style="color: #fb4933;">dynamic_cast</span>&lt;<span style="color: #d3869b;">TH1</span>*&gt;(next()))){
+  <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">Do something with *original* histograms added to stack</span>
 }
 </pre>
 </div>
@@ -3152,10 +3153,10 @@ Option 2:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">TH1* hist = NULL;
-for(int i = 0; i &lt; stack-&gt;GetStack()-&gt;GetEntries(); i++){
-  hist = dynamic_cast&lt;TH1*&gt;(stack-&gt;GetStack()-&gt;At(i));
-  // Do something with histograms to be painted on the canvas
+<pre class="src src-cpp"><span style="color: #d3869b;">TH1</span>* <span style="color: #83a598;">hist</span> = <span style="color: #d3869b;">NULL</span>;
+<span style="color: #fb4933;">for</span>(<span style="color: #d3869b;">int</span> <span style="color: #83a598;">i</span> = 0; i &lt; stack-&gt;GetStack()-&gt;GetEntries(); i++){
+  hist = <span style="color: #fb4933;">dynamic_cast</span>&lt;<span style="color: #d3869b;">TH1</span>*&gt;(stack-&gt;GetStack()-&gt;At(i));
+  <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">Do something with histograms to be painted on the canvas</span>
 }
 </pre>
 </div>
@@ -3189,8 +3190,8 @@ Contrast:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">TH1F hist("hist","Higgs Discovery Plot", 50,0,200);
-TFile output("discovery.root","RECREATE");
+<pre class="src src-cpp"><span style="color: #d3869b;">TH1F</span> <span style="color: #83a598;">hist</span>(<span style="color: #b8bb26;">"hist"</span>,<span style="color: #b8bb26;">"Higgs Discovery Plot"</span>, 50,0,200);
+<span style="color: #d3869b;">TFile</span> <span style="color: #83a598;">output</span>(<span style="color: #b8bb26;">"discovery.root"</span>,<span style="color: #b8bb26;">"RECREATE"</span>);
 output.Close();
 </pre>
 </div>
@@ -3199,8 +3200,8 @@ with:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-cpp">TFile output("discovery.root","RECREATE");
-TH1F hist("hist","Higgs Discovery Plot", 50,0,200);
+<pre class="src src-cpp"><span style="color: #d3869b;">TFile</span> <span style="color: #83a598;">output</span>(<span style="color: #b8bb26;">"discovery.root"</span>,<span style="color: #b8bb26;">"RECREATE"</span>);
+<span style="color: #d3869b;">TH1F</span> <span style="color: #83a598;">hist</span>(<span style="color: #b8bb26;">"hist"</span>,<span style="color: #b8bb26;">"Higgs Discovery Plot"</span>, 50,0,200);
 output.Close();
 </pre>
 </div>
@@ -3618,8 +3619,8 @@ line friendly by making a script to invoke it (put this in
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">#!/bin/bash
-java -jar ${HOME}/local/lib/java/jaxodraw-2.1-0.jar $@
+<pre class="src src-sh"><span style="color: #7c6f64;">#</span><span style="color: #7c6f64;">!/bin/</span><span style="color: #fb4933;">bash</span>
+java -jar ${<span style="color: #83a598;">HOME</span>}/local/lib/java/jaxodraw-2.1-0.jar $<span style="color: #83a598;">@</span>
 </pre>
 </div>
 <p>
@@ -3627,7 +3628,7 @@ Now make it executable:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">chmod +x ${HOME}/local/bin/jaxodraw
+<pre class="src src-sh">chmod +x ${<span style="color: #83a598;">HOME</span>}/local/bin/jaxodraw
 </pre>
 </div>
 <p>
@@ -3636,7 +3637,7 @@ from my <code>.bashrc</code>:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">export PATH=${HOME}/local/bin:$PATH
+<pre class="src src-sh"><span style="color: #fe8019;">export</span> <span style="color: #83a598;">PATH</span>=${<span style="color: #83a598;">HOME</span>}/local/bin:$<span style="color: #83a598;">PATH</span>
 </pre>
 </div>
 <p>
@@ -3855,10 +3856,7 @@ issue on GitHub's issue <a href="https://github.com/dbjergaard/hitchhikers-guide
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: David Bjergaard</p>
-<p class="date">Created: 2017-01-23 Mon 13:49</p>
-<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.2 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="postamble"><hr/> Written by: David Bjergaard. Last updated . </p>
 </div>
 </body>
 </html>
