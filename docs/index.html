@@ -1,0 +1,3864 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>DON'T PANIC</title>
+<!-- 2017-01-23 Mon 13:49 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="David Bjergaard" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="../MathJax/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">DON'T PANIC</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">A Hitchhiker's guide to High Energy Physics</a>
+<ul>
+<li><a href="#sec-1-1">Introduction</a>
+<ul>
+<li><a href="#sec-1-1-1">Navigating the guide</a></li>
+<li><a href="#sec-1-1-2">Disclaimer</a></li>
+<li><a href="#sec-1-1-3">Obtaining a copy and supporting material</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2">For Windows Hitchhikers</a>
+<ul>
+<li><a href="#sec-1-2-1">Software you will need</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3">For Linux Hitchhikers</a>
+<ul>
+<li><a href="#sec-1-3-1">Software you will need</a></li>
+<li><a href="#sec-1-3-2">The Terminal</a>
+<ul>
+<li><a href="#sec-1-3-2-1">Line Editing</a></li>
+<li><a href="#sec-1-3-2-2">Managing Jobs</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3-3">Configuring SSH</a>
+<ul>
+<li><a href="#sec-1-3-3-1">SSH Keys</a></li>
+<li><a href="#sec-1-3-3-2">SSH Agent</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3-4">Version Control Systems</a></li>
+<li><a href="#sec-1-3-5">*rc Files</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-4">For Mac OS X Hitchhikers</a>
+<ul>
+<li><a href="#sec-1-4-1">Software you will need</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-5">Editors</a>
+<ul>
+<li><a href="#sec-1-5-1">Finding an editor Guru</a>
+<ul>
+<li><a href="#sec-1-5-1-1">Editor Guru etiquette</a></li>
+<li><a href="#sec-1-5-1-2">Keeping your Guru happy</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-5-2">Emacs</a></li>
+<li><a href="#sec-1-5-3">Vim</a></li>
+<li><a href="#sec-1-5-4">Others</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-6">Software Design</a></li>
+<li><a href="#sec-1-7">A brief introduction to C++</a>
+<ul>
+<li><a href="#sec-1-7-1">Pointers</a>
+<ul>
+<li><a href="#sec-1-7-1-1">Why are pointer's useful at all?</a></li>
+<li><a href="#sec-1-7-1-2">References</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-7-2">Methods</a></li>
+<li><a href="#sec-1-7-3">Classes</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-8">An even briefer introduction to Python</a>
+<ul>
+<li><a href="#sec-1-8-1">PyROOT: ROOT bindings in python</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-9">ROOT</a>
+<ul>
+<li><a href="#sec-1-9-1">Installing and setting up</a>
+<ul>
+<li><a href="#sec-1-9-1-1">On Windows</a></li>
+<li><a href="#sec-1-9-1-2">On MacOS</a></li>
+<li><a href="#sec-1-9-1-3">On Ubuntu</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-9-2">Building From source</a>
+<ul>
+<li><a href="#sec-1-9-2-1">Getting the Pre-Requisites</a></li>
+<li><a href="#sec-1-9-2-2">May the Source be with you</a></li>
+<li><a href="#sec-1-9-2-3">Building</a></li>
+<li><a href="#sec-1-9-2-4">Using your new superpower</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-9-3">Advanced Build Options</a></li>
+<li><a href="#sec-1-9-4">A Path to ROOT enlightenment</a>
+<ul>
+<li><a href="#sec-1-9-4-1">Level 1: Macros</a></li>
+<li><a href="#sec-1-9-4-2">Level 2: Compiled Macros</a></li>
+<li><a href="#sec-1-9-4-3">Level 3: Compiled Programs</a></li>
+<li><a href="#sec-1-9-4-4">A note on Enlightenment</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-9-5">PyROOT</a></li>
+<li><a href="#sec-1-9-6">Fitting Data with RooFit</a></li>
+<li><a href="#sec-1-9-7">Styling Plots</a>
+<ul>
+<li><a href="#sec-1-9-7-1">Example Style</a></li>
+<li><a href="#sec-1-9-7-2">Transparent Plots</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-9-8">Extending ROOT with custom classes</a></li>
+<li><a href="#sec-1-9-9">Important Gotcha's</a>
+<ul>
+<li><a href="#sec-1-9-9-1">TTrees</a>
+<ul>
+<li><a href="#sec-1-9-9-1-1">Drawing trees</a></li>
+<li><a href="#sec-1-9-9-1-2">Caching trees</a></li>
+<li><a href="#sec-1-9-9-1-3">Splitting Trees</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-9-9-2">TH1</a></li>
+<li><a href="#sec-1-9-9-3">TH2</a>
+<ul>
+<li><a href="#sec-1-9-9-3-1">Splitting a 2D</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-9-9-4">THStack</a>
+<ul>
+<li><a href="#sec-1-9-9-4-1">Get Sum of Stack</a></li>
+<li><a href="#sec-1-9-9-4-2">A pointer here, a pointer there, who am I?</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-9-9-5">TFile</a>
+<ul>
+<li><a href="#sec-1-9-9-5-1">Recreate, create, new, update</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-9-9-6">Extracting ACLiCs compilation steps</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-9-10">Debugging with ROOT</a>
+<ul>
+<li><a href="#sec-1-9-10-1">A "crash" course on reading a stack trace</a></li>
+<li><a href="#sec-1-9-10-2">Using gdb</a></li>
+<li><a href="#sec-1-9-10-3">Valgrind</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-1-10">Physics</a>
+<ul>
+<li><a href="#sec-1-10-1">Study Guide For Griffiths</a></li>
+<li><a href="#sec-1-10-2">Coordinate Systems used in HEP</a></li>
+<li><a href="#sec-1-10-3">Monte Carlo Event Weights</a></li>
+<li><a href="#sec-1-10-4">Drawing Feynman Diagrams Digitally</a></li>
+<li><a href="#sec-1-10-5">What to do if you've lost a 2&pi;</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-11">Responsible Research</a>
+<ul>
+<li><a href="#sec-1-11-1">Lab Notebooks</a>
+<ul>
+<li><a href="#sec-1-11-1-1">Pen/Paper Notebook</a></li>
+<li><a href="#sec-1-11-1-2">Org-mode Notebook</a></li>
+<li><a href="#sec-1-11-1-3">Flat text file</a></li>
+<li><a href="#sec-1-11-1-4">Wiki/ELog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-1-12">Getting Help</a></li>
+<li><a href="#sec-1-13">FAQ</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">A Hitchhiker's guide to High Energy Physics</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Introduction</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Welcome to High Energy Physics.  Like the Galaxy, HEP is a wonderful
+and mysterious place filled with amazing things.  The intent of this
+guide is to provide a jump-start to HEP research.  Its purpose is to
+be entertaining and uninformative.  The information in this guide was
+hard won, The Editor does not intend it to be different for our dear
+reader.  This guide is not intended to make the reader's life easier.
+It is not intended to teach anything.  It is intended to provide the
+dear reader with a glossary of concepts for further research.
+</p>
+
+<p>
+If the reader finds this guide entertaining, but uninformative, then
+please send a bottle of Old Janx Spirit to The Editor. The Guide is
+not intended to be read linearly.  Jump to the section in need, and if
+that section contains links to other sections, then please see above
+regarding edits. Prepare to be frustrated.
+</p>
+</div>
+
+<div id="outline-container-sec-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1">Navigating the guide</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+A note on key notation: Keys sequences follow the "emacs" style for
+notating keys.  Therefore "<code>C-c</code>" means hold down the control key,
+while pressing the <code>c</code> key. "<code>M-a</code>" would mean hold down the "Meta" key
+and press the <code>a</code> key.  On most keyboards the Meta key is the key
+labeled "Alt".  There is also the "Super" key, on most PC keyboards
+this key has the "Windows icon" on it.  The function keys 1-12 are
+notated as <code>F1</code> etc.  The escape key is usually notated <code>ESC</code>, and
+the enter key is notated <code>RET</code> for Return.  A sequence is denoted by
+a series of keys and spaces or dashes.  A dash means hold the two
+keys at the same time, a space means release the previous keys and
+continue with the next instruction.  Some examples:
+</p>
+<ul class="org-ul">
+<li>"<code>C-c C-a</code>" Control-C release Control-A
+</li>
+<li>"<code>C-c a</code>" Control-c release A
+</li>
+<li>"<code>C-M-f</code>" Press Control, then Meta, then F without releasing
+</li>
+</ul>
+
+<p>
+The online version of the guide includes a Table of Contents; simply
+mouse over it and a full list of topics will pop up.  You can click
+any topic to jump to that section.  If you read this in org-mode, the
+file will open folded.  It will look like:
+</p>
+<pre class="example">
+#+TITLE: DON'T PANIC
+#+AUTHOR: David Bjergaard
+#+EMAIL: david.b@duke.edu
+#+OPTIONS:   H:5 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t &lt;:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+LaTeX_CLASS: article
+
+ * A Hitchhiker's guide to High Energy Physics...
+</pre>
+<p>
+Place your cursor at the beginning of <code>* A Hitchhiker's...</code> and hit
+<code>TAB</code>, this will expand the topics allowing you to see and over-view
+of the document.  Move to whichever topic you're interested in and
+hit <code>TAB</code> again to expand that section.  
+</p>
+
+<p>
+If you are reading this in Vim without <a href="https://github.com/jceb/vim-orgmode">Vim-OrgMode</a>, then you will
+have no folding and the whole document will be expanded.  Jump to
+various headlines by searching for "<code>**</code>" (two levels deep),
+"<code>***</code>" (three levels deep), "<code>****</code>" (four levels deep), etc.  
+</p>
+
+<p>
+If you are reading this as a PDF, there is no Table of Contents. Just
+scroll to the section you are interested in.  
+</p>
+
+<p>
+<b>NOTE</b> If you are reading this on GitHub, a link to another section
+will probably be broken due to a bug in how GitHub parses org-flavored
+markdown.  
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2">Disclaimer</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+All bottles of donated Old Janx Spirit are redirected to our lawyers,
+who are out enjoying them now.  They insisted that we include this
+disclaimer:
+</p>
+
+<blockquote>
+<p>
+The Hitchhiker's Guide to High Energy Physics is a set of documents
+and software herein referred to as "The Guide"
+</p>
+
+<p>
+The Guide is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3, or (at your option)
+any later version.
+</p>
+
+<p>
+The Guide is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+</p>
+
+<p>
+You should have received a copy of the GNU General Public License
+along with this software.  If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.
+</p>
+</blockquote>
+
+<p>
+Also, note that the content of this guide is satirical in nature, and
+is intended to be sarcastic. If you have a weak heart or are easily
+offended, it may be better to seek out other sources of information.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-1-3" class="outline-4">
+<h4 id="sec-1-1-3">Obtaining a copy and supporting material</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+All of the sources for the guide are hosted on GitHub. 
+</p>
+
+<p>
+Here are some quick-links:
+</p>
+<ul class="org-ul">
+<li><a href="http://www.phy.duke.edu/~dmb60/the-guide/">The Guide</a> the online version of the guide
+</li>
+<li><a href="./the-guide.pdf">PDF of The Guide</a> if you prefer that sort of thing, though it's of
+limited use in printed form.
+</li>
+<li><a href="http://www.phy.duke.edu/~dmb60/the-guide/the-guide.org">Org source</a> of the online version
+</li>
+<li><a href="https://github.com/dbjergaard/hitchhikers-guide-to-hep">GitHub Repo</a> where source code is hosted
+</li>
+<li><a href="https://github.com/dbjergaard/hitchhikers-guide-to-hep/tree/master/compiled-macros">Compiled Macros</a> for Level 2 of ROOT enlightenment
+</li>
+<li><a href="https://github.com/dbjergaard/hitchhikers-guide-to-hep/tree/master/compiled-program">Compiled Programs</a> for Level 3 of ROOT enlightenment
+</li>
+<li><a href="https://github.com/dbjergaard/hitchhikers-guide-to-hep/issues">Bug Reports/Feature Requests</a>
+</li>
+<li><a href="https://github.com/dbjergaard/hitchhikers-guide-to-hep/pulls">Pull Requests</a> for submitting patches
+</li>
+</ul>
+
+<p>
+To get a local copy:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">git clone https://github.com/dbjergaard/hitchhikers-guide-to-hep.git
+</pre>
+</div>
+<p>
+Then you'll have a copy of the org file, as well as the compiled
+macros and compiled programs.  
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">For Windows Hitchhikers</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Everyone should read <a href="#sec-1-3">For Linux Hitchhikers</a> to understand what
+functionality they'll need (especially when working with or on remote
+machines)
+</p>
+
+<p>
+While it is possible to practice HEP from the comfort of Bill Gates'
+brain child, it is not recommended by The Editor.  (He doesn't
+run Windows anyway, daylight scares him.) If you insist on using
+Windows, the following is a list of useful software.
+</p>
+</div>
+<div id="outline-container-sec-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1">Software you will need</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li><a href="#sec-1-3">For Linux Hitchhikers</a>
+</li>
+<li><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY (ssh client for Windows)</a>: Secure SHell is the standard way of
+accessing *nix machines remotely.  PuTTY is the Windows client for
+this. 
+</li>
+<li><i>ROOT</i>: The industry standard for High Energy Physics analysis.
+Beware: this program uses an <a href="https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker's_Guide_to_the_Galaxy#Infinite_Improbability_Drive">Infinite Improbability Drive</a> to
+perform analysis.  
+</li>
+<li><a href="http://www.straightrunning.com/XmingNotes/">Xming an X11 server for Windows</a>: This allows you to tunnel X11
+applications (ROOT's histogram interface) to your Windows desktop,
+this way your data (and ROOT) can live on a remote machine, but you
+can still interact with them as if they were on your desktop.  (You
+need a <b>fast</b> internet connection to do this). Xming comes in two
+flavors: the "web" version, which is locked behind a paywall for
+people who donate to the project, and a slightly less up-to-date
+public version available for free.  Choose the public version. See
+<a href="http://www.straightrunning.com/XmingNotes/#sect-143">Getting Started</a> and <a href="http://www.straightrunning.com/XmingNotes/trouble.php#head-11">Trouble shooting</a> for tips on getting set up.
+</li>
+<li><a href="https://github.com/bmatzelle/gow/wiki">Gow</a>: A lightweight Cygwin alternative, this is probably for more
+adventurous hitchhikers only. 
+</li>
+<li><a href="http://cygwin.com/">Cygwin</a>: Adds a substrate of the GNU system to Windows (in addition
+to an <a href="http://x.cygwin.com/">X11 server</a>), you can use this to create a more Unix-like
+environment to work from. 
+</li>
+<li><a href="https://www.virtualbox.org/">VirtualBox</a>: Allows you to boot operating systems within operating
+systems (useful if you don't want to dual boot Ubuntu) see <a href="#sec-1-3">For Linux Hitchhikers</a> after you've setup a working distro.
+</li>
+</ul>
+
+<p>
+<a href="http://www.calebmadrigal.com/running-ubuntu-virtualbox/">See here</a> for a nice picture-book tutorial on installing Ubuntu
+through VirtualBox on Windows.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">For Linux Hitchhikers</h3>
+<div class="outline-text-3" id="text-1-3">
+</div><div id="outline-container-sec-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1">Software you will need</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<ul class="org-ul">
+<li><a href="https://www.gnu.org/software/screen/">Screen</a>: This lets you pick up where you left off if your ssh
+connection drops, <a href="http://www.ibm.com/developerworks/aix/library/au-gnu_screen/">here</a> is a good conceptual introduction.  If you
+use <code>screen</code> on <code>lxplus</code>, you'll have to re-initialize your
+kerberos tokens after logging in with <code>kinit -5</code>, otherwise you
+won't have read access to your files.
+</li>
+<li><i>ROOT</i>: The industry standard for High Energy Physics analysis.
+Beware: this program uses an <a href="https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker's_Guide_to_the_Galaxy#Infinite_Improbability_Drive">Infinite Improbability Drive</a> to
+perform analysis.  
+</li>
+<li><a href="https://help.ubuntu.com/community/Beginners/BashScripting">BASH</a>: The command shell of choice for ATLAS Physicists.  You may
+think you could use ZSH, but it's better just to stick with
+what everyone else uses.  CMS Physicists prefer TCSH for some
+weird reason.
+</li>
+<li><a href="#sec-1-5">Editor</a>: Choose you're religion wisely, it will eventually permeate
+your being and change the way you approach life in general.
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-3-2" class="outline-4">
+<h4 id="sec-1-3-2">The Terminal</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<p>
+You will, regardless of which operating system you use, be typing
+commands into a terminal.  It's inevitable, powerful, and intimidating
+to new users.  HEP hitchhikers should feel at home.  Proficiency with
+the command line is essential to being a functioning HEP researcher.
+</p>
+
+<p>
+The terminal is like the Galaxy Hitchhiker's <a href="https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker%2527s_Guide_to_the_Galaxy#Towels">utility towel</a>. Every
+hitchhiker needs a terminal, and each hitchhiker customizes his or
+her towel to their needs.  
+</p>
+
+<p>
+If you've never touched a terminal before, and don't know what the
+command line is, there are two options:
+</p>
+<ol class="org-ol">
+<li>The <a href="http://lab.demog.berkeley.edu/Docs/12important/12important.pdf">great pedagogical introduction </a> (12 page PDF) by Carl Mason
+</li>
+<li>"<a href="http://www.oliverelliott.org/article/computing/tut_unix/">An Introduction to Unix</a>" (a comprehensive, modern take on the unix
+ecosystem) by Oliver Elliott
+</li>
+</ol>
+
+<p>
+You should read both, Carl Mason's tutorial should be read
+"cover-to-cover", where as Oliver's is written very much in the spirit
+of this guide, so bookmark it and refer to it after you've read Carl
+Mason's tutorial.
+</p>
+</div>
+<div id="outline-container-sec-1-3-2-1" class="outline-5">
+<h5 id="sec-1-3-2-1">Line Editing</h5>
+<div class="outline-text-5" id="text-1-3-2-1">
+<p>
+Most modern operating systems' default shell is bash.  Be aware that
+bash's line editor is set up to respect emacs keybindings, this means
+"C-a" is beginning of line "C-e" the end, etc. You can change to vi
+bindings by typing:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">set -o vi
+</pre>
+</div>
+<p>
+If you forget which mode your in, check it by typing:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">set -o
+</pre>
+</div>
+<p>
+If you want these changes to be permanent, add them to your <code>.bashrc</code>.
+If these commands give you an error, type:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">echo $SHELL
+</pre>
+</div>
+<p>
+And see what it says (<code>/bin/bash</code> if it's bash, may be <code>/bin/zsh</code> or
+<code>/bin/tcsh</code>). If it is not bash, then you need to google information
+for the line editor of whichever shell you are using.  
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-3-2-2" class="outline-5">
+<h5 id="sec-1-3-2-2">Managing Jobs</h5>
+<div class="outline-text-5" id="text-1-3-2-2">
+<p>
+Sometimes it will be convenient to spawn a process and continue
+working in the current shell.  Usually this is accomplished by
+redirecting the stdout and stderr to a file:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">myLongRunningCommand foo bar baz 42 &amp;&gt; theProcess.log &amp;
+</pre>
+</div>
+<p>
+When you launch the command, you'll see something like:
+</p>
+<pre class="example">
+[1] 19509
+</pre>
+<p>
+The number <code>19509</code> is the PID of the process.  If you have multiple
+jobs going they can be summarized by typing <code>jobs</code>
+</p>
+<pre class="example">
+[1]   Running                 myLongRunningCommand foo bar baz 42 &amp;&gt; theProcess.log &amp;
+[2]-  Running                 myLongRunningCommand foo bar baz 41 &amp;&gt; theProcess.log &amp;
+[3]+  Running                 myLongRunningCommand foo bar baz 40 &amp;&gt; theProcess.log &amp;
+</pre>
+<p>
+Occasionally you'll realize that you don't want the jobs to run
+anymore, so to kill them:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">kill %2
+</pre>
+</div>
+<p>
+where <code>%1</code> is the job number you are referencing.  You'll see
+something like:
+</p>
+<pre class="example">
+[2]-  Terminated              myLongRunningCommand foo bar baz 41 &amp;&gt; theProcess.log &amp;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-3" class="outline-4">
+<h4 id="sec-1-3-3">Configuring SSH</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<p>
+Many of these tips are <a href="http://blogs.perl.org/users/smylers/2011/08/ssh-productivity-tips.html">lifted from here</a>.
+Put this in your <code>~/.ssh/config</code> file:
+</p>
+<pre class="example">
+ControlMaster auto
+ControlPath /tmp/ssh_mux_%h_%p_%r
+ControlPersist yes
+ServerAliveInterval 30
+ServerAliveCountMax 1
+</pre>
+<p>
+It is possible to setup ssh shorthand to route you to remote
+machines. The syntax (in <code>~/.ssh/config</code>) is:
+</p>
+<pre class="example">
+Host shortname
+  #expands to shortname.remote.location.edu
+  HostName %h.remote.location.edu 
+  User username
+  ForwardX11 yes #this is equivalient to ssh -Y
+  IdentityFile ~/.ssh/id_rsa #path to your pubkey
+</pre>
+</div>
+<div id="outline-container-sec-1-3-3-1" class="outline-5">
+<h5 id="sec-1-3-3-1">SSH Keys</h5>
+<div class="outline-text-5" id="text-1-3-3-1">
+<p>
+<a href="https://help.github.com/articles/generating-ssh-keys">Follow this guide</a>, stop at step 3.
+Now, when you need to start using a new machine:
+</p>
+<pre class="example">
+ssh-copy-id user@remote.machine.name
+</pre>
+<p>
+Then enter your password.  Now, when you type <code>ssh
+user@remote.machine.name</code> you will authenticate yourself with your
+newly minted RSA key, and you won't have to enter your password.  The
+downside is that you'll have to enter your key's passphrase to unlock
+it. See below for a way to unlock it once per session.
+</p>
+
+<p>
+<b>NOTE</b> While it is cryptographically more secure to authenticate
+yourself with ssh keys, if your machine is compromised (ie stolen or
+hacked) your ssh keys can provide the attacker with easier access to
+all the machines you had access to.  This means you should:
+</p>
+<ol class="org-ol">
+<li>Use a strong pass <b>phrase</b>, not password.  You need to maximize the 
+number of bits of entropy in your key in order to make it
+difficult to crack should the keys fall into enemy hands.  
+</li>
+<li>Inform the admins of any machines you had access to if your
+machine is compromised
+</li>
+<li>Encrypt your ssh keys (and other sensitive information) in a
+private directory that only you can access
+</li>
+<li><b>NEVER EVER</b> store your ssh keys on a third party site (like
+Dropbox or similar services)
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-1-3-3-2" class="outline-5">
+<h5 id="sec-1-3-3-2">SSH Agent</h5>
+<div class="outline-text-5" id="text-1-3-3-2">
+<p>
+If you have ssh-agent running (through the <code>gnome-keyring</code> service on
+Ubuntu, or directly in your .xinitrc through <code>ssh-agent blah</code>) you
+can type <code>ssh-add</code> when you log in and it will add your ssh key to
+the keyring, then you can ssh to any machine that you have copied
+your key to without entering the password! 
+</p>
+
+<p>
+<b>NOTE</b> Once you've added your key to the ssh-agent, anyone can sit
+down at your keyboard and log into a remote machine as you! This
+means if you step away from your computer (even for a moment) you
+should lock the screen or log out.  
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-4" class="outline-4">
+<h4 id="sec-1-3-4">Version Control Systems</h4>
+<div class="outline-text-4" id="text-1-3-4">
+<p>
+The two major version control systems in HEP are Git and Subversion (svn).  These
+are tools and utilities to allow collaboration on large pieces of
+software.  
+</p>
+
+<p>
+They also provide programmers with a convenient "paper trail" through
+the course of developing a piece of software.  It allows them to
+revert the source code they are working on to any state that they've
+previously checked in.
+</p>
+
+<p>
+Subversion is a successor of CVS, everything is stored on a remote
+site, and your source code directory contains metadata about the
+source code with reference to the remote site.  
+</p>
+
+<p>
+Some subversion tutorials:
+</p>
+<ul class="org-ul">
+<li><a href="https://www.clear.rice.edu/comp314/svn.html">Source Control in 10 Minutes </a>
+</li>
+<li><a href="http://www.pointbeing.net/weblog/2009/03/command-line-subversion-tutorial-part-1.html">Command Line Subversion Tutorial (part 1)</a>
+</li>
+<li><a href="http://svnbook.red-bean.com/">Version Control with Subversion</a> (A comprehensive free book about Subversion)
+</li>
+</ul>
+
+<p>
+Git is a software that was written by Linus Torvalds, the hacker
+behind Linux.  It was written to manage the Linux kernel, a massive
+piece of software.  Git's model for managing source code is slightly
+different.  In Git, you maintain the entire repository in your local
+copy.  This makes committing, managing, and branching very fast.  It
+also means you can work with all of the advantages of a version
+control system without internet access.  Simultaneously there is a
+copy of the repository on a remote server.  Git handles syncing these
+two repositories when instructed.  This can lead to confusion if
+you've used other versioning systems, but shouldn't be a problem if
+you have no expectations.
+</p>
+
+<p>
+Some good Git tutorials:
+</p>
+<ul class="org-ul">
+<li>type "man gittutorial" in the command line
+</li>
+<li><a href="http://git-scm.com/book">Pro Git</a> (an online book, modular and comprehensive in scope)
+</li>
+<li><a href="http://gitimmersion.com/">Git Immersion</a>
+</li>
+<li><a href="http://gitolite.com/gcs.html#%25281%2529">Git Concepts Simplified</a> (slide show, click to advance)
+</li>
+</ul>
+<p>
+Intermediate or advanced topics:
+</p>
+<ul class="org-ul">
+<li><a href="http://sethrobertson.github.io/GitFixUm/fixup.html">Undoing, fixing, or removing commits in Git</a>
+</li>
+<li><a href="https://blogs.atlassian.com/2014/01/simple-git-workflow-simple/">Simple Git workflow is simple</a>
+</li>
+<li><a href="https://ochronus.com/git-tips-from-the-trenches/">Git tips from the trenches</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-3-5" class="outline-4">
+<h4 id="sec-1-3-5">*rc Files</h4>
+<div class="outline-text-4" id="text-1-3-5">
+<p>
+<code>*rc</code> files are special files that are executed every time a program
+starts. They almost exclusively live in the user's home directory,
+and can be shadowed by the system.  Sometimes they have a special
+syntax for setting options, sometimes they are written in a scripting
+language.  The most relevant rc files for a new hitchhiker are:
+</p>
+<dl class="org-dl">
+<dt> .rootrc </dt><dd>the file that sets root options
+</dd>
+<dt> .bashrc </dt><dd>this is executed every time you open a terminal in bash
+</dd>
+<dt> .tcshrc </dt><dd>as above but for tcsh (hopefully you aren't using this!)
+</dd>
+<dt> .zshrc </dt><dd>as above for the zsh shell
+</dd>
+<dt> .vimrc </dt><dd>configuration options for the venerable vim editor
+</dd>
+<dt> .screenrc </dt><dd>options for gnu screen
+</dd>
+<dt> .emacs </dt><dd>written in emacs lisp, is executed on startup, breaks the
+rc naming scheme.  Advanced emacs users have
+multi-thousand line rc files
+</dd>
+</dl>
+
+<p>
+There are other files, if you want to know about them you can do:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">ls .*rc
+</pre>
+</div>
+<p>
+And google the ones that look interesting.  Alternatively you can look
+at the system defaults:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">ls /etc/*rc
+</pre>
+</div>
+<p>
+Sometimes its useful to copy the system file to your home directory
+and then edit it there in order to add your customizations.  Some
+programs document their options that way.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">For Mac OS X Hitchhikers</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Everyone should read <a href="#sec-1-3">For Linux Hitchhikers</a>
+ to understand what
+functionality they'll need (especially when working with or on remote
+machines).  As a Mac user, you should also read "<a href="http://www.insectnation.org/blog/it-just-works-or-does-it-the-dark-side-of-macs-in-hep.html">It just works&#x2026; or
+does it? The dark side of Macs in HEP</a>" by Andy Buckley.  It explains
+in detail issues with software development on a Mac.  It is an opinion
+piece, so don't expect it to be balanced. Also, consider asking your
+supervisor for an account on a Linux box and <b>never look back.</b> 
+</p>
+</div>
+<div id="outline-container-sec-1-4-1" class="outline-4">
+<h4 id="sec-1-4-1">Software you will need</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<ul class="org-ul">
+<li><a href="http://xquartz.macosforge.org/landing/">XQuartz</a>: Like XMing for Windows, XQuartz runs a local X11 server
+for tunneling X11 applications over SSH, unlike Windows, you don't
+need a separate SSH program, ssh is built in.
+</li>
+<li><a href="https://en.wikipedia.org/wiki/Terminal_%2528OS_X%2529">Terminal.app</a>: This is Mac OS's default terminal emulator. It comes
+with Mac OS, so you shouldn't need to install it.  You should be
+aware of it though.
+</li>
+<li><i>ROOT</i>: The industry standard for High Energy Physics analysis.
+Beware: this program uses an <a href="https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker's_Guide_to_the_Galaxy#Infinite_Improbability_Drive">Infinite Improbability Drive</a> to
+perform analysis.  
+</li>
+<li><a href="http://aquamacs.org/">Aquamacs</a>: A port of Emacs that uses Aqua as a standard OS X
+application. This integrates Emacs with the Mac OS UI.  In the
+long history of corporate acquisitions a lot of Emacs hackers (from
+NeXTSTEP) ended up at apple, you will find that Mac OS integrates
+the Emacs experience much more fundamentally than any other OS in
+existance. (This doesn't mean you need to use Emacs if you use Mac
+OS, just that your muscle memory will thank you subconsciously.)
+</li>
+<li><a href="https://www.macports.org/install.php">MacPorts</a>: A system for compiling and installing open source
+software on the Mac
+</li>
+<li><a href="http://brew.sh">Home Brew</a>: A package manager for Mac OS, allowing you to install
+various utilities that don't necessarily come pre-installed with
+Mac OS. 
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5">Editors</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+Like the major world religions, there are also major editors.  In
+the *nix ecosystem there are two main editors: Emacs and Vim. There are
+others, but they are many, and beyond the scope of this guide.  
+</p>
+
+<p>
+The most important thing to do after <a href="https://mjambon.github.io/vim-vs-emacs/">choosing an editor</a> is to work
+through its corresponding tutorial (<a href="https://stackoverflow.com/questions/1430164/differences-between-Emacs-and-vim">more pragmatic advice here</a>).  An
+oft heard recommendation is that "Emacs is easier to learn than
+vi(m)".  A more accurate statement may be that it is easier to make
+things happen in Emacs than Vim, but the two editors are in some sense
+the yin and yang of text. True enlightenment in either of these
+editors takes roughly the same amount of time after completing the
+corresponding tutorial.
+</p>
+</div>
+
+<div id="outline-container-sec-1-5-1" class="outline-4">
+<h4 id="sec-1-5-1">Finding an editor Guru</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<p>
+After you have finished the tutorial for your editor of choice, then
+it's time to find a guru.  Guru's are best located by asking around.
+If you are talking with someone and notice they use your editor,
+don't be afraid to ask them how they did something. Most of the time
+the Guru will be flattered and may even volunteer to help you with
+any other editor related questions.  
+</p>
+</div>
+<div id="outline-container-sec-1-5-1-1" class="outline-5">
+<h5 id="sec-1-5-1-1">Editor Guru etiquette</h5>
+<div class="outline-text-5" id="text-1-5-1-1">
+<p>
+While it is generally OK to ask your Guru any editor related
+question, it is best to keep questions restricted to the editor in
+question.  Flame wars have been fought for decades over which is the
+"one true editor." 
+</p>
+
+<p>
+In order to prevent a <i>faux pas</i>, it is best to make sure you know which
+editor your guru uses.  This is especially true in the case of a
+vi(m) or Emacs guru. 
+</p>
+
+<p>
+Another thing to be careful of is repeatedly asking basic questions.
+Again, some gurus will tolerate this at the beginning, but after a
+point the guru expects you to master the basics (on your own). The
+most valuable knowledge your guru can impart is not written in the
+tutorial that came with the editor.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-5-1-2" class="outline-5">
+<h5 id="sec-1-5-1-2">Keeping your Guru happy</h5>
+<div class="outline-text-5" id="text-1-5-1-2">
+<p>
+Guru's subsist mainly on a liquid diet of caffeinated beverages
+during the day and beer (occasionally wine) at night.  It is
+important that your Guru remain well lubricated. It is generally
+considered a good gesture to offer your Guru his/her beverage of
+choice if you've found him/her to be especially helpful on your path
+to enlightenment. 
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-5-2" class="outline-4">
+<h4 id="sec-1-5-2">Emacs</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<p>
+The end goal of any student of the <a href="http://www.jwz.org/hacks/why-cooperation-with-rms-is-impossible.mp3">Church of Emacs</a> is to obtain
+proficiency reprogramming the editor to solve the task at hand.  This
+is ultimately stems from the philosophy of lisp (this gift was given
+to us by <a href="http://www.stallman.org/saint.html">St. IGNUcious</a> an AI hacker from MIT where Emacs was born).
+In lisp, the flexibility of the language allows it to be re-written to
+solve the problem as clearly as possible.  In Emacs, an enlightened
+user will write a substrate of elisp (Emacs' dialect of lisp) in order
+to solve the editing problem at hand.
+</p>
+
+<p>
+While customizing and writing your .emacs (the initialization file
+loaded by Emacs in your home directory) is a spiritual journey, there
+are those who have done their best to illuminate the path. <a href="http://www.dialectical-computing.de/blog/blog/2014/03/02/a-simple-emacs-configuration/">A brief
+guide to customization philosophies here</a>.
+</p>
+
+<p>
+The Editor finds the following packages essential:
+</p>
+<ul class="org-ul">
+<li><a href="tramp#Top">tramp</a>: If your reading this in Emacs, you can follow the link with
+"C-c C-o". It is <b>the</b> most important aspect of Emacs for HEP
+users. It allows you to "visit" files on remote machines from the
+Emacs running on your desktop.  It does this through ssh.  To visit
+a remote file, type "C-x C-f" and then type
+'/ssh:user@remote.host:~/remote/path', note that tab completion
+works remotely just the same as visiting a file locally! Tramp is
+also aware of ssh aliases in <code>~/.ssh/config</code>, see <a href="#sec-1-3-3">Configuring SSH</a>.
+</li>
+<li><a href="calc#Top">Calc</a> - ""Calc" is an advanced desk calculator and mathematical tool
+written by Dave Gillespie that runs as part of the GNU Emacs
+environment." It handles barns and electron volts out of the box!
+</li>
+<li><a href="http://www.emacswiki.org/emacs/FillAdapt">filladapt</a>: a mode for more intelligently filling text in paragraphs
+</li>
+<li><a href="http://www.emacswiki.org/emacs/FlySpell">flyspell</a>: a spell checker that highlights mispelled words (will check
+in comments if in a programming mode)
+</li>
+<li><a href="http://www.emacswiki.org/cgi-bin/wiki/RectangleMark">rect-mark</a>: Adds facilities for marking yanking and otherwise
+editing columnar formatted text. 
+</li>
+<li><a href="emacs#Dired">dired</a> (another info link): a directory editor for manipulating files
+in the Emacs way
+</li>
+<li><a href="http://ethanschoonover.com/solarized">solarized-theme</a>: A theme by Ethan Schoonover, comes in dark and
+light variants that actually complement each other well, another
+good one is zenburn 
+</li>
+<li><a href="http://www.emacswiki.org/emacs/IbufferMode">ibuffer</a>: changes the buffer interface and allows you to group
+buffers based on various buffer attributes
+</li>
+<li><a href="http://www.emacswiki.org/emacs/ParEdit">paredit</a>: Enhances Emacs's awareness of parenthetic structure 
+</li>
+<li><a href="https://github.com/Fuco1/smartparens">smartparens</a>: Electrically pairs and deletes delimeters when
+appropriate (never miss a closing brace again!)
+</li>
+<li><a href="http://www.emacswiki.org/emacs/AutoComplete">auto-complete</a>: When setup properly, tab completes anything at any
+point depending on past input or names in other buffers.
+</li>
+<li><a href="http://www.emacswiki.org/emacs/AUCTeX">auctex</a>: LaTeX editing facilities (for when org-mode doesn't quite cut
+it)
+</li>
+<li><a href="http://orgmode.org/">org-mode</a>: This guide is written in org-mode. Org-mode can manage
+<a href="http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html">todo lists</a>, <a href="http://orgmode.org/worg/org-web.html">write websites</a>, serve as a <a href="https://github.com/dbjergaard/research-log">lab notebook</a>, execute code
+for <a href="http://orgmode.org/worg/org-contrib/babel/">literate programming</a> and many other things.  More relevant for
+physicists is the <a href="http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html">org-mode cookbook</a>. People switch to Emacs just to
+get org-mode!
+</li>
+</ul>
+
+<p>
+Init files of famous Emacs hackers are (in no order of awesomeness)
+<a href="https://github.com/magnars/.emacs.d">Magnar Sveen</a>, <a href="https://github.com/technomancy/dotfiles/tree/master/.emacs.d">Technomancy</a>, <a href="https://github.com/jwiegley/dot-emacs">John Wiegley</a>.  There are also software
+packages that intend to comprehensively change the Emacs out of the
+box to a better user experience.  The two most famous are <a href="https://github.com/bbatsov/prelude">Prelude</a> and
+<a href="https://github.com/overtone/emacs-live">Emacs Live</a>. An example (slightly annotated) init file can be found <a href="https://github.com/dbjergaard/dotfiles/blob/master/emacs-lisp/init.org">here</a>.
+</p>
+
+<p>
+Finally, there are some Emacs gurus who post blogs on the internet.
+Some particularly useful ones are <a href="http://emacsredux.com/">Emacs Redux</a>,
+<a href="http://www.masteringemacs.org/">Mastering Emacs</a>, and <a href="http://emacs-fu.blogspot.com/">Emacs Fu</a>.
+</p>
+
+<p>
+Various religious texts granting Emacs users various powers (such as
+reading <a href="http://www.emacswiki.org/emacs/CategoryMail">email</a>, <a href="http://www.emacswiki.org/emacs/CategoryChatClient">chatting</a>, <a href="http://www.emacswiki.org/emacs/Twitter">tweeting</a>, <a href="http://www.emacswiki.org/emacs/CategoryGames">playing games</a>, <a href="http://www.emacswiki.org/emacs/MusicPlayers">listening to music</a>)
+can be found at the <a href="http://www.emacswiki.org/emacs/">Emacs Wiki</a>. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5-3" class="outline-4">
+<h4 id="sec-1-5-3">Vim</h4>
+<div class="outline-text-4" id="text-1-5-3">
+<p>
+If Emacs is like Catholicism, then Vim is like Buddhism.  Vim is the
+modern incarnation of vi, a modal text editor that descended from ed.
+The modal way of editing is by expressing in a few keystrokes how the
+text should be manipulated.  This is in contrast to Emacs, where text
+is manipulated directly.  This fundamental difference is the source of
+much confusion for new users, and is also why many people recommend
+Emacs as "being easier to learn." This should not deter new users from
+learning vi(m), as its editing facilities are substantial.
+</p>
+
+<p>
+A functional <code>.vimrc</code> looks like:
+</p>
+<pre class="example">
+syntax on
+set cursorline
+set hlsearch
+set ic
+set incsearch
+set ruler
+set shiftwidth=4
+set tabstop=4
+set wrap
+</pre>
+
+<p>
+To learn Vim, type <code>vimtutor</code> at the command lime and follow the
+instructions. Take your time, and repeat the tutorial once or twice
+over a few days.  In the mean time editors such as <code>gedit</code> or <code>nano</code>
+offer a more traditional experience.  As your Vim skills improve, you
+will feel more comfortable with Vim and can stop using the less
+powerful editors.  
+</p>
+
+<p>
+Some useful links include:
+</p>
+<ul class="org-ul">
+<li><a href="http://derekwyatt.org/vim/tutorials/">Vim Videos</a> Tutorial videos by Derek Wyatt, the novice videos are
+must see if you are new to vi(m)
+</li>
+<li><a href="http://www.vimgenius.com/">Vim Genius</a> a drill website for learning Vim commands
+</li>
+<li><a href="https://www.liquidweb.com/kb/overview-of-vim-text-editor/">New user Vim Tutorial</a>
+</li>
+<li><a href="http://blog.sanctum.geek.nz/vim-koans/">Vim Koans</a> tidbits of wisdom to ponder
+</li>
+<li><a href="http://www.vim.org/scripts/">A collection of extensions and plugins for Vim</a>
+</li>
+<li><a href="http://val.markovic.io/blog/youcompleteme-a-fast-as-you-type-fuzzy-search-code-completion-engine-for-vim">YouCompleteMe</a> A Vim autocompletion engine for editing. 
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-5-4" class="outline-4">
+<h4 id="sec-1-5-4">Others</h4>
+<div class="outline-text-4" id="text-1-5-4">
+<p>
+Followers of the Unix way realize that there are situations where a
+using a set of shell commands piped together may fit the task at hand
+more efficiently than either of the other two editors.  Tools you
+should be familiar with are:
+</p>
+<ul class="org-ul">
+<li><a href="http://www.grymoire.com/Unix/Sed.html">sed</a> and <a href="http://sed.sourceforge.net/sed1line.txt">one-liners</a>
+</li>
+<li><a href="http://www.grymoire.com/Unix/Awk.html">awk</a> and <a href="http://www.pement.org/awk/awk1line.txt">one-liners</a>
+</li>
+<li><a href="http://perl-tutorial.org/">perl</a> (and its <a href="https://en.wikipedia.org/wiki/Black_Perl">poetry</a>)
+</li>
+<li><a href="http://www.thegeekstuff.com/2009/03/15-practical-unix-grep-command-examples/">grep</a>
+</li>
+<li>Heretics exist which exhort the use of <a href="http://linux.die.net/man/1/pico">pico</a> or even <a href="http://linux.die.net/man/1/nano">nano</a>. 
+</li>
+</ul>
+<p>
+<a href="http://regex.info/blog/2006-09-15/247">Always keep in mind</a>
+</p>
+<blockquote>
+<p>
+Some people, when confronted with a problem, think
+"I know, I'll use regular expressions."   Now they have two
+problems. &#x2013; Jaimie Zawinski
+</p>
+</blockquote>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6">Software Design</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+Well designed software is a true marvel, in the same way architecture
+is a marvel.  You are a stone mason, and you are building a cathedral.
+Repeat that last sentence every time you want to take a shortcut when
+coding. A cathedral can't stand on a flimsy foundation.
+</p>
+
+<p>
+In order to help you on your way, you should read the following:
+</p>
+<ul class="org-ul">
+<li><a href="http://aosabook.org/en/index.html">Architecture of Open Source Applications</a>
+</li>
+<li><a href="https://www.thc.org/root/phun/unmaintain.html">How to Write Unmaintainable Code</a> (<b>warning</b>, many physicists take this
+guide literally)
+</li>
+</ul>
+
+<p>
+Good software design is <b>very</b> hard, but when you have the pleasure of
+using well designed software, it is a true joy. Some examples of good
+HEP software:
+</p>
+<ul class="org-ul">
+<li><a href="http://rivet.hepforge.org/">Rivet</a>: Robust Independent Validation of Experiment and Theory
+</li>
+<li><a href="http://fastjet.fr">Fastjet</a>: Software package for jet finding
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7">A brief introduction to C++</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+C++ is the industry standard programming language for analysis in
+HEP.  Even if you are fortunate enough to do most of your work in
+Python, you will eventually be calling C++ code, and should
+understand some core concepts in order to debug problems should they
+arise.
+</p>
+
+<p>
+Things to keep in mind: 
+</p>
+<ul class="org-ul">
+<li>This portion of the guide covers C++ at a high level.  Very little
+<a href="http://www.cplusplus.com/tutorial">specific syntax</a> will be covered.  When you have a C++ question,
+google is your friend.
+</li>
+<li>When writing in any language, prefer that languages idioms.  Don't
+write python in C++, C in C++ or C++ in python.
+</li>
+<li>C++ is a vast language, however being familiar with its roots, C,
+is invaluable.
+</li>
+<li>If faced with a decision between learning C++ vs Python, prefer
+C++.  C++'s syntax is more rigid and requires more overhead.  Once
+you know C++, python is much easier to pick up.
+</li>
+<li>There's always an exception to the rule, just make sure it's the
+right exception!
+</li>
+</ul>
+
+<p>
+C++ is an imperative, object oriented language.  It started out as a
+"C with classes" but has since bolted on significant language
+features different from C.  Proficiency with C++ should be aimed
+towards comfortable use of the template meta-programming features of
+the language, although it is entirely possible to spend an entire
+career writing C++ without exercising this feature (just read the ROOT
+source code). 
+</p>
+</div>
+<div id="outline-container-sec-1-7-1" class="outline-4">
+<h4 id="sec-1-7-1">Pointers</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<p>
+<a href="http://www.chiark.greenend.org.uk/~sgtatham/cdescent/">Required Reading: The Descent to C</a>
+</p>
+
+<p>
+As C++ has evolved from C, it retains parts of C's low level nature.
+Part of this is the need to be explicit about managing memory
+manually.  This is in stark contrast to languages such as Java or
+Python where memory management is handled for the programmer.
+</p>
+
+<p>
+A consequence of this is the ability to address specific cells of
+memory (the smallest accessible unit, typically a byte).  An object
+(<code>int</code>, <code>double</code>, <code>float</code>, <code>char</code>, <code>string</code>, etc) may span several
+memory cells.  A pointer is the computer's representation of a memory
+cell's location in memory, ie a memory address.  Ultimately the
+programmer is interested in the data contained in the set of memory
+cells "pointed to" by the pointer.  The act of retrieving this data is
+called "<i>dereferencing</i> a pointer".
+</p>
+
+<p>
+As in physics, facility with manipulating pointers is best gained
+through experience, however many analogies have been developed to ease
+confusion.  One analogy is street addresses, A street address is a
+sequence of numbers (the pointer) which instructs someone, a mailman
+say, (the computer), how to find a specific location. Once at that
+location, it is possible to manipulate objects located at that address
+(deliver mail if your the mailman, break the mailbox if your a bored
+teenager, knock on the door if you are a vacuum salesman etc).
+</p>
+
+<p>
+Now some syntax:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">Foo* bar = new Foo("Baz",42,"What is the question?");
+std::cout &lt;&lt; "object bar lives at memory address:"&lt;&lt;bar&lt;&lt;std::endl;
+std::cout &lt;&lt; "bar calculated a question to the answer to \"The Ultimate Question\" as "&lt;&lt;bar-&gt;TheAnswer()&lt;&lt;std::endl;
+std::cout &lt;&lt;"Another way to get the answer is: "&lt;&lt;(*bar).TheAnswer()&lt;&lt;std::endl;
+</pre>
+</div>
+<p>
+Lots of interesting things have been introduced here.  Let's look at a
+possible output of this program:
+</p>
+<pre class="example">
+object bar lives at memory address: 0xd29ad0
+bar calculated a question to the answer to "The Ultimate Question" as "What is 6x9?"
+Another way to get the answer is: "What is 6x9?"
+</pre>
+<p>
+What happened? Let's look at the first line
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">Foo* bar = new Foo("Baz",42,"What is the question?");
+</pre>
+</div>
+<p>
+<code>Foo*</code> is a pointer of type <code>Foo</code>. It's an address to a chunk of memory
+that contains an instance of <code>Foo</code>.  
+</p>
+<blockquote>
+<p>
+Question: Why does the compiler need to know that it's a Foo type object at that address? 
+</p>
+</blockquote>
+<blockquote>
+<p>
+Answer: Foo might fall across several memory cells, in which case the
+compiler must know how many memory cells to move if you ask for the
+bar+1 spot. In fact, in C there is a concept called the void*, a
+type-less pointer that is an address to anything.  It is the
+programmer's responsibility to cast the void* to the correct type.
+</p>
+</blockquote>
+
+<p>
+OK, so we have a pointer to an object of type <code>Foo</code> called <code>bar</code>.
+</p>
+<blockquote>
+<p>
+Question: What happens on the right hand side of the assignment operator (=)?
+</p>
+</blockquote>
+<blockquote>
+<p>
+Answer: C++ reserves the keyword "new" for memory allocation.  The
+"new" keyword takes a class constructor on the right hand side, and
+returns a memory address on the left hand side.  This address gets
+stored in the variable <code>bar</code>.  
+</p>
+</blockquote>
+
+<p>
+Operationally, the "new" keyword allocates a chunk of memory to hold
+the object on the right hand side, and returns a pointer to the
+beginning of the chunk.  
+</p>
+
+<p>
+What happens when we want to access the memory that the pointer points
+to? There is another operation called "dereferencing" which goes to
+the address pointed to and returns the object contained at that point
+in memory.  Consider the following snippet:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">double* foo = new double(3.14159);
+double pi = *foo;
+std::cout &lt;&lt;"Pi is: "&lt;&lt;pi&lt;&lt;std::endl;
+</pre>
+</div>
+<p>
+Here, a chunk of memory has the value 3.14159 written to it, then
+that value is retrieved and stored in another location of memory
+called <code>pi</code>.  That data is the written out the terminal by
+<code>std::cout</code> and <code>std::endl</code>.
+</p>
+
+<p>
+Now we can understand this line:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">std::cout &lt;&lt;"Another way to get the answer is: "&lt;&lt;(*bar).TheAnswer()&lt;&lt;std::endl;
+</pre>
+</div>
+<p>
+It means, retrieve the object pointed to by <code>bar</code>, and call the method
+"<code>TheAnswer()</code>" on it.  Programmers abhor syntax that can easily get
+them into trouble, so the language designers (of c) added a shorthand
+for this kind of operation (the <code>-&gt;</code> operator):
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">Foo* bar=new Foo();
+if(bar-&gt;Value()==(*bar).Value()){
+  std::cout&lt;&lt;"They're the same!"&lt;&lt;std::endl;
+}
+</pre>
+</div>
+<p>
+Quiz: What will the output of this snippet be?
+</p>
+</div>
+
+<div id="outline-container-sec-1-7-1-1" class="outline-5">
+<h5 id="sec-1-7-1-1">Why are pointer's useful at all?</h5>
+<div class="outline-text-5" id="text-1-7-1-1">
+<p>
+Clever hitchhikers will notice that this appears to be a bunch of
+bureaucratic mucking about with pointless details, most of the time it
+is.  Since most of HEP deals with pointless details bureaucratically,
+a lot of HEP code uses pointers.
+</p>
+
+<p>
+To understand the real purpose of pointers, we must examine <a href="https://stackoverflow.com/questions/22146094/why-should-i-use-a-pointer-rather-than-the-object-itself?newsletter=1&nlcode=47931|9e27">dynamic
+allocation</a>. Consider the following code:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">double* foo(){
+  double* bar = new double(0.0);
+
+  {
+    double baz=42;
+    *bar=baz;//dereference bar, and store the value of baz 
+  }
+  //baz is out of scope
+  return bar;
+}
+int main(void){
+  double* foobar=foo();
+  std::cout &lt;&lt;"The Answer to the Ultimate question is :"&lt;&lt;*foobar&lt;&lt;std::endl;
+  return 0;
+}
+</pre>
+</div>
+<p>
+Let's execute the code in our mind:
+</p>
+<ol class="org-ol">
+<li>execute <code>main(void)</code>
+</li>
+<li>a <code>double*</code> named <code>foobar</code> is allocated.
+</li>
+<li><code>foo()</code> is executed
+<ol class="org-ol">
+<li>a <code>double*</code> named <code>bar</code> is allocated
+</li>
+<li>new initializes a <code>double</code> with value 0.0
+</li>
+<li>new assigns the address containing that <code>double</code> to <code>bar</code>
+</li>
+<li>enter the braces, intialize a <code>double</code> named <code>baz</code> with value 42
+</li>
+<li>dereference <code>bar</code> and copy the value of <code>baz</code> into it
+</li>
+<li>exit the braces and free the memory where <code>baz</code> was
+</li>
+<li>return the address containing the value of <code>bar</code>;
+</li>
+</ol>
+</li>
+<li>Assign the value returned by <code>foo()</code> to <code>foobar</code>
+</li>
+<li>stream the string "The Answer&#x2026;" to stdout
+</li>
+<li>dereference <code>*foobar</code> to obtain the value stored at <code>bar</code>, 42, stream
+that to stdout
+</li>
+<li>add a newline to the output and flush the result to the terminal
+with <code>std::endl</code>
+</li>
+<li>return 0
+</li>
+<li>exit the program
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-1-7-1-2" class="outline-5">
+<h5 id="sec-1-7-1-2">References</h5>
+<div class="outline-text-5" id="text-1-7-1-2">
+<p>
+A similar concept present in C++ (but not c) are references.  They can
+be thought of as aliases (the way Dave is an alias of David). Their
+syntax is:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">int foo=42;
+int&amp; theAnswer=foo;
+foo=0;
+std::cout&lt;&lt;theAnswer&lt;&lt;std::endl;
+</pre>
+</div>
+<p>
+Here foo is initialized to the value 42, then a reference named
+theAnswer is declared and assigned to foo.  All this does is make a
+new name for the same object.  What does the program output?
+</p>
+
+<p>
+The answer is 0.  References seem pointless (pun intended) until
+they're used in function definitions:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">void bar(int&amp; foo){
+  //complicated calculation for foo
+  foo++;
+}
+int main(void){
+  int baz=41;
+  bar(baz);
+  std::cout&lt;&lt;baz&lt;&lt;std::endl;
+}
+</pre>
+</div>
+<blockquote>
+<p>
+Question: What is the output of this program?  
+</p>
+</blockquote>
+<blockquote>
+<p>
+Answer: 42  
+</p>
+</blockquote>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-7-2" class="outline-4">
+<h4 id="sec-1-7-2">Methods</h4>
+<div class="outline-text-4" id="text-1-7-2">
+<p>
+Methods, or functions are defined as:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">return_type function_name(arg1_type arg1, arg2_type arg2, ...){
+  //statements that define function_name
+}
+</pre>
+</div>
+<p>
+It is possible to "forward declare" functions, these are "promises to
+the compiler" that you have a function with a particular signature:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">double foo(double,double);
+// important other stuff
+double foo(double theta, double phi){
+  return sin(theta)*sin(theta) + cos(phi)*cos(phi);
+}
+</pre>
+</div>
+<p>
+Notice that the compiler doesn't need to know the names of the
+arguments in the forward declaration.  
+</p>
+
+<p>
+Before we move onto the next topic, a note on methods.  Most of the
+time during development, you only have a few helper functions.  This
+is fine! Just write your helper functions in a header file, and
+include them.  Write the main function and move on with your life.
+There are many examples in HEP, where methods have been pigeon-holed
+into classes.  The result is a cumbersome interface for the user
+(YOU!) or more importantly your supervisor.  With that in mind, lets
+move on to classes.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-7-3" class="outline-4">
+<h4 id="sec-1-7-3">Classes</h4>
+<div class="outline-text-4" id="text-1-7-3">
+<p>
+STOP! Read the last paragraph of the previous section.  
+</p>
+
+<p>
+Now, ask yourself: Do I really need a class?  
+No. Ok, great!
+</p>
+
+<p>
+Yes. Are you sure?  Maybe your needs are better served with a few
+functions and a well defined interface.
+</p>
+
+<p>
+Do you have complicated data structures that need to be operated on
+by many methods? No? Maybe your needs are better served with a few
+functions and a well defined interface.
+</p>
+
+<p>
+Yes? Maybe you should rethink your design.  
+</p>
+
+<p>
+You've rethought it and realized that you have to use a class because
+the person before you did, now there isn't a clean way to do it any
+other way.  OK, classes.
+</p>
+
+<blockquote>
+<p>
+Editor's Note: Our dear reader may have been studying this guide and
+thought to themselves: "Gee wiz, there is a lot of great advice here,
+I should follow this exactly or dragons might eat my analysis
+program!"  While this may be a possibility, the previous advice on
+classes may be a little, well, misguided.
+</p>
+
+<p>
+More sound advice may sound like this: When beginning development,
+make your first (and maybe second) drafts of the program without
+classes.  This will force you to recognize which parts of your program
+fit together (data+methods) and which are separate.  Then, revise your
+program to include classes with the appropriate encapsulation of data
+and methods.  This will ensure that you write a clean interface, and
+that you don't end up with 20 methods that all take the same four
+arguments.
+</p>
+</blockquote>
+
+<p>
+The basic syntax is:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">class A{
+public:
+  A():a(0),b(0){};
+  A(int _a):a(_a),b(0){};
+  ~A(){};
+  void SetA(int new_a){a=new_a;};
+  void GetA(){return a;};
+  void SetB(int new_b){b=new_b;};
+  void GetB(){return b;};
+private:
+  int a;
+protected:
+  int b;
+};
+</pre>
+</div>
+<p>
+This is a trivial example, and it breaks many rules about naming
+conventions and clarity.  It is not a good example.  It should not be
+used as a good example to win arguments about concise code.  In fact,
+you probably shouldn't have read it.
+</p>
+
+<p>
+Important features of the code: Anything after the public keyword is
+accessible to the outside world, ie:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">A myObj;
+myObj.SetA(10);
+myObj.GetA();
+myObj.SetB(42);
+myObj.GetB();
+</pre>
+</div>
+<p>
+Is all valid code, anything that is written after private, is just
+that.  You cannot access it outside of the class:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">myObj.a; //Compiler error
+myObj.b; //protected is a special form of private
+</pre>
+</div>
+<p>
+The protected keyword is for class inheritance.  It says that these
+variables and methods are private for users of the class, but if
+another class inherits from this one, they inherit these symbols. 
+</p>
+
+<p>
+Normally in class inheritance, you only inherit the public members of
+the class.  The private members are not inherited.  Protected offers
+a way to encapsulate data, but also share data among inheritance
+diagrams.
+</p>
+
+<p>
+In case you haven't picked up on it, classes are one of the hairier
+aspects of C++.  It's better if you refer to some other resource for a
+tutorial on classes, as their subtleties are beyond the scope of The
+Guide.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8">An even briefer introduction to Python</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+Python is a wonderful language.  It is expressive and allows rapid
+prototyping with a shell type environment.  <a href="http://learnpythonthehardway.org/book/">Try learning it the hard
+way</a>.  Another approach is to google what you're trying to do, and
+make it run on a small test case.  
+</p>
+
+<p>
+When writing code, it is best to be idiomatic.  This is especially
+true in python.  Python's driving philosophy is "one right way" but
+since python is being developed by multiple hackers, there are "many
+right ways." 
+</p>
+
+<ul class="org-ul">
+<li>Here's an older tutorial on <a href="http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html">idiomatic python</a>.  
+</li>
+<li><a href="http://safehammad.com/downloads/python-idioms-2014-01-16.pdf">A slideshow on idiomatic python</a>
+</li>
+<li><a href="https://en.wikibooks.org/wiki/Non-Programmer's_Tutorial_for_Python_3">A non-programmer's tutorial on python 3</a> (also see the linked version
+for 2.7 as HEP is still using 2.7 or earlier in many cases)
+</li>
+<li>Finally, the <a href="http://docs.python.org/2/howto/doanddont.html">official recommendations</a> for best practices.
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-1-8-1" class="outline-4">
+<h4 id="sec-1-8-1">PyROOT: ROOT bindings in python</h4>
+<div class="outline-text-4" id="text-1-8-1">
+<p>
+Mostly Harmless.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9" class="outline-3">
+<h3 id="sec-1-9">ROOT</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+For better or worse, for richer or poorer (always poorer), HEP
+Physicists are married to (read: stuck with) ROOT.  It's the <a href="http://homes.cs.washington.edu/~weise/uhh-download.html">Unix</a> of
+HEP.  There is method in the madness, though it is not clear what the
+method is (just yet). The Editor is fairly certain that ROOT uses
+<a href="https://en.wikipedia.org/wiki/Bistromath#Bistromathic_drive">Bistromath</a>ics for many of its statistical operations.
+</p>
+
+<p>
+ROOT is the industry standard tool for analyzing and manipulating gobs
+of data.  Other statistical analysis tools <a href="http://www.matthewckeller.com/html/memory.html">crash and burn</a> on the
+datasets that ROOT eats for breakfast.  
+</p>
+
+<p>
+Recently, ROOT has begun the transition from the 5 series to the 6
+series. This transition has resulted in huge changes to the front and
+back-end of ROOT. Below there will be some comparisons to both
+versions.  When something applies to the 5 series, it will be
+annotated ROOTv5.  It should be assumed that ROOT or ROOTv6 refers to
+the newest 6 series.  Without further ado, let's set it up and get to
+work!
+</p>
+</div>
+<div id="outline-container-sec-1-9-1" class="outline-4">
+<h4 id="sec-1-9-1">Installing and setting up</h4>
+<div class="outline-text-4" id="text-1-9-1">
+</div><div id="outline-container-sec-1-9-1-1" class="outline-5">
+<h5 id="sec-1-9-1-1">On Windows</h5>
+<div class="outline-text-5" id="text-1-9-1-1">
+<p>
+These links are for 5.34.34. You are encouraged visit the <a href="http://root.cern.ch/drupal/content/downloading-root">downloading</a>
+page of root.cern.ch to check for newer versions.  Always prefer the
+"pro" version.  It appears that in ROOT 6, the developers have stopped
+releasing windows builds. This means that to use ROOT 6 and above
+you'll have to either compile from source, or use a virtual machine.
+</p>
+
+<ul class="org-ul">
+<li><a href="https://root.cern.ch/download/root_v5.34.34.win32.vc12.exe">VC++11 (2012) EXE for 5.34.34</a> (install-able version, allows you to
+remove it using the Control Panel)
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-9-1-2" class="outline-5">
+<h5 id="sec-1-9-1-2">On MacOS</h5>
+<div class="outline-text-5" id="text-1-9-1-2">
+<p>
+If you are using <code>homebrew</code> you can simply do:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">brew tap homebrew/science
+brew install --with-cocoa root
+</pre>
+</div>
+<p>
+(<a href="https://alexpearce.me/2013/12/root-on-os-x-mavericks/">source</a>)
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-9-1-3" class="outline-5">
+<h5 id="sec-1-9-1-3">On Ubuntu</h5>
+<div class="outline-text-5" id="text-1-9-1-3">
+<p>
+This will install all ROOT packages from the Ubuntu repositories:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">sudo apt-get install root-system
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9-2" class="outline-4">
+<h4 id="sec-1-9-2">Building From source</h4>
+<div class="outline-text-4" id="text-1-9-2">
+<p>
+These instructions are for *nix based systems (ie it was written for
+Ubuntu, but MacOS shouldn't be much different and Windows is out of
+the question).
+</p>
+
+<p>
+When choosing a version of ROOT, always pick the 'pro' (pro for
+production) version.  It's the latest, stable, version recommended by
+the ROOT Devs. 
+</p>
+
+<p>
+<b>Nota Bene</b> If you're doing this on Mac OS, you'll need to use <code>brew
+install blah</code> instead of <code>apt-get install blah</code>, and the package names
+will probably be different. 
+</p>
+
+<p>
+If you haven't yet, read the <i>section of the guide</i> relevant to your OS.
+</p>
+
+<p>
+For our install of ROOT, we'll be compiling and running it locally.
+This has a few advantages:
+</p>
+<ul class="org-ul">
+<li>"Uninstalling" is easy, either unset the environment variables
+pointing to ROOT, or completely delete the folder that root lives
+in (in this example <code>~/root</code>)
+</li>
+<li>Having multiple versions side-by-side is possible, you could have:
+<ul class="org-ul">
+<li><code>~/root-clang</code> a version of root compiled with clang
+</li>
+<li><code>~/root-5.34</code> a stable version of ROOT
+</li>
+<li><code>~/root-5.99</code> the beta version of ROOT 6
+</li>
+<li>To use any of them you would just have to source
+<code>~/root-ver/bin/thisroot.sh</code>
+</li>
+</ul>
+</li>
+<li>You don't need root (administrative) access on the machine (as long
+as the pre-req's are installed).  This is generally nice since it
+decouples ROOT from the hosting OS.  
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-1-9-2-1" class="outline-5">
+<h5 id="sec-1-9-2-1">Getting the Pre-Requisites</h5>
+<div class="outline-text-5" id="text-1-9-2-1">
+<p>
+Now, all of the following information is documented at
+<i>root.cern.ch</i>, but it is even less organized than this guide. The
+following is a straight-shot from no source code to a fully working
+ROOT binary on a clean install of Ubuntu (currently 13.10, but the
+build process has been stable for the last ~3 years)
+</p>
+
+<p>
+End to end, this takes ~40min on a machine circa 2011, so budget some
+coffee time.  
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">sudo apt-get install git dpkg-dev make g++ gcc binutils libx11-dev libxpm-dev \
+	libxft-dev libxext-dev gfortran libssl-dev libpcre3-dev \
+	xlibmesa-glu-dev libglew1.5-dev libftgl-dev \
+	libmysqlclient-dev libfftw3-dev cfitsio-dev \
+	graphviz-dev libavahi-compat-libdnssd-dev \
+	libldap2-dev python-dev libxml2-dev libkrb5-dev \
+	libgsl0-dev libqt4-dev
+</pre>
+</div>
+<p>
+You may have some of these packages already if you've installed
+<code>build-essential</code> or <code>git</code> before.  In either case, <code>apt</code> is smart
+enough to see that and not re-install them. 
+</p>
+
+<p>
+The above list of packages are for a full-blown,
+all-features-enabled  version of ROOT.  If you want a stripped down
+version, you'll have to get the pre-reqs from <a href="http://root.cern.ch">http://root.cern.ch</a>. 
+</p>
+
+<p>
+Alternatively you can type:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">sudo apt-get build-dep root-system
+</pre>
+</div>
+<p>
+And let <code>apt</code> install and manage any dependencies ROOT needs.  This
+is overkill, even for a "bells and whistles" build of ROOT.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-9-2-2" class="outline-5">
+<h5 id="sec-1-9-2-2">May the Source be with you</h5>
+<div class="outline-text-5" id="text-1-9-2-2">
+<p>
+Let's get a copy of the source:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">git clone http://root.cern.ch/git/root.git
+</pre>
+</div>
+
+<p>
+For future reference, if you want to update:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">git pull
+git tag -l 
+git checkout -b tag-name tag-name
+</pre>
+</div>
+<p>
+<code>git tag -l</code> lists all the available tags, choose the one you want
+and substitute it for <code>tag-name</code>
+</p>
+
+<p>
+For now, lets checkout the latest pro branch:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">git checkout -b v6-04-14 v6-04-14
+</pre>
+</div>
+<p>
+This will checkout the branch <code>v6-04-14</code> to a local branch <code>v6-04-14</code>
+and switch you to it. If you're new to "<a href="https://en.wikipedia.org/wiki/Version_control_systems">version control systems</a>", or
+"<a href="https://en.wikipedia.org/wiki/Source_code_management">source control management</a>" then it's useful to do a tutorial to learn
+the basics.  In HEP, the major system used is called SVN, in open
+source, Git has become the de facto standard almost overnight.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-9-2-3" class="outline-5">
+<h5 id="sec-1-9-2-3">Building</h5>
+<div class="outline-text-5" id="text-1-9-2-3">
+<p>
+With our code checked out and ready, we need to configure it to match
+the computer we're compiling on.  To do this:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">./configure --all
+</pre>
+</div>
+<p>
+To see all options run <code>./configure --help</code>, this command suggests
+piping the output to <code>more</code>, but most "modern" terminal emulators have
+a scroll-back buffer large enough that you can just scroll up and read
+the output.  The <code>--all</code> option instructs configure to enable support
+for as many packages as your system supports.  If you require a
+specific feature (say roofit) you would type:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">./configure [other options] --enable-roofit
+</pre>
+</div>
+
+<p>
+If you're interested in building ROOT with xrootd (network protocol
+which allows opening root files over a network connection) see
+<a href="#sec-1-9-3">Advanced Build Options</a>.
+</p>
+
+<p>
+After configuring you should see:
+</p>
+<pre class="example">
+Enabled support for asimage, astiff, builtin_afterimage, builtin_llvm, explicitlink, fftw3, gviz, gdml, genvector, http, krb5, ldap, mathmore, memstat, minuit2, mysql, opengl, python, qt, qtgsi, roofit, search_usrlocal, shadowpw, shared, sqlite, ssl, table, tmva, unuran, vc, vdt, x11, xft, xml.
+
+To build ROOT type:
+
+   make
+</pre>
+
+<p>
+Now type <code>make</code>:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">make -j 4
+</pre>
+</div>
+<p>
+The <code>-j</code> option tells make how many jobs it can run simultaneously.
+Without <code>-j</code>, only one job runs.  A good rule of thumb is to choose
+the number of cores you have on your computer.  If you are compiling
+on remote computer, it is probably shared by others, in which it is
+good etiquette to run your jobs single threaded.  On your laptop, you
+should choose <b>one less</b> than the number of cores you have (so you
+don't notice a slow-down while its building in the background).
+</p>
+
+<p>
+See <code>man make</code> and look under the option "-j [jobs]" for more
+detailed information about this switch.
+</p>
+
+<p>
+This will take (depending on your hardware) between 20-45min, so now
+is a good time for a cup of tea, or coffee with your <i>editor guru</i>.
+</p>
+
+<p>
+When it's finished, it will print out:
+</p>
+<pre class="example">
+[lots of boring crap]
+
+   ============================================================
+   ===                ROOT BUILD SUCCESSFUL.                ===
+   === Run 'source bin/thisroot.[c]sh' before starting ROOT ===
+   ============================================================
+</pre>
+<p>
+If you do not get this message, but the build just ends with <code>[lots of
+boring crap]</code> find a senior grad student and have them look at the
+<code>[lots of boring crap]</code> (it won't be boring to them). They will be
+able to instruct you on what went wrong. 
+</p>
+
+<p>
+If you don't have a senior grad student handy, try googling some of
+the output and seeing if you can get anywhere.  There is also the
+<a href="http://root.cern.ch/phpBB3/viewforum.php?f=3&sid=b8e88bc1be4e5f599aedd95aeb047349">ROOT Talk Forums</a>.  
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-9-2-4" class="outline-5">
+<h5 id="sec-1-9-2-4">Using your new superpower</h5>
+<div class="outline-text-5" id="text-1-9-2-4">
+<p>
+Now, when you want to use <code>root</code>, you can run the command:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">source ~/root/bin/thisroot.sh
+</pre>
+</div>
+<p>
+If you are using tcsh (you shouldn't be) you would need to run:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">source ~/root/bin/thisroot.csh
+</pre>
+</div>
+
+<p>
+There are differing opinions about whether or not you should put
+something like this in your bashrc.  One school of thought (especially
+applicable when you bounce between different versions) is that you
+should keep your environment as clean as possible and only setup what
+you need.  In that case adding:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">alias setupROOT='source ${HOME}/root/bin/thisroot.sh'
+</pre>
+</div>
+<p>
+To your <code>~/.bashrc</code> file is enough.
+</p>
+
+<p>
+Then, whenever you need root, you have to run <code>setupROOT</code>, before you
+can run <code>root</code>.
+</p>
+
+<p>
+Another school of thought is that, you should always have some copy
+of root available if possible.  In that case the following will
+always setup root when bash runs if the setup file exists:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">[ -f ~/root/bin/thisroot.sh ] &amp;&amp; source ~/root/bin/thisroot.sh
+</pre>
+</div>
+
+<p>
+Now you can start root by typing <code>root</code> at the command line.  You
+should see:
+</p>
+<pre class="example">
+   ----------------------------------------------------------------
+  | Welcome to ROOT 6.07/03                    http://root.cern.ch |
+  |                                   (c) 1995-2016, The ROOT Team |
+  | Built for linuxx8664gcc                                        |
+  | From heads/master@v6-07-02-292-g1c873d2, Feb 04 2016, 12:28:28 |
+  | Try '.help', '.demo', '.license', '.credits', '.quit'/'.q'     |
+   ----------------------------------------------------------------
+
+root [0]
+</pre>
+<p>
+<b>In ROOTv5</b>:
+</p>
+<pre class="example">
+  *******************************************
+  *                                         *
+  *        W E L C O M E  to  R O O T       *
+  *                                         *
+  *   Version   5.34/15  11 February 2014   *
+  *                                         *
+  *  You are welcome to visit our Web site  *
+  *          http://root.cern.ch            *
+  *                                         *
+  *******************************************
+
+ROOT 5.34/15 (v5-34-15@v5-34-15, Mar 21 2014, 14:04:01 on linuxx8664gcc)
+
+CINT/ROOT C/C++ Interpreter version 5.18.00, July 2, 2010
+Type ? for help. Commands must be C++ statements.
+Enclose multiple statements between { }.
+root [0]
+</pre>
+
+<p>
+To start root without the splash screen type <code>root -l</code> in which case
+you see:
+</p>
+<pre class="example">
+root [0]
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9-3" class="outline-4">
+<h4 id="sec-1-9-3">Advanced Build Options</h4>
+<div class="outline-text-4" id="text-1-9-3">
+<p>
+<a href="http://root.cern.ch/drupal/content/installing-xrootd">Full instructions here</a>
+</p>
+
+<p>
+If you want to use xrootd, you'll also need cmake:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">apt-get install cmake
+</pre>
+</div>
+<p>
+Then, (from the directory where you checked out <code>root</code>):
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">./build/unix/installXrootd.sh
+</pre>
+</div>
+<p>
+This will install xrootd to whatever directory you're currently in,
+so if you want it installed somewhere else, cd to that directory
+first, just make sure that you update the location in the next command.
+</p>
+
+<p>
+Now when you configure root you should use:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">./configure --all --with-xrootd=${HOME}/root/xrootd-4.2.1/
+</pre>
+</div>
+<p>
+Here <code>${HOME}/root/xrootd-4.2.1/</code> is the path where xrootd was
+installed (based on the <code>installXrootd.sh</code> script above).  If you
+blindly follow the instructions the above command will "just work".
+</p>
+
+<p>
+<b>Nota Bene</b> The path following <code>--with-xrootd=</code> must be a fully
+qualified path (ie <code>/home/username/root/xrootd-4.2.1/</code>), the
+configure script doesn't understand that <code>~/</code> is a shorthand for
+<code>${HOME}</code>. 
+</p>
+
+<p>
+if <code>xrootd</code> support has been enabled you should see:
+</p>
+<pre class="example">
+Enabled support for asimage, astiff, builtin_afterimage, builtin_llvm, explicitlink, fftw3, gviz, gdml, genvector, http, krb5, ldap, mathmore, memstat, minuit2, mysql, opengl, python, qt, qtgsi, roofit, search_usrlocal, shadowpw, shared, sqlite, ssl, table, tmva, unuran, vc, vdt, x11, xft, xml, xrootd.
+
+To build ROOT type:
+
+   make
+</pre>
+
+<p>
+Make sure you see <code>xrootd</code> in the list! If not xrootd won't be
+installed and won't function properly. You can now continue with the
+<i>regular instructions</i>. <b>Note</b>: If you want to be able to access files
+hosted at CERN, you'll have to have a kerberos client installed
+(either <code>krb5-user</code> or <code>heimdal-clients</code> on debian or ubuntu systems).  Then
+before connecting, run <code>kinit -5 ${CERN_USER}@CERN.CH</code> to generate a
+kerberos certificate. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9-4" class="outline-4">
+<h4 id="sec-1-9-4">A Path to ROOT enlightenment</h4>
+<div class="outline-text-4" id="text-1-9-4">
+<p>
+There are three methods of running code through ROOT to produce
+results.  These methods are listed below, each more sophisticated
+than the last.  They also include example code intended as a starting
+point for hacking.   
+</p>
+
+<p>
+As a reminder, see <a href="#sec-1-1-3">Obtaining a copy and supporting material</a> for
+instructions on obtaining and running the example code.
+</p>
+</div>
+<div id="outline-container-sec-1-9-4-1" class="outline-5">
+<h5 id="sec-1-9-4-1">Level 1: Macros</h5>
+<div class="outline-text-5" id="text-1-9-4-1">
+<p>
+The first, and simplest way to execute ROOT related code is the
+humble macro. A macro is a set of ROOT commands enclosed by
+braces. For example:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">{
+  TFile* file= TFile::Open("MeaningOfLife.root");
+  TH1F* hist = (TH1F*)file-&gt;Get("Hist1");
+  cout &lt;&lt; hist-&gt;GetNbinsX() &lt;&lt;endl;
+}
+</pre>
+</div>
+<p>
+<b>For ROOT 6:</b>
+ROOTv6 macros are compiled with the LLVM backend "just in time"
+(JIT). This means that you have to type valid C++ in order to make
+things work correctly.  This alleviates a lot of the issues that make
+Macros fragile, and so it is easier to transition from Level 1 to
+Level 2, and you can achieve more with a macro than before.
+</p>
+
+<p>
+<b>For ROOT 5:</b>
+While not immediately obvious, ROOTv5 macros are not written in C or
+C++, but <a href="http://root.cern.ch/drupal/content/cint">CINT</a>. CINT covers "most of"   ANSI C and ISO C++ 2003.
+There are some important differences:
+</p>
+<ul class="org-ul">
+<li><code>foo.blah</code> and <code>foo-&gt;blah</code> are interchangeable
+</li>
+<li>a semicolon ';' at the end of a line is optional
+</li>
+<li>No need to "<code>#include</code>" headers
+</li>
+</ul>
+<p>
+As you progress in writing more sophisticated C++, you will run into
+CINT's shortcomings as a C++ interpreter.  It is recommended that you
+move to Level 2 or 3 before this happens. 
+</p>
+
+<p>
+While it is possible to write complicated CINT macros (files with
+multiple function definitions) it is not recommended.  CINT has a
+habit of keeping up the appearance of doing one thing when in reality
+something entirely different is happening "behind the scenes".
+</p>
+
+<p>
+CINT is best used for quick scripts to plot histograms already saved
+to a disk, or to inspect a few branches from a <code>TTree</code>.  More
+sophisticated analyses are better served by Levels 2 and 3. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9-4-2" class="outline-5">
+<h5 id="sec-1-9-4-2">Level 2: Compiled Macros</h5>
+<div class="outline-text-5" id="text-1-9-4-2">
+<p>
+Compiled macros are full-blown C++ programs.  Generally there is a
+"steering macro" that handles compiling and loading the required
+libraries.  An example steering macro:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">{
+  //may need to load other libraries or files that depend on analysis.C
+  gROOT-&gt;ProcessLine(".L analysis.C++");
+  gROOT-&gt;ProcessLine("doAnalysis()");
+}
+</pre>
+</div>
+<p>
+The compiled macro itself looks more like a traditional C++ program:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include &lt;cstdlib&gt;
+#include "TFile.h"
+#include "TH1F.h"
+
+int doAnalysis(){
+
+  return 42;
+}
+</pre>
+</div>
+<p>
+Since the ROOT binary already defines a "main" an error will occur
+if you redefine another function named "main", therefore we use
+the verb "doAnalysis". 
+</p>
+
+<p>
+The steering macro that compiles each source file can become
+arbitrarily complex.  To some this may read "flexible", to others it
+may read "disorganized".  If your analysis grows into a multi-file
+program, it's probably time to ascend to Level 3.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9-4-3" class="outline-5">
+<h5 id="sec-1-9-4-3">Level 3: Compiled Programs</h5>
+<div class="outline-text-5" id="text-1-9-4-3">
+<p>
+A compiled program is just that. Here ROOT takes the role of a rich
+set of libraries for composing a C++ based analysis.  
+</p>
+
+<p>
+An example program (and supporting Makefile) <a href="https://github.com/dbjergaard/hitchhikers-guide-to-hep/tree/master/compiled-program">is included here</a>.
+</p>
+
+<p>
+Makefiles come with their own overhead, but the <code>make</code> system is very
+powerful.  The <a href="https://www.gnu.org/software/make/manual/make.html">make manual</a> is very readable with many examples.  
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9-4-4" class="outline-5">
+<h5 id="sec-1-9-4-4">A note on Enlightenment</h5>
+<div class="outline-text-5" id="text-1-9-4-4">
+<p>
+Master Foo, of <a href="http://www.catb.org/~esr//writings/unix-koans/">Rootless Root</a>, gives the <a href="http://www.catb.org/~esr//writings/unix-koans/shell-tools.html">sage advice</a>:
+</p>
+<blockquote>
+<p>
+"When you are hungry, eat; when you are thirsty, drink; when you are tired, sleep."
+</p>
+</blockquote>
+
+<p>
+To spell it out (and to prevent the reader from enlightenment), it is
+wise to choose the use of ROOT which is most appropriate for a task
+at hand.  The practicing HEP physicist is proficient with all three
+levels, and can pick and choose which approach is best for the task
+at hand.  
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9-5" class="outline-4">
+<h4 id="sec-1-9-5">PyROOT</h4>
+<div class="outline-text-4" id="text-1-9-5">
+<p>
+PyROOT are a set of python bindings to ROOT. It works fairly well out
+of the box, but there are some things to keep in mind. 
+</p>
+<ul class="org-ul">
+<li>Idiomatic python avoids "<code>from ROOT import *</code>", prefer "<code>from ROOT
+  import blah</code>"
+</li>
+<li>the ROOT devs know you aren't going to be idiomatic, so instead
+they've implemented a lazy loading system (ROOT is huge, so "<code>from
+  ROOT import *</code>" would take forever).  This may be confusing if your
+a python expert and expect exploration commands like <code>dir()</code> to
+work with ROOT.
+</li>
+<li>If performance matters, try to stay in C++ land (ie call C++
+functions from python) as much as possible
+<ul class="org-ul">
+<li>If performance really matters, write it in python and then port
+it to C++. This is fairly advanced, but not impossible. You'll
+have to generate CINT dictionaries for your source files.
+</li>
+</ul>
+</li>
+</ul>
+<p>
+If you're looking for a more "pythonic" (not my word) experience,
+maybe give <a href="http://www.rootpy.org">rootpy</a> a shot. See also <a href="#sec-1-8">An even briefer introduction to Python</a> for resources to learn python itself.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9-6" class="outline-4">
+<h4 id="sec-1-9-6">Fitting Data with RooFit</h4>
+<div class="outline-text-4" id="text-1-9-6">
+<p>
+RooFit is a shiny penny compared to the rest of the ROOT ecosystem.
+It has its own quirks and idioms, but the interfaces are fairly
+reasonable and the manual is well written.  The latest version of the
+manual and quickstart can always be found here:
+</p>
+<ul class="org-ul">
+<li><a href="http://root.cern.ch/drupal/content/users-guide#roofit">ROOT User's guide,  Roofit Manual</a>
+</li>
+</ul>
+<p>
+Direct links are here, though they aren't guaranteed to be current:
+</p>
+<ul class="org-ul">
+<li><a href="http://root.cern.ch/download/doc/RooFit_Users_Manual_2.91-33.pdf">RooFit Manual (PDF) 2.91-33</a>
+</li>
+<li><a href="http://root.cern.ch/drupal/sites/default/files/roofit_quickstart_3.00.pdf">RooFit Quick Start Guide (PDF) 3.00</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-9-7" class="outline-4">
+<h4 id="sec-1-9-7">Styling Plots</h4>
+<div class="outline-text-4" id="text-1-9-7">
+<p>
+A well designed graph is truly a work of art. The path from paltry
+graphics spit out by ROOT to something worthy of framing (and yes,
+<a href="https://www.edwardtufte.com/tufte/posters">truly amazing data visualizations are routinely framed</a>) is long and
+fraught with naysayers who will insist that you are doing it wrong.
+Ignore them, and do what needs to be done to communicate your hard won
+data clearly and concisely.  To get you started, give "<a href="http://www2.cs.uregina.ca/~rbm/cs100/notes/spreadsheets/tufte_paper.html">Principles of
+Information Display for Visualization Practitioners</a>" a read.  It is an
+executive summary of <a href="https://www.edwardtufte.com/tufte/">Edward Tufte's</a> works on visualizing information.
+If what you read resonates with you, then please read <a href="http://www.amazon.com/The-Visual-Display-Quantitative-Information/dp/0961392142">Tufte's books</a>.
+They make for delightful coffee time distractions.  After reading his
+books you will start to see his influence in particularly nice
+graphics.  You will also see many sins committed by other
+practitioners in our field. Choose your role-models wisely.
+</p>
+
+<p>
+Sage advice (passed down from The Editor's first mentor):
+</p>
+<blockquote>
+<p>
+When you make a plot, take the time to make it publication quality
+and reproducible.  
+</p>
+</blockquote>
+<p>
+This means two things:
+</p>
+<ol class="org-ol">
+<li>Make it good enough to go into a paper
+</li>
+<li>Prefer generating it with C++/Python over any other format (data
+inputs will frequently change at the last minute, and being able to
+"hit a button" and get the plot is very useful unless you have a
+room full of <a href="https://en.wikipedia.org/wiki/The_Turk">Mechanical Turks</a> lying around)
+</li>
+</ol>
+
+<p>
+This also means it's probably a good idea to keep <code>*.root</code> files
+containing your histograms for last minute style changes if you are
+writing a presentation.
+</p>
+
+<p>
+Producing a publication quality plot can be challenging, however ROOT
+includes the concept of a "Style" which can be applied.  These are
+global rules for how plots should be printed.  In previous versions of
+ROOT, the default style was notoriously bad.  In The Editor's humble
+opinion, this was done to simultaneously encourage each physicist to
+set their own standard, and to immediately identify ROOT newbies from
+seasoned ROOT hackers.
+</p>
+
+<p>
+Now, things are better, though the idea that "each physicist set their
+own standard" has stuck, and so there are many styles floating
+around. 
+</p>
+</div>
+<div id="outline-container-sec-1-9-7-1" class="outline-5">
+<h5 id="sec-1-9-7-1">Example Style</h5>
+<div class="outline-text-5" id="text-1-9-7-1">
+<p>
+An example style (probably from the CMS TDR, the details are lost to
+time):
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">{
+  TStyle *tdrStyle = new TStyle("tdrStyle","Style for P-TDR");
+
+  cout &lt;&lt; "TDR Style initialized" &lt;&lt; endl;
+
+// For the canvas:
+  tdrStyle-&gt;SetCanvasBorderMode(0);
+  tdrStyle-&gt;SetCanvasColor(kWhite);
+  tdrStyle-&gt;SetCanvasDefH(600); //Height of canvas
+  tdrStyle-&gt;SetCanvasDefW(600); //Width of canvas
+  tdrStyle-&gt;SetCanvasDefX(0);   //Position on screen
+  tdrStyle-&gt;SetCanvasDefY(0);
+
+// For the Pad:
+  tdrStyle-&gt;SetPadBorderMode(0);
+  // tdrStyle-&gt;SetPadBorderSize(Width_t size = 1);
+  tdrStyle-&gt;SetPadColor(kWhite);
+  tdrStyle-&gt;SetPadGridX(false);
+  tdrStyle-&gt;SetPadGridY(false);
+  tdrStyle-&gt;SetGridColor(0);
+  tdrStyle-&gt;SetGridStyle(3);
+  tdrStyle-&gt;SetGridWidth(1);
+
+// For the frame:
+  tdrStyle-&gt;SetFrameBorderMode(0);
+  tdrStyle-&gt;SetFrameBorderSize(1);
+  tdrStyle-&gt;SetFrameFillColor(0);
+  tdrStyle-&gt;SetFrameFillStyle(0);
+  tdrStyle-&gt;SetFrameLineColor(1);
+  tdrStyle-&gt;SetFrameLineStyle(1);
+  tdrStyle-&gt;SetFrameLineWidth(1);
+
+// For the histo:
+  // tdrStyle-&gt;SetHistFillColor(1);
+  // tdrStyle-&gt;SetHistFillStyle(0);
+  tdrStyle-&gt;SetHistLineColor(1);
+  tdrStyle-&gt;SetHistLineStyle(0);
+  tdrStyle-&gt;SetHistLineWidth(1);
+
+  tdrStyle-&gt;SetEndErrorSize(2);
+  //tdrStyle-&gt;SetErrorMarker(20);
+  tdrStyle-&gt;SetErrorX(0.);
+
+  tdrStyle-&gt;SetMarkerStyle(20);
+
+//For the fit/function:
+  tdrStyle-&gt;SetOptFit(1);
+  tdrStyle-&gt;SetFitFormat("5.4g");
+  tdrStyle-&gt;SetFuncColor(2);
+  tdrStyle-&gt;SetFuncStyle(1);
+  tdrStyle-&gt;SetFuncWidth(1);
+
+//For the date:
+  tdrStyle-&gt;SetOptDate(0);
+  // tdrStyle-&gt;SetDateX(Float_t x = 0.01);
+  // tdrStyle-&gt;SetDateY(Float_t y = 0.01);
+
+// For the statistics box:
+  tdrStyle-&gt;SetOptFile(0);
+  tdrStyle-&gt;SetOptStat(0); // To display the mean and RMS:   SetOptStat("mr");
+  tdrStyle-&gt;SetStatColor(kWhite);
+  tdrStyle-&gt;SetStatFont(42);
+  tdrStyle-&gt;SetStatFontSize(0.025);
+  tdrStyle-&gt;SetStatTextColor(1);
+  tdrStyle-&gt;SetStatFormat("6.4g");
+  tdrStyle-&gt;SetStatBorderSize(1);
+  tdrStyle-&gt;SetStatH(0.1);
+  tdrStyle-&gt;SetStatW(0.15);
+  // tdrStyle-&gt;SetStatStyle(Style_t style = 1001);
+  // tdrStyle-&gt;SetStatX(Float_t x = 0);
+  // tdrStyle-&gt;SetStatY(Float_t y = 0);
+
+// Margins:
+  tdrStyle-&gt;SetPadTopMargin(0.15);
+  tdrStyle-&gt;SetPadBottomMargin(0.13);
+  tdrStyle-&gt;SetPadLeftMargin(0.13);
+  tdrStyle-&gt;SetPadRightMargin(0.15);
+
+// For the Global title:
+
+//  tdrStyle-&gt;SetOptTitle(0);
+  tdrStyle-&gt;SetTitleFont(42);
+  tdrStyle-&gt;SetTitleColor(1);
+  tdrStyle-&gt;SetTitleTextColor(1);
+  tdrStyle-&gt;SetTitleFillColor(10);
+  tdrStyle-&gt;SetTitleFontSize(0.05);
+  // tdrStyle-&gt;SetTitleH(0); // Set the height of the title box
+  // tdrStyle-&gt;SetTitleW(0); // Set the width of the title box
+  // tdrStyle-&gt;SetTitleX(0); // Set the position of the title box
+  // tdrStyle-&gt;SetTitleY(0.985); // Set the position of the title box
+  // tdrStyle-&gt;SetTitleStyle(Style_t style = 1001);
+  // tdrStyle-&gt;SetTitleBorderSize(2);
+
+// For the axis titles:
+
+  tdrStyle-&gt;SetTitleColor(1, "XYZ");
+  tdrStyle-&gt;SetTitleFont(42, "XYZ");
+  tdrStyle-&gt;SetTitleSize(0.06, "XYZ");
+// The inconsistency is great!
+  tdrStyle-&gt;SetTitleXOffset(1.0);
+  tdrStyle-&gt;SetTitleOffset(1.5, "Y"); 
+
+// For the axis labels:
+
+  tdrStyle-&gt;SetLabelColor(1, "XYZ");
+  tdrStyle-&gt;SetLabelFont(42, "XYZ");
+  tdrStyle-&gt;SetLabelOffset(0.007, "XYZ");
+  tdrStyle-&gt;SetLabelSize(0.05, "XYZ");
+
+// For the axis:
+
+  tdrStyle-&gt;SetAxisColor(1, "XYZ");
+  tdrStyle-&gt;SetStripDecimals(kTRUE);
+  tdrStyle-&gt;SetTickLength(0.03, "XYZ");
+  tdrStyle-&gt;SetNdivisions(510, "XYZ");
+  tdrStyle-&gt;SetPadTickX(1);  // To get tick marks on the opposite side of the frame
+  tdrStyle-&gt;SetPadTickY(1);
+
+// Change for log plots:
+  tdrStyle-&gt;SetOptLogx(0);
+  tdrStyle-&gt;SetOptLogy(0);
+  tdrStyle-&gt;SetOptLogz(0);
+
+  tdrStyle-&gt;SetPalette(1,0);
+  tdrStyle-&gt;cd();
+}
+</pre>
+</div>
+<p>
+If your working with one of the major experiments, they'll most
+likely have a style for you to use  (It will invariably be 95% the
+same as above, but the 5% will make <b>all</b> the difference). 
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9-7-2" class="outline-5">
+<h5 id="sec-1-9-7-2">Transparent Plots</h5>
+<div class="outline-text-5" id="text-1-9-7-2">
+<p>
+Add this to your <code>~/.rootrc</code> (or create it if it doesn't exist):
+</p>
+<pre class="example">
+# GUI specific settings
+Gui.Backend: qt
+Gui.Factory: qt
+</pre>
+<p>
+This sets the graphics backend to qt (you have to have built root with
+qt support to use this feature).
+</p>
+
+<p>
+Now, in your plotting code:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">TColor* color = gROOT-&gt;GetColor(TColor::GetColor(red,green,blue));//Use ints from 0 to 255 
+color-&gt;SetAlpha(0.5);//0 is fully transparent, 1 fully opaque
+hist-&gt;SetFillColor(color-&gt;GetNumber());
+</pre>
+</div>
+<p>
+Is this a clean interface? No, but it can be just what your graphic
+needs to remain clear without cluttering the canvas with hatching. 
+</p>
+
+<p>
+Two warnings:  
+</p>
+<ol class="org-ol">
+<li>As of this writing, this is only supported for "popular" output
+formats (pdf, svg, gif, jpg, and png), though notably <b>not</b>
+postscript (ie ps). 
+</li>
+<li>It's very easy to create a shade that cannot be properly rendered
+on a projector, making the transparent component of your plots
+invisible.
+</li>
+<li>This only works with the latest version of ROOT 5.34
+</li>
+</ol>
+
+<p>
+More information:
+</p>
+<ul class="org-ul">
+<li><a href="http://root.cern.ch/phpBB3/viewtopic.php?f=3&t=18100&p=76965">here</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9-8" class="outline-4">
+<h4 id="sec-1-9-8">Extending ROOT with custom classes</h4>
+<div class="outline-text-4" id="text-1-9-8">
+<p>
+Sometimes it is useful to add your own developed classes to ROOT (so
+they can be used in ROOT macros/PyROOT scripts or so they can be
+stored in a ROOT file). For example you may have a class of the form
+(in a file called CustomEvent.h, for example):
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">#ifndef CustomEvent_h
+#define CustomEvent_h
+
+#include "TObject.h"
+
+class CustomEvent : public TObject {
+  ClassDef(CustomEvent,1);
+private:
+  int    _eventID;
+  double _eventEnergy;
+public:
+  CustomEvent() {}
+  virtual ~CustomEvent() {}
+
+  void set_eventID(const int eid);
+  void set_eventEnergy(const double e);
+
+  int eventID() const { return _eventID; }
+  double eventEnergy() const { return _eventEnergy; }
+};
+
+#endif
+</pre>
+</div>
+<p>
+It is a good idea to inherit from TObject if you require reading or
+writing objects to disk.  Official documentation of the ins and outs
+of adding classes can be found in Chapter 15 of the <a href="https://root.cern.ch/drupal/content/root-users-guide-534">User's Guide</a>, as
+well as information here: <a href="https://root.cern.ch/drupal/content/interacting-shared-libraries-rootcint">cint</a> and <a href="https://root.cern.ch/drupal/content/adding-your-class-root-classdef">ClassDef</a>.  We also need
+CustomEvent.cxx:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">#include "CustomEvent.h"
+
+CustomEvent::CustomEvent() {}
+CustomEvent::~CustomEvent() {}
+
+void CustomEvent::set_eventID(const int eid) { _eventID = eid; }
+void CustomEvent::set_eventEnergy(const double e) { _eventEnergy = e; }
+</pre>
+</div>
+<p>
+To make this class accessible within (Py)ROOT you must create a LinkDef.h file
+of the form:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">#ifdef __CINT__
+#pragma link off all globals;
+#pragma link off all classes;
+#pragma link off all functions;
+
+#pragma link C++ class CustomEvent+;
+
+#endif
+</pre>
+</div>
+<p>
+Now you must generate a dictionary for the class:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">rootcint -f CustomEventDictionary.cxx -c CustomEvent.h LinkDef.h
+</pre>
+</div>
+<p>
+This generates <code>CustomEventDictionary.cxx</code> and
+<code>CustomEventDictionary.h</code>. Now you can compile the source for your
+class and the new dictionary source. Then finally link them together
+in a library:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">g++ -fPIC -c CustomEvent.cxx `root-config --cflags`
+g++ -fPIC -c CustomEventDictionary.cxx `root-config --cflags`
+g++ -shared -o libCustomEvent.so CustomEvent.o CustomEventDictionary.o `root-config --glibs`
+</pre>
+</div>
+<p>
+Now by loading the library libCustomEvent.so you can use your class
+within ROOT. For example, the macro:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">{
+  gSystem-&gt;Load("libCustomEvent");
+  CustomEvent a;
+  a.set_eventID(42);
+  std::cout &lt;&lt; a.eventID() &lt;&lt; std::endl;
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-9-9" class="outline-4">
+<h4 id="sec-1-9-9">Important Gotcha's</h4>
+<div class="outline-text-4" id="text-1-9-9">
+<p>
+At some point you'll get stuck.  Hopefully you'll be stuck on a good
+problem, but more often than not you'll be stuck on some quirk that
+ROOT has.  Remember ROOT's mantra: "<a href="http://www.jargon.net/jargonfile/f/feature.html">It's not a bug, it's a feature</a>!"
+</p>
+
+<p>
+ROOT's object protocol is very strange.  The <a href="http://root.cern.ch/drupal/content/c-coding-conventions">naming schema</a> is based on
+an industry standard for C programs where it's not possible to use
+namespaces. The result is very confusing for new users (very good for
+HEP).  Every object in root that can be written to disk (ie saved in a
+ROOT file) derives from a <code>TObject</code> base class.  This base class
+defines a protocol for objects. (All objects can print themselves,
+have a name, have a title, have a class name, etc).  This makes it
+possible to have a list of disparate objects (as long as it's a list of
+<code>TObject*</code>).  As you gain more experience with ROOT, this becomes
+a power tool.  Like any power tool (<a href="https://en.wikipedia.org/wiki/List_of_Home_Improvement_characters#Tim_Taylor">as Tim Taylor can attest</a>), this
+can be abused to no end. 
+</p>
+</div>
+
+<div id="outline-container-sec-1-9-9-1" class="outline-5">
+<h5 id="sec-1-9-9-1">TTrees</h5>
+<div class="outline-text-5" id="text-1-9-9-1">
+</div><div id="outline-container-sec-1-9-9-1-1" class="outline-6">
+<h6 id="sec-1-9-9-1-1">Drawing trees</h6>
+<div class="outline-text-6" id="text-1-9-9-1-1">
+<p>
+When you call <code>TTree::Draw</code> to draw multi-dimensional histograms, the
+order of the axes is "z:y:x" rather than the expected "x:y:z"
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-9-9-1-2" class="outline-6">
+<h6 id="sec-1-9-9-1-2">Caching trees</h6>
+<div class="outline-text-6" id="text-1-9-9-1-2">
+<p>
+Use <code>TTreeCache</code> to loop over trees rather than the standard
+<code>TTree::GetEntry(i)</code> idiom.  A <code>TTreeCache</code> learns which branches you
+access most often and caches them, speeding up your processing time
+significantly. <a href="http://root.cern.ch/root/html/TTreeCache.html">Documentation here</a>.  Since you won't read to the end
+(no one does&#x2026;) here is the docs for when <b>not</b> to use a
+<code>TTreeCache</code>:
+</p>
+<pre class="example">
+  SPECIAL CASES WHERE TreeCache should not be activated
+
+
+ When reading only a small fraction of all entries such that not all branch
+ buffers are read, it might be faster to run without a cache.
+
+
+ HOW TO VERIFY That the TreeCache has been used and check its performance
+
+
+Once your analysis loop has terminated, you can access/print the number
+of effective system reads for a given file with a code like
+(where TFile* f is a pointer to your file)
+
+ printf("Reading %lld bytes in %d transactions\n",f-&gt;GetBytesRead(),  f-&gt;GetReadCalls());
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-1-9-9-1-3" class="outline-6">
+<h6 id="sec-1-9-9-1-3">Splitting Trees</h6>
+<div class="outline-text-6" id="text-1-9-9-1-3">
+<p>
+If you want to split a TTree into \(n\) statistically independent
+parts use something like:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">TTree* outTree=tree-&gt;CopyTree("Entry$%n==i");
+</pre>
+</div>
+<p>
+Here, <code>n</code> is the number of parts requested, <code>i</code> is the i'th part.  If
+you're just splitting it in half, a full blown macro (from the
+trenches) would look like:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">// A macro to split a tree
+{
+  TFile* file=TFile::Open("./merged_dijets.root");
+  TTree* tree=(TTree*)file-&gt;Get("micro");
+  TFile* fileA=new TFile("UnfoldingStudy.dijets-pt1.root","RECREATE");
+  fileA-&gt;cd();
+  TTree* treeA=tree-&gt;CopyTree("Entry$%2==0");
+  treeA-&gt;Write();
+  fileA-&gt;Write();
+  fileA-&gt;Close();
+  TFile* fileB=new TFile("UnfoldingStudy.dijets-pt2.root","RECREATE");
+  fileB-&gt;cd();
+  TTree* treeB=tree-&gt;CopyTree("Entry$%2==1");
+  treeB-&gt;Write();
+  fileB-&gt;Write();
+  fileB-&gt;Close();
+
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-9-9-2" class="outline-5">
+<h5 id="sec-1-9-9-2">TH1</h5>
+<div class="outline-text-5" id="text-1-9-9-2">
+<p>
+Despite the name, TH1 is the base class for all histograms.  This can
+lead to much <a href="http://dwarffortresswiki.org/index.php/DF2012:Losing">!FUN!</a>. Be extra wary of null pointers when handling
+TH1's of unknown origin.  
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-9-9-3" class="outline-5">
+<h5 id="sec-1-9-9-3">TH2</h5>
+<div class="outline-text-5" id="text-1-9-9-3">
+</div><div id="outline-container-sec-1-9-9-3-1" class="outline-6">
+<h6 id="sec-1-9-9-3-1">Splitting a 2D</h6>
+<div class="outline-text-6" id="text-1-9-9-3-1">
+<p>
+One would expect an interface method like <code>TH2D::Split()</code>, but instead
+you need to use the appropriate THStack <a href="http://root.cern.ch/root/html/THStack.html#THStack:THStack@2">constructor</a>:
+<code>THStack(const TH1* hist, Option_t* axis = "x", ...)</code>
+</p>
+
+<p>
+Then call <code>THStack::GetHists</code> to get a TList of the histograms.  Of
+course, you'll have to use <a href="http://root.cern.ch/root/html/TList.html">ROOT's idioms for iterating over lists</a>,
+</p>
+
+<p>
+Another, slightly more direct option is <code>TH2::ProjectionX()</code> and
+<code>TH2::ProjectionY()</code>, used in the following fashion:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">std::vector&lt;TH1D*&gt; split_list;
+for(size_t i = 1; i &lt; Hist2D-&gt;GetNbinsX()+1; i++) {
+  split_list.push_back(Hist2D-&gt;ProjectionY("_py",i,i+1,"e"));
+}
+</pre>
+</div>
+<p>
+Depending on your ROOT version, you may have to change the ="<sub>py</sub>"=
+string to be something unique.  This can be done as follows:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">std::vector&lt;TH1D*&gt; split_list;
+char buff[256];
+for(size_t i = 1; i &lt; Hist2D-&gt;GetNbinsX()+1; i++) {
+  snprintf(buff,sizeof(buff)/sizeof(*buff),"%s_%u_py",Hist2D-&gt;GetName(),i);
+  split_list.push_back(Hist2D-&gt;ProjectionY(buff,i,i+1,"e"));
+}
+</pre>
+</div>
+<p>
+User Beware: not using a unique name can cause unexpected behavior
+when drawing the list of slices.  
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-9-9-4" class="outline-5">
+<h5 id="sec-1-9-9-4">THStack</h5>
+<div class="outline-text-5" id="text-1-9-9-4">
+<p>
+<code>THStack</code> is not mostly harmless. In fact, if you want to do reasonable
+things with <code>THStack</code>, it probably won't work, and if it does, it may
+work once and not the second time.  If you can avoid <code>THStack</code>, then do
+it.  
+</p>
+</div>
+<div id="outline-container-sec-1-9-9-4-1" class="outline-6">
+<h6 id="sec-1-9-9-4-1">Get Sum of Stack</h6>
+<div class="outline-text-6" id="text-1-9-9-4-1">
+<p>
+To get a histogram representing the sum of a stack use
+<code>THStack::GetStack()-&gt;Last()</code>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-9-9-4-2" class="outline-6">
+<h6 id="sec-1-9-9-4-2">A pointer here, a pointer there, who am I?</h6>
+<div class="outline-text-6" id="text-1-9-9-4-2">
+<p>
+If you want to iterate over the stack, there are two ways to get the
+underlying objects.  They are not equal.  Option 1:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">THStack stack = new THStack("Stack","A stack of histograms");
+// later on ...
+TIter next(stack-&gt;GetHists());
+TH1* hist = NULL;
+while((hist=dynamic_cast&lt;TH1*&gt;(next()))){
+  // Do something with *original* histograms added to stack
+}
+</pre>
+</div>
+<p>
+Option 2:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">TH1* hist = NULL;
+for(int i = 0; i &lt; stack-&gt;GetStack()-&gt;GetEntries(); i++){
+  hist = dynamic_cast&lt;TH1*&gt;(stack-&gt;GetStack()-&gt;At(i));
+  // Do something with histograms to be painted on the canvas
+}
+</pre>
+</div>
+<p>
+These two methods appear equal but are not.  The <code>TList</code> method from
+<code>THStack::GetHists</code> give you the original pointers (ie those that you
+added with <code>THStack::Add</code>).  The <code>TObjArray</code> method from
+<code>THStack::GetStack</code> gives you the internal histograms which will be
+used to draw the histograms on the canvas.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-9-9-5" class="outline-5">
+<h5 id="sec-1-9-9-5">TFile</h5>
+<div class="outline-text-5" id="text-1-9-9-5">
+<p>
+TFile's are greedy about object ownership.  In fact, object ownership
+in ROOT is a very common <del>bug</del> feature.  Many times you'll own objects
+you thought you didn't (memory leak) or, you'll delete objects you
+thought you did (double free core-dump). 
+</p>
+
+<p>
+The rule of thumb to keep in mind is "TObjects declared after a file
+is opened are owned by previously opened file" 
+</p>
+
+<p>
+Contrast:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">TH1F hist("hist","Higgs Discovery Plot", 50,0,200);
+TFile output("discovery.root","RECREATE");
+output.Close();
+</pre>
+</div>
+<p>
+with:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-cpp">TFile output("discovery.root","RECREATE");
+TH1F hist("hist","Higgs Discovery Plot", 50,0,200);
+output.Close();
+</pre>
+</div>
+
+<p>
+In the former, the file <code>discovery.root</code> will be empty.  In the
+latter, it will contain a copy of <code>hist</code>.  
+</p>
+
+<p>
+This can get really hairy when you're dealing with pointers.
+Therefore (instead of being a responsible programmer), the best
+approach to managing memory in ROOT is to not manage it until you
+have to.  
+</p>
+</div>
+<div id="outline-container-sec-1-9-9-5-1" class="outline-6">
+<h6 id="sec-1-9-9-5-1">Recreate, create, new, update</h6>
+<div class="outline-text-6" id="text-1-9-9-5-1">
+<p>
+From the ROOT docs:
+</p>
+<pre class="example">
+If option = NEW or CREATE   create a new file and open it for writing,
+                             if the file already exists the file is
+                             not opened.
+           = RECREATE        create a new file, if the file already
+                             exists it will be overwritten.
+           = UPDATE          open an existing file for writing.
+                             if no file exists, it is created.
+           = READ            open an existing file for reading (default).
+</pre>
+<p>
+<b>Important</b>: Recreating will destroy the file if it exists.  BE
+CAREFUL when you use this option!
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-9-9-6" class="outline-5">
+<h5 id="sec-1-9-9-6">Extracting ACLiCs compilation steps</h5>
+<div class="outline-text-5" id="text-1-9-9-6">
+<p>
+Here's a tip you hope you never need.  The use case is when you are
+writing a standalone program and you know you need to invoke rootcint
+to generate dictionaries. When you follow the <a href="https://root.cern.ch/drupal/content/interacting-shared-libraries-rootcint">correct prescription</a>,
+the produced dictionary fails even when linked to your code.  What you
+can do is follow the "<a href="https://root.cern.ch/phpBB3/viewtopic.php?f=3&t=10236&p=83570#p44117">loader.C prescription</a>" and then dump what ACLiC
+is doing under the hood with:
+</p>
+<pre class="example">
+root [7] gDebug=7
+(const int)7
+root [8] .L libLoader.C++
+</pre>
+<p>
+This will dump all of the g++ and rootcint calls that are required to
+generate a working dictionary.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-9-10" class="outline-4">
+<h4 id="sec-1-9-10">Debugging with ROOT</h4>
+<div class="outline-text-4" id="text-1-9-10">
+<p>
+Eventually you'll encounter a segmentation fault or segfault in ROOT.
+(They can also go under the name core dump).  This happens when you
+try to read, write, or otherwise abuse a part of memory that doesn't
+belong to you.  The result is that the program (ROOT usually)
+crashes.  ROOT has gotten pretty good at realizing that this has
+happened, and printing information about what was going on when the
+crash happened.  
+</p>
+</div>
+<div id="outline-container-sec-1-9-10-1" class="outline-5">
+<h5 id="sec-1-9-10-1">A "crash" course on reading a stack trace</h5>
+<div class="outline-text-5" id="text-1-9-10-1">
+<p>
+Here's a stack trace from a real-live analysis program (SFrame in this
+case)
+</p>
+<pre class="example">
+===========================================================
+There was a crash.
+This is the entire stack trace of all threads:
+===========================================================
+#0  0x0000003ba7e9a075 in waitpid () from /lib64/libc.so.6
+#1  0x0000003ba7e3c741 in do_system () from /lib64/libc.so.6
+#2  0x00002b4f86156256 in TUnixSystem::StackTrace() ()
+   from /cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/root/5.34.07-x86_64-slc5-gcc4.3/lib/libCore.so
+#3  0x00002b4f86155b2c in TUnixSystem::DispatchSignals(ESignals) ()
+   from /cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/root/5.34.07-x86_64-slc5-gcc4.3/lib/libCore.so
+#4  &lt;signal handler called&gt;
+#5  0x00002b4f93f9a47d in UnfoldingStudy::ExecuteEvent(SInputData const&amp;, double) () from /home/dmb60/bFrame/SFrame/lib/libMiniReaders.so
+#6  0x00002b4f85c33616 in SCycleBaseExec::Process(long long) ()
+   from /home/dmb60/bFrame/SFrame/lib/libSFrameCore.so
+#7  0x00002b4f8a62e1e0 in TTreePlayer::Process(TSelector*, char const*, long long, long long) ()
+   from /cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/root/5.34.07-x86_64-slc5-gcc4.3/lib/libTreePlayer.so
+#8  0x00002b4f85c47ce8 in SCycleController::ExecuteNextCycle() ()
+   from /home/dmb60/bFrame/SFrame/lib/libSFrameCore.so
+#9  0x00002b4f85c43872 in SCycleController::ExecuteAllCycles() ()
+   from /home/dmb60/bFrame/SFrame/lib/libSFrameCore.so
+#10 0x000000000040226c in main ()
+===========================================================
+
+
+The lines below might hint at the cause of the crash.
+If they do not help you then please submit a bug report at
+http://root.cern.ch/bugs. Please post the ENTIRE stack trace
+from above as an attachment in addition to anything else
+that might help us fixing this issue.
+===========================================================
+#5  0x00002b4f93f9a47d in UnfoldingStudy::ExecuteEvent(SInputData const&amp;, double) () from /home/dmb60/bFrame/SFrame/lib/libMiniReaders.so
+#6  0x00002b4f85c33616 in SCycleBaseExec::Process(long long) ()
+   from /home/dmb60/bFrame/SFrame/lib/libSFrameCore.so
+#7  0x00002b4f8a62e1e0 in TTreePlayer::Process(TSelector*, char const*, long long, long long) ()
+   from /cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/root/5.34.07-x86_64-slc5-gcc4.3/lib/libTreePlayer.so
+#8  0x00002b4f85c47ce8 in SCycleController::ExecuteNextCycle() ()
+   from /home/dmb60/bFrame/SFrame/lib/libSFrameCore.so
+#9  0x00002b4f85c43872 in SCycleController::ExecuteAllCycles() ()
+   from /home/dmb60/bFrame/SFrame/lib/libSFrameCore.so
+#10 0x000000000040226c in main ()
+===========================================================
+</pre>
+<p>
+The numbered lines followed by the memory address (the 64bit hex
+numbers) represent the order in which each function was called.  The
+most recent call is at the top of the list.  Since this code was
+running a single thread, there is a only one stack trace. If there
+were multiple threads, there would be a trace for each
+thread. Typically the fastest route to a user called function is to
+look at the portion:
+</p>
+<pre class="example">
+The lines below might hint at the cause of the crash.
+If they do not help you then please submit a bug report at
+http://root.cern.ch/bugs. Please post the ENTIRE stack trace
+from above as an attachment in addition to anything else
+that might help us fixing this issue.
+===========================================================
+#5  0x00002b4f93f9a47d in UnfoldingStudy::ExecuteEvent(SInputData const&amp;, double) () from /home/dmb60/bFrame/SFrame/lib/libMiniReaders.so
+#6  0x00002b4f85c33616 in SCycleBaseExec::Process(long long) ()
+   from /home/dmb60/bFrame/SFrame/lib/libSFrameCore.so
+#7  0x00002b4f8a62e1e0 in TTreePlayer::Process(TSelector*, char const*, long long, long long) ()
+   from /cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/root/5.34.07-x86_64-slc5-gcc4.3/lib/libTreePlayer.so
+#8  0x00002b4f85c47ce8 in SCycleController::ExecuteNextCycle() ()
+   from /home/dmb60/bFrame/SFrame/lib/libSFrameCore.so
+#9  0x00002b4f85c43872 in SCycleController::ExecuteAllCycles() ()
+   from /home/dmb60/bFrame/SFrame/lib/libSFrameCore.so
+#10 0x000000000040226c in main ()
+===========================================================
+</pre>
+
+<p>
+This strips out the system calls that clutter the full trace, and the
+top frame (#5 in this case) is the last function called that was
+defined (<code>UnfoldingStudy::ExecuteEvent</code>).  This means that somewhere in
+that function, someone tried to access memory they shouldn't have.  
+</p>
+
+<p>
+You can trace the whole program from the <code>main()</code> invocation.  To
+gain more insight into all the information contained in the stack
+trace, it is very useful to go through a <code>gdb</code> tutorial.  
+</p>
+
+<p>
+Also, see <a href="#sec-1-12">Getting Help</a> for more problem solving strategies before
+filing a bug report.  Remember: you probably just found a feature,
+not a bug.   
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9-10-2" class="outline-5">
+<h5 id="sec-1-9-10-2">Using gdb</h5>
+<div class="outline-text-5" id="text-1-9-10-2">
+<p>
+Here are some good gdb (GNU DeBugger) tutorials 
+</p>
+<ul class="org-ul">
+<li><a href="https://www.cs.cmu.edu/~gilpin/tutorial/">Debugging under Unix: gdb Tutorial</a>
+</li>
+<li><a href="http://www.unknownroad.com/rtfm/gdbtut/gdbtoc.html">RMS's gdb Debugger Tutorial</a> (not the same <a href="http://stallman.org/">RMS</a>)
+</li>
+<li><a href="https://www.gnu.org/software/gdb/documentation/">GDB manual</a> from GNU.org
+</li>
+<li><a href="http://www.muenster.de/~naumana/rootgdb.html">Debugging ROOT with GDB</a>, somewhat dated but the information is
+relevant.  Written by Axel Naumann, a real-life ROOT hacker!
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9-10-3" class="outline-5">
+<h5 id="sec-1-9-10-3">Valgrind</h5>
+<div class="outline-text-5" id="text-1-9-10-3">
+<p>
+If you have memory related problems, you should be aware of
+<a href="http://valgrind.org">valgrind</a>.  The <a href="http://valgrind.org/docs/manual/QuickStart.html">quick-start is here</a>.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-10" class="outline-3">
+<h3 id="sec-1-10">Physics</h3>
+<div class="outline-text-3" id="text-1-10">
+<p>
+At some point (not necessarily right away) a hitchhiker will want to
+better understand the physics underlying the research he/she is
+doing.  There are numerous textbooks on the subject, but a few stand
+out as particularly good.
+</p>
+<ul class="org-ul">
+<li><a href="http://www.amazon.com/Introduction-Elementary-Particles-David-Griffiths/dp/3527406018/ref=pd_sim_b_1?ie=UTF8&refRID=1S6X949W6P9EM9E95V8A">Introduction to Elementary Particles 2nd Ed.</a> - David Griffiths
+</li>
+<li><a href="http://www.amazon.com/Quarks-Leptons-Introductory-Particle-Physics/dp/0471887412">Quarks and Leptons: An Introductory Course in Modern Particle</a>
+  Physics - Francis Halzen and Alan D. Martin
+</li>
+</ul>
+</div>
+<div id="outline-container-sec-1-10-1" class="outline-4">
+<h4 id="sec-1-10-1">Study Guide For Griffiths</h4>
+<div class="outline-text-4" id="text-1-10-1">
+<p>
+If you've never touched HEP or heard of Particle Physics, read
+chapter 1 and 2.  Otherwise here's a rough path through the book (with
+suggested exercises to work):
+</p>
+<ul class="org-ul">
+<li>Chapter 3 (Problems 3.4, 3.14 (for fun), 3.15, 3.16, 3.25, 3.26
+(last two cover Mandelstam variables, which are very useful tools))
+</li>
+<li>Chapter 6 (Problems 6.8 or 6.9, 6.12, 6.13, 6.14, 6.15)
+</li>
+<li>Chapter 7 (Problems 7.6, 7.8 (optional), 7.14, 7.23, 7.30, 7.36,
+7.37, 7.39, 7.51)
+</li>
+<li>Chapter 8 (Problems 8.14, 8.15, 8.16, 8.19, 8.23, 8.28)
+</li>
+<li>Chapter 9 (Problems 9.2, 9.3, 9.6, 9.14, 9.17, 9.20, 9.23, 9.25,
+9.31, 9.32)
+</li>
+<li>Chapter 10 (Problems 10.4 10.5, 10.6, 10.15, 10.16, 10.21, 10.23)
+</li>
+</ul>
+
+<p>
+Halzen and Martin has a better treatment of Quantum Chromodynamics,
+but that just adds another book to your library.  
+</p>
+
+<p>
+This assumes the reader has covered the material in chapter 4 in a
+undergraduate quantum course (at the level of Griffiths).  Chapter 4
+is too much of a review to be useful as a primary source.  Griffith's
+quantum book covers it, but Townsend's "A Modern Approach to Quantum
+Mechanics" is a better text to have on your bookshelf.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-10-2" class="outline-4">
+<h4 id="sec-1-10-2">Coordinate Systems used in HEP</h4>
+<div class="outline-text-4" id="text-1-10-2">
+<p>
+HEP uses cylindrical coordinates (well, a combination of cylindrical
+and spherical really) with the z axis oriented along the beam line, R
+radially "up" and the &phi; curling right-handed around the beam axis.
+</p>
+
+<p>
+In addition, HEP physicists think in terms of a variable called
+"pseudorapidity" denoted &eta;.  This is defined as 
+$$
+\eta = - \log\left(\tan\frac{\theta}{2}\right)
+$$
+Where &theta; is the polar angle from the beam azis. Why use this
+crazy coordinate system? Well, it's related to rapidity,  the
+relativistic counterpart to speed.  More important to HEP experiments,
+<i>differences</i> in pseudorapidity are Lorentz invariant <i>along the beam
+axis</i>.  
+</p>
+
+<p>
+If you want to keep a mental map of angles (from <a href="https://en.wikipedia.org/wiki/Pseudorapidity">wikipedia</a>):
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="right" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="right">&eta;</th>
+<th scope="col" class="left">Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="right">0</td>
+<td class="left">"Straight up" (&theta;=&pi;/2)</td>
+</tr>
+
+<tr>
+<td class="right">0.88</td>
+<td class="left">"Forty Five Degrees" (&theta;=&pi;/4)</td>
+</tr>
+
+<tr>
+<td class="right">4.5</td>
+<td class="left">"Along the Beam Pipe" (&theta;=2\(^\circ\) )</td>
+</tr>
+
+<tr>
+<td class="right">&infin;</td>
+<td class="left">"Beam Axis" (&theta;=0)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-sec-1-10-3" class="outline-4">
+<h4 id="sec-1-10-3">Monte Carlo Event Weights</h4>
+<div class="outline-text-4" id="text-1-10-3">
+<p>
+This is taken from The Editor's Lab Notebook (which is locked by a
+password, and hence will only be read by one person):
+</p>
+
+<p>
+Someone generates gobs of MC for use in any analysis for some process
+( \(W\rightarrow \mu\nu+p\) where \(p\) is a parton).  I want to study what
+a variable will look like in data, so I run my analysis over the MC
+and get a plot out.  Then I run the same code over data and plot the
+two on top of each other.  The trouble is that the number of MC events
+I ran over is not the same as the amount of data I ran over.  Now the
+problem becomes how to appropriately scale the Monte Carlo prediction
+to match the data (the result of the experiment).
+</p>
+
+<p>
+As experimental high energy physicists, we define variables so that we
+can relate the cross sections predicted by theory to what we measure
+out of the beam.  To this end, we can get the number of expected
+events from
+</p>
+\begin{equation}
+N_{D}=\sigma \mathcal{L}
+\end{equation}
+<p>
+Here \(\sigma\) is the cross section in barns (typically pico-barns) and
+\(\mathcal{L}\) is the integrated luminosity collected by the
+experiment. How do we compare this to the Monte Carlo prediction?
+There, the computer counts up the number of events that were generated
+for a specific process, what we want is
+</p>
+\begin{equation}
+N_{exp}=W N_{MC}
+\end{equation}
+<p>
+Here \(N_{exp}\) is the expected number of events we get from Data.  In
+order to compare data to MC we need to scale \(N_{exp}\) to the same
+order as \(N_{D}\).  Remember, there is a cross section calculated from
+theory that the MC prediction used, therefore we can write
+</p>
+\begin{equation}
+N_{exp}=\sigma_{MC}\mathcal{L}
+\end{equation}
+<p>
+It is possible that \(\sigma_{MC}\) is corrected to the next order.  In
+order to avoid recalculating everything, a \(k\) factor is reported as
+the ratio of \(\sigma_{NLO}/\sigma_{MC}\).  Then all you have to do is
+multiply \(\sigma_{MC}\) by the \(k\) factor, and the calculation is
+updated to the newest NLO prediction.
+</p>
+
+<p>
+We're interested in the weight, so
+</p>
+\begin{equation}
+W=\frac{\sigma_{MC}k\mathcal{L}}{N_{MC}}
+\end{equation}
+<p>
+Now, when each bin in the Monte Carlo histogram is scaled by W, it
+will be equal to the theoretically expected yield calculated by
+\(\sigma_{MC}k\).
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-10-4" class="outline-4">
+<h4 id="sec-1-10-4">Drawing Feynman Diagrams Digitally</h4>
+<div class="outline-text-4" id="text-1-10-4">
+<p>
+There are many possibilities. The most "user friendly" is probably
+<a href="http://jaxodraw.sourceforge.net/">JaxoDraw</a>.  It's even got a name reminiscent of Douglas Adams!
+</p>
+
+<p>
+JaxoDraw comes as a jar file, you may want to make it more command
+line friendly by making a script to invoke it (put this in
+<code>${HOME}/local/bin/jaxodraw</code>):
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">#!/bin/bash
+java -jar ${HOME}/local/lib/java/jaxodraw-2.1-0.jar $@
+</pre>
+</div>
+<p>
+Now make it executable:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">chmod +x ${HOME}/local/bin/jaxodraw
+</pre>
+</div>
+<p>
+And add it to your <code>PATH</code>. I have my path set up to search this path
+from my <code>.bashrc</code>:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">export PATH=${HOME}/local/bin:$PATH
+</pre>
+</div>
+<p>
+Now to test it out by typing <code>jaxodraw</code> at the command prompt, it should
+just launch. If it doesn't try again.
+</p>
+
+<p>
+Someday you may be working on a presentation and want the figures
+exported by jaxodraw to have a transparent background.  Some kind soul
+has hacked the conversion steps to do this for you. You can grab the
+scripts here:
+<a href="http://personal.psu.edu/jcc8//jd-conversions/">http://personal.psu.edu/jcc8//jd-conversions/</a>
+</p>
+
+<p>
+There are good instructions for using <a href="https://sourceforge.net/p/jaxodraw/mailman/jaxodraw-discuss/thread/2EB5AF1C-5DA7-4428-94EB-7314738AF3D2%2540gmail.com/#msg31443532">these scripts in this thread</a>. If
+you have jaxodraw setup as above you can just dump the scripts in
+<code>$HOME/local/bin</code> and run them on the xml file produced by jaxodraw.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-10-5" class="outline-4">
+<h4 id="sec-1-10-5">What to do if you've lost a 2&pi;</h4>
+<div class="outline-text-4" id="text-1-10-5">
+<p>
+Calm down, take a deep breath and read the first line of The Guide.
+Then come back here.  Somewhere a fellow grad student has a copy of
+"Introduction to Elementary Particles (2nd Edition)" by David
+Griffiths.  Read Chapter 6 in entirety paying special note to the
+footnote on page 205.  
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-11" class="outline-3">
+<h3 id="sec-1-11">Responsible Research</h3>
+<div class="outline-text-3" id="text-1-11">
+<p>
+This is a topic better covered else where.  The part that overlaps
+with this guide is in documenting the work you do.  It is important
+that you keep a traceable paper-trail of everything you do.
+</p>
+</div>
+
+<div id="outline-container-sec-1-11-1" class="outline-4">
+<h4 id="sec-1-11-1">Lab Notebooks</h4>
+<div class="outline-text-4" id="text-1-11-1">
+<p>
+When keeping a lab notebook, it is important to make the barrier for
+writing something down as small as possible.  If it's difficult or
+inconvenient, you will not be inclined to document as well as you should.
+</p>
+</div>
+<div id="outline-container-sec-1-11-1-1" class="outline-5">
+<h5 id="sec-1-11-1-1">Pen/Paper Notebook</h5>
+<div class="outline-text-5" id="text-1-11-1-1">
+<p>
+This is the Science standard, and it is perfectly applicable to HEP
+research. Keep it open and write in it as you work.  Make sure there
+is a 1-to-1 mapping from what you are writing in your notebook and
+what can be found on a hard drive somewhere (plots, text, code etc).
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-11-1-2" class="outline-5">
+<h5 id="sec-1-11-1-2">Org-mode Notebook</h5>
+<div class="outline-text-5" id="text-1-11-1-2">
+<p>
+The Editor keeps an org-mode notebook.  There is a <a href="https://github.com/dbjergaard/research-log">thorough write-up
+here</a>. 
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-11-1-3" class="outline-5">
+<h5 id="sec-1-11-1-3">Flat text file</h5>
+<div class="outline-text-5" id="text-1-11-1-3">
+<p>
+One option is to keep a (well organized) text file for recording what
+you're doing.  Paste links and your thoughts here.  Choose a markdown
+language and write your posts in that.  This way you are forced to
+keep more structure in the file, and you can export to whatever
+output formats are supported by your markdown language.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-11-1-4" class="outline-5">
+<h5 id="sec-1-11-1-4">Wiki/ELog</h5>
+<div class="outline-text-5" id="text-1-11-1-4">
+<p>
+Some research groups reserve webspace for hosting private
+e-logs. These are typically wiki syntax, but they can also be
+bulletin board style formatting.  In any case, it's possible to use a
+browser extension like "<a href="https://addons.mozilla.org/en-US/firefox/addon/its-all-text/">It's All Text!</a>"  to use your favorite
+editor. One downside to these style notebooks is that it is typically
+awkward to post many plots at once. 
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-12" class="outline-3">
+<h3 id="sec-1-12">Getting Help</h3>
+<div class="outline-text-3" id="text-1-12">
+<p>
+For better or worse, eventually you will get stuck.  This is
+Research! If you're not stuck half the time you're not doing it
+right! 
+</p>
+
+<p>
+Here's a rough strategy for tackling problems:
+</p>
+<ol class="org-ol">
+<li>Google it, don't just Google specific errors, search related terms.
+Eventually you will be able to make the search more and more
+general until you get the answer you want, try reading the <a href="http://www.googleguide.com/">Google
+guide</a>.
+</li>
+<li>Read documentation. Many times the answer is buried deep inside
+the program.  Don't be afraid to crack open the source code and
+actually try to understand whats going on (after exhausting any
+manuals or user guides available).
+</li>
+<li>Just take a deep breath, go get a cup of coffee and come back
+to the problem.
+</li>
+<li>If the coffee didn't help, table the problem for the moment and
+work on something else.  Most likely when you come back to it
+(today or tomorrow) the solution will be obvious.
+<ul class="org-ul">
+<li>Now may be an appropriate time for an email to the person you
+are working with directly.  Chances are they've already
+encountered and solved your problem.
+</li>
+</ul>
+</li>
+<li>If you're still stuck, it may be time to post to a forum or mailing
+list.  In general, when soliciting help from people you don't
+know, it is polite to avoid contacting them directly.
+<ul class="org-ul">
+<li>Above all else, <b>do not</b> be a <a href="http://slash7.com/2006/12/22/vampires/">help vampire</a>.  (They do exist!)
+</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-1-13" class="outline-3">
+<h3 id="sec-1-13">FAQ</h3>
+<div class="outline-text-3" id="text-1-13">
+<ul class="org-ul">
+<li>I tried: <code>#include &lt;TheAnswerIsFortyTwo.h&gt;</code> in C++ but it
+doesn't work, what gives?
+</li>
+</ul>
+<p>
+In short: "<code>#include &lt;...&gt;</code>" instructs the compiler to look in
+specific system include directories.  In contrast '<code>#include</code> "<code>...</code>"'
+instructs the compiler to look in all directories that it can find
+(usually specified with the <code>-I</code> flag). (<a href="http://www.cplusplus.com/forum/beginner/43444/">Further information</a>)
+</p>
+<ul class="org-ul">
+<li>I was typing along and all of the sudden my terminal froze!? The
+only way to continue was to exit the program! 
+</li>
+</ul>
+<p>
+Most likely you accidentally typed "C-s" (the control key followed by
+the s key). This sends the XOFF command to your terminal emulator.
+To fix it (and "unfreeze" your terminal) type "C-q". <a href="https://en.wikipedia.org/wiki/Software_flow_control">More Info Here</a>.
+</p>
+<ul class="org-ul">
+<li>Dear Mr. The Editor, my &lt;insert problem here&gt;, can you fix it?
+</li>
+</ul>
+<p>
+No. Please refer to <a href="#sec-1-12">Getting Help</a>.
+</p>
+<ul class="org-ul">
+<li>I have some information that would be useful for your guide, can
+you use it?
+</li>
+</ul>
+<p>
+Yes! Please see <a href="https://github.com/dbjergaard/hitchhikers-guide-to-hep#contributing">Contributing</a>. 
+</p>
+<ul class="org-ul">
+<li>I'm lost and confused, your guide is overwhelming and overbearing,
+but I really like HEP, what can I do?
+</li>
+</ul>
+<p>
+Please don't despair, with time things will come into focus.  In the
+mean time, it will probably be useful to seek out other sources of
+information.  If you're having trouble finding material, you might
+try the <a href="http://www.googleguide.com/">Google guide</a>.  No, this is not intended to be an insult, a
+surprising fraction of people don't know how to use Google, even
+though it's a verb.
+</p>
+<ul class="org-ul">
+<li>I have a question not covered by this FAQ that doesn't involve a
+research problem, whats the best way to communicate it to you?  
+</li>
+</ul>
+<p>
+You can email me at <a href="mailto:david.b@duke.edu">david.b@duke.edu</a>. If it is related to some
+technical issue and you already have a GitHub account, please open an
+issue on GitHub's issue <a href="https://github.com/dbjergaard/hitchhikers-guide-to-hep/issues">tracker for this text</a>.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: David Bjergaard</p>
+<p class="date">Created: 2017-01-23 Mon 13:49</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.2 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
