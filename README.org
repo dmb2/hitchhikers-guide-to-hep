@@ -1,6 +1,6 @@
 * Guidelines for "The Guide"
 You can obtain a copy of the guide by cloning this repository. The
-online version of the guide is hosted at [[http://dbjergaard.github.io/hitchhikers-guide-to-hep/][Hitchhiker's guide to HEP]]. 
+online version of the guide is hosted at [[http://dmb2.github.io/hitchhikers-guide-to-hep/][Hitchhiker's guide to HEP]]. 
 
 ** Contributing
 The guide is satirical and sarcastic.  If you read some portion and
