@@ -1,12 +1,37 @@
 #+TITLE: DON'T PANIC
 #+AUTHOR: David Bjergaard
-#+EMAIL: david.b@duke.edu
+#+EMAIL:  hhg-svc@ccbar.us
 #+OPTIONS:   H:5 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
 #+STYLE:    <link rel="stylesheet" type="text/css" href="./css/style.css" />
 #+LaTeX_CLASS: article
 
 * A Hitchhiker's guide to High Energy Physics
+** Preface
+Wow! I wrote this approximately eight years ago. The following is... a
+lot. I wrote it during the evening to unwind, and I was reading the
+Hitchhikers Guide to the Galaxy so I took every opportunity to make
+esoteric references to Douglas Adams. I think each individual section
+is still pretty readable, and a lot of the information is evergreen.
+The link density and trivia is insane. Distance has made me realize
+that its fairly overwhelming. Now that I've been outside HEP for a few
+years (almost five!) I understand just how intense getting into
+research is. It doesn't look like its gotten better, ROOT transitioned
+to cmake, most projects are on git, and a decent fraction appear to
+have double-downed on docker.
+
+I've updated some of the prescriptions to future-proof them and fixed
+some link-rot. If you're a [[mailto:hhg-svc@ccbar.us][fan say so]]! I occasionally stalk the
+internet and find references to it so I know there are some readers.
+
+If you're getting into this business today, emphasize learning
+transferable skills.  Learn how to write maintainable C++, learn
+docker, learn how to use Jupyter notebooks, only use ROOT if you have
+to (the rest of Data Science uses numpy, pandas, and python).
+
+If I were to write this again today, it would sound very different,
+but I'm still very proud of it
+
 ** Introduction
 Welcome to High Energy Physics.  Like the Galaxy, HEP is a wonderful
 and mysterious place filled with amazing things.  The intent of this
@@ -46,9 +71,10 @@ file will open folded.  It will look like:
 #+BEGIN_EXAMPLE
 #+TITLE: DON'T PANIC
 #+AUTHOR: David Bjergaard
-#+EMAIL: david.b@duke.edu
+#+EMAIL:  hhg-svc@ccbar.us
 #+OPTIONS:   H:5 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+STYLE:    <link rel="stylesheet" type="text/css" href="./css/style.css" />
 #+LaTeX_CLASS: article
 
  * A Hitchhiker's guide to High Energy Physics...
@@ -101,19 +127,19 @@ offended, it may be better to seek out other sources of information.
 All of the sources for the guide are hosted on GitHub. 
 
 Here are some quick-links:
-- [[http://www.phy.duke.edu/~dmb60/the-guide/][The Guide]] the online version of the guide
+- [[http://dmb2.github.io/hitchhikers-guide-to-hep/][The Guide]] the online version of the guide
 - [[./the-guide.pdf][PDF of The Guide]] if you prefer that sort of thing, though it's of
   limited use in printed form.
-- [[http://www.phy.duke.edu/~dmb60/the-guide/the-guide.org][Org source]] of the online version
-- [[https://github.com/dbjergaard/hitchhikers-guide-to-hep][GitHub Repo]] where source code is hosted
-- [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/tree/master/compiled-macros][Compiled Macros]] for Level 2 of ROOT enlightenment
-- [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/tree/master/compiled-program][Compiled Programs]] for Level 3 of ROOT enlightenment
-- [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/issues][Bug Reports/Feature Requests]]
-- [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/pulls][Pull Requests]] for submitting patches
+- [[./the-guide.org][Org source]] of the online version
+- [[https://github.com/dmb2/hitchhikers-guide-to-hep][GitHub Repo]] where source code is hosted
+- [[https://github.com/dmb2/hitchhikers-guide-to-hep/tree/master/compiled-macros][Compiled Macros]] for Level 2 of ROOT enlightenment
+- [[https://github.com/dmb2/hitchhikers-guide-to-hep/tree/master/compiled-program][Compiled Programs]] for Level 3 of ROOT enlightenment
+- [[https://github.com/dmb2/hitchhikers-guide-to-hep/issues][Bug Reports/Feature Requests]]
+- [[https://github.com/dmb2/hitchhikers-guide-to-hep/pulls][Pull Requests]] for submitting patches
 
 To get a local copy:
 #+BEGIN_SRC sh
-git clone https://github.com/dbjergaard/hitchhikers-guide-to-hep.git
+git clone https://github.com/dmb2/hitchhikers-guide-to-hep.git
 #+END_SRC
 Then you'll have a copy of the org file, as well as the compiled
 macros and compiled programs.  
@@ -131,9 +157,9 @@ Windows, the following is a list of useful software.
 - [[For Linux Hitchhikers]]
 - [[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html][PuTTY (ssh client for Windows)]]: Secure SHell is the standard way of
   accessing *nix machines remotely.  PuTTY is the Windows client for
-  this. 
-- [[*On%20Windows][ROOT]]: The industry standard for High Energy Physics analysis.
-   Beware: this program uses an [[https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker's_Guide_to_the_Galaxy#Infinite_Improbability_Drive][Infinite Improbability Drive]] to
+  this.
+- [[*ROOT][ROOT]]: The industry standard for High Energy Physics analysis.
+   Beware: this program uses an [[https://sites.google.com/site/h2g2theguide/Index/i/149246][Infinite Improbability Drive]] to
    perform analysis.  
 - [[http://www.straightrunning.com/XmingNotes/][Xming an X11 server for Windows]]: This allows you to tunnel X11
   applications (ROOT's histogram interface) to your Windows desktop,
@@ -144,8 +170,8 @@ Windows, the following is a list of useful software.
   people who donate to the project, and a slightly less up-to-date
   public version available for free.  Choose the public version. See
   [[http://www.straightrunning.com/XmingNotes/#sect-143][Getting Started]] and [[http://www.straightrunning.com/XmingNotes/trouble.php#head-11][Trouble shooting]] for tips on getting set up.
-- [[https://github.com/bmatzelle/gow/wiki][Gow]]: A lightweight Cygwin alternative, this is probably for more
-  adventurous hitchhikers only. 
+- [[https://docs.microsoft.com/en-us/windows/wsl/install][WSL]]: Windows 10 released a Linux subsystem that allows a unix-like
+  environment in Windows.
 - [[http://cygwin.com/][Cygwin]]: Adds a substrate of the GNU system to Windows (in addition
   to an [[http://x.cygwin.com/][X11 server]]), you can use this to create a more Unix-like
   environment to work from. 
@@ -153,7 +179,7 @@ Windows, the following is a list of useful software.
   systems (useful if you don't want to dual boot Ubuntu) see [[For Linux
   Hitchhikers]] after you've setup a working distro.
 
-[[http://www.calebmadrigal.com/running-ubuntu-virtualbox/][See here]] for a nice picture-book tutorial on installing Ubuntu
+[[https://www.wikihow.com/Install-Ubuntu-on-VirtualBox][See here]] for a nice picture-book tutorial on installing Ubuntu
 through VirtualBox on Windows.
 ** For Linux Hitchhikers
 *** Software you will need
@@ -162,8 +188,9 @@ through VirtualBox on Windows.
    use =screen= on =lxplus=, you'll have to re-initialize your
    kerberos tokens after logging in with =kinit -5=, otherwise you
    won't have read access to your files.
- - [[*On%20Ubuntu][ROOT]]: The industry standard for High Energy Physics analysis.
-   Beware: this program uses an [[https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker's_Guide_to_the_Galaxy#Infinite_Improbability_Drive][Infinite Improbability Drive]] to
+ - [[https://github.com/tmux/tmux/wiki][tmux]]: Offers the same features as screen.
+ - [[*ROOT][ROOT]]: The industry standard for High Energy Physics analysis.
+   Beware: this program uses an [[https://sites.google.com/site/h2g2theguide/Index/i/149246][Infinite Improbability Drive]] to
    perform analysis.  
  - [[https://help.ubuntu.com/community/Beginners/BashScripting][BASH]]: The command shell of choice for ATLAS Physicists.  You may
    think you could use ZSH, but it's better just to stick with
@@ -177,7 +204,7 @@ commands into a terminal.  It's inevitable, powerful, and intimidating
 to new users.  HEP hitchhikers should feel at home.  Proficiency with
 the command line is essential to being a functioning HEP researcher.
 
-The terminal is like the Galaxy Hitchhiker's [[https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker%2527s_Guide_to_the_Galaxy#Towels][utility towel]]. Every
+The terminal is like the Galaxy Hitchhiker's [[https://hitchhikers.fandom.com/wiki/Towel][utility towel]]. Every
 hitchhiker needs a terminal, and each hitchhiker customizes his or
 her towel to their needs.  
 
@@ -298,23 +325,14 @@ means if you step away from your computer (even for a moment) you
 should lock the screen or log out.  
 
 *** Version Control Systems
-The two major version control systems in HEP are Git and Subversion (svn).  These
-are tools and utilities to allow collaboration on large pieces of
-software.  
+The major version control systems in HEP is Git. Git is a series of
+tools and utilities to allow collaboration on large pieces of
+software.
 
-They also provide programmers with a convenient "paper trail" through
+Git also provides programmers with a convenient "paper trail" through
 the course of developing a piece of software.  It allows them to
 revert the source code they are working on to any state that they've
 previously checked in.
-
-Subversion is a successor of CVS, everything is stored on a remote
-site, and your source code directory contains metadata about the
-source code with reference to the remote site.  
-
-Some subversion tutorials:
-- [[https://www.clear.rice.edu/comp314/svn.html][Source Control in 10 Minutes ]]
-- [[http://www.pointbeing.net/weblog/2009/03/command-line-subversion-tutorial-part-1.html][Command Line Subversion Tutorial (part 1)]]
-- [[http://svnbook.red-bean.com/][Version Control with Subversion]] (A comprehensive free book about Subversion)
 
 Git is a software that was written by Linus Torvalds, the hacker
 behind Linux.  It was written to manage the Linux kernel, a massive
@@ -332,6 +350,7 @@ Some good Git tutorials:
 - type "man gittutorial" in the command line
 - [[http://git-scm.com/book][Pro Git]] (an online book, modular and comprehensive in scope)
 - [[http://gitimmersion.com/][Git Immersion]]
+- [[https://learngitbranching.js.org/?locale=en_US][Visual tutorial on branching]]
 - [[http://gitolite.com/gcs.html#%25281%2529][Git Concepts Simplified]] (slide show, click to advance)
 Intermediate or advanced topics:
 - [[http://sethrobertson.github.io/GitFixUm/fixup.html][Undoing, fixing, or removing commits in Git]]
@@ -366,6 +385,10 @@ Sometimes its useful to copy the system file to your home directory
 and then edit it there in order to add your customizations.  Some
 programs document their options that way.
 
+In recent years programs have begun migrating to putting their
+configuration files and options the =.config= subdirectory in a user's
+=$HOME= directory.
+
 ** For Mac OS X Hitchhikers
 Everyone should read [[For Linux Hitchhikers]]
  to understand what
@@ -379,11 +402,11 @@ supervisor for an account on a Linux box and *never look back.*
  - [[http://xquartz.macosforge.org/landing/][XQuartz]]: Like XMing for Windows, XQuartz runs a local X11 server
    for tunneling X11 applications over SSH, unlike Windows, you don't
    need a separate SSH program, ssh is built in.
- - [[https://en.wikipedia.org/wiki/Terminal_%2528OS_X%2529][Terminal.app]]: This is Mac OS's default terminal emulator. It comes
+ - [[https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac][Terminal.app]]: This is Mac OS's default terminal emulator. It comes
    with Mac OS, so you shouldn't need to install it.  You should be
    aware of it though.
- - [[*On%20MacOS][ROOT]]: The industry standard for High Energy Physics analysis.
-   Beware: this program uses an [[https://en.wikipedia.org/wiki/Technology_in_The_Hitchhiker's_Guide_to_the_Galaxy#Infinite_Improbability_Drive][Infinite Improbability Drive]] to
+ - [[*ROOT][ROOT]]: The industry standard for High Energy Physics analysis.
+   Beware: this program uses an [[https://sites.google.com/site/h2g2theguide/Index/i/149246][Infinite Improbability Drive]] to
    perform analysis.  
  - [[http://aquamacs.org/][Aquamacs]]: A port of Emacs that uses Aqua as a standard OS X
    application. This integrates Emacs with the Mac OS UI.  In the
@@ -402,14 +425,13 @@ Like the major world religions, there are also major editors.  In
 the *nix ecosystem there are two main editors: Emacs and Vim. There are
 others, but they are many, and beyond the scope of this guide.  
 
-The most important thing to do after [[https://mjambon.github.io/vim-vs-emacs/][choosing an editor]] is to work
-through its corresponding tutorial ([[https://stackoverflow.com/questions/1430164/differences-between-Emacs-and-vim][more pragmatic advice here]]).  An
-oft heard recommendation is that "Emacs is easier to learn than
-vi(m)".  A more accurate statement may be that it is easier to make
-things happen in Emacs than Vim, but the two editors are in some sense
-the yin and yang of text. True enlightenment in either of these
-editors takes roughly the same amount of time after completing the
-corresponding tutorial.
+The most important thing to do after [[https://stackoverflow.com/questions/1430164/differences-between-Emacs-and-vim][choosing an editor]] is to work
+through its corresponding tutorial. An oft heard recommendation is
+that "Emacs is easier to learn than vi(m)". A more accurate statement
+may be that it is easier to make things happen in Emacs than Vim, but
+the two editors are in some sense the yin and yang of text. True
+enlightenment in either of these editors takes roughly the same amount
+of time after completing the corresponding tutorial.
 
 *** Finding an editor Guru
 After you have finished the tutorial for your editor of choice, then
@@ -476,7 +498,7 @@ The Editor finds the following packages essential:
   in the Emacs way
 - [[http://ethanschoonover.com/solarized][solarized-theme]]: A theme by Ethan Schoonover, comes in dark and
   light variants that actually complement each other well, another
-  good one is zenburn 
+  good one is zenburn or gruvbox
 - [[http://www.emacswiki.org/emacs/IbufferMode][ibuffer]]: changes the buffer interface and allows you to group
   buffers based on various buffer attributes
 - [[http://www.emacswiki.org/emacs/ParEdit][paredit]]: Enhances Emacs's awareness of parenthetic structure 
@@ -487,16 +509,16 @@ The Editor finds the following packages essential:
 - [[http://www.emacswiki.org/emacs/AUCTeX][auctex]]: LaTeX editing facilities (for when org-mode doesn't quite cut
   it)
 - [[http://orgmode.org/][org-mode]]: This guide is written in org-mode. Org-mode can manage
-  [[http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html][todo lists]], [[http://orgmode.org/worg/org-web.html][write websites]], serve as a [[https://github.com/dbjergaard/research-log][lab notebook]], execute code
+  [[http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html][todo lists]], [[http://orgmode.org/worg/org-web.html][write websites]], serve as a [[https://github.com/dmb2/research-log][lab notebook]], execute code
   for [[http://orgmode.org/worg/org-contrib/babel/][literate programming]] and many other things.  More relevant for
-  physicists is the [[http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html][org-mode cookbook]]. People switch to Emacs just to
+  physicists is the [[http://ehneilsen.net/notebook/orgExamples/org-examples.html][org-mode cookbook]]. People switch to Emacs just to
   get org-mode!
 
 Init files of famous Emacs hackers are (in no order of awesomeness)
-[[https://github.com/magnars/.emacs.d][Magnar Sveen]], [[https://github.com/technomancy/dotfiles/tree/master/.emacs.d][Technomancy]], [[https://github.com/jwiegley/dot-emacs][John Wiegley]].  There are also software
+[[https://github.com/magnars/.emacs.d][Magnar Sveen]], [[https://github.com/technomancy/emacs-starter-kit][Technomancy]], [[https://github.com/jwiegley/dot-emacs][John Wiegley]].  There are also software
 packages that intend to comprehensively change the Emacs out of the
 box to a better user experience.  The two most famous are [[https://github.com/bbatsov/prelude][Prelude]] and
-[[https://github.com/overtone/emacs-live][Emacs Live]]. An example (slightly annotated) init file can be found [[https://github.com/dbjergaard/dotfiles/blob/master/emacs-lisp/init.org][here]].
+[[https://github.com/overtone/emacs-live][Emacs Live]]. An example (slightly annotated) init file can be found [[https://github.com/dmb2/dotfiles/blob/master/emacs-lisp/init.org][here]].
 
 Finally, there are some Emacs gurus who post blogs on the internet.
 Some particularly useful ones are [[http://emacsredux.com/][Emacs Redux]],
@@ -569,7 +591,7 @@ coding. A cathedral can't stand on a flimsy foundation.
 
 In order to help you on your way, you should read the following:
 - [[http://aosabook.org/en/index.html][Architecture of Open Source Applications]]
-- [[https://www.thc.org/root/phun/unmaintain.html][How to Write Unmaintainable Code]] (*warning*, many physicists take this
+- [[https://github.com/Droogans/unmaintainable-code][How to Write Unmaintainable Code]] (*warning*, many physicists take this
   guide literally)
 
 Good software design is *very* hard, but when you have the pleasure of
@@ -579,6 +601,12 @@ HEP software:
 - [[http://fastjet.fr][Fastjet]]: Software package for jet finding
 
 ** A brief introduction to C++ 
+*Caveat Emptor* This information was written for C++03, it was old when
+I wrote it (2014), C++11 was too shiny and new.  Now in 2022, C++11 is old
+and crufty. Modern C++ memory management looks very different than it
+did a decade ago. I've been out of the game too long to know what HEP
+is doing... They're probably using C++11.
+
 C++ is the industry standard programming language for analysis in
 HEP.  Even if you are fortunate enough to do most of your work in
 Python, you will eventually be calling C++ code, and should
@@ -730,6 +758,7 @@ allocation]]. Consider the following code:
   int main(void){
     double* foobar=foo();
     std::cout <<"The Answer to the Ultimate question is :"<<*foobar<<std::endl;
+    delete foobar;
     return 0;
   }
 #+END_SRC
@@ -750,8 +779,9 @@ Let's execute the code in our mind:
    that to stdout
 7. add a newline to the output and flush the result to the terminal
    with =std::endl=
-8. return 0
-9. exit the program
+8. free the memory allocated for bar when foo was called.
+9. return 0
+10. exit the program
 **** References
 A similar concept present in C++ (but not c) are references.  They can
 be thought of as aliases (the way Dave is an alias of David). Their
@@ -910,21 +940,20 @@ true in python.  Python's driving philosophy is "one right way" but
 since python is being developed by multiple hackers, there are "many
 right ways." 
 
-- Here's an older tutorial on [[http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html][idiomatic python]].  
-- [[http://safehammad.com/downloads/python-idioms-2014-01-16.pdf][A slideshow on idiomatic python]]
+Here are some references, learn python3. 
+- The [[http://docs.python.org/2/howto/doanddont.html][official recommendations]] for best practices.
 - [[https://en.wikibooks.org/wiki/Non-Programmer's_Tutorial_for_Python_3][A non-programmer's tutorial on python 3]] (also see the linked version
   for 2.7 as HEP is still using 2.7 or earlier in many cases)
-- Finally, the [[http://docs.python.org/2/howto/doanddont.html][official recommendations]] for best practices.
 
 *** PyROOT: ROOT bindings in python
 Mostly Harmless.
 
 ** ROOT
 For better or worse, for richer or poorer (always poorer), HEP
-Physicists are married to (read: stuck with) ROOT.  It's the [[http://homes.cs.washington.edu/~weise/uhh-download.html][Unix]] of
+Physicists are married to (read: stuck with) ROOT.  It's the [[https://web.mit.edu/~simsong/www/ugh.pdf][Unix]] of
 HEP.  There is method in the madness, though it is not clear what the
 method is (just yet). The Editor is fairly certain that ROOT uses
-[[https://en.wikipedia.org/wiki/Bistromath#Bistromathic_drive][Bistromath]]ics for many of its statistical operations.
+[[https://hitchhikers.fandom.com/wiki/Bistromathics][Bistromath]]ics for many of its statistical operations.
 
 ROOT is the industry standard tool for analyzing and manipulating gobs
 of data.  Other statistical analysis tools [[http://www.matthewckeller.com/html/memory.html][crash and burn]] on the
@@ -938,28 +967,10 @@ annotated ROOTv5.  It should be assumed that ROOT or ROOTv6 refers to
 the newest 6 series.  Without further ado, let's set it up and get to
 work!
 *** Installing and setting up
-**** On Windows
-These links are for 5.34.34. You are encouraged visit the [[http://root.cern.ch/drupal/content/downloading-root][downloading]]
-page of root.cern.ch to check for newer versions.  Always prefer the
-"pro" version.  It appears that in ROOT 6, the developers have stopped
-releasing windows builds. This means that to use ROOT 6 and above
-you'll have to either compile from source, or use a virtual machine.
-
-- [[https://root.cern.ch/download/root_v5.34.34.win32.vc12.exe][VC++11 (2012) EXE for 5.34.34]] (install-able version, allows you to
-  remove it using the Control Panel)
-**** On MacOS
-If you are using =homebrew= you can simply do:
-#+BEGIN_SRC sh
-brew tap homebrew/science
-brew install --with-cocoa root
-#+END_SRC
-([[https://alexpearce.me/2013/12/root-on-os-x-mavericks/][source]])
-**** On Ubuntu
-This will install all ROOT packages from the Ubuntu repositories:
-#+BEGIN_SRC sh
-sudo apt-get install root-system
-#+END_SRC
-
+The ROOT devs have done a great job of documenting how to [[https://root.cern/install/][install
+pre-compiled versions]] on various OS's. Sadly its not straightforward
+on Debian-based (aka Ubuntu) systems. Windows binaries are available
+but they're beta-use.
 *** Building From source
 These instructions are for *nix based systems (ie it was written for
 Ubuntu, but MacOS shouldn't be much different and Windows is out of
@@ -973,7 +984,7 @@ the ROOT Devs.
 install blah= instead of =apt-get install blah=, and the package names
 will probably be different. 
 
-If you haven't yet, read the [[*For%20Linux%20Hitchhikers][section of the guide]] relevant to your OS.
+If you haven't yet, read the [[*For Linux Hitchhikers][section of the guide]] relevant to your OS.
 
 For our install of ROOT, we'll be compiling and running it locally.
 This has a few advantages:
@@ -991,42 +1002,36 @@ This has a few advantages:
   decouples ROOT from the hosting OS.  
 
 **** Getting the Pre-Requisites
-Now, all of the following information is documented at
-[[root.cern.ch]], but it is even less organized than this guide. The
-following is a straight-shot from no source code to a fully working
-ROOT binary on a clean install of Ubuntu (currently 13.10, but the
-build process has been stable for the last ~3 years)
+Now, all of the following information is documented at [[https://root.cern.ch][root.cern.ch]],
+but it is even less organized than this guide. The following is a
+straight-shot from no source code to a fully working ROOT binary on a
+clean install of Ubuntu (Ubuntu 21.10)
 
 End to end, this takes ~40min on a machine circa 2011, so budget some
 coffee time.  
 
 #+BEGIN_SRC sh
-sudo apt-get install git dpkg-dev make g++ gcc binutils libx11-dev libxpm-dev \
-        libxft-dev libxext-dev gfortran libssl-dev libpcre3-dev \
-        xlibmesa-glu-dev libglew1.5-dev libftgl-dev \
-        libmysqlclient-dev libfftw3-dev cfitsio-dev \
-        graphviz-dev libavahi-compat-libdnssd-dev \
-        libldap2-dev python-dev libxml2-dev libkrb5-dev \
-        libgsl0-dev libqt4-dev
+  sudo apt-get install git dpkg-dev cmake g++ gcc binutils libx11-dev libxpm-dev \
+       libxft-dev libxext-dev python libssl-dev  gfortran libpcre3-dev \
+       xlibmesa-glu-dev libglew1.5-dev libftgl-dev \
+       libmysqlclient-dev libfftw3-dev libcfitsio-dev \
+       graphviz-dev libavahi-compat-libdnssd-dev \
+       libldap2-dev python-dev libxml2-dev libkrb5-dev \
+       libgsl0-dev qtwebengine5-dev
 #+END_SRC
-You may have some of these packages already if you've installed
-=build-essential= or =git= before.  In either case, =apt= is smart
-enough to see that and not re-install them. 
+This takes about 1gb of disk space. You may have some of these
+packages already if you've installed =build-essential= or =git= before. In
+either case, =apt= is smart enough to see that and not re-install them.
 
-The above list of packages are for a full-blown,
-all-features-enabled  version of ROOT.  If you want a stripped down
-version, you'll have to get the pre-reqs from [[http://root.cern.ch]]. 
+The above list of packages are for a full-blown, all-features-enabled
+version of ROOT. If you want a stripped down version, you'll have to
+get the pre-reqs from [[http://root.cern.ch]].
 
-Alternatively you can type:
-#+BEGIN_SRC sh
-sudo apt-get build-dep root-system
-#+END_SRC
-And let =apt= install and manage any dependencies ROOT needs.  This
-is overkill, even for a "bells and whistles" build of ROOT.
 **** May the Source be with you
 Let's get a copy of the source:
 #+BEGIN_SRC sh
 git clone http://root.cern.ch/git/root.git
+cd root
 #+END_SRC
 
 For future reference, if you want to update:
@@ -1040,46 +1045,55 @@ and substitute it for =tag-name=
 
 For now, lets checkout the latest pro branch:
 #+BEGIN_SRC sh
-git checkout -b v6-04-14 v6-04-14
+git checkout -b $(git tag -l | tail -n 1) $(git tag -l | tail -n 1)
 #+END_SRC
-This will checkout the branch =v6-04-14= to a local branch =v6-04-14=
-and switch you to it. If you're new to "[[https://en.wikipedia.org/wiki/Version_control_systems][version control systems]]", or
-"[[https://en.wikipedia.org/wiki/Source_code_management][source control management]]" then it's useful to do a tutorial to learn
-the basics.  In HEP, the major system used is called SVN, in open
-source, Git has become the de facto standard almost overnight.
+This will checkout the branch latest stable tag and give it the
+same name. This assumes that when the ROOT devs tag a branch its for
+stable production use... but the prescription is future proof. If
+you're new to "[[https://en.wikipedia.org/wiki/Version_control_systems][version control systems]]", or "[[https://en.wikipedia.org/wiki/Source_code_management][source control
+management]]" then it's useful to do a tutorial to learn the basics. HEP
+and open source projects have mostly migrated to git.
 **** Building 
-With our code checked out and ready, we need to configure it to match
-the computer we're compiling on.  To do this:
-#+BEGIN_SRC sh
-./configure --all 
-#+END_SRC
-To see all options run =./configure --help=, this command suggests
-piping the output to =more=, but most "modern" terminal emulators have
-a scroll-back buffer large enough that you can just scroll up and read
-the output.  The =--all= option instructs configure to enable support
-for as many packages as your system supports.  If you require a
-specific feature (say roofit) you would type:
-#+BEGIN_SRC sh
-./configure [other options] --enable-roofit
-#+END_SRC
+ROOT uses cmake to build now.  Its slightly more straightforward, and
+much quicker but it has some idiosyncrasies.  Specifically (and not
+explicitly spelled out in the ROOT docs), cmake *requires* three
+separate spaces, a place for build artifacts (object files and
+libraries), a place for the source code (that is managed by git), and
+an install target.  Traditionally the install target is somewhere in
+the system directories where other programs are installed. In ROOT's
+case, there are many situations where it is necessary to have multiple
+versions available on one system.  The ROOT devs created a
+'=thisroot.sh=' script which when sourced into a user's shell session,
+makes the =root= in that folder the currently active one.  It does this
+by setting appropriate environment variables that instruct the
+operating system to search the external directories for programs and
+required libraries.
 
-If you're interested in building ROOT with xrootd (network protocol
-which allows opening root files over a network connection) see
-[[Advanced Build Options]].
-
+#+BEGIN_SRC sh
+# assumes we're in the root source directory
+mkdir -p root_build root_install; 
+cd root_build; 
+cmake -DCMAKE_INSTALL_PREFIX=../root_install/ ../
+#+END_SRC
 After configuring you should see:
 #+BEGIN_EXAMPLE
-Enabled support for asimage, astiff, builtin_afterimage, builtin_llvm, explicitlink, fftw3, gviz, gdml, genvector, http, krb5, ldap, mathmore, memstat, minuit2, mysql, opengl, python, qt, qtgsi, roofit, search_usrlocal, shadowpw, shared, sqlite, ssl, table, tmva, unuran, vc, vdt, x11, xft, xml.
-
-To build ROOT type:
-
-   make 
+...
+Install path    /home/username/root/root_install
+...
+-- Enabled support for:  asimage builtin_afterimage builtin_clang builtin_cling builtin_gl2ps builtin_llvm builtin_lz4 builtin_lzma builtin_nlohmannjson builtin_openui5 builtin_tbb builtin_vdt builtin_xrootd builtin_xxhash clad dataframe exceptions fftw3 fitsio gdml http imt mathmore mlp minuit2 mysql opengl pyroot roofit webgui root7 rpath runtime_cxxmodules shared ssl tmva tmva-cpu spectrum vdt x11 xml xrootd
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/username/root/root_build
 #+END_EXAMPLE
-
-Now type =make=:
+After cmake runs, it creates a Makefile for the rest of the build
+process. Make sure the install path is pointing to root_install, if
+its pointing to =/usr/local= you'll need administrator privileges to
+install, and it'll be harder to uninstall cleanly.  Now you're ready
+to build:
 #+BEGIN_SRC sh
-make -j 4 
+make -j $(cat /proc/cpuinfo | grep processor | cut -d ':' -f 2 | tail -n 1)
 #+END_SRC
+
 The =-j= option tells make how many jobs it can run simultaneously.
 Without =-j=, only one job runs.  A good rule of thumb is to choose
 the number of cores you have on your computer.  If you are compiling
@@ -1088,37 +1102,44 @@ good etiquette to run your jobs single threaded.  On your laptop, you
 should choose *one less* than the number of cores you have (so you
 don't notice a slow-down while its building in the background).
 
-See =man make= and look under the option "-j [jobs]" for more
-detailed information about this switch.
+See =man make= and look under the option "-j [jobs]" for more detailed
+information about this switch. Some software doesn't like being built
+in parallel. If a build fails (root won't) run it without the '=-j='
+option.
 
-This will take (depending on your hardware) between 20-45min, so now
-is a good time for a cup of tea, or coffee with your [[*Keeping%20your%20Guru%20happy][editor guru]].
+This will take (depending on your hardware (even in 2022)) between
+20-45min, so now is a good time for a cup of tea, or coffee with your
+[[*Keeping your Guru happy][editor guru]].
 
 When it's finished, it will print out:
 #+BEGIN_EXAMPLE
 [lots of boring crap]
 
-   ============================================================
-   ===                ROOT BUILD SUCCESSFUL.                ===
-   === Run 'source bin/thisroot.[c]sh' before starting ROOT ===
-   ============================================================
+[100%] Linking CXX executable ../../bin/hist2workspace
+[100%] Built target hist2workspace
 #+END_EXAMPLE
-If you do not get this message, but the build just ends with =[lots of
+If you do not get this output, but the build just ends with =[lots of
 boring crap]= find a senior grad student and have them look at the
 =[lots of boring crap]= (it won't be boring to them). They will be
 able to instruct you on what went wrong. 
 
 If you don't have a senior grad student handy, try googling some of
 the output and seeing if you can get anywhere.  There is also the
-[[http://root.cern.ch/phpBB3/viewforum.php?f%3D3&sid%3Db8e88bc1be4e5f599aedd95aeb047349][ROOT Talk Forums]].  
+[[https://root-forum.cern.ch/][ROOT Talk Forums]].  
+
+Finally, you need to 'install' root.  
+#+BEGIN_SRC sh
+make install
+#+END_SRC
+
 **** Using your new superpower
 Now, when you want to use =root=, you can run the command:
 #+BEGIN_SRC sh
-source ~/root/bin/thisroot.sh
+source ~/root/root_install/bin/thisroot.sh
 #+END_SRC
 If you are using tcsh (you shouldn't be) you would need to run:
 #+BEGIN_SRC sh
-source ~/root/bin/thisroot.csh
+source ~/root/root_install/bin/thisroot.csh
 #+END_SRC
 
 There are differing opinions about whether or not you should put
@@ -1127,7 +1148,7 @@ applicable when you bounce between different versions) is that you
 should keep your environment as clean as possible and only setup what
 you need.  In that case adding:
 #+BEGIN_SRC sh
-alias setupROOT='source ${HOME}/root/bin/thisroot.sh'
+alias setupROOT='source ${HOME}/root/root_install/bin/thisroot.sh'
 #+END_SRC
 To your =~/.bashrc= file is enough.
 
@@ -1138,40 +1159,21 @@ Another school of thought is that, you should always have some copy
 of root available if possible.  In that case the following will
 always setup root when bash runs if the setup file exists:
 #+BEGIN_SRC sh
-[ -f ~/root/bin/thisroot.sh ] && source ~/root/bin/thisroot.sh
+[ -f ~/root/root_install/bin/thisroot.sh ] && source ~/root/root_install/bin/thisroot.sh
 #+END_SRC
 
 Now you can start root by typing =root= at the command line.  You
 should see:
 #+BEGIN_EXAMPLE
-   ----------------------------------------------------------------
-  | Welcome to ROOT 6.07/03                    http://root.cern.ch |
-  |                                   (c) 1995-2016, The ROOT Team |
-  | Built for linuxx8664gcc                                        |
-  | From heads/master@v6-07-02-292-g1c873d2, Feb 04 2016, 12:28:28 |
-  | Try '.help', '.demo', '.license', '.credits', '.quit'/'.q'     |
-   ----------------------------------------------------------------
+   ------------------------------------------------------------------
+  | Welcome to ROOT 6.25/02                        https://root.cern |
+  | (c) 1995-2021, The ROOT Team; conception: R. Brun, F. Rademakers |
+  | Built for linuxx8664gcc on Feb 20 2022, 01:06:19                 |
+  | From tags/v6-25-02@v6-25-02                                      |
+  | With c++ (Ubuntu 11.2.0-7ubuntu2) 11.2.0                         |
+  | Try '.help', '.demo', '.license', '.credits', '.quit'/'.q'       |
+   ------------------------------------------------------------------
 
-root [0]
-#+END_EXAMPLE
-*In ROOTv5*:
-#+BEGIN_EXAMPLE
-  *******************************************
-  *                                         *
-  *        W E L C O M E  to  R O O T       *
-  *                                         *
-  *   Version   5.34/15  11 February 2014   *
-  *                                         *
-  *  You are welcome to visit our Web site  *
-  *          http://root.cern.ch            *
-  *                                         *
-  *******************************************
-
-ROOT 5.34/15 (v5-34-15@v5-34-15, Mar 21 2014, 14:04:01 on linuxx8664gcc)
-
-CINT/ROOT C/C++ Interpreter version 5.18.00, July 2, 2010
-Type ? for help. Commands must be C++ statements.
-Enclose multiple statements between { }.
 root [0]
 #+END_EXAMPLE
 
@@ -1181,51 +1183,19 @@ you see:
 root [0]
 #+END_EXAMPLE
 
-*** Advanced Build Options
-[[http://root.cern.ch/drupal/content/installing-xrootd][Full instructions here]]
+*** Getting Started with xrootd
 
-If you want to use xrootd, you'll also need cmake:
-#+BEGIN_SRC sh
-apt-get install cmake
-#+END_SRC
-Then, (from the directory where you checked out =root=):
-#+BEGIN_SRC sh
-./build/unix/installXrootd.sh 
-#+END_SRC
-This will install xrootd to whatever directory you're currently in,
-so if you want it installed somewhere else, cd to that directory
-first, just make sure that you update the location in the next command.
+It appears that xrootd is built with root by default. If you want to
+be able to access files hosted at CERN, you'll have to have a kerberos
+client installed (either =krb5-user= or =heimdal-clients= on debian or
+ubuntu systems). Then before connecting, run =kinit -5
+${CERN_USER}@CERN.CH= to generate a kerberos certificate.
 
-Now when you configure root you should use:
-#+BEGIN_SRC sh
-./configure --all --with-xrootd=${HOME}/root/xrootd-4.2.1/
-#+END_SRC
-Here =${HOME}/root/xrootd-4.2.1/= is the path where xrootd was
-installed (based on the =installXrootd.sh= script above).  If you
-blindly follow the instructions the above command will "just work".
-
-*Nota Bene* The path following =--with-xrootd== must be a fully
-qualified path (ie =/home/username/root/xrootd-4.2.1/=), the
-configure script doesn't understand that =~/= is a shorthand for
-=${HOME}=. 
-
-if =xrootd= support has been enabled you should see:
-#+BEGIN_EXAMPLE
-Enabled support for asimage, astiff, builtin_afterimage, builtin_llvm, explicitlink, fftw3, gviz, gdml, genvector, http, krb5, ldap, mathmore, memstat, minuit2, mysql, opengl, python, qt, qtgsi, roofit, search_usrlocal, shadowpw, shared, sqlite, ssl, table, tmva, unuran, vc, vdt, x11, xft, xml, xrootd.
-
-To build ROOT type:
-
-   make 
-
-#+END_EXAMPLE
-
-Make sure you see =xrootd= in the list! If not xrootd won't be
-installed and won't function properly. You can now continue with the
-[[*Installing%20and%20setting%20up][regular instructions]]. *Note*: If you want to be able to access files
-hosted at CERN, you'll have to have a kerberos client installed
-(either =krb5-user= or =heimdal-clients= on debian or ubuntu systems).  Then
-before connecting, run =kinit -5 ${CERN_USER}@CERN.CH= to generate a
-kerberos certificate. 
+This might be a little in the weeds, but if your event processing
+bandwidth is smaller than the network bandwidth you can achieve the
+same performance as a local file-system without needing to copy large
+data sets locally.  Of course there are lots of considerations, not
+least of which where your machine is relative to the data on the network.
 
 *** A Path to ROOT enlightenment
 There are three methods of running code through ROOT to produce
@@ -1255,7 +1225,7 @@ Level 2, and you can achieve more with a macro than before.
 
 *For ROOT 5:*
 While not immediately obvious, ROOTv5 macros are not written in C or
-C++, but [[http://root.cern.ch/drupal/content/cint][CINT]]. CINT covers "most of"   ANSI C and ISO C++ 2003.
+C++, but [[https://root.cern.ch/root/html534/guides/users-guide/CINT.html][CINT]]. CINT covers "most of"   ANSI C and ISO C++ 2003.
 There are some important differences:
 - =foo.blah= and =foo->blah= are interchangeable
 - a semicolon ';' at the end of a line is optional
@@ -1308,7 +1278,7 @@ program, it's probably time to ascend to Level 3.
 A compiled program is just that. Here ROOT takes the role of a rich
 set of libraries for composing a C++ based analysis.  
 
-An example program (and supporting Makefile) [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/tree/master/compiled-program][is included here]].
+An example program (and supporting Makefile) [[https://github.com/dmb2/hitchhikers-guide-to-hep/tree/master/compiled-program][is included here]].
 
 Makefiles come with their own overhead, but the =make= system is very
 powerful.  The [[https://www.gnu.org/software/make/manual/make.html][make manual]] is very readable with many examples.  
@@ -1349,24 +1319,24 @@ RooFit is a shiny penny compared to the rest of the ROOT ecosystem.
 It has its own quirks and idioms, but the interfaces are fairly
 reasonable and the manual is well written.  The latest version of the
 manual and quickstart can always be found here:
-- [[http://root.cern.ch/drupal/content/users-guide#roofit][ROOT User's guide,  Roofit Manual]]
+- [[https://root.cern/topical/][ROOT User's guide,  Roofit Manual]]
 Direct links are here, though they aren't guaranteed to be current:
 - [[http://root.cern.ch/download/doc/RooFit_Users_Manual_2.91-33.pdf][RooFit Manual (PDF) 2.91-33]]
-- [[http://root.cern.ch/drupal/sites/default/files/roofit_quickstart_3.00.pdf][RooFit Quick Start Guide (PDF) 3.00]]
+- [[https://root.cern/download/doc/roofit_quickstart_3.00.pdf][RooFit Quick Start Guide (PDF) 3.00]]
 *** Styling Plots 
 A well designed graph is truly a work of art. The path from paltry
 graphics spit out by ROOT to something worthy of framing (and yes,
 [[https://www.edwardtufte.com/tufte/posters][truly amazing data visualizations are routinely framed]]) is long and
 fraught with naysayers who will insist that you are doing it wrong.
 Ignore them, and do what needs to be done to communicate your hard won
-data clearly and concisely.  To get you started, give "[[http://www2.cs.uregina.ca/~rbm/cs100/notes/spreadsheets/tufte_paper.html][Principles of
-Information Display for Visualization Practitioners]]" a read.  It is an
+data clearly and concisely. To get you started, give "[[https://www.researchgate.net/publication/24285628_Principles_of_Information_Display_for_Visualization_Practitioners][Principles of
+Information Display for Visualization Practitioners]]" a read. It is an
 executive summary of [[https://www.edwardtufte.com/tufte/][Edward Tufte's]] works on visualizing information.
 If what you read resonates with you, then please read [[http://www.amazon.com/The-Visual-Display-Quantitative-Information/dp/0961392142][Tufte's books]].
-They make for delightful coffee time distractions.  After reading his
+They make for delightful coffee time distractions. After reading his
 books you will start to see his influence in particularly nice
-graphics.  You will also see many sins committed by other
-practitioners in our field. Choose your role-models wisely.
+graphics. You will also see many sins committed by other
+practitioners. Choose your role-models wisely.
 
 Sage advice (passed down from The Editor's first mentor):
 #+BEGIN_QUOTE
@@ -1378,7 +1348,7 @@ This means two things:
 2. Prefer generating it with C++/Python over any other format (data
    inputs will frequently change at the last minute, and being able to
    "hit a button" and get the plot is very useful unless you have a
-   room full of [[https://en.wikipedia.org/wiki/The_Turk][Mechanical Turks]] lying around)
+   room full of [[https://en.wikipedia.org/wiki/Mechanical_Turk][Mechanical Turks]] lying around)
 
 This also means it's probably a good idea to keep =*.root= files
 containing your histograms for last minute style changes if you are
@@ -1533,12 +1503,9 @@ same as above, but the 5% will make *all* the difference).
 **** Transparent Plots
 Add this to your =~/.rootrc= (or create it if it doesn't exist):
 #+BEGIN_EXAMPLE
-# GUI specific settings
-Gui.Backend: qt
-Gui.Factory: qt
+# Flag to set CanvasPreferGL via gStyle
+OpenGL.CanvasPreferGL:                      1
 #+END_EXAMPLE
-This sets the graphics backend to qt (you have to have built root with
-qt support to use this feature).
 
 Now, in your plotting code:
 #+BEGIN_SRC cpp
@@ -1556,10 +1523,6 @@ Two warnings:
 2. It's very easy to create a shade that cannot be properly rendered
    on a projector, making the transparent component of your plots
    invisible.
-3. This only works with the latest version of ROOT 5.34
-
-More information:
-- [[http://root.cern.ch/phpBB3/viewtopic.php?f%3D3&t%3D18100&p%3D76965][here]]
 
 *** Extending ROOT with custom classes
 Sometimes it is useful to add your own developed classes to ROOT (so
@@ -1645,7 +1608,7 @@ At some point you'll get stuck.  Hopefully you'll be stuck on a good
 problem, but more often than not you'll be stuck on some quirk that
 ROOT has.  Remember ROOT's mantra: "[[http://www.jargon.net/jargonfile/f/feature.html][It's not a bug, it's a feature]]!"
 
-ROOT's object protocol is very strange.  The [[http://root.cern.ch/drupal/content/c-coding-conventions][naming schema]] is based on
+ROOT's object protocol is very strange.  The [[https://root.cern/TaligentDocs/TaligentOnline/DocumentRoot/1.0/Docs/books/WM/WM_63.html#HEADING77][naming schema]] is based on
 an industry standard for C programs where it's not possible to use
 namespaces. The result is very confusing for new users (very good for
 HEP).  Every object in root that can be written to disk (ie saved in a
@@ -1825,17 +1788,17 @@ If option = NEW or CREATE   create a new file and open it for writing,
 CAREFUL when you use this option!
 **** Extracting ACLiCs compilation steps
 Here's a tip you hope you never need.  The use case is when you are
-writing a standalone program and you know you need to invoke rootcint
-to generate dictionaries. When you follow the [[https://root.cern.ch/drupal/content/interacting-shared-libraries-rootcint][correct prescription]],
+writing a standalone program and you know you need to invoke rootcling
+to generate dictionaries. When you follow the [[https://root.cern/manual/io_custom_classes/#using-rootcling][correct prescription]],
 the produced dictionary fails even when linked to your code.  What you
-can do is follow the "[[https://root.cern.ch/phpBB3/viewtopic.php?f%3D3&t%3D10236&p%3D83570#p44117][loader.C prescription]]" and then dump what ACLiC
+can do is follow the "[[https://root.cern/manual/root_macros_and_shared_libraries/][loader.C prescription]]" and then dump what ACLiC
 is doing under the hood with:
 #+BEGIN_EXAMPLE
 root [7] gDebug=7
 (const int)7
 root [8] .L libLoader.C++
 #+END_EXAMPLE
-This will dump all of the g++ and rootcint calls that are required to
+This will dump all of the g++ and rootcling calls that are required to
 generate a working dictionary.
 *** Debugging with ROOT
 Eventually you'll encounter a segmentation fault or segfault in ROOT.
@@ -1942,8 +1905,6 @@ Here are some good gdb (GNU DeBugger) tutorials
 - [[https://www.cs.cmu.edu/~gilpin/tutorial/][Debugging under Unix: gdb Tutorial]]
 - [[http://www.unknownroad.com/rtfm/gdbtut/gdbtoc.html][RMS's gdb Debugger Tutorial]] (not the same [[http://stallman.org/][RMS]])
 - [[https://www.gnu.org/software/gdb/documentation/][GDB manual]] from GNU.org
-- [[http://www.muenster.de/~naumana/rootgdb.html][Debugging ROOT with GDB]], somewhat dated but the information is
-  relevant.  Written by Axel Naumann, a real-life ROOT hacker!
 
 **** Valgrind
 If you have memory related problems, you should be aware of
@@ -2088,8 +2049,7 @@ has hacked the conversion steps to do this for you. You can grab the
 scripts here:
 http://personal.psu.edu/jcc8//jd-conversions/
 
-There are good instructions for using [[https://sourceforge.net/p/jaxodraw/mailman/jaxodraw-discuss/thread/2EB5AF1C-5DA7-4428-94EB-7314738AF3D2%2540gmail.com/#msg31443532][these scripts in this thread]]. If
-you have jaxodraw setup as above you can just dump the scripts in
+If you have jaxodraw setup as above you can just dump the scripts in
 =$HOME/local/bin= and run them on the xml file produced by jaxodraw.
 
 *** What to do if you've lost a 2\pi
@@ -2113,8 +2073,9 @@ research. Keep it open and write in it as you work.  Make sure there
 is a 1-to-1 mapping from what you are writing in your notebook and
 what can be found on a hard drive somewhere (plots, text, code etc).
 **** Org-mode Notebook
-The Editor keeps an org-mode notebook.  There is a [[https://github.com/dbjergaard/research-log][thorough write-up
-here]]. 
+The Editor keeps an org-mode notebook.  There is a [[https://github.com/dmb2/research-log][thorough write-up
+here]]. (Editor's note: I always wanted to flesh this out, but it became
+a joke to link to the repo and let it lie.)
 **** Flat text file
 One option is to keep a (well organized) text file for recording what
 you're doing.  Paste links and your thoughts here.  Choose a markdown
@@ -2125,7 +2086,7 @@ output formats are supported by your markdown language.
 Some research groups reserve webspace for hosting private
 e-logs. These are typically wiki syntax, but they can also be
 bulletin board style formatting.  In any case, it's possible to use a
-browser extension like "[[https://addons.mozilla.org/en-US/firefox/addon/its-all-text/][It's All Text!]]"  to use your favorite
+browser extension like "[[https://github.com/fregante/GhostText][Ghost Text]]"  to use your favorite
 editor. One downside to these style notebooks is that it is typically
 awkward to post many plots at once. 
 
@@ -2168,21 +2129,17 @@ instructs the compiler to look in all directories that it can find
 Most likely you accidentally typed "C-s" (the control key followed by
 the s key). This sends the XOFF command to your terminal emulator.
 To fix it (and "unfreeze" your terminal) type "C-q". [[https://en.wikipedia.org/wiki/Software_flow_control][More Info Here]].
-- Dear Mr. The Editor, my <insert problem here>, can you fix it?
-No. Please refer to [[Getting Help]].
 - I have some information that would be useful for your guide, can
   you use it?
-Yes! Please see [[https://github.com/dbjergaard/hitchhikers-guide-to-hep#contributing][Contributing]]. 
+Yes! Please see [[https://github.com/dmb2/hitchhikers-guide-to-hep#contributing][Contributing]]. 
 - I'm lost and confused, your guide is overwhelming and overbearing,
   but I really like HEP, what can I do?
 Please don't despair, with time things will come into focus.  In the
 mean time, it will probably be useful to seek out other sources of
 information.  If you're having trouble finding material, you might
-try the [[http://www.googleguide.com/][Google guide]].  No, this is not intended to be an insult, a
-surprising fraction of people don't know how to use Google, even
-though it's a verb.
+try the [[http://www.googleguide.com/][Google guide]].  
 - I have a question not covered by this FAQ that doesn't involve a
   research problem, whats the best way to communicate it to you?  
-You can email me at [[mailto:david.b@duke.edu][david.b@duke.edu]]. If it is related to some
+You can email me at [[mailto:hhg-svc@ccbar.us][hhg-svc@ccbar.us]]. If it is related to some
 technical issue and you already have a GitHub account, please open an
-issue on GitHub's issue [[https://github.com/dbjergaard/hitchhikers-guide-to-hep/issues][tracker for this text]].
+issue on GitHub's issue [[https://github.com/dmb2/hitchhikers-guide-to-hep/issues][tracker for this text]].
