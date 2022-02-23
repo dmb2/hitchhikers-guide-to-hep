@@ -3,7 +3,7 @@
 #+EMAIL:  hhg-svc@ccbar.us
 #+OPTIONS:   H:5 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
-#+STYLE:    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+#+HTML_HEAD:    <link rel="stylesheet" type="text/css" href="./css/style.css" />
 #+LaTeX_CLASS: article
 
 * A Hitchhiker's guide to High Energy Physics
